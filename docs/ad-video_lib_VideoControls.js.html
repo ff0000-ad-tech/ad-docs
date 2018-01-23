@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-video/lib/VideoControls.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AdManager.html">AdManager</a></li><li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="Async.html">Async</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="LiveScoring.html">LiveScoring</a></li><li><a href="LiveScoringData.html">LiveScoringData</a></li><li><a href="LiveScoringEvent.html">LiveScoringEvent</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="PrepareCore.html">PrepareCore</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-video/lib/VideoControls.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class VideoControls
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-video">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		This is a display object class, extending {@link UIComponent}.  It is a DOM element that houses all the video control components:
+		{@link UIButton}, {@link UISlider} and {@link UITextField}.
+		&lt;br>&lt;br>
+
+		This can be instantiated but is typically called internally from the VideoPlayer by passing in all params to the instantiation.  
+		All controls can be added to a {@link UIControlBar} or to the main container to be placed anywhere over the video.  This is done 
+		through the instantiation, by passing components to a node &lt;code>onControlBar&lt;/code> or &lt;code>onScreen&lt;/code>.  See example below.
+		&lt;br>&lt;br>
+
+		&lt;b>Accepted Components:&lt;/b>&lt;br>
+		&lt;ul>
+			&lt;li>&lt;code>buttonPlayPause&lt;/code>, see {@link UIButtonPlayPause}&lt;/li>
+			&lt;li>&lt;code>buttonReplay&lt;/code>, see {@link UIButtonReplay}&lt;/li>
+			&lt;li>&lt;code>buttonFullScreen&lt;/code>, see {@link UIButtonFullScreen}&lt;/li>
+			&lt;li>&lt;code>buttonMute&lt;/code>, see {@link UIButtonMute}&lt;/li>
+			&lt;li>&lt;code>timeDisplay&lt;/code>, see {@link UITimeDisplay}&lt;/li>
+			&lt;li>&lt;code>sliderProgress&lt;/code>, see {@link UISliderProgress}&lt;/li>	 
+			&lt;li>&lt;code>sliderVolume&lt;/code>, see {@link UISliderVolume}&lt;/li>
+		&lt;/ul>
+
+		&lt;b>Example adding a play/pause button to the screen:&lt;/b>&lt;br>
+		&lt;codeblock>
+			adData.elements.videoPlayer = new VideoPlayer({
+				source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+				target: adData.elements.redAdContainer,
+				id: 'My_Unique_ID',
+				css: {
+					width: 300,
+					height: 250
+				},				
+				controls : {
+					onScreen : {
+						buttonPlayPause : {
+							css : {
+								x : 130,
+								y : 40,
+								width : 80,
+								height : 80,
+								backgroundColor : 'rgba(10,200,10,.5)'
+							},
+							icon : [ 'btnPlay', 'btnPause' ]
+						}
+					}	
+				}
+			});
+
+			// access button 
+			adData.elements.videoPlayer.controls.buttonPlayPause;
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+
+
+		&lt;b>Example adding a play/pause button to the ControlBar:&lt;/b>&lt;br>
+		&lt;codeblock>
+			adData.elements.videoPlayer = new VideoPlayer({
+				source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+				target: adData.elements.redAdContainer,
+				id: 'My_Unique_ID',
+				css: {
+					width: 300,
+					height: 250
+				},				
+				controls : {
+					onControlBar : {
+						buttonPlayPause : {
+							icon : [ 'btnPlay', 'btnPause' ]
+						}
+					}	
+				}
+			})
+
+			// access button 
+			adData.elements.videoPlayer.controls.controlBar.buttonPlayPause;
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+			
+
+		&lt;b>Example All Controls on ControlBar:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// Full VideoPlayer with all options and controls
+			adData.elements.videoPlayer = new VideoPlayer({
+				source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+				target: adData.elements.redAdContainer,
+				id: 'My_Unique_ID',
+				css: {
+					width: 300,
+					height: 250
+				},
+				controls : {
+					replayOnInteraction : false,
+					unmuteOnInteraction : true,
+
+					onControlBar : {
+						controlBar : {
+							constant : false,
+							showOnPoster : false,
+							css : {
+								backgroundColor : 'rgba(250,100,20,.5)'
+							}					
+						},
+						buttonPlayPause : {
+							icon : [ 'btnPlay', 'btnPause' ]
+						},
+						buttonReplay : {
+							icon : [ 'btnReplay' ]
+						},
+						buttonMute : {
+							icon : [ 'btnUnMute', 'btnMute' ]
+						},
+						buttonFullScreen : {
+							icon : [ 'btnFullScreen' ]
+						},
+						sliderProgress : {
+							inline : true,
+							css : {
+								width : 120
+							},
+							onOver : function(){
+								console.log( this.track )
+							},
+							onOut : function(){
+								console.log( this.handle )
+							}
+						},
+						sliderVolume : {
+							css : {
+								width : 60
+							},
+							bg : {},
+							track : {},
+							handle : {}
+						},
+						timeDisplay : {
+							css : {
+								height : 'inherit',
+								color : '#ffffff'
+							},
+							fontSize : 18,
+							fontFamily : 'Arial',
+							alignText : Align.CENTER,
+							bufferText : {
+								left : 5,
+								right : 5
+							},
+
+							showDuration : true
+						}
+					}	
+				}
+			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+
+
+		&lt;b>Example Controls on ControlBar AND on screen:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// Full VideoPlayer with all options and controls
+			adData.elements.videoPlayer = new VideoPlayer({
+				source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+				target: adData.elements.redAdContainer,
+				id: 'My_Unique_ID',
+				css: {
+					width: 300,
+					height: 250
+				},
+				
+				controls : {
+
+					replayOnInteraction : false,
+					unmuteOnInteraction : true,
+
+					onScreen : {
+						buttonPlayPause : {
+							css : {
+								x : 130,
+								y : 40,
+								backgroundColor : 'rgba(10,200,10,.5)'
+							},
+							icon : [ 'btnPlay', 'btnPause' ]
+						},
+						buttonReplay : {
+							css : {
+								x : 200,
+								y : 50,
+								width : 80,
+								height : 80,
+								backgroundColor : 'rgb(100,200,100)'
+							},
+							icon : [ 'btnReplay' ]
+						},
+						buttonMute : {
+							css : {
+								width : 70,
+								height : 70,
+								backgroundColor : 'rgba(20,200,10,.5)'
+							},
+							icon : [ 'btnUnMute', 'btnMute' ]
+						},
+					},
+					onControlBar : {
+						controlBar : {
+							constant : false,
+							showOnPoster : false,
+							css : {
+								//height : 50,
+								backgroundColor : 'rgba(250,100,20,.5)'
+							}					
+						},
+						buttonPlayPause : {
+							icon : [ 'btnPlay', 'btnPause' ]
+						},
+						buttonReplay : {
+							icon : [ 'btnReplay' ]
+						},
+						buttonMute : {
+							icon : [ 'btnUnMute', 'btnMute' ]
+						},
+						buttonFullScreen : {
+							icon : [ 'btnFullScreen' ]
+						},
+						sliderProgress : {
+							inline : true,
+							css : {
+								width : 120
+							},
+							bg : {},
+							loaded : {},
+							track : {},
+							handle : {},
+
+							onOver : function(){
+								console.log( this.track )
+							},
+
+							onOut : function(){
+								console.log( this.handle )
+							}
+						},
+						sliderVolume : {
+							css : {
+								width : 60
+							},
+							bg : {},
+							track : {},
+							handle : {}
+						},
+						timeDisplay : {
+							css : {
+								height : 'inherit',
+								color : '#ffffff'
+							},
+							fontSize : 18,
+							fontFamily : 'Arial',
+							alignText : Align.CENTER,
+							bufferText : {
+								left : 5,
+								right : 5
+							},
+
+							showDuration : true
+						}
+					}	
+				}
+			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+*/
+import { Styles } from 'ad-view'
+import { GestureEvent, UIEvent } from 'ad-events'
+import { UIButton, UISlider, UITextField, UIComponent } from 'ad-ui'
+import UIControlBar from './ui/UIControlBar'
+import UIButtonPlayPause from './ui/UIButtonPlayPause'
+import UIButtonReplay from './ui/UIButtonReplay'
+import UIButtonMute from './ui/UIButtonMute'
+import UIButtonFullScreen from './ui/UIButtonFullScreen'
+import UISliderVolume from './ui/UISliderVolume'
+import UISliderProgress from './ui/UISliderProgress'
+import UITimeDisplay from './ui/UITimeDisplay'
+
+function VideoControls(player, arg) {
+	/* ------------------------------------------------------------------------------------------------------------------------------- */
+	// BASE CSS
+
+	// declare base componenets first to make sure base css written to head first
+	new UIButton()
+	new UISlider()
+	new UITextField()
+
+	Styles.injectStylesheet(
+		'RED_uiVideoControls',
+		'.rvp-controls',
+		'width:inherit; height:inherit; position:absolute; display:table;',
+		'.rvp-screen-btn',
+		'width:100%;	height:100%;',
+		'.rvp-controlBar-container',
+		'position:relative; width:inherit; height:inherit; vertical-align:bottom; display:table-cell;',
+		'.rvp-controlBar',
+		'width:100%; height:30px; position:relative;',
+		'.rvp-controlBar-elem',
+		'position:relative;',
+		'.rvp-controlBar .left',
+		'float:left;',
+		'.rvp-controlBar .right',
+		'float:right;',
+		'.rvp-controlBar-container .ui-button',
+		'width:30px; height:30px;',
+		'.rvp-controlBar-container .ui-button-state',
+		'background-size: 75%; background-position:50% 50%;',
+		'.rvp-controlBar .ui-slider-handle',
+		'height: 70%; top: 15%;',
+		'.rvp-controlBar .ui-slider-bg',
+		'height: 30%; top: 35%;',
+		'.rvp-controlBar .ui-slider-loaded, .rvp-controlBar .ui-slider-track',
+		'height:30%; top:35%;',
+		//'.rvp-time-display', 'height:inherit; padding:0 5px; font-size: 12pt; line-height: 30px;',
+		//'.rvp-time-display span', 'white-space: nowrap; ',
+		'.rvp-progress-non-inline',
+		'position:relative;',
+		'.rvp-progress-non-inline .ui-slider-bg, .rvp-progress-non-inline .ui-slider-loaded, .rvp-progress-non-inline .ui-slider-handle, .rvp-progress-non-inline .ui-slider-track,  .rvp-progress-non-inline .ui-slider-hitState',
+		'bottom:0px;'
+	)
+
+	/* ------------------------------------------------------------------------------------------------------------------------------- */
+	// PRIVATE PROPERTIES
+	var _timeout
+	var _replayOnInteraction
+	var _unmuteOnInteraction
+	var _includeList = ['buttonPlayPause', 'buttonReplay', 'timeDisplay', 'sliderProgress', 'buttonFullScreen', 'sliderVolume', 'buttonMute']
+
+	// is the controlbar || controlbar &amp; progress bar
+	var _controlBarTargets
+
+	/* ------------------------------------------------------------------------------------------------------------------------------- */
+	// MARKUP
+	arg.target = arg.target || player.container
+	arg.id = arg.id || 'video-controls'
+
+	var U = new UIComponent(arg)
+	Styles.addClass(U, 'rvp-controls')
+
+	if (arg.onScreen) {
+		if (arg.onScreen.onClick) {
+			var screenBtn = new UIButton({
+				target: U,
+				onClick: arg.onScreen.onClick
+			})
+			Styles.addClass(screenBtn, 'rvp-screen-btn')
+		}
+		markup(arg.onScreen, U)
+	}
+
+	if (arg.onControlBar) {
+		U.controlBarContainer = new UIComponent({
+			target: U
+		})
+		Styles.addClass(U.controlBarContainer, 'rvp-controlBar-container')
+
+		var cb = arg.onControlBar.controlBar || {}
+		U.controlBar = new UIControlBar(player, {
+			id: 'controlBar',
+			target: U.controlBarContainer,
+			css: cb.css || {},
+			constant: cb.constant,
+			showOnPoster: cb.showOnPoster
+		})
+
+		markup(arg.onControlBar, U.controlBar)
+	}
+
+	function markup(scope, target) {
+		for (var i = 0; i &lt; _includeList.length; i++) {
+			var name = _includeList[i]
+			if (scope[name] != undefined &amp;&amp; scope[name] != false) {
+				var params = scope[name]
+				params.target = target
+				params.id = target.id + '-' + name
+				params.containChild = target == U.controlBar
+				target[name] = (function() {
+					switch (name) {
+						case 'buttonPlayPause':
+							return new UIButtonPlayPause(player, params)
+						case 'buttonReplay':
+							return new UIButtonReplay(player, params)
+						case 'buttonMute':
+							return new UIButtonMute(player, params)
+						case 'buttonFullScreen':
+							return new UIButtonFullScreen(player, params)
+						case 'sliderVolume':
+							return new UISliderVolume(player, params)
+						case 'sliderProgress':
+							return new UISliderProgress(player, params)
+						case 'timeDisplay':
+							return new UITimeDisplay(player, params)
+					}
+				})()
+				if (target == U.controlBar) {
+					if (name == 'sliderProgress' &amp;&amp; !scope.sliderProgress.inline) {
+						continue
+					}
+
+					Styles.addClass(U.controlBar[name], 'rvp-controlBar-elem', i &lt; 4 ? 'left' : 'right')
+				}
+			}
+		}
+
+		if (target == U.controlBar) {
+			_controlBarTargets = [U.controlBar]
+
+			// Moves the progress bar to top of controlBar
+			if (target.sliderProgress &amp;&amp; !scope.sliderProgress.inline) {
+				Styles.addClass(target.sliderProgress, 'rvp-progress-non-inline')
+				U.controlBarContainer.appendChild(target.sliderProgress)
+				U.controlBarContainer.appendChild(U.controlBar)
+
+				_controlBarTargets.push(target.sliderProgress)
+			}
+		}
+	}
+
+	/**
+		@memberof VideoControls
+		@var {UIControlBar} controlBar
+			Public access to the UIControlBar instance.  All UIComponents added to this will be accessed via the variable.
+	 */
+
+	/* ------------------------------------------------------------------------------------------------------------------------------- */
+	// GETTER | SETTTER
+	Object.defineProperties(U, {
+		/**
+			@memberof VideoControls
+			@var {boolean} replayOnInteraction
+			@desc
+				Get|Set: A Boolean that changes if the video player will start over on any click interaction, default is false.
+			@example
+				// GET
+				console.log( myVideoPlayer.controls.replayOnInteraction );
+
+				// SET
+				myVideoPlayer.controls.replayOnInteraction = false;			
+		*/
+		replayOnInteraction: {
+			get: function() {
+				return _replayOnInteraction
+			},
+			set: function(state) {
+				_replayOnInteraction = state
+
+				if (!U.enabled) state = false
+
+				var listener = state ? 'addEventListener' : 'removeEventListener'
+				Gesture[listener](player.container, GestureEvent.CLICK, handleReplayOnInteraction)
+			}
+		},
+
+		/**
+			@memberof VideoControls
+			@var {boolean} unmuteOnInteraction
+			@desc
+				Get|Set: A Boolean that changes if the video player will unmute on any click interaction, default is false.
+			@example
+				// GET
+				console.log( myVideoPlayer.controls.unmuteOnInteraction );
+
+				// SET
+				myVideoPlayer.controls.unmuteOnInteraction = true;			
+		*/
+		unmuteOnInteraction: {
+			get: function() {
+				return _unmuteOnInteraction
+			},
+			set: function(state) {
+				_unmuteOnInteraction = state
+
+				if (!U.enabled) state = false
+
+				var listener = state ? 'addEventListener' : 'removeEventListener'
+				Gesture[listener](player.container, GestureEvent.CLICK, handleUnmuteOnInteraction)
+			}
+		}
+	})
+
+	/* ------------------------------------------------------------------------------------------------------------------------------- */
+	// PUBLIC METHODS
+	U.toString = function() {
+		return '[object VideoControls]'
+	}
+
+	/* ------------------------------------------------------------------------------------------------------------------------------- */
+	// PRIVATE METHODS
+	function animateOut(time) {
+		//console.log( U.toString() + '.animateOut()' )
+		time = time != undefined ? time : 0.5
+
+		if (U.controlBar) {
+			//&amp;&amp; !U.controlBar.constant ){
+			TweenLite.to(_controlBarTargets, time, { alpha: 0 })
+		}
+	}
+
+	function animateIn() {
+		//console.log( U.toString() + '.animateIn()' )
+		if (U.controlBar) TweenLite.to(_controlBarTargets, 0.3, { alpha: 1 })
+	}
+
+	function hideTimeout(time) {
+		return setTimeout(function() {
+			if (!player.paused &amp;&amp; U.controlBar &amp;&amp; !U.controlBar.constant) animateOut()
+		}, time)
+	}
+
+	/* ------------------------------------------------------------------------------------------------------------------------------- */
+	// EVENT HANDLERS
+	function handleMove(event) {
+		clearTimeout(_timeout)
+		_timeout = hideTimeout(1500)
+		if (!player.complete &amp;&amp; player.hasPlayed) animateIn()
+	}
+
+	function handlePlay(event) {
+		if (U.enabled) animateIn()
+
+		if (U.controlBar &amp;&amp; !U.controlBar.constant) _timeout = hideTimeout(2000)
+	}
+
+	function handleReplayOnInteraction(event) {
+		player.seek(0)
+		player.play()
+		U.replayOnInteraction = false
+	}
+
+	function handleUnmuteOnInteraction(event) {
+		if (player.muted) player.unmute()
+		U.unmuteOnInteraction = false
+	}
+
+	function handleEnded(event) {
+		if (U.controlBar) {
+			U.controlBar.showOnPoster ? animateIn() : animateOut()
+			if (U.controlBar.buttonReplay) U.controlBar.buttonPlayPause.hide()
+		}
+	}
+
+	function handleBaseEnabled(event) {
+		var listener = U.enabled ? 'addEventListener' : 'removeEventListener'
+		player.container[listener]('mousemove', handleMove)
+	}
+
+	function handleClickBubbleStop(event) {
+		GestureEvent.stop(event)
+	}
+
+	/* ------------------------------------------------------------------------------------------------------------------------------- */
+	// INIT
+	player.screen.addEventListener('play', handlePlay)
+	player.screen.addEventListener('autoplay', handlePlay)
+	player.screen.addEventListener('complete', handleEnded, false)
+	player.screen.addEventListener('ended', handleEnded, false)
+	player.screen.addEventListener('stop', handleEnded, false)
+	U.addEventListener(UIEvent.ENABLED, handleBaseEnabled)
+
+	U.enabled = arg.enabled != false
+	U.replayOnInteraction = !!arg.replayOnInteraction
+	U.unmuteOnInteraction = !!arg.unmuteOnInteraction
+
+	if (U.controlBar &amp;&amp; !U.controlBar.showOnPoster) animateOut(0)
+
+	Gesture.addEventListener(player.container, GestureEvent.CLICK, handleClickBubbleStop)
+
+	Gesture.disable(U)
+
+	return U
+}
+
+export default VideoControls
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Jan 23rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-dates/lib/DateSchedule.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AdManager.html">AdManager</a></li><li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="Async.html">Async</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="LiveScoring.html">LiveScoring</a></li><li><a href="LiveScoringData.html">LiveScoringData</a></li><li><a href="LiveScoringEvent.html">LiveScoringEvent</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="PrepareCore.html">PrepareCore</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-dates/lib/DateSchedule.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class DateSchedule
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-dates">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		This class creates a schedule of dates that will be compared agains the currentdate/time. There are 2 ways to use 
+		this class: standard and custom.
+		
+		&lt;br>&lt;br>
+
+		&lt;b>AdData.js:&lt;/b>&lt;br>
+		It is recommended that you centralize your schedule in AdData. This way, changes to the schedule can easily 
+		be achieved with one common update.&lt;br>
+
+		&lt;br>&lt;br>
+		
+		&lt;b>Standard&lt;/b>&lt;br>
+		This will create a schedule of dates leading up to the target date, which was formerly achieved by using		
+		the selectMessageForDate() method.  This standard way will produce a schedule pre-populated with:
+		
+		&lt;ul>
+			&lt;li>DATE - returns the target date, using the toSimpleDateTime() for anything further than a week out from the target&lt;/li>
+			&lt;li>WEEK - returns the day of the week the target date is, ie Wednesday&lt;/li>
+			&lt;li>TOMORROW - returns the word "Tomorrow", beginning at midnight the day before the target date&lt;/li>
+			&lt;li>TODAY - returns the string "Today", beginning at midnight on the target date&lt;/li>
+			&lt;li>TONIGHT - returns the string "Tonight", beginning at the time set with tonightStartsAt&lt;/li>
+			&lt;li>NOW - returns the string "Live Now"&lt;/li>
+			&lt;li>PAST - returns the string "Past", called after NOW plus the eventDuration value&lt;/li>
+		&lt;/ul>
+
+	@param {object} arg
+		Settings are passed in via this object, see Properties for more info:
+
+	@property {TzDate} target
+		The date that the schedule will count down to
+	@property {boolean} isStandard
+		If true, will create a standard schedule with default messaging
+	@property {number} eventDuration
+		In a standard schedule, the amount of minutes after the target time the PAST messaging shows. Defaults to 120 which is 2 hours
+	@property {string} tonightStartsAt
+		In a standard schedule, when the today message changes to tonight. If the target time is before this value, tonight will never show. Defaults to '17:50' which is 5:30PM
+	@property {boolean} hasOneDayOf
+		In a standard schedule, will determine if only 'tonight' OR 'today' will show, or if it is possible to have both. For example, in ESPN units, the need is that 
+		only one of the options will show at midnight day of the event. So if the event is before the tonightStartsAt value, it will only show 'today', while if it is after
+		it will only show 'tonight'.  If this is set to false, it will allow for both following the logic of tonightStartsAt.  Defaults to true.
+	@property {object} standardOverrides
+		An object to overwrite any of the standard labels. Using the standard keys, apply a new label string or callback function passing in the target date
+	
+	
+		&lt;codeblock>
+			// Standard Schedule
+			this.schedule = new DateSchedule({
+				target : new TzDate ({
+					datetime : [ '2015-08-01 20:00:00', Timezone.EST ],
+					outputTimezone : Timezone.LOCAL 
+				}),
+				isStandard : true
+			});
+			this.schedule.print();
+
+			this.dateMessage = this.schedule.currentLabel;
+			this.dateHour = this.schedule.target.toDateTime();
+		&lt;/codeblock>
+
+		Each standard label can be overridded by either assigning a different string or by passing in a callback function 
+		that will return a differently formatted message. Note each callback gets fired at runtime, creating each label.
+				
+		&lt;codeblock>
+			this.schedule = new DateSchedule({
+				target : new TzDate ({
+					datetime : [ '2015-08-01 20:00:00', Timezone.EST ],
+					outputTimezone : Timezone.LOCAL 
+				}),
+				eventDuration : 120,
+				isStandard : true,
+				standardOverrides : {
+					DATE : function( date ){
+						return date.toSimpleDate();
+					},
+					TOMORROW : 'Tommorow Night!',
+					NOW : 'Watch Live Now'
+				}
+			});
+			this.schedule.print();
+
+			this.dateMessage = this.schedule.currentLabel;
+			this.dateHour = this.schedule.target.toDateTime();
+		&lt;/codeblock>
+
+		&lt;br>&lt;br>
+
+		&lt;b>Custom&lt;/b>&lt;br>
+		This is used to set a specific list of dates to check now against, returning the latest.
+
+		&lt;codeblock>
+			this.schedule = new DateSchedule();
+			this.schedule.addDate( 
+				new TzDate ({
+					datetime : [ '2015-08-01 12:00:00', Timezone.EST ],
+					outputTimezone : Timezone.LOCAL 
+				}),
+				"Hey I'm the first date"
+			);
+			this.schedule.addDate( 
+				new TzDate ({
+					datetime : [ '2015-08-05 14:00:00', Timezone.UTC ],
+					outputTimezone : Timezone.PST 
+				}),
+				"I'm the last date"
+			);
+			this.schedule.print();
+		&lt;/codeblock>
+
+		The schedule can also be used to call different markup builds.  Use the third param of addDates() to pass in 
+		a callback, then simply call it from Control.preMarkup() or where ever makes sense.
+
+		&lt;codeblock>
+			this.schedule = new DateSchedule();
+			this.schedule.addDate( 
+				new TzDate ({
+					datetime : [ '2015-08-01 12:00:00', Timezone.EST ],
+					outputTimezone : Timezone.LOCAL 
+				}),
+				"Hey I'm the first date",
+				View.buildFromDate0
+			);
+			this.schedule.addDate( 
+				new TzDate ({
+					datetime : [ '2015-08-05 14:00:00', Timezone.UTC ],
+					outputTimezone : Timezone.PST 
+				}),
+				"I'm the last date",
+				View.buildFromDate1
+			);
+			this.schedule.print();
+		&lt;/codeblock>
+
+		&lt;b>build.js:&lt;/b>&lt;br>
+		In &lt;u>build.View&lt;/u>, you can write functions that build out the DOM for each of your states. 
+		&lt;codeblock>
+			this.buildFromDate0 = function() {
+				console.log( 'View.buildFromDate0()' );
+				// Markup...
+			}
+			this.buildFromDate1 = function() {
+				console.log( 'View.buildFromDate1()' );
+				// Markup...
+			}
+		&lt;/codeblock>
+
+		In &lt;u>build.Control&lt;/u> or &lt;u>build.buildMarkup&lt;/u>, you simply call the callback of the current date on the schedule.  This will
+		find the current added date object and fire that callback
+		&lt;codeblock>
+			var message = adData.schedule.current.callback();
+			console.log( message );
+
+			var myTextField = new UITextField({
+				target : T,
+				id : 'my-textfield',
+				css : {
+					width : 300,
+					height : 90
+				},
+				fontSize : 30,
+				fontFamily : 'template_font',
+				format : TextFormat.INLINE,
+				alignText : Align.CENTER,
+				text : message.label
+			});
+		&lt;/codeblock>
+*/
+import DateFormatter from './DateFormatter'
+import TzDate from './TzDate'
+import { MathUtils } from 'ad-utils'
+import TZ from './Timezone'
+import DM from './DateManager'
+
+const DateSchedule = function(arg) {
+	const Timezone = new TZ()
+	const DateManager = new DM()
+
+	arg = arg || {}
+
+	var D = this
+
+	var _dates = []
+	var _labelOverrides = {}
+	var _targetDate
+	var _skipToday = false
+
+	// used by a recurring schedule to pass the callback to the standard schedule it creates
+	var _callback = arg.callback || function() {}
+
+	var _tonightStartsAt = arg.tonightStartsAt || '17:30'
+	var _hasOneDayOf = arg.hasOneDayOf != false
+	var _eventDuration = arg.eventDuration || 120
+
+	// ---------------------------------------------------------------------------------------------------------------
+	// GETTERS
+	Object.defineProperties(D, {
+		/**
+			@memberOf DateSchedule
+			@var {TzDate} target
+				Getter : The target date of a standard schedule
+			@example
+				mySchedule.target.print();
+		*/
+		target: {
+			get: function() {
+				return _targetDate
+			}
+		},
+
+		/**
+			@memberOf DateSchedule
+			@var {object} current
+				Getter : An object of the current date, label and optional callback
+			@example
+				mySchedule.current.date;
+				mySchedule.current.label;
+				mySchedule.current.callback();
+		*/
+		current: {
+			get: function() {
+				return _dates[D.currentIndex]
+			}
+		},
+
+		/**
+			@memberOf DateSchedule
+			@var {TzDate} currentDate
+				Getter : Is direct access to the current date, same as mySchedule.current.date
+			@example
+				mySchedule.currentDate;
+		*/
+		currentDate: {
+			get: function() {
+				return D.current.date
+			}
+		},
+
+		/**
+			@memberOf DateSchedule
+			@var {String} currentLabel
+				Getter : Is direct access to the current label, same as mySchedule.current.label
+			@example
+				mySchedule.currentLabel;
+		*/
+		currentLabel: {
+			get: function() {
+				return D.current.label
+			}
+		},
+
+		/**
+			@memberOf DateSchedule
+			@var {Number} currentIndex
+				Getter : The index, zero based, of the current date
+			@example
+				mySchedule.currentIndex;
+		*/
+		currentIndex: {
+			get: function() {
+				var currentIndex = -1
+				for (var i = 0; i &lt; _dates.length; i++) {
+					if (!DateManager.isPast(_dates[i].date)) {
+						break
+					}
+					currentIndex = i
+				}
+				return currentIndex
+			}
+		},
+		next: {
+			get: function() {
+				return _dates[D.nextIndex]
+			}
+		},
+		nextDate: {
+			get: function() {
+				return D.next.date
+			}
+		},
+		nextLabel: {
+			get: function() {
+				return D.next.label
+			}
+		},
+		nextIndex: {
+			get: function() {
+				return MathUtils.restrict(D.currentIndex + 1, 0, _dates.length - 1)
+			}
+		},
+
+		/**
+			@memberOf DateSchedule
+			@var {Boolean} isLive
+				Getter : When using a standard schedule, whether or not the target date has been passed, but not passed the eventDuration
+			@example
+				mySchedule.isLive;
+		*/
+
+		isLive: {
+			get: function() {
+				var latest = D.current
+				return latest.standardKey == 'NOW'
+			}
+		},
+
+		/**
+			@memberOf DateSchedule
+			@var {Boolean} isComplete
+				Getter : When using a standard schedule, whether or not the target date and eventDuration has been passed
+			@example
+				mySchedule.isComplete;
+		*/
+
+		isComplete: {
+			get: function() {
+				var latest = D.current
+				return latest.standardKey == 'PAST'
+			}
+		}
+	})
+
+	// ---------------------------------------------------------------------------------------------------------------
+	// PUBLIC METHODS
+	/**
+		@memberof DateSchedule
+		@method addDate
+		@param {TzDate|Date|Object} tzDate
+			Expected to be either a Date object, a TzDate or an Object for creating a date from the target using DateFormatter.adjust() 
+		@param {String|function} label
+			Optionally specify a label as a  String or creeate a function to format the date using the TxDate methods
+		@param {function} callback
+			Optionally a function that can be called when this date is the current. Does NOT auto fire, must me called.
+		@desc
+			Add a date to the schedule, which can be either a TzDate or an object to create a date from the target
+		
+		@example
+			// start with a target date
+				var schedule = new DateSchedule({
+					target : new TzDate ({
+						datetime : [ '2017-08-01 08:00:00', Timezone.EST ],
+						outputTimezone : Timezone.LOCAL 
+					})
+				});
+
+				// add TzDate
+				schedule.addDate ( 
+					new TzDate ({
+						datetime : '2017-04-01T14:00:00+00:00',
+						outputTimezone : Timezone.EST
+					})
+				);
+
+				// creates a date 1 day before and 4 hours ahead of the target date
+				schedule.addDate ({ day:-1, hour:4 }); 
+
+				// uses a callback to get a custom date message
+				schedule.addDate ( 
+					new TzDate ({
+						datetime : '2017-06-01T22:00:00+00:00',
+						outputTimezone : Timezone.LOCAL
+					}),
+					function ( date ){
+						return date.toSimpleTime() + ' ' + date.toMeridiem() + '!!';
+					}
+				);
+
+				// add a message and a callback
+				schedule.addDate ( 
+					new TzDate ({
+						datetime : '2017-05-01T17:00:00+00:00',
+						outputTimezone : Timezone.PST
+					}),
+					'Custom Message',
+					function(){
+						console.log( 'i am the callback')
+					}
+				);
+
+				schedule.print();
+				// DateSchedule.print(), length: 7
+				//  - 0 Sat Jan 01 2000 00:00:00 UTC label: 1/1 12:00 am
+				//  - 1 Sat Apr 01 2017 10:00:00 US/Eastern label: undefined
+				//  - 2 Mon May 01 2017 10:00:00 US/Pacific label: Custom Message
+				//  - 3 Thu Jun 01 2017 15:00:00 Local label: 3:00 pm!!
+				//  - 4 Mon Jul 31 2017 09:00:00 Local label: undefined
+				//  - 5 Tue Aug 01 2017 05:00:00 Local label: Live Now
+				//  - 6 Tue Aug 01 2017 07:00:00 Local label: Past				
+			
+	*/
+	D.addDate = function(tzDate, label, callback) {
+		var standardKey = arguments[3]
+
+		var dateUTC = tzDate
+		var skipDate = false
+		var makeClone = true
+
+		if (!tzDate._isTzDate) {
+			// is an Object of adjusting values
+			// take targetDate and add or subtract from there to create the date
+			var clonedDate = _targetDate
+
+			switch (standardKey) {
+				case 'PAST':
+					makeClone = false
+					break
+				case 'TONIGHT':
+					// construct a date with the tonightStartsAt value
+					var reconstructedDate = _targetDate.toDateTimeISO().split('T')[0] + 'T'
+
+					var timeSplit = _tonightStartsAt.split(':')
+					for (var i = 0; i &lt; 3; i++) {
+						reconstructedDate += TextUtils.pad(timeSplit[i] || 0, 2) + ':'
+					}
+					reconstructedDate = reconstructedDate.slice(0, -1)
+
+					clonedDate = new TzDate({
+						datetime: [reconstructedDate, _targetDate.outputTimezone]
+					})
+
+					// check if the time is before the tonight starts at, if so, skip this label
+					skipDate = clonedDate.getTime() > _targetDate.getTime()
+
+					// skip today if you do NOT skip tonight
+					_skipToday = !skipDate
+
+					// override date with a zeroed out one if you skip today and want only one day of message
+					makeClone = _hasOneDayOf &amp;&amp; _skipToday
+					break
+
+				case 'TODAY':
+					// check if tonight exists &amp; if hasOneDayOf
+					skipDate = _hasOneDayOf &amp;&amp; _skipToday
+					break
+			}
+
+			if (makeClone) {
+				// copies the target date to display in the local time
+				clonedDate = _targetDate.clone(Timezone.LOCAL)
+				// zeros out the dates based on timezone difference
+				clonedDate.setHours.apply(clonedDate, Timezone._tzDiff)
+			}
+
+			dateUTC = DateFormatter.adjust(clonedDate, tzDate)
+			//console.log( '\t >', dateUTC, clonedDate, tzDate )
+		}
+
+		if (standardKey) {
+			var override = _labelOverrides[standardKey]
+			if (override != undefined) {
+				label = override
+			} else {
+				if (typeof label === 'string') {
+					label = DateFormatter.getLabels()[standardKey]
+				}
+			}
+		}
+
+		if (typeof label === 'function') {
+			var dateToPass = standardKey &amp;&amp; _targetDate ? _targetDate : dateUTC
+			label = label.call(D, dateToPass)
+			//label = label.call ( D, dateUTC );
+		}
+
+		if (!skipDate) {
+			_dates.push({
+				date: dateUTC,
+				label: label,
+				standardKey: standardKey,
+				callback: callback || function() {}
+			})
+			sortDates()
+		}
+
+		return dateUTC
+	}
+
+	/**
+		@memberOf DateSchedule
+		@method print
+		@desc
+			Traces out all dates in order 
+		@example
+			// standard schedule
+				var schedule = new DateSchedule({
+				    target : new TzDate ({
+				        datetime : [ '2017-08-01 20:00:00', Timezone.EST ],
+				        outputTimezone : Timezone.LOCAL 
+				    }), 
+				    isStandard : true
+				});
+
+				schedule.print()
+				// DateSchedule.print(), length: 7
+				//  - 0 Sat Jan 01 2000 00:00:00 UTC label: 8/1 5:00 pm
+				//  - 1 Tue Jul 25 2017 17:00:00 Local label: Tuesday
+				//  - 2 Mon Jul 31 2017 00:00:00 Local label: Tomorrow
+				//  - 3 Tue Aug 01 2017 00:00:00 Local label: Today
+				//  - 4 Tue Aug 01 2017 10:30:00 Local label: Tonight
+				//  - 5 Tue Aug 01 2017 17:00:00 Local label: Live Now
+				//  - 6 Tue Aug 01 2017 19:00:00 Local label: Past
+			
+	*/
+	D.print = function() {
+		console.log('DateSchedule.print(), length:', _dates.length)
+		for (var i = 0; i &lt; _dates.length; i++) {
+			console.log(' -', i, _dates[i].date.toFullDateTime(), 'label:', _dates[i].label)
+		}
+	}
+
+	/**
+		@memberOf DateSchedule
+		@method getDates
+		@desc
+			Returns an Array copy of the dates, leaving the original untouched.
+		@returns {Array}		
+		@example
+			schedule.getDates();
+	*/
+	D.getDates = function() {
+		var dates = []
+		for (var i = 0; i &lt; _dates.length; i++) {
+			dates.push(_dates[i].date)
+		}
+		return dates
+	}
+
+	/**
+		@memberOf DateSchedule
+		@method getCountdown
+		@desc
+			Returns an Object of the time remaining until the target date, with the day, hour, minute, second as numbers and output as a string '##:##:##:##'
+		@returns {Object}
+		@example		
+			// add a target date to countdown to
+				var schedule = new DateSchedule({
+					target : new TzDate ({
+						datetime : [ '2017-06-06 11:37:00', Timezone.PST ],
+					})
+				});
+
+				// use FrameRate to set a ticker of once a second.
+				FrameRate.register ( this, handleCountdown, 1 );
+				function handleCountdown(){
+					console.log( schedule.getCountdown() )
+					// once the event is live, stop listening for the tick
+					if ( schedule.isLive ) {
+						FrameRate.unregister ( this, handleCountdown, 1 );
+					}
+				}
+	*/
+	D.getCountdown = function() {
+		var obj = DateManager.getTimeDifference(DateManager.getNow(), D.target)
+		for (var key in obj) {
+			if (key != 'output') {
+				obj[key] = Math.floor(obj[key])
+			}
+		}
+		return obj
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------
+	// PRIVATE METHODS
+	function sortDates() {
+		function sortOnDateTime(a, b) {
+			if (a.date.getTime() &lt; b.date.getTime()) return -1
+			if (a.date.getTime() > b.date.getTime()) return 1
+			return 0
+		}
+		_dates.sort(sortOnDateTime)
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------
+	// INIT
+	var sl = arg.standardOverrides
+	if (sl) {
+		for (var key in sl) {
+			_labelOverrides[key] = sl[key]
+		}
+	}
+
+	if (arg.target) {
+		_targetDate = D.addDate(arg.target, '', _callback, 'NOW')
+
+		D.addDate({ minute: _eventDuration }, '', _callback, 'PAST')
+	}
+
+	// upcoming, starting point
+	D.addDate(
+		new TzDate({
+			datetime: '2000-01-01T00:00:00+00:00',
+			outputTimezone: Timezone.UTC
+		}),
+		function(date) {
+			return date.toSimpleDateTime()
+		},
+		_callback,
+		'DATE'
+	)
+
+	if (_targetDate &amp;&amp; arg.isStandard == true) {
+		D.addDate({}, '', _callback, 'TONIGHT')
+
+		D.addDate({}, '', _callback, 'TODAY')
+
+		D.addDate({ hour: -24 }, '', _callback, 'TOMORROW')
+
+		D.addDate(
+			{ hour: -24 * 6 },
+			function(date) {
+				//var dayNum = date.getDay();
+				var dayNum = date.getIn(_targetDate.outputTimezone).getDay()
+				return DateFormatter.getLabels().WEEKDAYS_FULL[dayNum]
+			},
+			_callback,
+			'WEEK'
+		)
+	}
+}
+
+export default DateSchedule
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Jan 23rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

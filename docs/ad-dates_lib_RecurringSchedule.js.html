@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-dates/lib/RecurringSchedule.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AdManager.html">AdManager</a></li><li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="Async.html">Async</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="LiveScoring.html">LiveScoring</a></li><li><a href="LiveScoringData.html">LiveScoringData</a></li><li><a href="LiveScoringEvent.html">LiveScoringEvent</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="PrepareCore.html">PrepareCore</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-dates/lib/RecurringSchedule.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class RecurringSchedule
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-dates">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		This class is for determining the next showtime for events that repeat on a weekly basis. For example, you have a tune-in that
+		is every Friday at 6pm, and you want your date messaging to update dynamically.
+		
+		&lt;codeblock>
+			var schedule = new RecurringSchedule({	
+				tuneins: [
+					{	
+						days: ['Friday'],
+						startTime: '18:00',
+						eventDuration : 60
+					}
+				]
+			});			
+		&lt;/codeblock>
+		&lt;br>
+
+		For more complex schedules( like sports tournaments ), a more complex model might look like this
+		&lt;codeblock>
+			var schedule = new RecurringSchedule({	
+				tuneins: [
+					{	
+						days: ['Friday','Saturday','Sunday'],
+						startTime: '21:00',
+						eventDuration : 60,
+						timezone: Timezone.EST
+					},
+					{	
+						days: ['Monday','Tuesday','Wednesday','Thursday'],
+						startTime: '18:00',
+						eventDuration : 75,
+						timezone: Timezone.EST
+					}
+				]
+			});
+		&lt;/codeblock>
+		&lt;br>
+		
+		Just like DateSchedule, this uses the standard schedule to create the date messaging, which is accessed with
+		the same methods.
+		&lt;codeblock>
+			schedule.print();
+			schedule.currentSchedule.print();
+			schedule.currentSchedule.target.print();
+			console.log( schedule.current );
+			schedule.currentDate.print();
+			console.log( schedule.currentLabel );
+		&lt;/codeblock>
+*/
+import DateSchedule from './DateSchedule'
+import DateFormatter from './DateFormatter'
+import TzDate from './TzDate'
+import DM from './DateManager'
+
+var RecurringSchedule = function(dateModel) {
+	const DateManager = new DM()
+
+	var R = this
+
+	var _schedule
+
+	// ---------------------------------------------------------------------------------------------------------------
+	// PUBLIC METHODS
+	Object.defineProperties(R, {
+		/**
+			@memberOf RecurringSchedule
+			@var {object} currentSchedule
+				Getter : A DateSchedule is created for the current date, allowing for the standard messaging to be created
+			@example
+				mySchedule.currentSchedule.print();
+		*/
+		currentSchedule: {
+			get: function() {
+				var curStart = _schedule.current.date
+				var current = new DateSchedule({
+					target: curStart,
+					isStandard: true,
+					eventDuration: curStart.eventDuration,
+					callback: curStart.callback
+				})
+
+				if (current.isComplete) {
+					var nextStart = _schedule.next.date
+
+					current = new DateSchedule({
+						target: nextStart,
+						isStandard: true,
+						eventDuration: nextStart.eventDuration,
+						callback: nextStart.callback
+					})
+				}
+
+				return current
+			}
+		},
+
+		/**
+			@memberOf RecurringSchedule
+			@var {object} current
+				Getter : An object of the current date, label and optional callback
+			@example
+				mySchedule.current.date;
+				mySchedule.current.label;
+				mySchedule.current.callback();
+		*/
+		current: {
+			get: function() {
+				return R.currentSchedule.current
+			}
+		},
+
+		/**
+			@memberOf RecurringSchedule
+			@var {TzDate} currentDate
+				Getter : Is direct access to the current date, same as mySchedule.current.date
+			@example
+				mySchedule.currentDate;
+		*/
+		currentDate: {
+			get: function() {
+				return R.current.date
+			}
+		},
+
+		/**
+			@memberOf RecurringSchedule
+			@var {String} currentLabel
+				Getter : Is direct access to the current label, same as mySchedule.current.label
+			@example
+				mySchedule.currentLabel;
+		*/
+		currentLabel: {
+			get: function() {
+				return R.current.label
+			}
+		}
+	})
+
+	// ---------------------------------------------------------------------------------------------------------------
+	// PUBLIC METHODS
+
+	/**
+		@memberOf RecurringSchedule
+		@method print
+		@desc
+			Traces out all dates in order 
+		
+		&lt;codeblock>
+			// called on Thursday 2017-06-01 14:08:00-07:00
+			mySchedule.print();
+
+			// DateSchedule.print(), length: 8
+			//  - 0 Sat Jan 01 2000 00:00:00 UTC label: 1/1 12:00 am
+			//  - 1 Thu Jun 01 2017 18:00:00 US/Eastern label: undefined
+			//  - 2 Fri Jun 02 2017 21:00:00 US/Eastern label: undefined
+			//  - 3 Sat Jun 03 2017 21:00:00 US/Eastern label: undefined
+			//  - 4 Sun Jun 04 2017 21:00:00 US/Eastern label: undefined
+			//  - 5 Mon Jun 05 2017 18:00:00 US/Eastern label: undefined
+			//  - 6 Tue Jun 06 2017 18:00:00 US/Eastern label: undefined
+			//  - 7 Wed Jun 07 2017 18:00:00 US/Eastern label: undefined
+		&lt;/codeblock>
+	*/
+	R.print = function() {
+		_schedule.print()
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------
+	// PRIVATE METHODS
+
+	// loop all the events and create actual date objects representing the next show
+	function parseModel() {
+		var now = DateManager.getNow()
+
+		var labels = DateFormatter.getLabels('english').WEEKDAYS_FULL
+
+		_schedule = new DateSchedule()
+
+		// tuneins array of objects
+		var tuneins = dateModel.tuneins
+		for (var k = 0; k &lt; tuneins.length; k++) {
+			var tuneinObj = tuneins[k]
+			var days = tuneinObj.days
+
+			var dayOfWeek = now.getDay()
+
+			// days array of strings
+			for (var q = 0; q &lt; days.length; q++) {
+				var dayLabel = days[q]
+				var labelIndex = labels.indexOf(dayLabel)
+				var dayShift = labelIndex - dayOfWeek
+
+				var date = new TzDate({
+					datetime: [now.toDateTimeISO().split('T')[0] + 'T' + tuneinObj.startTime + ':00', tuneinObj.timezone]
+				})
+
+				date = DateFormatter.adjust(date, { day: dayShift })
+
+				if (DateManager.isPast(date, now)) {
+					// now check if it is past the duration
+					var temp = DateFormatter.adjust(date, { minute: tuneinObj.eventDuration })
+					if (DateManager.isPast(temp, now)) {
+						// if so, add a week to it
+						date = DateFormatter.adjust(date, { day: 7 })
+					}
+				}
+
+				date.eventDuration = tuneinObj.eventDuration
+				date.callback = tuneinObj.callback
+
+				console.log('\t', date.print())
+				_schedule.addDate(date) //, '', tuneinObj.callback );
+			}
+		}
+	}
+
+	// ---------------------------------------------------------------------------------------------------------------
+	// INIT
+	parseModel()
+}
+
+export default RecurringSchedule
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Jan 23rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

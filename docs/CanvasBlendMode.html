@@ -1,0 +1,2700 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Class: CanvasBlendMode</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AdManager.html">AdManager</a></li><li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="Async.html">Async</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="LiveScoring.html">LiveScoring</a></li><li><a href="LiveScoringData.html">LiveScoringData</a></li><li><a href="LiveScoringEvent.html">LiveScoringEvent</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="PrepareCore.html">PrepareCore</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: CanvasBlendMode</h1>
+<section>
+
+<header>
+    
+        <h2>
+        CanvasBlendMode
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="CanvasBlendMode"><span class="type-signature"></span>new CanvasBlendMode()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <a href="https://github.com/ff0000-ad-tech/ad-canvas">Github repo</a>
+		<br><br>
+		
+		See also <a href="http://www.w3schools.com/tags/canvas_globalcompositeoperation.asp">http://www.w3schools.com/tags/canvas_globalcompositeoperation.asp</a> and here 
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation">https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation</a>
+		<br><br>
+
+		<b>WARNING: If you try to apply a blend mode of any kind (masking) to a CanvasImage whose source is an SVG, it will not render properly in FireFox. This is a known browser issue</b><br>
+		<ul>
+			<li>Try drawing the SVG into a dummy canvas and then use that dummy canvas as the image source in place of the SVG for your masking</li>
+			<li>Use a PNG instead</li>
+		</ul>
+		<br><br>
+
+		<b>DEFAULT / PLACEMENTS:</b><br>
+		<ul>
+			<li>NONE</li>
+			<li>UNDER</li>
+		</ul>
+		<br><br>
+		
+		<b>MASKING BLENDS:</b><br>
+			Use the existing canvas drawings to act as the mask to the given drawing with this mode:
+			<ul>
+				<li>SOURCE_IN</li>
+				<li>SOURCE_OUT</li>
+				<li>SOURCE_ATOP</li>
+			</ul>
+			<br><br>
+
+			Use the given drawing with this mode to act as the mask to existing canvas drawings:
+			<ul>
+				<li>DEST_IN</li>
+				<li>DEST_OUT</li>
+				<li>DEST_ATOP</li>
+			</ul>
+			<br><br>
+
+			Miscellaneous:
+			<ul>
+				<li>XOR</li>
+				<li>COPY</li>
+			</ul>
+			<br><br>
+
+		<b>UNIVERSAL BLEND MODES:</b>
+			<ul>
+				<li>ADD</li>
+			</ul>
+			<br><br>
+
+		<b>NOT SUPPORTED BY THESE BROWSER VERSIONS AND EARLIER:</b><br>
+		Internet Explorer, Edge 12, Opera Mini 8, Android Browser 4.3:</b>
+			<ul>
+				<li>DARKEN</li>
+				<li>LIGHTEN</li>
+				<li>OVERLAY</li>
+				<li>MULTIPLY</li>
+				<li>SCREEN</li>
+				<li>DODGE</li>
+				<li>BURN</li>
+				<li>HARD</li>
+				<li>SOFT</li>
+				<li>DIFFERENCE</li>
+				<li>EXCLUSION</li>
+				<li>HUE</li>
+				<li>SATURATION</li>
+				<li>COLOR</li>
+				<li>LUMINOSITY</li>
+			</ul>
+			<br><br>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".ADD">
+    <h4 id=".ADD"><span class="type-signature">&lt;static, constant> </span>ADD<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'lighter'. Where both shapes overlap, the color is values are added together.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-190">line 190</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.ADD</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".BURN">
+    <h4 id=".BURN"><span class="type-signature">&lt;static, constant> </span>BURN<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'color-burn'. Divides the inverted bottom layer by the top layer, and then inverts the result.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-254">line 254</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.BURN</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".COLOR">
+    <h4 id=".COLOR"><span class="type-signature">&lt;static, constant> </span>COLOR<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'color'. Preserves the luma of the bottom layer, while adopting the hue and chroma of the top layer.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-317">line 317</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.COLOR</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".COPY">
+    <h4 id=".COPY"><span class="type-signature">&lt;static, constant> </span>COPY<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'copy'. Displays the source content. The destination content is ignored.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_copy.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-178">line 178</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.COPY</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".DARKEN">
+    <h4 id=".DARKEN"><span class="type-signature">&lt;static, constant> </span>DARKEN<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'darken'. Retains the darkest pixels of both layers.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-200">line 200</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.DARKEN</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".DEST_ATOP">
+    <h4 id=".DEST_ATOP"><span class="type-signature">&lt;static, constant> </span>DEST_ATOP<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'destination-atop'. Displays the destination content on top of the source content. The part of the destination content that is outside the source content is not shown.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_destAtop.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-156">line 156</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.DEST_ATOP</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".DEST_IN">
+    <h4 id=".DEST_IN"><span class="type-signature">&lt;static, constant> </span>DEST_IN<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'destination-in'. Displays the destination content within the source content. Only the part of the destination content that is INSIDE the source content is shown, and the source content is transparent.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_destIn.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-134">line 134</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.DEST_IN</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".DEST_OUT">
+    <h4 id=".DEST_OUT"><span class="type-signature">&lt;static, constant> </span>DEST_OUT<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'destination-out'. Displays the destination content outside of the source content. Only the part of the destination content that is OUTSIDE the source content is shown, and the source content is transparent.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_destOut.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-145">line 145</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.DEST_OUT</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".DIFFERENCE">
+    <h4 id=".DIFFERENCE"><span class="type-signature">&lt;static, constant> </span>DIFFERENCE<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'difference'. Subtracts the bottom layer from the top layer or the other way round to always get a positive value.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-281">line 281</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.DIFFERENCE</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".DODGE">
+    <h4 id=".DODGE"><span class="type-signature">&lt;static, constant> </span>DODGE<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'color-dodge'. Divides the bottom layer by the inverted top layer.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-245">line 245</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.DODGE</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".EXCLUSION">
+    <h4 id=".EXCLUSION"><span class="type-signature">&lt;static, constant> </span>EXCLUSION<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'exclusion'. Like difference, but with lower contrast.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-290">line 290</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.EXCLUSION</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".HARD">
+    <h4 id=".HARD"><span class="type-signature">&lt;static, constant> </span>HARD<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'hard-light'. A combination of multiply and screen like overlay, but with top and bottom layer swapped.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-263">line 263</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.HARD</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".HUE">
+    <h4 id=".HUE"><span class="type-signature">&lt;static, constant> </span>HUE<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'hue'. Preserves the luma and chroma of the bottom layer, while adopting the hue of the top layer.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-299">line 299</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.HUE</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".LIGHTEN">
+    <h4 id=".LIGHTEN"><span class="type-signature">&lt;static, constant> </span>LIGHTEN<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'lighten'. Retains the lightest pixels of both layers.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-209">line 209</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.LIGHTEN</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".LUMINOSITY">
+    <h4 id=".LUMINOSITY"><span class="type-signature">&lt;static, constant> </span>LUMINOSITY<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'luminosity'. Preserves the hue and chroma of the bottom layer, while adopting the luma of the top layer.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-326">line 326</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.LUMINOSITY</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".MULTIPLY">
+    <h4 id=".MULTIPLY"><span class="type-signature">&lt;static, constant> </span>MULTIPLY<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'multiply'. The pixels are of the top layer are multiplied with the corresponding pixel of the bottom layer. A darker picture is the result.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-227">line 227</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.MULTIPLY</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".NONE">
+    <h4 id=".NONE"><span class="type-signature">&lt;static, constant> </span>NONE<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'source-over'. Displays the source content over the destination content. This is the default setting.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_none.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-78">line 78</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.NONE</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".OVERLAY">
+    <h4 id=".OVERLAY"><span class="type-signature">&lt;static, constant> </span>OVERLAY<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'overlay'. A combination of multiply and screen. Dark parts on the base layer become darker, and light parts become lighter.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-218">line 218</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.OVERLAY</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".SATURATION">
+    <h4 id=".SATURATION"><span class="type-signature">&lt;static, constant> </span>SATURATION<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'saturation'. Preserves the luma and hue of the bottom layer, while adopting the chroma of the top layer.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-308">line 308</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.SATURATION</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".SCREEN">
+    <h4 id=".SCREEN"><span class="type-signature">&lt;static, constant> </span>SCREEN<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'screen'. The pixels are inverted, multiplied, and inverted again. A lighter picture is the result (opposite of multiply)
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-236">line 236</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.SCREEN</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".SOFT">
+    <h4 id=".SOFT"><span class="type-signature">&lt;static, constant> </span>SOFT<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'soft-light'. A softer version of hard-light. Pure black or white does not result in pure black or white.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-272">line 272</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.SOFT</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".SOURCE_ATOP">
+    <h4 id=".SOURCE_ATOP"><span class="type-signature">&lt;static, constant> </span>SOURCE_ATOP<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'source-atop'. Displays the destination content on top of the source content. The part of the destination content that is outside the source content is not shown.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_sourceAtop.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-123">line 123</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.SOURCE_ATOP</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".SOURCE_IN">
+    <h4 id=".SOURCE_IN"><span class="type-signature">&lt;static, constant> </span>SOURCE_IN<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'source-in'. Displays the source content within the destination content. Only the part of the source content that is INSIDE the destination content is shown, and the destination content is transparent.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_sourceIn.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-101">line 101</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.SOURCE_IN</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".SOURCE_OUT">
+    <h4 id=".SOURCE_OUT"><span class="type-signature">&lt;static, constant> </span>SOURCE_OUT<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'source-out'. Displays the source content outside of the destination content. Only the part of the source content that is OUTSIDE the destination content is shown, and the destination content is transparent.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_sourceOut.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-112">line 112</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.SOURCE_OUT</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".UNDER">
+    <h4 id=".UNDER"><span class="type-signature">&lt;static, constant> </span>UNDER<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'destination-over'. Displays the destination content over the source content.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_under.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-89">line 89</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.UNDER</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".XOR">
+    <h4 id=".XOR"><span class="type-signature">&lt;static, constant> </span>XOR<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents 'xor'. Only areas where the destination content and source content do not overlap are displayed. The parts that do overlap are not shown.
+ 		<br>
+ 		<img src="../docs_images/canvasdrawer/blend_xor.jpg" />
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlendMode.js.html">ad-canvas/lib/CanvasBlendMode.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlendMode.js.html#sunlight-1-line-167">line 167</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">CanvasBlendMode.XOR</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Jan 23rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

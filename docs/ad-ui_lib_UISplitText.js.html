@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-ui/lib/UISplitText.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AdManager.html">AdManager</a></li><li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="Async.html">Async</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="LiveScoring.html">LiveScoring</a></li><li><a href="LiveScoringData.html">LiveScoringData</a></li><li><a href="LiveScoringEvent.html">LiveScoringEvent</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="PrepareCore.html">PrepareCore</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-ui/lib/UISplitText.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/** 
+	@class UISplitText
+
+	@param {arg} arg
+		The OBJECT containing all of your UITextField and UISplitText arguments
+
+		@property {TextSplitType|string} arg.splitType
+			STRING determing if the UISplitText should break a UITextField into individuals words or characters; defaults to TextSplitType.WORDS.
+
+		@property {boolean} arg.allowSpaceOnBreaks
+			BOOLEAN determining if a line break should include a space following non-punctuational characters. For example: "word " rather than "word"; defaults to false.
+			&lt;br>
+			&lt;img src="../docs_images/uisplittext/breakSpace_true.jpg" />
+			&lt;br>
+			&lt;br>
+			&lt;img src="../docs_images/uisplittext/breakSpace_false.jpg" /> 
+			&lt;br>
+
+		@property {string} arg.spaceBreakIncludes
+			STRING determining what specific characters should be included as part of any line breaks if arg.allowSpaceOnBreaks is set to true; defaults to a-z, A-Z, and 0-9 represented as '[a-z0-9].'
+
+		@property {boolean} arg.debug
+			BOOLEAN for if you want a debug version featuring a background color and an unadulterated and un-split UITextField to compare your UISplitText instance to; defaults to false.
+
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-ui">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		This is a display object class, utilizing {@link UISplitText} and {@link UIComponent}.  By extending {@link UIComponent} this has all of its native properties and methods.  
+		See {@link UISplitText} and {@link UIComponent} for more info.
+		&lt;br>&lt;br>
+
+		It is a DOM {@link UIComponent} element that contains text and handles its styling, layout, and formatting in all the same ways as {@link UITextField}. The difference, however, is the it returns a container with each line, word, or character of text broken into individual {@link UITextField}s.
+		&lt;br>&lt;br>
+
+		By default, a UISplitText will convert a {@link UITextField} into individual words or letters, and group them into {@link UIComponent}s.
+		&lt;br>&lt;br>
+		&lt;b>For Example:&lt;/b>
+		&lt;br>setting the splitType to TextSplitType.WORDS will create a {@link UIComponent} per line and a {@link UITextField} per word.
+		&lt;br>setting the splitType to TextSplitType.CHARACTERS will create a {@link UIComponent} per line, a {@link UIComponent} per word, and a {@link UITextField} per character.
+		&lt;br>&lt;br>
+		UISplitText returns a {@link UIComponent}, representing the main container of the lines, words, and possibly characters.
+		&lt;br>
+		This container contains arrays:
+		&lt;codeblock>
+			// an array of every line of text; each line is a UIComponent
+			_mySplitText.lines;
+
+			// an array of every word of text. If arg.splitType === TextSplitType.CHARACTERS, these will be UIComponents, otherwise they are UITextFields
+			_mySplitText.words;
+
+			// an array of every character of text; each character is a {@link UITextField}
+			_mySplitText.characters;
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+
+		&lt;b>Sample:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// creates a {@link UITextField} that breaks each character of the text value into its own {@link UITextField}
+			T.mySplitText = new UISplitText({
+				target : View.main,
+				id : 'my-textfield',
+				css : {
+					x : 50,
+					y : 200,
+					width : 300,
+					height : 90
+				},
+				fontSize : 30,
+				fontFamily : 'template_font',
+				format : TextFormat.INLINE,
+				alignText : Align.CENTER,
+				bufferText : {
+					top : 1,
+					bottom : 1,
+					left : 5,
+					right : 5
+				},
+				leading : .8,
+				spacing : 2,
+				text : 'This is my awesome sentence!',
+				splitType: TextSplitType.CHARACTERS
+			});
+
+			// tweens the main container for the lines, words, and characters
+			TweenLite.from ( View.main.mySplitText.lines[l], 1, {scale: 0 });
+
+			// tweens each LINE of text from an alpha of 0
+			for (var l = 0; l &lt; View.main.mySplitText.lines.length; l++){
+				TweenLite.from ( View.main.mySplitText.lines[l], 1, {alpha: 0 });
+			}
+
+			// tweens each WORD of text from a rotation of 180
+			for (var w = 0; w &lt; View.main.mySplitText.words.length; w++){
+				TweenLite.from ( View.main.mySplitText.words[w], 1, {rotation: 180 });
+			}
+
+			// tweens each CHARACTER of text from a scale of of 2
+			for (var c = 0; c &lt; View.main.mySplitText.characters.length; c++){
+				TweenLite.from ( View.main.mySplitText.characters[c], 1, {scale: 2 });
+			}
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+		*/
+import UITextField from './UITextField'
+import UIComponent from './UIComponent'
+import UIGroup from './UIGroup'
+import * as TextFormat from './TextFormat'
+import { Styles, Align, Clamp } from 'ad-view'
+import { ObjectUtils, ColorUtils } from 'ad-utils'
+
+class UISplitText {
+	constructor(arg) {
+		return this._init(arg)
+	}
+
+	_init(arg) {
+		var self = this
+
+		// var _buffer = arg.bufferText;
+		delete arg.bufferText
+
+		arg.text = _mySplitText = arg.text.replace(/&lt;br>/g, ' &lt;br>')
+
+		var _stringArray = []
+		var _spanEnd = '&lt;/span>'
+		var _spanIndexStart = _mySplitText.indexOf('&lt;span')
+		var _spanIndexEnd = _mySplitText.indexOf(_spanEnd)
+		while (_spanIndexStart >= 0) {
+			// push anything BEFORE the span into the array
+			var _removeStr = _mySplitText.substring(0, _spanIndexStart)
+			_stringArray.push(_removeStr)
+
+			// strip the SPAN out of the text
+			_mySplitText = _mySplitText.replace(_removeStr, '')
+			console.log(_mySplitText)
+			console.log(0, _mySplitText.indexOf('>') + 1)
+			_removeStr = _mySplitText.substring(0, _mySplitText.indexOf('>') + 1)
+
+			// push the text into the array
+			_stringArray.push(_removeStr)
+
+			_mySplitText = _mySplitText.replace(_removeStr, '')
+			_spanIndexStart = _mySplitText.indexOf('&lt;span')
+		}
+
+		_stringArray.push(_mySplitText)
+
+		var _finalArray = []
+		for (var t = 0; t &lt; _stringArray.length; t++) {
+			var _temp = _stringArray[t].split(_spanEnd)
+			_finalArray.push(_temp[0])
+
+			if (_temp.length > 1) {
+				_finalArray.push(_spanEnd)
+				_finalArray.push(_temp[1])
+			}
+		}
+
+		// Now that we have looked at the entire string, make the primary reference UITextField out of it
+		var _mainTF = new UITextField(arg)
+
+		if (!arg.text || !arg.text.length) {
+			_mainTF.lines = []
+			_mainTF.words = []
+			_mainTF.characters = []
+			return _mainTF
+		}
+
+		var _parsedWords = []
+		for (var t = 0; t &lt; _finalArray.length; t++) {
+			var _temp = _finalArray[t].indexOf('span') >= 0 ? [_finalArray[t]] : _finalArray[t].split(' ')
+
+			for (var i = 0; i &lt; _temp.length; i++) if (_temp[i]) _parsedWords.push(_temp[i])
+		}
+
+		var _textContainer = new UIComponent({
+			target: arg.target,
+			id: '_textContainer',
+			css: ObjectUtils.default(
+				{
+					x: _mainTF.x,
+					y: _mainTF.y,
+					width: _mainTF.width,
+					height: _mainTF.height,
+					opacity: 1,
+					backgroundColor: arg.debug ? 'cyan' : arg.css.backgroundColor || null
+				},
+				arg.css,
+				true
+			)
+		})
+
+		_textContainer.appendChild(_mainTF)
+
+		var _prevText
+		var _x = 0
+		var _y = 0
+		var _textLines = {
+			line1: {
+				width: 0,
+				children: []
+			}
+		}
+		var _lineNum = 1
+		var _lineWidth = 0
+
+		// this creates a placeholder which effectively mimics the sizing of a space
+		// a space in UITextField - " " - is equal to null, and renders no sizing information
+		arg.text = '|'
+		var _spaceText = new UITextField(arg)
+		var _spacing = _spaceText.width //Math.ceil(_mainTF.fontSize / (3.7 / (arg.padding || arg.spacing || 1)));
+		_spaceText.parent.removeChild(_spaceText)
+		_spaceText = null
+
+		// define the arguments for each individual thing we will make
+		delete arg.css.overflow
+		var _textArgs = {
+			target: _textContainer,
+			css: ObjectUtils.clone(arg.css),
+			format: TextFormat.INLINE_CLAMP,
+			fontSize: _mainTF.fontSize,
+			fontFamily: _mainTF.fontFamily,
+			alignText: _mainTF.alignText,
+			leading: _mainTF.leading,
+			spacing: _mainTF.spacing,
+			smoothing: _mainTF.smoothing
+		}
+
+		if (arg.debug) {
+			Styles.setCss(_mainTF, {
+				color: ColorUtils.invert({
+					color: _textArgs.css.color
+				})
+			})
+		}
+
+		var _span
+		var _appendBreakToNext
+		for (var i = 0; i &lt; _parsedWords.length; i++) {
+			var _word = _parsedWords[i]
+			var _wordHasBreak = _word.indexOf('&lt;br>') >= 0
+			if (_word === '&lt;br>') {
+				_appendBreakToNext = true
+			}
+			_word = _word.replace(/&lt;br>/g, '')
+
+			// SOMETHING ABOUT STRIPPING AND REPLACING [LARGE] REMOVES A LINE BREAK;
+
+			if (_word.indexOf('&lt;span') >= 0) {
+				_span = _word
+				continue
+			} else if (_word.indexOf('span>') >= 0) {
+				_span = null
+				continue
+			}
+
+			if (_word) {
+				if (_appendBreakToNext) _wordHasBreak = true
+				_appendBreakToNext = false
+
+				// if (_span) _word = _span + _word + _spanEnd;
+
+				var _clone = ObjectUtils.clone(_textArgs)
+
+				_clone.css.x = _x
+				_clone.css.y = _y
+				_clone.text = _word
+				_clone.id = _word
+
+				if (_span) _clone.text = _span + _word + _spanEnd
+
+				var _newWord = new UITextField(_clone)
+				_newWord.copy = _word
+				_newWord.span = _span
+
+				// if our text is a paragraph, we want some line breaks. Do that here.
+				if (_wordHasBreak || (_mainTF.format.indexOf('paragraph') >= 0 &amp;&amp; _newWord.width + _newWord.x > _mainTF.width)) {
+					_lineNum++
+					_textLines['line' + _lineNum] = {
+						width: 0,
+						children: []
+					}
+					_newWord.x = _x = 0
+					_y += _newWord.height
+					_newWord.y = _y
+					_textLines['line' + _lineNum].width = 0
+				} else if (_prevText) {
+					Align.set(_newWord, {
+						y: {
+							type: Align.CENTER,
+							against: _prevText
+						}
+					})
+				}
+
+				_x += _newWord.width + _spacing
+
+				_textLines['line' + _lineNum].width = _newWord.x + _newWord.width
+				_textLines['line' + _lineNum].children.push(_newWord)
+
+				_prevText = _newWord
+			}
+		}
+
+		var _newLine
+		var _offset
+		var _prevGroup
+		_textContainer.words = []
+		_textContainer.lines = []
+		for (var line in _textLines) {
+			_newLine = _textLines[line]
+			for (var l = 0; l &lt; _newLine.children.length; l++) {
+				var _child = _newLine.children[l]
+				_textContainer.words.push(_child)
+
+				if (_mainTF.alignText !== Align.LEFT) {
+					_offset = _mainTF.width - _newLine.width
+					if (_mainTF.alignText === Align.CENTER) _offset /= 2
+					_child.x += _offset
+				}
+			}
+
+			var _group = new UIGroup({
+				children: _newLine.children,
+				target: _textContainer
+			})
+
+			if (_prevGroup) _group.y = _prevGroup.y + _prevGroup.height * 1
+
+			var _lastChar = _group.childNodes[_group.childNodes.length - 1]
+			_lastChar = _lastChar.text.substring(_lastChar.text.length - 1, _lastChar.text.length)
+			if (arg.allowSpaceOnBreaks &amp;&amp; _lastChar.match(new RegExp(arg.spaceBreakIncludes || 'a-z0-9]', 'gi'))) _group.x -= _spacing
+
+			_textContainer.lines.push(_group)
+			_prevGroup = _group
+		}
+
+		var _splitType = arg.splitType || TextSplitType.WORDS
+		if (_splitType === TextSplitType.CHARACTERS) {
+			_textContainer.characters = []
+			for (var w = 0; w &lt; _textContainer.words.length; w++) {
+				var _word = _textContainer.words[w]
+				var _copy = _word.copy
+				while (_word.childNodes.length > 0) _word.removeChild(_word.childNodes[0])
+
+				var _x = 0
+				var _newLetter
+				var _originalW = _word.width
+				for (var l = 0; l &lt; _copy.length; l++) {
+					_textArgs.css.x = _x
+					_textArgs.css.y = 0
+
+					_textArgs.target = _word
+					_textArgs.text = _word.span ? _word.span + _copy[l] + _spanEnd : _copy[l]
+					_textArgs.id = _copy + '_' + _copy[l]
+
+					_newLetter = new UITextField(_textArgs)
+					_x += _newLetter.width
+					_textContainer.characters.push(_newLetter)
+				}
+				Clamp.set(_word, Clamp.XY)
+				Styles.setCss(_word, {
+					overflow: 'inherit',
+					backgroundColor: null
+				})
+
+				if (_originalW &lt; _word.width &amp;&amp; _word.childNodes.length) {
+					var _offset = (_word.width - _originalW) / (_word.childNodes.length - 1)
+					for (l = 1; l &lt; _word.childNodes.length; l++) {
+						_newLetter = _word.childNodes[l]
+						_newLetter.x -= Math.abs(_offset * l)
+					}
+				}
+			}
+
+			if (arg.allowSpaceOnBreaks) for (var l = 0; l &lt; _textContainer.lines.length; l++) Clamp.set(_textContainer.lines[l], Clamp.XY)
+		}
+
+		if (arg.debug) {
+			_mainTF.x = _mainTF.y = 0
+		} else {
+			_textContainer.removeChild(_mainTF)
+			_mainTF = null
+		}
+
+		Clamp.set(_textContainer, Clamp.XY)
+
+		return _textContainer
+	}
+}
+
+export default UISplitText
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Jan 23rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

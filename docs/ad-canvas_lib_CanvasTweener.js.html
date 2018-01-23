@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-canvas/lib/CanvasTweener.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AdManager.html">AdManager</a></li><li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="Async.html">Async</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="LiveScoring.html">LiveScoring</a></li><li><a href="LiveScoringData.html">LiveScoringData</a></li><li><a href="LiveScoringEvent.html">LiveScoringEvent</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="PrepareCore.html">PrepareCore</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-canvas/lib/CanvasTweener.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class CanvasTweener
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-canvas">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		Tween engine for {@link CanvasDrawer}
+*/
+var CanvasTweener = new function() {
+	var CT = this
+
+	/**
+		@memberof CanvasTweener
+		@method init
+		@param {CanvasElement|CanvasDrawer} target
+			either a {@link CanvasElement} or a {@link CanvasDrawer} to which to apply and enable tweening
+		@desc
+			Apply tweening capabilities to a given CanvasDrawer
+
+		@example
+			// directly to a CanvasDrawer
+			CanvasTweener.init(_myCanvasDrawer);
+			
+			// using an element, for some reason
+			CanvasTweener.init(_myCanvasDrawer.elements.rectangle);
+			(end)
+	*/
+
+	/**
+		@memberof CanvasTweener
+		@var {object} tween
+		@property {function} to
+		@property {function} from
+		@property {function} fromTo
+		@property {function} set
+		@property {function} start 
+			{@link CanvasTweener.start}
+		@property {function} kill 
+			{@link CanvasTweener.kill}
+
+		@desc
+			Object containing functions to create a paused TweenLite animation which will re-draw this CanvasDrawer on tween.start().
+			&lt;br>&lt;br>
+
+			These animation functions have the same parameters and formatting as Greensock tweens:&lt;br>
+			&lt;ul>
+				&lt;li>tween.to()&lt;/li>
+				&lt;li>tween.from()&lt;/li>
+				&lt;li>tween.fromTo()&lt;/li>
+				&lt;li>tween.set()&lt;/li>
+			&lt;/ul>
+			&lt;br>
+			See greensock docs: {@link http://greensock.com/docs/#/HTML5/GSAP/TweenLite/ }
+			&lt;br>&lt;br>
+
+			&lt;b>PREFERRED METHOD&lt;/b>&lt;br>
+			First example uses {@link CanvasTwener} to execute the tweens:&lt;br>
+			&lt;codeblock>
+				// referring to an object to tween directly through the elements object
+				adData.elements.myCanvasDrawer.tween.to(adData.elements.myCanvasDrawer.elements.circle, 1, {x: 100 });
+
+				// referring to an object to tween by its ID, which is a string
+				adData.elements.myCanvasDrawer.tween.from('arc', 1, { x: 100 });
+				adData.elements.myCanvasDrawer.tween.start();
+			&lt;/codeblock>
+			&lt;br>&lt;br>
+
+			&lt;b>DISCOURAGED METHOD&lt;/b>&lt;br>
+			&lt;codeblock>
+				TweenLite.to('circle', 3, {x: 100, onUpdate: adData.elements.myCanvasDrawer.update.bind(adData.elements.myCanvasDrawer)});
+				TweenLite.to('arc', 3, {x: 100,  onUpdate: adData.elements.myCanvasDrawer.update.bind(adData.elements.myCanvasDrawer)});
+			&lt;/codeblock>
+			&lt;br>&lt;br>
+
+			&lt;b>THE REASON WHY:&lt;/b>&lt;br>
+			Notice how directly calling TweenLite requires an &lt;u>onUpdate&lt;/u> function for each tween?
+			&lt;ul>
+				&lt;li>Doing so calls CanvasDrawer.update() simultaneously from two sources (one per tween; in this case, two in total), 
+					increasing the work done to clear and re-draw the canvas &lt;/li>
+				&lt;li>Using TweenLite.to() instead of &lt;code>CanvasDrawer.tween.to()&lt;/code> might make sense for single tweens, but not multiple starting at the same time.&lt;/li>
+			&lt;/ul>
+	*/
+
+	/**
+		@memberof CanvasTweener
+		@method start
+		@param {object} args
+			An object with parameters for overall tween. See properties for more info.
+
+			@property {number} delay
+				a NUMBER by which to delay the entirety of a CanvasDrawer tween. Defaults to 0
+
+			@property {number} timePadding
+				a NUMBER by which to pad the total duration of a CanvasDrawer tween. Useful if a tween appears to be completing early. Defaults to 0
+
+			@property {function} onStart
+				a FUNCTION to run at the beginning of the CanvasDrawer tween
+
+			@property {array} onStartParams
+				an ARRAY of paramters for the onStart function
+
+			@property {function} onUpdate
+				a FUNCTION to run during the life of the CanvasDrawer tween
+
+			@property {array} onUpdateParams
+				an ARRAY of paramters for the onUpdate function
+
+			@property {number} onComplete
+				a FUNCTION to run at the conclussion of the CanvasDrawer tween
+
+			@property {array} onCompleteParams
+				an ARRAY of paramters for the onComplete function
+
+		@desc
+			Starts tweening all tweens created by {@link CanvasDrawer.tween} and creates a dummy tween which runs {@link CanvasDrawer.update} so drawings will get cleared and re-drawn
+			&lt;br>&lt;br>
+			&lt;b>NOTE!!!&lt;/b>
+			This method is on the {@link CanvasTweener.tween} object!
+
+		@example
+			adData.elements.myCanvasDrawer.tween.to(adData.elements.myCanvasDrawer.elements.circle, 1, {rotation: 360, width: 100, delay: 5 });
+			adData.elements.myCanvasDrawer.tween.to(adData.elements.myCanvasDrawer.elements.arc, 1, {rotation: 360, width: 100, delay: 5 });
+			adData.elements.myCanvasDrawer.tween.start( { delay: 2, timePadding: 0.02, onUpdate: trace, onUpdateParams:['look at this tween go!'] } );
+	*/
+
+	/**
+		@memberof CanvasTweener
+		@method kill
+
+		@desc
+			Kills all active tweens of this {@link CanvasDrawer} instance; clears CanvasDrawer._allTweens as well
+			&lt;br>&lt;br>
+			&lt;b>NOTE!!!&lt;/b>
+			This method is on the {@link CanvasTweener.tween} object!
+
+		@example
+			// referring to an object to tween directly through the elements object
+			adData.elements.myCanvasDrawer.tween.to('circle', 1, {rotation: 360, width: 100, delay: 5 });
+			adData.elements.myCanvasDrawer.tween.start();
+
+			adData.elements.myCanvasDrawer.tween.kill();
+		(end)
+	*/
+	CT.init = function(target) {
+		var _ctBase = new CanvasTweenerBase()
+		_ctBase.init(target.stage || target)
+	}
+}()
+
+function CanvasTweenerBase() {}
+
+CanvasTweenerBase.prototype = {
+	init: function(target) {
+		var CTB = this
+		CTB._drawer = target
+
+		CTB._drawer.tween = {
+			to: function(target, time, args) {
+				CTB._tweenEngine('to', [target, time, args])
+			},
+			from: function(target, time, args) {
+				CTB._tweenEngine('from', [target, time, args])
+			},
+			fromTo: function(target, time, argsFrom, argsTo) {
+				CTB._tweenEngine('fromTo', [target, time, argsFrom, argsTo])
+			},
+			set: function(target, args) {
+				CTB._tweenEngine('set', [target, args])
+			},
+			start: function(args) {
+				CTB._tweenStart(args)
+			},
+			kill: function() {
+				CTB._tweenKill()
+			}
+		}
+	},
+	/* ------------------------------------------------
+			The primary engine which handles all the tweening
+			
+			CALLED ONLY FROM CanvasDrawer.tween();
+			*/
+	_tweenEngine: function(tweenFun, args) {
+		var CTB = this
+		//var _tempStartFun;
+
+		args[0] = typeof args[0] === 'string' ? CTB._drawer.elements[args[0]] : args[0]
+
+		// this for loop updates an element's transformOrigin based on the tween argument object
+		// then removes the transformOrigin property from the tween argument object
+		// if we didn't remove the property, we would tween the value of transformOrigin, rather that around that origin
+		var _argIndex = {
+			to: 2,
+			from: 2,
+			fromTo: 3,
+			set: 1
+		}
+		if (args[_argIndex[tweenFun]].transformOrigin) {
+			args[0].transformOrigin = args[_argIndex[tweenFun]].transformOrigin
+			delete args[_argIndex[tweenFun]].transformOrigin
+		}
+
+		// changing a tween.from() to a tween.to() to bypass a glitch caused by tween.from with a delay
+		if (tweenFun === 'from') {
+			tweenFun = 'to'
+			var _from = {}
+			var _val
+			// args[2] for tween.fun is all the arguments passed to tween, such as rotation or alpha
+			for (var item in args[2]) {
+				// if args[0][item] is undefined, it means the CanvasElement doesn't have that property
+				// eg CanvasElements don't have 'delay' or 'onUpdate' properties, so we ignore those cases
+				// we only change properties that do exist, like rotation, scale, or alpha
+				if (args[0][item] != undefined) {
+					_from[item] = args[2][item]
+					// this changes the target values to the current values
+					args[2][item] = args[0][item]
+
+					_val = String(_from[item]).replace(/=/g, '')
+					// this changes the current values to the target values
+					if (_val.indexOf('-') >= 0 || _val.indexOf('+') >= 0) args[0][item] += Number(_val)
+					else args[0][item] = Number(_val)
+				}
+			}
+		}
+
+		args[args.length - 1].paused = args[args.length - 1].paused === false ? false : true
+		var _newTween = TweenLite[tweenFun].apply(CTB, args)
+		CTB._drawer._allTweens['newTween' + CTB._drawer._allTweensSize++] = _newTween
+		if (args[args.length - 1].paused === false) CTB._tweenStart()
+	},
+
+	/* ------------------------------------------------
+		The start function for all of this CanvasDrawer's tweens
+		
+		CALLED ONLY FROM CanvasDrawer.tween.start();
+		*/
+	_tweenStart: function(args) {
+		var CTB = this
+		var _duration = 0
+		var _tweenDuration
+		var _args = args || []
+
+		for (var dI in CTB._drawer._allTweens) {
+			CTB._drawer._allTweens[dI].delay(CTB._drawer._allTweens[dI].delay() + (_args.delay || 0))
+
+			_tweenDuration = CTB._drawer._allTweens[dI].duration() + CTB._drawer._allTweens[dI].delay()
+
+			if (_tweenDuration > _duration) _duration = _tweenDuration
+			CTB._drawer._allTweens[dI].play()
+		}
+
+		// if a _dummyTween already exists from a previous tween.start() then we stop it then add to it
+		if (CTB._drawer._dummyTween) {
+			if (_tweenDuration &lt; _duration) _tweenDuration = _duration
+			CTB._drawer._dummyTween.kill()
+		}
+
+		var _startFun = null
+		var _updateFun
+		var _completeFun
+
+		if (_args.onStart) {
+			_startFun = function() {
+				_args.onStart.apply(this, _args.onStartParams ? _args.onStartParams : null)
+			}
+		}
+
+		if (_args.onUpdate) {
+			_updateFun = function() {
+				_args.onUpdate.apply(this, _args.onUpdateParams ? _args.onUpdateParams : null)
+				CTB._drawer.update()
+			}
+		} else {
+			_updateFun = CTB._drawer.update.bind(CTB._drawer)
+		}
+
+		if (_args.onComplete) {
+			_completeFun = function() {
+				CTB._tweenKill()
+				_args.onComplete.apply(this, _args.onCompleteParams ? _args.onCompleteParams : null)
+			}
+		} else {
+			_completeFun = CTB._tweenKill.bind(CTB)
+		}
+
+		_duration += _args.timePadding &amp;&amp; _args.timePadding > 0 ? _args.timePadding : 0
+
+		CTB._drawer._dummyTween = TweenLite.to({}, _duration, {
+			onStart: _startFun,
+			onUpdate: _updateFun,
+			onComplete: _completeFun,
+			delay: _args.delay || 0
+		})
+		//_updateFun();
+	},
+
+	/* ------------------------------------------------
+		The kill function for all of this CanvasDrawer's tweens
+		
+		CALLED ONLY FROM CanvasDrawer.tween.kill();
+		*/
+
+	_tweenKill: function() {
+		var CTB = this
+
+		for (var item in CTB._drawer._allTweens) {
+			if (CTB._drawer._allTweens[item]) CTB._drawer._allTweens[item].kill()
+			delete CTB._drawer._allTweens[item]
+		}
+
+		CTB._drawer._allTweens = {}
+		CTB._drawer._allTweensSize = 0
+
+		if (CTB._drawer._dummyTween) CTB._drawer._dummyTween.kill()
+		CTB._drawer._dummyTween = null
+	}
+}
+export default CanvasTweener
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Jan 23rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
