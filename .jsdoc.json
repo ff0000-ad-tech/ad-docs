@@ -5,19 +5,19 @@
     },
     "source": {
         "include": [
-            "node_modules/ad-assets/lib",
-            "node_modules/ad-canvas/lib",
-            "node_modules/ad-control/lib",
-            "node_modules/ad-dates/lib",
-            "node_modules/ad-entry/lib",
-            "node_modules/ad-events/lib",
-            "node_modules/ad-external/lib",
-            "node_modules/ad-geom/lib",
-            "node_modules/ad-load/lib",
-            "node_modules/ad-ui/lib",
-            "node_modules/ad-utils/lib",
-            "node_modules/ad-video/lib",
-            "node_modules/ad-view/lib"
+            "node_modules/ad-assets",
+            "node_modules/ad-canvas",
+            "node_modules/ad-control",
+            "node_modules/ad-dates",
+            "node_modules/ad-entry",
+            "node_modules/ad-events",
+            "node_modules/ad-external",
+            "node_modules/ad-geom",
+            "node_modules/ad-load",
+            "node_modules/ad-ui",
+            "node_modules/ad-utils",
+            "node_modules/ad-video",
+            "node_modules/ad-view"
         ],
         "includePattern": ".+\\.js(doc|x)?$"
     },
