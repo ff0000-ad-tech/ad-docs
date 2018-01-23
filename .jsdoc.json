@@ -1,0 +1,55 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc", "closure"]
+    },
+    "source": {
+        "include": [
+            "node_modules/ad-assets/lib",
+            "node_modules/ad-canvas/lib",
+            "node_modules/ad-control/lib",
+            "node_modules/ad-dates/lib",
+            "node_modules/ad-entry/lib",
+            "node_modules/ad-events/lib",
+            "node_modules/ad-external/lib",
+            "node_modules/ad-geom/lib",
+            "node_modules/ad-load/lib",
+            "node_modules/ad-ui/lib",
+            "node_modules/ad-utils/lib",
+            "node_modules/ad-video/lib",
+            "node_modules/ad-view/lib"
+        ],
+        "includePattern": ".+\\.js(doc|x)?$"
+    },
+    "plugins": [
+        "node_modules/jsdoc-babel",
+        "plugins/codeblock.js"
+    ],
+    "babel": {
+        "plugins": ["transform-class-properties"]
+    },
+    "templates": {
+        "logoFile": "",
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "dateFormat": "ddd MMM Do YYYY",
+        "outputSourceFiles": true,
+        "outputSourcePath": true,
+        "systemName": "DocStrap",
+        "footer": "",
+        "copyright": "DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.",
+        "navType": "vertical",
+        "theme": "spacelab",
+        "linenums": true,
+        "collapseSymbols": false,
+        "inverseNav": true,
+        "protocol": "html://",
+        "methodHeadingReturns": false
+    },
+    "opts": {
+        "destination": "./docs/",
+        "encoding": "utf8",
+        "recurse": true,
+        "template": "./node_modules/ink-docstrap/template"
+    }
+}

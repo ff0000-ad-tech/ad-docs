@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "docs": "node_modules/.bin/jsdoc -c .jsdoc.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -23,6 +24,10 @@
     "ad-utils": "git://github.com/ff0000-ad-tech/ad-utils.git",
     "ad-video": "git://github.com/ff0000-ad-tech/ad-video.git",
     "ad-view": "git://github.com/ff0000-ad-tech/ad-view.git",
-    "jsdoc": "git+ssh://git@stash.ff0000.com:7999/at/jsdoc.git"
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "ink-docstrap": "git+ssh://git@stash.ff0000.com:7999/at/docstrap.git",
+    "jsdoc": "git+ssh://git@stash.ff0000.com:7999/at/jsdoc.git",
+    "jsdoc-babel": "^0.3.0"
   }
 }
