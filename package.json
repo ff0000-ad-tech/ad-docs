@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "docs": "node_modules/.bin/jsdoc -c .jsdoc.json",
+    "postinstall": "npm run docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
