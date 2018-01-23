@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Class: Vector2D</title>
+	<title>DocStrap Class: Loader</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,13 +79,13 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Vector2D</h1>
+	<h1 class="page-title">Class: Loader</h1>
 <section>
 
 <header>
     
         <h2>
-        Vector2D
+        Loader
         </h2>
         
     
@@ -98,7 +98,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Vector2D"><span class="type-signature"></span>new Vector2D(x, y)</h4>
+    <h4 class="name" id="Loader"><span class="type-signature"></span>new Loader(arg, arg)</h4>
     
     
 </dt>
@@ -106,10 +106,90 @@
 
     
     <div class="description">
-        <a href="https://github.com/ff0000-ad-tech/ad-geom">Github repo</a>
+        <a href="https://github.com/ff0000-ad-tech/ad-load">Github repo</a>
 		<br><br>
 
-		A simple 2D Vector classs
+		This class is designed to handle all load processes: images, fonts and data, even other Loaders! Below are multiple use case scenarios.
+		<br><br>
+
+
+		<b>Single Load:</b>
+		<pre class="sunlight-highlight-javascript">
+var singleLoader = new Loader('images/img0.jpg', { onComplete:handleLoadComplete, scope:this });
+singleLoader.load();
+
+function handleLoadComplete( target ) {
+	console.log( target.content[0].dataRaw );
+}
+</pre>
+		<br><br>
+
+
+		<b>Array of loads from one Constructor:</b>
+		<pre class="sunlight-highlight-javascript">
+// Array load - you can pass in multiple files on creation of a Loader
+var arrayLoader = new Loader(['font1.ttf', 'font2.ttf'], { name:'fontLoader', onComplete:handleLoadComplete, prepend:adParams.commonPath + 'fonts/' });
+arrayLoader.load();
+
+function handleLoadComplete( target ) {
+	console.log( target.content[0].dataRaw );
+}		
+</pre>
+		<br><br>
+		
+
+		<b>Complex Load:</b>
+		<pre class="sunlight-highlight-javascript">
+var myLoader = new Loader('images/img0.jpg', { onComplete:handleLoadComplete, scope:this });	
+
+// append to that loader
+myLoader.add('images/img1.jpg');
+
+// append multiple
+myLoader.add(['images/img2.jpg', 'images/img3.jpg']);
+myLoader.load();
+
+function handleLoadComplete( target ) {
+	console.log( target.content[0].dataRaw );
+}		
+</pre>
+		<br><br>
+
+
+		<b>Nested Loads:</b>
+		<pre class="sunlight-highlight-javascript">
+// Nested loads - best practice is to make a loader for one file type
+var masterLoader = new Loader({ name:'master', onComplete:handleAllComplete, onProgress:handleAllProgress, onFail:handleLoadFail, scope:this });
+
+// declare a var to reference later, then add it to main loader
+var _imgLoader = new Loader( [ 'images/img2.jpg', 'images/img3.jpg' ], { name:'load_images', prepend:'images/' });
+masterLoader.add( _imgLoader );
+
+// or just add a new loader instance
+masterLoader.add( new Loader( [ 'font1.ttf', 'font2.ttf' ], { name:'load_fonts', prepend:adParams.commonPath + 'fonts/' }) );
+masterLoader.add( new Loader( ['Ad_Data.js', 'NetUtils.js', 'Align.js', 'Analytics.js'], { name:'load_js', prepend:adParams.corePath + 'utils/' }) );
+masterLoader.load();
+
+function handleLoadComplete( target ) {
+	console.log( target.content[0].dataRaw );
+}
+function handleLoadProgress( target ) {
+	console.log( target.progress, target.rawProgress )
+}
+function handleLoadFail( target ) {
+	console.log( target );
+}
+function handleAllComplete( target ) {
+	var a = target.getLoader( _imgLoader )
+	console.log( "Loader found by var:", a )
+
+	var b = target.getContent( 'font1.ttf' );
+	console.log( "Content found by name:", b );
+
+	var c = target.getLoader( 'load_fonts' );
+	console.log( "Loader found by url:", c );
+}		
+</pre>
     </div>
     
 
@@ -144,13 +224,99 @@
 
         <tr>
             
-                <td class="name"><code>x</code></td>
+                <td class="name"><code>arg</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
+|
+
+<span class="param-type"><a href="Loader.html">Loader</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">load target</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>arg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object with any of the following optional parameters for customizing the load routine.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
 
 
 
@@ -168,13 +334,13 @@
 
         <tr>
             
-                <td class="name"><code>y</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
 
 
 
@@ -189,13 +355,250 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>prioritize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cacheBuster</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>method</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">"POST" or "GET"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>scope</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onComplete</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onProgress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onFail</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>prepend</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A file path to be added to all loader targets.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>platformGetUrl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A callback method to wrap the url, such as DoubleClick's <code>Enabler.getUrl</code>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fileType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Manually assign the file type, eg: <code>jpg</code>, <code>svg</code>.</td>
+        </tr>
+
+    
     </tbody>
 </table>
+</dl>
 
-    
-
-    
-<dl class="details">
     
 
 	
@@ -229,8 +632,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-1">line 1</a>
+				<a href="ad-load_index.js.html">ad-load/index.js</a>,
+				 <a href="ad-load_index.js.html#sunlight-1-line-1">line 1</a>
 			</li>
 		</ul>
 	</dd>
@@ -255,13 +658,6 @@
     
 
     
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">var myVector1 = new Vector2D( 0, 320 );
-var myVector2 = new Vector2D( -3, 5.5 );</pre>
-
 
     
 </dd>
@@ -288,7 +684,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id=".add"><span class="type-signature">&lt;static> </span>add(v)</h4>
+    <h4 class="name" id=".add"><span class="type-signature">&lt;static> </span>add(arg)</h4>
     
     
 </dt>
@@ -296,7 +692,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
     
     <div class="description">
-        Adds another vector to itself
+        Add to the load queue: a single or array of files or even another Loader.
     </div>
     
 
@@ -331,13 +727,19 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
         <tr>
             
-                <td class="name"><code>v</code></td>
+                <td class="name"><code>arg</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
+<span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
+|
+
+<span class="param-type"><a href="Loader.html">Loader</a></span>
 
 
 
@@ -348,7 +750,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
             
 
-            <td class="description last"></td>
+            <td class="description last">a file, array of files, or Loader instance</td>
         </tr>
 
     
@@ -392,8 +794,8 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-22">line 22</a>
+				<a href="ad-load_index.js.html">ad-load/index.js</a>,
+				 <a href="ad-load_index.js.html#sunlight-1-line-152">line 152</a>
 			</li>
 		</ul>
 	</dd>
@@ -418,31 +820,25 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     
 
     
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">myVector1.add( myVector2 );</pre>
+    <pre class="sunlight-highlight-javascript">// Single load
+var imgLoader = new Loader({ name:&#x27;img_loader&#x27; });
+
+// add to that loader
+imgLoader.add(&#x27;images/img1.jpg&#x27;);
+
+// add multiple
+imgLoader.add([&#x27;images/img2.jpg&#x27;, &#x27;images/img3.jpg&#x27;]);
+ 	
+// Nested loads - best practice is to make a loader for one file type
+var mainLoader = new Loader({ name:&#x27;main&#x27;, onComplete:handleComplete });
+	mainLoader.add( imgLoader );
+
+// or just add a new loader instance
+mainLoader.add( new Loader([&#x27;font1.ttf&#x27;, &#x27;font2.ttf&#x27;], { name:&#x27;load_fonts&#x27; }) );				</pre>
 
 
     
@@ -452,7 +848,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id=".clone"><span class="type-signature">&lt;static> </span>clone()</h4>
+    <h4 class="name" id=".getAllContent"><span class="type-signature">&lt;static> </span>getAllContent()</h4>
     
     
 </dt>
@@ -460,7 +856,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
     
     <div class="description">
-        Creates a new Vector2D with and same x and y
+        Get all loaded content from the Loader and all nested Loaders
     </div>
     
 
@@ -506,282 +902,8 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-142">line 142</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">var newVecotor = myVector.clone();</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".degreeToVector"><span class="type-signature">&lt;static> </span>degreeToVector()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Converts a degree 0 - 360 to a normalized vector
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-155">line 155</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">var myVecotor = Vector2D.degreeToVector( 45 );</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".dist"><span class="type-signature">&lt;static> </span>dist(v)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>v</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-54">line 54</a>
+				<a href="ad-load_index.js.html">ad-load/index.js</a>,
+				 <a href="ad-load_index.js.html#sunlight-1-line-232">line 232</a>
 			</li>
 		</ul>
 	</dd>
@@ -810,7 +932,8 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     
             
 <div class="param-desc">
-    The distance between two vectors as locations
+    An array of LoaderData Objects with relevant loading information (like an Event Object).  
+ 		Access the loaded content via the property 'dataRaw': an image, raw Json, raw XML, or font name
 </div>
 
 
@@ -821,7 +944,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     </dt>
     <dd>
         
-<span class="param-type">number</span>
+<span class="param-type">array</span>
 
 
 
@@ -834,7 +957,12 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">var distance = myVector.dist( myVector2 );</pre>
+    <pre class="sunlight-highlight-javascript">var myLoader = new Loader([&#x27;img1.jpg&#x27;, &#x27;img2.jpg&#x27;, &#x27;img3.jpg&#x27;], { onComplete:handleComplete });
+myLoader.load();
+	function handleComplete( target ) {
+	var myContent = target.getAllContent();
+	console.log( &quot;Content found:&quot;, myContent );
+}</pre>
 
 
     
@@ -844,7 +972,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id=".div"><span class="type-signature">&lt;static> </span>div(s)</h4>
+    <h4 class="name" id=".getAllContentRaw"><span class="type-signature">&lt;static> </span>getAllContentRaw()</h4>
     
     
 </dt>
@@ -852,7 +980,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
     
     <div class="description">
-        Divides X and Y of the vector by s
+        Get all raw loaded content from the Loader and all nested Loaders, no LoaderData Objects
     </div>
     
 
@@ -862,56 +990,6 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
     
     
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
 
     
 <dl class="details">
@@ -948,118 +1026,8 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-83">line 83</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">myVector.div( 2 );</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".length"><span class="type-signature">&lt;static> </span>length()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-117">line 117</a>
+				<a href="ad-load_index.js.html">ad-load/index.js</a>,
+				 <a href="ad-load_index.js.html#sunlight-1-line-268">line 268</a>
 			</li>
 		</ul>
 	</dd>
@@ -1088,7 +1056,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     
             
 <div class="param-desc">
-    The length of the vector.
+    An array of only the raw data: an image, raw Json, raw XML, or font name
 </div>
 
 
@@ -1099,7 +1067,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     </dt>
     <dd>
         
-<span class="param-type">number</span>
+<span class="param-type">array</span>
 
 
 
@@ -1112,7 +1080,12 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">var length = myVector.length();</pre>
+    <pre class="sunlight-highlight-javascript">var myLoader = new Loader([&#x27;img1.jpg&#x27;, &#x27;img2.jpg&#x27;, &#x27;img3.jpg&#x27;], { onComplete:handleComplete });
+myLoader.load();
+	function handleComplete( target ) {
+	var myContent = target.getAllContentRaw();
+	console.log( &quot;Content found:&quot;, myContent );
+}</pre>
 
 
     
@@ -1122,7 +1095,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id=".limit"><span class="type-signature">&lt;static> </span>limit(s)</h4>
+    <h4 class="name" id=".getLoader"><span class="type-signature">&lt;static> </span>getLoader(id)</h4>
     
     
 </dt>
@@ -1130,7 +1103,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
     
     <div class="description">
-        Limits the length of the vector if it's longer than s
+        Get the Loader instance from the Loader or any nested Loader
     </div>
     
 
@@ -1165,13 +1138,13 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
         <tr>
             
-                <td class="name"><code>s</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
 
 
 
@@ -1182,7 +1155,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
             
 
-            <td class="description last"></td>
+            <td class="description last">the string optionally assigned to the 'name' property or the variable assigned to the Loader instance</td>
         </tr>
 
     
@@ -1226,8 +1199,8 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-99">line 99</a>
+				<a href="ad-load_index.js.html">ad-load/index.js</a>,
+				 <a href="ad-load_index.js.html#sunlight-1-line-291">line 291</a>
 			</li>
 		</ul>
 	</dd>
@@ -1263,7 +1236,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     </dt>
     <dd>
         
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
+<span class="param-type"><a href="Loader.html">Loader</a></span>
 
 
 
@@ -1276,7 +1249,13 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">myVector.limit( 18.2 );</pre>
+    <pre class="sunlight-highlight-javascript">var mainLoader = new Loader({ name:&#x27;main&#x27;, onComplete:handleLoadComplete });
+mainLoader.add( new Loader( [ &#x27;font1.ttf&#x27;, &#x27;font2.ttf&#x27; ], { name:&#x27;load_fonts&#x27;, prepend:adParams.commonPath + &#x27;fonts/&#x27; }) );
+mainLoader.add( new Loader( [&#x27;Ad_Data.js&#x27;, &#x27;NetUtils.js&#x27;], { name:&#x27;load_js&#x27;, prepend:adParams.corePath + &#x27;utils/&#x27; }) );
+mainLoader.load();
+	function handleLoadComplete( target ) {
+	var fontLoader = target.getLoader(&#x27;load_fonts&#x27;);
+}</pre>
 
 
     
@@ -1286,7 +1265,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id=".mult"><span class="type-signature">&lt;static> </span>mult(s)</h4>
+    <h4 class="name" id=".load"><span class="type-signature">&lt;static> </span>load()</h4>
     
     
 </dt>
@@ -1294,151 +1273,7 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 
     
     <div class="description">
-        Multiplies X and Y of the vector by s
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>s</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-68">line 68</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">myVector.mult( 10.3 );</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".normalize"><span class="type-signature">&lt;static> </span>normalize()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Normalizes the vector( ie scale the vector to length of 1 )
+        Starts the load process.
     </div>
     
 
@@ -1484,8 +1319,8 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-128">line 128</a>
+				<a href="ad-load_index.js.html">ad-load/index.js</a>,
+				 <a href="ad-load_index.js.html#sunlight-1-line-195">line 195</a>
 			</li>
 		</ul>
 	</dd>
@@ -1510,360 +1345,13 @@ var myVector2 = new Vector2D( -3, 5.5 );</pre>
     
 
     
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">myVector.normalize();</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".random"><span class="type-signature">&lt;static> </span>random(degreeIncrement)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Returns a random normalized vector
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>degreeIncrement</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Optional, the degree increment of the random vector, defaults to 0.01</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-169">line 169</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">var myVecotor1 = Vector2D.random();
-var myVecotor2 = Vector2D.random( 1 );</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".sub"><span class="type-signature">&lt;static> </span>sub(v)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Subtracts another vector from itself
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>v</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-geom_lib_Vector2D.js.html">ad-geom/lib/Vector2D.js</a>,
-				 <a href="ad-geom_lib_Vector2D.js.html#sunlight-1-line-38">line 38</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Vector2D.html">Vector2D</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">myVector1.sub( myVector2 );</pre>
+    <pre class="sunlight-highlight-javascript">// Single load
+var imgLoader = new Loader({ onComplete:handleComplete });
+imgLoader.load();				</pre>
 
 
     
