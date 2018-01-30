@@ -30,5 +30,11 @@
     "ink-docstrap": "git+ssh://git@stash.ff0000.com:7999/at/docstrap.git",
     "jsdoc": "git+ssh://git@stash.ff0000.com:7999/at/jsdoc.git",
     "jsdoc-babel": "^0.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "prettier": "^1.10.2"
   }
 }
