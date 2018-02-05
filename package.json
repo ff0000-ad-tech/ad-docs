@@ -1,40 +1,40 @@
 {
-  "name": "ad-docs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "docs": "node_modules/.bin/jsdoc -c .jsdoc.json",
-    "postinstall": "npm run docs",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "ad-assets": "git://github.com/ff0000-ad-tech/ad-assets.git",
-    "ad-canvas": "git://github.com/ff0000-ad-tech/ad-canvas.git",
-    "ad-control": "git://github.com/ff0000-ad-tech/ad-control.git",
-    "ad-dates": "git://github.com/ff0000-ad-tech/ad-dates.git",
-    "ad-entry": "git://github.com/ff0000-ad-tech/ad-entry.git",
-    "ad-events": "git://github.com/ff0000-ad-tech/ad-events.git",
-    "ad-external": "git://github.com/ff0000-ad-tech/ad-external.git",
-    "ad-geom": "git://github.com/ff0000-ad-tech/ad-geom.git",
-    "ad-load": "git://github.com/ff0000-ad-tech/ad-load.git",
-    "ad-ui": "git://github.com/ff0000-ad-tech/ad-ui.git",
-    "ad-utils": "git://github.com/ff0000-ad-tech/ad-utils.git",
-    "ad-video": "git://github.com/ff0000-ad-tech/ad-video.git",
-    "ad-view": "git://github.com/ff0000-ad-tech/ad-view.git",
-    "babel-core": "^6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "ink-docstrap": "git+ssh://git@stash.ff0000.com:7999/at/docstrap.git",
-    "jsdoc": "git+ssh://git@stash.ff0000.com:7999/at/jsdoc.git",
-    "jsdoc-babel": "^0.3.0"
-  },
-  "devDependencies": {
-    "eslint": "^4.16.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.5.0",
-    "prettier": "^1.10.2"
-  }
+	"name": "ad-docs",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"docs": "node_modules/.bin/jsdoc -c .jsdoc.json",
+		"postinstall": "npm run docs",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"ad-assets": "git+https://github.com/ff0000-ad-tech/ad-assets.git",
+		"ad-canvas": "git+https://github.com/ff0000-ad-tech/ad-canvas.git",
+		"ad-control": "git+https://github.com/ff0000-ad-tech/ad-control.git",
+		"ad-dates": "git+https://github.com/ff0000-ad-tech/ad-dates.git",
+		"ad-entry": "git+https://github.com/ff0000-ad-tech/ad-entry.git",
+		"ad-events": "git+https://github.com/ff0000-ad-tech/ad-events.git",
+		"ad-external": "git+https://github.com/ff0000-ad-tech/ad-external.git",
+		"ad-geom": "git+https://github.com/ff0000-ad-tech/ad-geom.git",
+		"ad-load": "git+https://github.com/ff0000-ad-tech/ad-load.git",
+		"ad-ui": "git+https://github.com/ff0000-ad-tech/ad-ui.git",
+		"ad-utils": "git+https://github.com/ff0000-ad-tech/ad-utils.git",
+		"ad-video": "git+https://github.com/ff0000-ad-tech/ad-video.git",
+		"ad-view": "git+https://github.com/ff0000-ad-tech/ad-view.git",
+		"babel-core": "^6.26.0",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"ink-docstrap": "git+https://git@stash.ff0000.com:7999/at/docstrap.git",
+		"jsdoc": "git+https://git@stash.ff0000.com:7999/at/jsdoc.git",
+		"jsdoc-babel": "^0.3.0"
+	},
+	"devDependencies": {
+		"eslint": "^4.16.0",
+		"eslint-config-prettier": "^2.9.0",
+		"eslint-plugin-prettier": "^2.5.0",
+		"prettier": "^1.10.2"
+	}
 }
