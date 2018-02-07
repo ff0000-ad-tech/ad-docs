@@ -47,7 +47,7 @@
         "methodHeadingReturns": false
     },
     "opts": {
-        "destination": "./docs/",
+        "destination": "./docs/pages/",
         "encoding": "utf8",
         "recurse": true,
         "template": "./node_modules/ink-docstrap/template"
