@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Source: ad-utils/lib/NetUtils.js</title>
+	<title>DocStrap Source: ad-control/lib/Core.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,34 +79,101 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: ad-utils/lib/NetUtils.js</h1>
+		<h1 class="page-title">Source: ad-control/lib/Core.js</h1>
     
 <section>
     <article>
         <pre
-            class="sunlight-highlight-javascript linenums">/** 
-	@class NetUtils
+            class="sunlight-highlight-javascript linenums">/**
+	@class Core
 	@desc
-		&lt;a href="https://github.com/ff0000-ad-tech/ad-utils">Github repo&lt;/a>
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-control">Github repo&lt;/a>
 		&lt;br>&lt;br>
 		
-		Utility functions that are common in making network requests.
+		Boilerplate logic that is attempted for all ad templates happens here. The build of an ad should not need to affect this scope. 
 */
-var NetUtils = new function() {
-	/**
-		@memberOf NetUtils
-		@method getQueryParameterBy
-		@param {string} name
-			the query string variable name
-		@desc
-			Analyses the URI query string and search for a key-value pair matching the requested var. 
-	*/
-	this.getQueryParameterBy = function(name) {
-		return global.queryParams[name]
-	}
-}()
+import {Device} from 'ad-external'
+import CssManager from './CssManager'
+import ImageManager from './ImageManager'
 
-export default NetUtils
+class Core {
+	/** 
+		@memberOf Core
+		@method init
+		@param {Loader} fbaLoader
+			Optionally passed in Loader when compiled
+		@desc
+			This is the first step in the build file. The init() returns a Promise, which allows for chaining of .then() methods.
+			For synchronous actions, such as declaring AdData or FtData, simply wrap it in an anonymous function. For asynchronous
+			actions, such a inititalizing something with a created callback, this will need to be wrapped in a returned callback.
+			This will ensure that the chain will wait for the previous .then() to be fulfilled before moving on. 
+
+		@example
+			Core.init(fbaContent)
+				.then(function() {
+					global.adData = new AdData();
+				})
+				.then(function() {
+					return new Promise((resolve, reject) => {
+						// pass the resolve as the completed callback
+						SomeCustomClass.init(resolve)
+					})
+				})
+				.then(Core.loadDynamic)
+				.then(Control.prepareBuild)
+	*/
+	static init = function(fbaContent) {
+		console.log('Core.init()')
+		return new Promise((resolve, reject) => {
+			let promises = []
+
+			// device
+			Device.init()
+
+			// css
+			CssManager.init()
+
+			// fba payload
+			if (fbaContent) {
+				ImageManager.addFbaImages(fbaContent)
+			}
+
+			// async
+			Promise.all(promises).then(() => {
+				resolve()
+			})
+			.catch(err => {
+				reject(err)
+			})
+		})
+	}
+
+	/** 
+		@memberOf Core
+		@method loadDynamic
+		@desc
+			This is the last step before preparing the build. The loadDynamic() loads all of the images that have been added
+			to the ImageLoader. After this method is called from the .then() promise chain, Control.prepareBuild can be 
+			called as the entire prepare process is now complete when its Promise is fulfilled.
+
+		@example
+			Core.init(fbaContent)
+				.then(function() {
+					global.adData = new AdData();
+				})
+				.then(Core.loadDynamic)
+				.then(Control.prepareBuild)
+	*/
+	static loadDynamic = function() {
+		console.log('Core.loadDynamic()')
+		return new Promise((resolve, reject) => {
+			console.log('\t Core load Image Queue')
+			ImageManager.load(resolve, global.failAd)
+		})
+	}
+}
+
+export default Core
 </pre>
     </article>
 </section>
