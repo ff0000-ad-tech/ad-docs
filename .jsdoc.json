@@ -5,21 +5,24 @@
     },
     "source": {
         "include": [
-            "node_modules/ad-assets",
-            "node_modules/ad-canvas",
-            "node_modules/ad-control",
-            "node_modules/ad-dates",
-            "node_modules/ad-entry",
-            "node_modules/ad-events",
-            "node_modules/ad-external",
-            "node_modules/ad-geom",
-            "node_modules/ad-load",
-            "node_modules/ad-ui",
-            "node_modules/ad-utils",
-            "node_modules/ad-video",
-            "node_modules/ad-view"
+            "node_modules/@ff0000-ad-tech/ad-animation",
+            "node_modules/@ff0000-ad-tech/ad-assets",
+            "node_modules/@ff0000-ad-tech/ad-canvas",
+            "node_modules/@ff0000-ad-tech/ad-control",
+            "node_modules/@ff0000-ad-tech/ad-dates",
+            "node_modules/@ff0000-ad-tech/ad-entry",
+            "node_modules/@ff0000-ad-tech/ad-events",
+            "node_modules/@ff0000-ad-tech/ad-external",
+            "node_modules/@ff0000-ad-tech/ad-geom",
+            "node_modules/@ff0000-ad-tech/ad-load",
+            "node_modules/@ff0000-ad-tech/ad-particles",
+            "node_modules/@ff0000-ad-tech/ad-ui",
+            "node_modules/@ff0000-ad-tech/ad-utils",
+            "node_modules/@ff0000-ad-tech/ad-video",
+            "node_modules/@ff0000-ad-tech/ad-view"
         ],
-        "includePattern": ".+\\.js(doc|x)?$"
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "@ff0000-ad-tech\\/[-\\w]+\\/node_modules\\/.*$"
     },
     "plugins": [
         "node_modules/jsdoc-babel",
