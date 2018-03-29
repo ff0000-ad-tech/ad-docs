@@ -26,7 +26,8 @@
     },
     "plugins": [
         "node_modules/jsdoc-babel",
-        "plugins/codeblock.js"
+        "plugins/codeblock.js",
+        "node_modules/jsdoc-package-tag"
     ],
     "babel": {
         "plugins": ["transform-class-properties"]
@@ -50,7 +51,7 @@
         "methodHeadingReturns": false
     },
     "opts": {
-        "destination": "./docs/pages/",
+        "destination": "./docs/",
         "encoding": "utf8",
         "recurse": true,
         "template": "./node_modules/ink-docstrap/template"
