@@ -31,7 +31,8 @@
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"ink-docstrap": "git+https://github.com/ff0000-ad-tech/docstrap.git",
 		"jsdoc": "git+https://github.com/ff0000-ad-tech/jsdoc.git",
-		"jsdoc-babel": "^0.3.0"
+		"jsdoc-babel": "^0.3.0",
+		"jsdoc-package-tag": "git+https://github.com/ff0000-ad-tech/jsdoc-package-tag.git"
 	},
 	"devDependencies": {
 		"eslint": "^4.16.0",
