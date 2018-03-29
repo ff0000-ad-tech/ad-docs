@@ -106,7 +106,7 @@
 
     
     <div class="description">
-        <a href="https://github.com/ff0000-ad-tech/ad-canvas">Github repo</a>
+        Import from <a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas</a>
 		<br><br>
 		
 		Blurs all the imagery of a canvas given a Canvas element or CanvasDrawer instance.
@@ -201,6 +201,401 @@
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".set"><span class="type-signature">&lt;static> </span>set(obj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Blur the content of a canvas DOM element
+			<br><br>
+
+			<b>EXAMPLES::</b><br>
+			Starting with this image::<br>
+			<img src="../docs_images/canvasdrawer/default.jpg" />
+			<br><br>
+
+			Blur while preserving alpha::
+			<pre class="sunlight-highlight-javascript">
+CanvasBlur.set({
+	target: _myCanvasDrawer.canvas,
+	amount: 3,
+	alpha: true
+});
+</pre>
+			<br>
+			<img src="../docs_images/canvasdrawer/blur.jpg" />
+			<br><br>
+
+			Blur while preserving outline::<br>
+			<pre class="sunlight-highlight-javascript">
+// because clear: true, will redraw the canvas to remove the previous blur of amount: 3
+// alpha: false will preserve the outline of the target while blurring its innards
+CanvasBlur.set({
+	target: _myCanvasDrawer,
+	amount: 10,
+	clear: true,
+	alpha: false
+});
+</pre>
+			<br>
+			<img src="../docs_images/canvasdrawer/blur_noAlpha.jpg" />
+			<br><br>
+
+			Blur content horizontally only::<br>
+			<pre class="sunlight-highlight-javascript">
+CanvasBlur.set({
+	target: _myCanvasDrawer,
+	amount: {
+		x: 20
+	}
+});
+</pre>
+			<br>
+			<img src="../docs_images/canvasdrawer/blur_x.jpg" />
+			<br><br>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an object with parameters for overall blurring, see properties for more information</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="CanvasDrawer.html">CanvasDrawer</a></span>
+|
+
+<span class="param-type"><a href="UICanvas.html">UICanvas</a></span>
+|
+
+<span class="param-type">canvas</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a CanvasDrawer or CANVAS DOM element used to determine what to blur</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+|
+
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a NUMBER by which blur the content of the target or an OBJECT containing unique X and Y blur amounts
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">NUMBER by which to blur the content horizontally (will average with a given Y blur)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">NUMBER by which to blur the content vertically (will average with a given X blur)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>alpha</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a BOOLEAN to toggle whether or not to blur a target's alpha values. Defaults to false, which will blur the content but preserve the shape of the imagery</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>clear</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a BOOLEAN which will redraw a CanvasDrawer (but not any other canvas element). Defaults to false, which will compound previous effects</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-canvas_lib_CanvasBlur.js.html">ad-canvas/lib/CanvasBlur.js</a>,
+				 <a href="ad-canvas_lib_CanvasBlur.js.html#sunlight-1-line-47">line 47</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
+    
 
     
 
@@ -253,7 +648,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Mon Mar 19th 2018
+		on Thu Mar 29th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
