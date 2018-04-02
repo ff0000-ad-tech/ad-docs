@@ -25,7 +25,7 @@ To see an example Build Source, please head over to the [Standard Base Template 
 
 Every organization/individual has strong biases for their authoring tools. Sometimes this is opinion. More often, these contraints are beyond their control. We may prefer React, but a 100k compiled library is out-of-the-question for ads!
 
-At RED, we have developed our own framework for authoring ads. It works well for us, and you are invited to use it and contribute to its growth.
+At RED, we have developed our own framework for authoring ads. It works well for us, and you are invited to use it and contribute to its growth. At this time, we don't have proper tutorials -- however, if you have some familiarity or have been trained, you should bookmark [FF0000 Ad Tech Framework - Generated Docs](https://ff0000-ad-tech.github.io/ad-docs/) 
 
 If you are already invested in your own stack, you may rather consider integrating solely with Creative Server. We believe the challenge of managing many versions of, essentially, the same execution should not be something that needs attention every campaign. 
 
