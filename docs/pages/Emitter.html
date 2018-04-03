@@ -1,0 +1,2745 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Class: Emitter</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: Emitter</h1>
+<section>
+
+<header>
+    
+        <h2>
+        Emitter
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="Emitter"><span class="type-signature"></span>new Emitter()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <a href="https://github.com/ff0000-ad-tech/ad-particles">Github repo</a>
+		<br><br>
+
+		( v1.1 )
+		<br><br>
+
+		Emitter is a particle system that emits and controls particles and renders on a canvas element.
+		It comes with some basic physic features such as gravity, force, bounce and world boundary. 
+		<br><br>
+
+		The default setting is in <code>js/EmitterData.js</code> that comes with standard-particles template. 
+		To tweak the default data, launch particle simulator in AdApp and work with the interface. When you have 
+		reached your desired effect, copy the genrated code back to <code>js/EmitterData.js</code>.
+		<br><br>
+
+		For more info about the simulator, visit
+		<a href="https://confluence.ff0000.com/display/AT/PARTICLES">https://confluence.ff0000.com/display/AT/PARTICLES</a>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">//create a canvas element
+adData.elements.particleCanvas = new UICanvas({
+	id: &#x27;particle-canvas&#x27;,
+	target: adData.elements.redAdContainer,
+	css: {
+		width: adParams.adWidth,
+		height: adParams.adHeight
+	}
+});
+
+//create an instance of Emitter
+adData.particleSystem = new Emitter();
+
+//initiate the emitter with the target canvas element
+adData.particleSystem.init( adData.elements.particleCanvas );
+
+//start emitting
+adData.particleSystem.emit();
+
+//stop emitting
+adData.particleSystem.stopEmitting();</pre>
+
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".tween">
+    <h4 id=".tween"><span class="type-signature">&lt;static> </span>tween<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Creates a object to hold tween functions:
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tween.to</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><a href="Emitter.html#.to">Emitter.to</a></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-316">line 316</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".addCustomBehavier"><span class="type-signature">&lt;static> </span>addCustomBehavier(type, func)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Adds on custom behavier in the run loop. If the type is 'particle' function, it will be called in each particle iteration in the run loop
+ 		with the iterated particle as the first parameter and an array of all particles as the second. If the type is 'emitter', it will be called
+ 		in each run loop with the emitter as a parameter.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'particle' or 'emitter'</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">function to add</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-182">line 182</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">function customParticleBehavier1 ( particle, particleGroup ) {
+var particleLocation = particle.properties.location;
+var i;
+//if there is another particle in the range of 60, set the color to red
+//otherwise set it to yellow
+ 		    for( i=0; i&lt;particleGroup.length; i++ ) {
+ 		        var particle2 = particleGroup[ i ];
+ 		        var dist = particleLocation.dist( particle2.properties.location );
+ 		        if( dist &lt; 60 ) {
+ 		            particle.properties.style.color = [ 255, 0, 0 ];
+ 		        } else {
+ 		            particle.properties.style.color = [ 255, 255, 0 ];
+ 		        }
+ 		    }
+        		}
+         		function customParticleBehavier2 ( particle, particleGroup ) {
+particle.properties.style.scale = particle.properties.location.y * 0.1;
+        		} 
+ 	        	function customEmitterBehavier ( emitter ) {
+     			//animate the gravityAmount using frameCount
+emitter.set( &#x27;gravityAmount&#x27;, Math.sin( emitter.frameCount * 0.1 ));
+ 		};
+myEmitter.addCustomBehavier( &#x27;particle&#x27;, customParticleBehavier1 );
+ 		myEmitter.addCustomBehavier( &#x27;particle&#x27;, customParticleBehavier2 );
+ 		myEmitter.addCustomBehavier( &#x27;emitter&#x27;, customEmitterBehavier );</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".addModel"><span class="type-signature">&lt;static> </span>addModel(modelObj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Add a particle model
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>modelObj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the object of the particle model to be added</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-423">line 423</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var modelObj = {
+type: &quot;Circle&quot;,
+ 	            width: 12,
+ 	            properties: {},
+ 	            id: &#x27;model5&#x27;
+         	};
+         	myEmitter.addModel( modelObj );</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".createParticles"><span class="type-signature">&lt;static> </span>createParticles(amount)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Creates particles from the particle models of the emitter.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the amount of particles to create</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-379">line 379</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".emit"><span class="type-signature">&lt;static> </span>emit()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Starts emitting particles.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-247">line 247</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.emit();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".empty"><span class="type-signature">&lt;static> </span>empty()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Emptys all particles.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-277">line 277</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.empty();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".get"><span class="type-signature">&lt;static> </span>get(key)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets a sinlge property of emitter properties.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the property (supports nested object key)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-139">line 139</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The value of the property
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+|
+
+<span class="param-type">string</span>
+|
+
+<span class="param-type">object</span>
+|
+
+<span class="param-type">array</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var rate = myEmitter.get( &#x27;emitRate&#x27; );
+var lifeSpanValue = myEmitter.get( &#x27;lifeSpan.value&#x27; );</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".init"><span class="type-signature">&lt;static> </span>init(canvasElement, setting)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Initiates the Emitter.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>canvasElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="CanvasElement.html">CanvasElement</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a canvas element</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>setting</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">optional, contains fps and emitterData as properties to overide the frame rate and EmitterData, see Properties for more info:</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>emitterData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">EmitterData</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fps</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">default fps(60)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-62">line 62</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myEmitter = new Emitter();
+//init emitter with default setting
+  		myEmitter.init( canvasElement );
+  
+  		//init emitter with custom setting
+  		var customSetting = {
+fps: 30,
+emitterData: myCustomEmitterData
+  		};
+  		myEmitter.init( canvasElement, customSetting );</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".pause"><span class="type-signature">&lt;static> </span>pause()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Pause the run loop ( freeze it! ).
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-292">line 292</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.pause();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".removeCustomBehavier"><span class="type-signature">&lt;static> </span>removeCustomBehavier(type, func)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Removes the custom behavier added.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'particle' or 'emitter'</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">function to remove</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-224">line 224</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.removeCustomBehavier( &#x27;particle&#x27;, customParticleBehavier1 );
+myEmitter.removeCustomBehavier( &#x27;emitter&#x27;, customEmitterBehavier );</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".removeModel"><span class="type-signature">&lt;static> </span>removeModel(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Remove a particle model by its id
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the id of the particle model to be removed</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-444">line 444</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.removeModel( &#x27;model5&#x27; );</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".resume"><span class="type-signature">&lt;static> </span>resume()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Resume the run loop after pause.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-304">line 304</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.resume();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".set"><span class="type-signature">&lt;static> </span>set(key, val, triggerChange)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets a sinlge property of emitter properties. To set multiple properties at once, please use setProperties.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the property (supports nested object key)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>val</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+|
+
+<span class="param-type">string</span>
+|
+
+<span class="param-type">object</span>
+|
+
+<span class="param-type">array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the value of the property</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>triggerChange</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">optional, it is for internal use</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-114">line 114</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.set( &#x27;emitRate&#x27;, 0.1 );
+myEmitter.set( &#x27;origin.value.x&#x27;, 0 );</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setProperties"><span class="type-signature">&lt;static> </span>setProperties(obj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets a group of properties of emitter properties (supports nested object key)
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an object containing properties and values</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-157">line 157</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.setProperties({
+&#x27;emitRate&#x27;: 0.1,
+&#x27;background.type&#x27;: &#x27;none&#x27;,
+&#x27;origin.value.x&#x27;: 100
+ 		});</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".stopEmitting"><span class="type-signature">&lt;static> </span>stopEmitting()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Stops emitting particles.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-265">line 265</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.stopEmitting();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".to"><span class="type-signature">&lt;static> </span>to(duration, props)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        It creates a TweenLite animation for tweening emitter properties.
+ 		( The purpose of this is to tween multiple nested keys in property object, since TweenLite doesn't support nested keys. )
+ 		<br><br>
+ 		<b>NOTE!!!</b>
+ 		This method is on the <a href="Emitter.html#.tween">Emitter.tween</a> object!
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">duration of the tween in seconds</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">properties to use</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-326">line 326</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myEmitter.tween.to( 0.3, {
+&#x27;emitRate&#x27;: 1,
+&#x27;velocity.value.angle&#x27;: 45,
+&#x27;origin.value.x&#x27;: 100,
+&#x27;origin.value.y&#x27;: 350,
+delay: 1,
+onComplete: function () {
+	console.log( &#x27;Done!&#x27; );
+}
+     	   	});</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

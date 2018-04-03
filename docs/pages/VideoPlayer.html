@@ -1,0 +1,3022 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Class: VideoPlayer</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: VideoPlayer</h1>
+<section>
+
+<header>
+    
+        <h2>
+        VideoPlayer
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="VideoPlayer"><span class="type-signature"></span>new VideoPlayer()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Import from <a href="https://github.com/ff0000-ad-tech/ad-video">ad-video</a>
+		<br><br>
+		
+		This object creates a custom Video Player instance.  This player has the ability to function as a regular player or it can work as the inline/autoplay video.
+		<br><br>
+
+		<b>Sample Player</b><br>
+		<pre class="sunlight-highlight-javascript">
+adData.elements.videoPlayer = new VideoPlayer({
+	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+	target: adData.elements.redAdContainer,
+	id: 'My_Unique_ID',
+	css: {
+		width: 300,
+		height: 250	
+	},
+	preload : false,
+	autoPlay : false,
+	muted : false,
+	volume: .8,
+
+	onComplete: function(event){
+		console.log( 'video complete' )
+	},
+	onFail: global.failAd,
+});
+
+adData.elements.videoPlayer.play();
+</pre>
+		<br><br>
+
+
+		<b>Sample Autoplay</b><br>
+		<pre class="sunlight-highlight-javascript">
+adData.elements.videoPlayer = new VideoPlayer({
+	source: [
+		adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+		adParams.videosPath + 'RED_Html5_Showcase_300x250.mpg'
+	],
+	target: adData.elements.redAdContainer,
+	id: 'My_Unique_ID',
+	css: {
+		width: 300,
+		height: 250	
+	},
+	preload : true,
+	autoPlay : true,
+	muted : true,
+	forceInline : true,
+
+	onComplete: function(event){
+		console.log( 'video complete' )
+	},
+	onFail: global.failAd,
+});
+</pre>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".autoPlay">
+    <h4 id=".autoPlay"><span class="type-signature">&lt;static> </span>autoPlay<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A Boolean that changes if the video will automatically play.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-215">line 215</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myVideoPlayer.autoPlay = false;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".complete">
+    <h4 id=".complete"><span class="type-signature">&lt;static> </span>complete<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A Boolean representing if the video has ended.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-87">line 87</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".container">
+    <h4 id=".container"><span class="type-signature">&lt;static> </span>container<span class="type-signature"> :<a href="UIComponent.html">UIComponent</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A &lt;div>, the top level container for the entire player instance.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="UIComponent.html">UIComponent</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-163">line 163</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".currentTime">
+    <h4 id=".currentTime"><span class="type-signature">&lt;static> </span>currentTime<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A Number representing the video time position.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-265">line 265</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".duration">
+    <h4 id=".duration"><span class="type-signature">&lt;static> </span>duration<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A Number representing the length of the video in seconds.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-276">line 276</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".hasPlayed">
+    <h4 id=".hasPlayed"><span class="type-signature">&lt;static> </span>hasPlayed<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A Boolean representing if the video has played to completion.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-94">line 94</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".muted">
+    <h4 id=".muted"><span class="type-signature">&lt;static> </span>muted<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A Boolean representing if the video volume is muted.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-379">line 379</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".onBuffer">
+    <h4 id=".onBuffer"><span class="type-signature">&lt;static> </span>onBuffer<span class="type-signature"> :function</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A callback for when the Video pauses due to buffering.  Can be set as optional parameter on instantiated.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-115">line 115</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".onComplete">
+    <h4 id=".onComplete"><span class="type-signature">&lt;static> </span>onComplete<span class="type-signature"> :function</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A callback for when the Video is finished.  Can be set as optional parameter on instantiated.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-101">line 101</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".onFail">
+    <h4 id=".onFail"><span class="type-signature">&lt;static> </span>onFail<span class="type-signature"> :function</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A callback for when the Video fails.  Can be set as optional parameter on instantiated.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-108">line 108</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".onProgress">
+    <h4 id=".onProgress"><span class="type-signature">&lt;static> </span>onProgress<span class="type-signature"> :function</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A callback for when as Video progresses while playing.  Can be set as optional parameter on instantiated.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-122">line 122</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".onReady">
+    <h4 id=".onReady"><span class="type-signature">&lt;static> </span>onReady<span class="type-signature"> :function</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A callback for when Video is buffered and ready to play.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-129">line 129</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".paused">
+    <h4 id=".paused"><span class="type-signature">&lt;static> </span>paused<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A Boolean representing if the video is playing.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-287">line 287</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".percent">
+    <h4 id=".percent"><span class="type-signature">&lt;static> </span>percent<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A Number 0-1 representing the video timeline percent position.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-298">line 298</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".screen">
+    <h4 id=".screen"><span class="type-signature">&lt;static> </span>screen<span class="type-signature"> :video</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The &lt;video> element, or if autoplay on a device, will return the driver object.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">video</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-205">line 205</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".source">
+    <h4 id=".source"><span class="type-signature">&lt;static> </span>source<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Changes the source of the video.  Pass a string of the video file path to set.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-309">line 309</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myVideoPlayer.source = &#x27;videos/myVideoFile.mp4&#x27;;			</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".volume">
+    <h4 id=".volume"><span class="type-signature">&lt;static> </span>volume<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Changes the volume of the video.  Assign a number, between 0 - 1 to set the volume.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-359">line 359</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myVideoPlayer.volume = .8;			</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".addControls"><span class="type-signature">&lt;static> </span>addControls(obj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Adds VideoControls to the VideoPlayer instance. Used only if controls NOT passed thru on instantiation.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object of desired controls, see <a href="VideoControls.html">VideoControls</a></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-606">line 606</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">//
+myVideoPlayer.addControls({
+	controlBar : {	
+		buttonPlayPause : true,
+		progressControl : true,
+		buttonFullScreen : true
+	}
+});</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".addCuePoint"><span class="type-signature">&lt;static> </span>addCuePoint(time, handler, params)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Add to the load queue: a single or array of files or even another Loader.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>time</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The time, in seconds, to fire the call back.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A callback function.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optional parameters to pass back through the call back.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-570">line 570</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">//
+myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
+	function handleCuePoint ( isVar, num, obj ) {
+	console.log( &#x27;cue point&#x27;, isVar, num, obj );
+}			</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".load"><span class="type-signature">&lt;static> </span>load()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Loads the current video source. If preload is true, this is redundant.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-407">line 407</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myPlayer.load();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".mute"><span class="type-signature">&lt;static> </span>mute()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Mutes the Video Player, does not change the volume.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-518">line 518</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myVideoPlayer.mute()</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".pausePausesthecurrentvideo."><span class="type-signature">&lt;static> </span>pause
+ 		Pauses the current video.()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-453">line 453</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myPlayer.pause();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".play"><span class="type-signature">&lt;static> </span>play()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Plays the current video.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-420">line 420</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myPlayer.play();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".resize"><span class="type-signature">&lt;static> </span>resize(width, height)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Changes the size of the Video Player
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A number of the width</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A number of the height</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-550">line 550</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myVideoPlayer.resize( 400, 300 )</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".seek"><span class="type-signature">&lt;static> </span>seek(sec)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Skips the video to a specific time.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sec</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The time to skip the video to in seconds.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-473">line 473</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myPlayer.seek( 4 );</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".stop"><span class="type-signature">&lt;static> </span>stop()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Stops the video and resets it to the beginning.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-499">line 499</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myPlayer.stop();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".unmute"><span class="type-signature">&lt;static> </span>unmute()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Unmutes the Video Player, does not change the volume.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-534">line 534</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myVideoPlayer.unmute()</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

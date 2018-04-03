@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-particles/lib/Particle.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-particles/lib/Particle.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class Particle
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-particles">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		This Particle class is used along with {@link ParticleModel} and {@link Emitter} class. 
+*/
+import { Vector2D, SimpleNoise2D } from 'ad-geom'
+import ParticleModel from './ParticleModel'
+import ParticlesUtils from './ParticlesUtils'
+
+var Particle = function(ctx, model, fps) {
+	var self = this
+	//set up properties
+	self.fps = fps
+	self.graphic = model.graphic
+	self.properties = model.generateIndividualProperties()
+	self.frameCount = 0
+	self.ctx = ctx
+
+	self._lifeSpanFrameCount = ParticlesUtils.secToFrameCount(self.properties.lifeSpan, self.fps)
+	self._force = new Vector2D(0, 0)
+	self._hasAnimation = function() {
+		var ani = self.properties.animations
+		var i
+		for (var key in ani) {
+			if (ani[key].steps.length > 0) {
+				return true
+			}
+		}
+		return false
+	}.bind(self)()
+
+	self._hasTurbulence = function() {
+		var t = self.properties.turbulence
+		return t.rate !== 0 &amp;&amp; t.x !== 0 &amp;&amp; t.y !== 0
+	}.bind(self)()
+}
+
+Particle.prototype = {
+	/**
+		@memberof Particle
+		@method update
+		@desc
+			Updates the properties of the particle
+    */
+	update: function() {
+		var p = this.properties
+		var vel = p.velocity.clone()
+
+		p.velocity.mult(1 + p.acceleration)
+		p.velocity.add(this._force)
+		p.velocity.limit(p.maxSpeed)
+		p.location.add(p.velocity)
+
+		this._force.mult(0)
+
+		if (this._hasTurbulence) {
+			if (!this.noiseStart) {
+				this.noiseStart = new Vector2D.random()
+				this.noiseStart.mult(250)
+			}
+
+			var t = p.turbulence
+			this.noiseStart.add(new Vector2D(t.rate, t.rate))
+
+			var n = SimpleNoise2D.get(this.noiseStart.x, this.noiseStart.y)
+			p.location.x += n.x * t.xAmplitude
+			p.location.y += n.y * t.yAmplitude
+		}
+
+		p.style.x = p.location.x
+		p.style.y = p.location.y
+
+		this.frameCount++
+	},
+
+	/** 
+		@memberof Particle
+		@method getAnimationStyle
+		@desc
+			Update the animated style of a particle
+    */
+	getAnimationStyle: function() {
+		//TODO: optimize
+		var p = this.properties
+		var style = {}
+		var sec = ParticlesUtils.frameCountToSec(this.frameCount, this.fps)
+		var offsetStyle = ParticlesUtils.easyTween(p.animations, p.lifeSpan, sec)
+
+		// apply to each key
+		for (let key in p.style) {
+			if (offsetStyle[key] !== undefined) {
+				var val = p.style[key] * offsetStyle[key]
+				style[key] = val
+			} else {
+				style[key] = p.style[key]
+			}
+		}
+		return style
+	},
+
+	/**
+		@memberof Particle
+		@method render
+		@desc
+			Renders the particle onto the canvas context.
+	*/
+	render: function() {
+		var style = this._hasAnimation ? this.getAnimationStyle() : this.properties.style
+		this.graphic.render(this.ctx, style, this.frameCount)
+	},
+
+	/**
+		@memberof Particle
+		@method applyForce
+		@desc
+			Applies force to the particle.
+	*/
+	applyForce: function(f) {
+		this._force.add(f)
+	},
+
+	/**
+		@memberof Particle
+		@method isDead
+		@returns {boolean}
+		@desc
+			Returns a boolean of is the particle is dead depending on two situations:
+			&lt;br>
+			&lt;ol>
+				&lt;li>if it has reaches its lifespan, or&lt;/li>
+				&lt;li>if it is out of the canvas and if {@link EmitterData.killIfOutOfCanvas} is set to true&lt;/li>
+			&lt;/ol>
+    */
+	isDead: function(w, h, k) {
+		var p = this.properties
+		var remainingLife = this._lifeSpanFrameCount - this.frameCount
+
+		if (remainingLife &lt;= 0) {
+			return true
+		}
+
+		if (k) {
+			var l = p.location
+			var g = this.graphic
+			var size = Math.max(g.width, g.height) * p.style.scale
+			if (l.x - size > w || l.y - size > h || l.x + size &lt; 0 || l.y + size &lt; 0) {
+				return true
+			}
+		}
+
+		return false
+	},
+
+	/**
+		@memberof Particle
+		@method checkWorld
+		@param {array} w
+			an array that contains left X, right X, top Y, bottom Y as values for the boundary
+		@desc
+			Remains the particle in the defined world boundaries by its body size and bounces it when it hits the boundaries.
+	*/
+	checkWorld: function(w) {
+		var l = this.properties.location
+		var r = this.properties.bodySize
+		var x1 = w[0] + r
+		var x2 = w[1] - r
+		var y1 = w[2] + r
+		var y2 = w[3] - r
+
+		if (l.x &lt;= x1) {
+			this._checkBorder('x', x1)
+		} else if (l.x >= x2) {
+			this._checkBorder('x', x2)
+		}
+
+		if (l.y &lt;= y1) {
+			this._checkBorder('y', y1)
+		} else if (l.y >= y2) {
+			this._checkBorder('y', y2)
+		}
+	},
+
+	/**
+		@memberof Particle
+		@method _checkBorder
+		@param {string} axis
+			String 'x' or 'y'
+		@param {number} val - the location of the border on the X or Y axis
+
+		@desc
+			Check it the particle location reaches the border, if ture, it bounces to it.
+	*/
+	_checkBorder: function(axis, val) {
+		//axis: x or y
+		var p = this.properties
+		var v = p.velocity
+		var b = p.bounceAmount
+
+		if (axis === 'x') {
+			v.x *= -b
+			v.y *= b
+			p.location.x = val
+		} else {
+			v.x *= b
+			v.y *= -b
+			p.location.y = val
+		}
+	}
+}
+
+export default Particle
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

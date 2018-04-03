@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-canvas/lib/CanvasRect.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-canvas/lib/CanvasRect.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class CanvasRect
+	@param {object} rectObj
+		an object containing the arguments for defining / orienting the rectangle, see Properties for more info:
+	@property {CanvasDrawer} target
+		the {@link CanvasDrawer} element in which to draw the rectangle
+	@property {string} id
+		an optional STRING defining the name by which the rectangle will be referenced. Defaults to 'canvasdItemX' where X = the number of elements in a {@link CanvasDrawer}.
+	@property {object} params
+		an object with the following properties:
+		@property {number} params.x
+			NUMBER X coordinate for where to draw the image data
+		@property {number} params.y
+			NUMBER Y coordinate for where to draw the image data
+		@property {number} params.width
+			NUMBER for the width of the rectangle. Default to height value
+		@property {number} params.height
+			NUMBER for the height of the rectangle. Defaults to width value
+		@property {number} params.scale
+			NUMBER for uniform scale of the drawing, scaling from drawing center unless transformOrigin is changed. Will compound with but not change values of scaleX or scaleY
+		@property {number} params.scaleX
+			NUMBER for X scale of the drawing, scaling from drawing center unless transformOrigin is changed
+		@property {number} params.scaleY
+			NUMBER for Y scale of the drawing, scaling from drawing center unless transformOrigin is changed
+		@property {number} params.rotation
+			NUMBER IN DEGREES for the start rotation of the given drawing
+		@property {string} params.transformOrigin
+			an optional STRING defining an element's origin for scale and rotation, written as two values in a string with either a '%' or 'px' marker. Defaults to '50% 50%'.
+		@property {number} params.alpha
+			NUMBER for alpha of the drawing
+		@property {object} dropShadow
+			an optional OBJECT defining properties of the rectangle's drop shadow
+			@property {number} dropShadow.angle
+				NUMBER IN DEGREES for the angle to position the shadow
+			@property {number} dropShadow.distance
+				NUMBER for how far away from the rectangle the shadow is
+			@property {number} dropShadow.blur
+				NUMBER for how blurry the shadow is
+			@property {string|object} dropShadow.color
+				optional color of shadow as either a HEX STRING :"#ff0000", 
+				RGB/A STRING: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)", 
+				or an RGB/A OBJECT:{r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}. Defaults to '#000000'
+			@property {number} dropShadow.alpha
+				NUMBER for the alpha of the shadow. Defaults to 1, overrides the alpha of an RGBA color
+	@property {string|CanvasBlendMode} blendMode
+		an optional STRING for the globalCompositeOperation - controls overlays, screens, multiply, masking, etc. Defaults to 'source-over'
+	@property {string|CanvasTexture} fill
+		an optional STRING or gradiant variable defining the color fill of the rectangle. Defaults to none / invisible
+	@property {object} stroke
+		an optional OBJECT defining properties of the rectangle's stroke
+		@property {string|CanvasTexture} stroke.fill
+			an optional STRING or gradiant variable defining the color fill of the rectangle stroke. Defaults to  none / invisible
+		@property {string} stroke.width
+			an optional NUMBER value determining stroke width. Defaults to 0
+		@property {string} stroke.position
+			an optional STRING determining if the stroke will be 'outer' or 'center'. Defaults to 'outer', there is no 'inner'
+		@property {string} stroke.cap
+			an optional STRING value determining a line's cap style: 'butt', 'round', and 'square'. Defaults to 'butt'
+			&lt;br>
+			&lt;img src="../docs_images/canvasdrawer/lineCap.jpg" />
+			&lt;br>
+		@property {string} stroke.join
+			an optional STRING value determining how two lines/corners connect: 'round', 'bevel', and 'miter'. Defaults to 'miter'
+			&lt;br>
+			&lt;img src="../docs_images/canvasdrawer/lineJoin.jpg" />
+			&lt;br>
+		@property {number} stroke.dashSize
+			an optional NUMBER value determining the length of each segment in a dashed line
+		@property {number} stroke.dashGap
+			an optional NUMBER value determining the gap between each segment in a dashed line. Defaults to 0, unless dashSize is defined, then defaults to dashSize
+		@property {number} stroke.dashOffset
+			an optional NUMBER value which offsets the positioning of the dash segments. A positive number moves them counter-clockwise. Defaults to 0
+	@property {boolean} visible
+		an optional BOOLEAN that, when set to false, will not render the element. Defaults to true
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-canvas">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		Add a rectangle shape to a {@link CanvasDrawer} based on a given object, and return a reference to that shape.
+		&lt;br>&lt;br>
+		&lt;b>EXAMPLE::&lt;/b>&lt;br>
+		Adding a rectangle with an overlay blend, blue fill, 5px yellow stroke&lt;br>
+		&lt;codeblock>
+			var _myShape = new CanvasRect({
+				target: adData.elements.myCanvasDrawer,
+				id: 'myRect',
+				params: {
+					x: 20,
+					y: 20,
+					width: 100,
+					height: 100
+				},
+				blendMode: 'overlay',
+				fill: 'blue',
+				stroke: {
+					fill: 'yellow',
+					width: 5
+				}
+			});
+		&lt;/codeblock>
+		&lt;br>
+*/
+
+/**
+	@memberof CanvasRect
+	@const {string} id
+		READ-ONLY: STRING representing the id of the element
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} x		
+		NUMBER representing the horizontal position of the element
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} left
+				NUMBER representing a reference to the x property,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} y 		
+				NUMBER representing the vertical position of the element,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} top
+				NUMBER representing a reference to the y property,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} width
+				NUMBER representing the total width of the element,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} height
+				NUMBER representing the total height of the element,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} rotation
+				NUMBER representing the rotation, in degrees, of the element,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} alpha
+				NUMBER representing the opacity of the element,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} opacity
+				NUMBER representing a reference to the alpha property,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} scale
+				NUMBER representing the scale of the element. Will compound with but not change values of scaleX or scaleY,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} scaleX
+				NUMBER representing the horizontal scale of the element,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} scaleY
+				NUMBER representing the vertical scale of the element,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} blendMode
+				NUMBER representing the blend or masking style applied to the element,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} visible
+				BOOLEAN representing whether or not the element should be drawn,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {string} transformOrigin
+		STRING representing the origin from which to perform scales and rotations. Written as two values in a string with either a '%' or 'px' marker (ie '50% 50%' or '5px 100px').
+		&lt;b>NOTE::&lt;/b>&lt;br>
+		&lt;ul>
+			&lt;li>&lt;code>50% 50%&lt;/code> is centered, based on percentage.&lt;/li>
+			&lt;li>&lt;code>50px 50px&lt;/code> is 50 px away from &lt;code>0% 0%&lt;/code> vertically and horizontally.&lt;/li>
+			&lt;li>&lt;code>50 50&lt;/code> is the same as &lt;code>50px 50px&lt;/code>.&lt;/li>
+			&lt;li>Values can be mixed: &lt;code>50% 10px&lt;/code>, for instance.&lt;/li>
+		&lt;/ul>
+		&lt;br>
+		&lt;b>EXAMPLES::&lt;/b>&lt;br>
+		&lt;codeblock>
+			adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '50% 50%';
+			adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10px 100px';
+			adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
+		&lt;/codeblock>
+		&lt;br>
+*/
+
+/**
+	@memberof CanvasRect
+	@var {string} fill
+		STRING, gradient, or texture representing the color used to fill the shape,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {string} strokeFill
+		STRING, gradient, or texture representing the color used to fill the shape's stroke,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} strokeWidth
+		NUMBER representing the width of the shape's outline,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {string} strokeCap
+		STRING representing how the two ends of a line form: 'butt', 'round', and 'square',
+*/
+
+/**
+	@memberof CanvasRect
+	@var {string} strokeJoin
+		STRING representing how two lines/corners form: 'round', 'bevel', and 'miter',
+*/
+
+/**
+	@memberof CanvasRect
+	@var {string} strokePosition
+		STRING repsenting the position of the shape's stroke, 'outer' or 'center'; there is no 'inner',
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} strokeDashSize
+				NUMBER representing the length of each segment in a dashed line,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} strokeDashGap
+		NUMBER representing the gap between each segment in a dashed line,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} strokeDashOffset
+		NUMBER representing the offset positioning of the dash segments,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {string} shadowColor
+		STRING representing the color of the drop shadow in RGBA format,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} shadowBlur
+		NUMBER representing the amount of blur on the drop shadow,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} shadowAngle
+		NUMBER representing the angle, in degrees, of the drop shadow,
+*/
+
+/**
+	@memberof CanvasRect
+	@var {number} shadowDistance
+		NUMBER representing the distance of the drop shadow from the element,
+*/
+import CanvasShape from './CanvasShape'
+
+class CanvasRect extends CanvasShape {
+	constructor(rectObj) {
+		rectObj.type = 'rect'
+		super(rectObj)
+	}
+
+	_setShapeParams(args) {
+		var CR = this
+		CR.x = args[0]
+		CR.y = args[1]
+		CR.width = args[2]
+		CR.height = args[3]
+	}
+
+	_prepDrawing(translation) {
+		var CR = this
+		if (translation) {
+			CR.args[0] = -CR._offsetX * CR.stage.qualityScale
+			CR.args[1] = -CR._offsetY * CR.stage.qualityScale
+		} else {
+			CR.args[0] = CR.x * CR.stage.qualityScale
+			CR.args[1] = CR.y * CR.stage.qualityScale
+		}
+
+		CR.args[2] = CR.width * CR.stage.qualityScale
+		CR.args[3] = CR.height * CR.stage.qualityScale
+
+		CR.stage.ctx.rect.apply(CR.stage.ctx, CR.args)
+	}
+}
+
+export default CanvasRect
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

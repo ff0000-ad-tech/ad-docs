@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-ui/lib/UIImage.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-ui/lib/UIImage.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class UIImage
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-ui">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		This is a display object class, extending {@link UIComponent}.  It is a DOM element that has default values for the background image styles.
+		They can still be overwritten by simply changing them with {@link Styles.setCss} or the native {@link UIComponent.setCss} method directly on the UIImage instance.
+		&lt;br>&lt;br>
+
+		By default, UIImage has these styles set:&lt;br>
+		&lt;codeblock>
+			background-repeat : no-repeat; 
+			background-size : contain;
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+
+		By extending UIComponent this has all of its native properties and methods.  See {@link UIComponent} for more info.
+		&lt;br>&lt;br>
+
+
+		&lt;b>Sample 1:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// bare minimum creation - image source is required, but can be added to anything and named later.
+			var myImage = new UIImage({
+				source : 'template_image'
+			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+
+
+		&lt;b>Sample 2:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// simple creation - no style
+			// Added to a container, such as Main
+			T.myImage = new UIImage({
+				target : T,
+				id : 'my-image',
+				source : 'template_image'
+			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+		
+
+		&lt;b>Sample 3:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// simple creation using a double sized source image
+			var myImage = new UIImage({
+				target : T,
+				id : 'my-image',
+				source : 'template_image',
+				retina : true
+			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+		
+
+		&lt;b>Sample 4:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// create with assigned styles
+			var myImage = new UIImage({
+				target : T,
+				id : 'my-image',
+				source : 'template_image',
+				css : {
+					x : 36,
+					y : 14,
+					width : 120,
+					height: 140
+				}
+			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+		
+
+		&lt;b>Sample 5:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// create with only a known height, but maintain the aspect ratio
+			var myImage = new UIImage({
+				target : T,
+				id : 'my-image',
+				source : 'template_image',
+				css : {
+					width : 120
+				},
+				aspectRatio : true
+			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+
+
+		&lt;b>Sample 6:&lt;/b>&lt;br>
+		&lt;codeblock>
+			// create and align the image inline
+			var myImage = new UIImage({
+				target : T,
+				id : 'my-image',
+				source : 'template_image',
+				align : { 
+					x:{
+						type : Align.RIGHT,
+						offset : -10
+					},
+					y: {
+						type : Align.TOP,
+						offset : 10
+					}	
+				},
+				aspectRatio : true
+			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+		
+	---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+import UIComponent from './UIComponent'
+import { ImageManager } from 'ad-control'
+import { Styles } from 'ad-view'
+import { UIEvent } from 'ad-events'
+
+class UIImage {
+	constructor(arg) {
+		/* TODO
+				- lock aspect ratio (booleam?)
+		*/
+		/* ------------------------------------------------------------------------------------------------------------------------------- */
+		// BASE CSS
+		Styles.injectStylesheet('RED_uiImage', '.ui-image', 'background-repeat:no-repeat; background-size:contain;')
+
+		/* ------------------------------------------------------------------------------------------------------------------------------- */
+		// PRIVATE PROPERTIES
+		var _init = true
+		var _source = null
+		var _retina = false
+		var _ratio = 'contain'
+		var _aspectRatio = !!arg.aspectRatio
+		var _css = arg.css || {}
+
+		/* ------------------------------------------------------------------------------------------------------------------------------- */
+		// MARKUP
+		if (!arg.source) throw new Error("UIImage : No image source set on '" + arg.id + "'")
+
+		arg.css = arg.css || {}
+
+		var U = new UIComponent(arg)
+		Styles.addClass(U, 'ui-image')
+
+		/* ------------------------------------------------------------------------------------------------------------------------------- */
+		// GETTER | SETTTER
+		Object.defineProperties(U, {
+			/**
+				@memberOf UIImage
+				@var {string} source
+				@desc
+					Getter|Setter : The Image element id, via {@link ImageManager}, can be changed if need be but best to just make a new UIImage if a new source is needed.
+					Also, use this if you need to access the image for things like getting the original width or height.  
+				@example
+					// get
+					console.log( myImage.source );
+	
+					// set
+					myImage.source = 'template_image';
+			*/
+			source: {
+				get: function() {
+					return _source
+				},
+				set: function(value) {
+					_source = ImageManager.get(value)
+					U.style.backgroundImage = 'url(' + _source.src + ')'
+				}
+			},
+
+			/**
+				@memberOf UIImage
+				@var {boolean} retina
+				@desc
+					Getter|Setter : A Boolean to determine if the image source is double the size of the desired width &amp; height. This is only relevant
+					if when creating a new UIImage, you do not proved a width or height value.  If you do, the UIImage will simply be
+					the size provided. 
+				@example
+					// get
+					console.log( myImage.retina );
+	
+					// set
+					myImage.retina = false;
+			*/
+			retina: {
+				get: function() {
+					return _retina
+				},
+				set: function(value) {
+					_retina = value
+					resize()
+				}
+			},
+
+			/**
+				@memberOf UIImage
+				@var {string} ratio
+					Getter|Setter : A String to set the background-size property.  Use the {@link Ratio} class for constants that are easier
+					to understand: {@link Ratio.EXACT}, {@link Ratio.FIT}, {@link Ratio.FILL}, {@link Ratio.STRETCH}
+				@example
+					// get
+					console.log( myImage.ratio );
+	
+					// set
+					myImage.ratio = Ratio.FILL;
+			*/
+			ratio: {
+				get: function() {
+					return _ratio
+				},
+				set: function(value) {
+					_ratio = value
+					U.style.backgroundSize = value
+				}
+			},
+
+			/**
+				@memberOf UIImage
+				@var {boolean} aspectRatio
+				@desc
+					Getter|Setter : A Boolean to allow for the size of the element to maintain aspect ratio when either the width or height
+					are changed by directly setting them on the element, ie UIImage.width or UIImage.height.  If using Styles.setCss() this will NOT work.
+				@example
+					// get
+					console.log( myImage.aspectRatio );
+	
+					// set
+					myImage.aspectRatio = true;
+			*/
+			aspectRatio: {
+				get: function() {
+					return _aspectRatio
+				},
+				set: function(value) {
+					_aspectRatio = value
+					resize()
+				}
+			}
+		})
+
+		/* ------------------------------------------------------------------------------------------------------------------------------- */
+		// PUBLIC METHODS
+		U.toString = function() {
+			return '[object UIImage]'
+		}
+
+		/* ------------------------------------------------------------------------------------------------------------------------------- */
+		// PRIVATE METHODS
+		function resize(direction) {
+			var denominator = _retina ? 2 : 1
+			var ratio = _source.width / _source.height
+
+			var sourceWidth = arg.css.width || _source.width
+			var sourceHeight = arg.css.height || _source.height
+
+			var updateWidth = arg.css.width == undefined
+			var updateHeight = arg.css.height == undefined
+
+			if (!_init) {
+				updateWidth = direction == 'height'
+				updateHeight = direction == 'width'
+				sourceWidth = U.width
+				sourceHeight = U.height
+			}
+
+			if (updateWidth) {
+				var width
+				if (_aspectRatio &amp;&amp; !updateHeight) {
+					width = sourceHeight * ratio
+				} else {
+					width = sourceWidth / denominator
+				}
+				U.style.width = Math.round(width) + 'px'
+			}
+
+			if (updateHeight) {
+				var height
+
+				if (_aspectRatio &amp;&amp; !updateWidth) {
+					height = sourceWidth / ratio
+				} else {
+					height = sourceHeight / denominator
+				}
+				U.style.height = Math.round(height) + 'px'
+			}
+		}
+
+		/* ------------------------------------------------------------------------------------------------------------------------------- */
+		// EVENT HANDLERS
+		function handleResize(event) {
+			console.log('handleResize()', event, event.direction)
+			resize(event.direction)
+		}
+
+		/* ------------------------------------------------------------------------------------------------------------------------------- */
+		// INIT
+		U.addEventListener(UIEvent.RESIZE, handleResize)
+
+		U.source = arg.source
+		U.retina = !!arg.retina
+
+		if (arg.ratio) U.ratio = arg.ratio
+
+		U._initAlign()
+		_init = false
+
+		return U
+	}
+}
+
+export default UIImage
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

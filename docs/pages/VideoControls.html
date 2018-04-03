@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Class: VideoControls</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: VideoControls</h1>
+<section>
+
+<header>
+    
+        <h2>
+        VideoControls
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="VideoControls"><span class="type-signature"></span>new VideoControls()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Import from <a href="https://github.com/ff0000-ad-tech/ad-video">ad-video</a>
+		<br><br>
+		
+		This is a display object class, extending <a href="UIComponent.html">UIComponent</a>.  It is a DOM element that houses all the video control components:
+		<a href="UIButton.html">UIButton</a>, <a href="UISlider.html">UISlider</a> and <a href="UITextField.html">UITextField</a>.
+		<br><br>
+
+		This can be instantiated but is typically called internally from the VideoPlayer by passing in all params to the instantiation.  
+		All controls can be added to a <a href="UIControlBar.html">UIControlBar</a> or to the main container to be placed anywhere over the video.  This is done 
+		through the instantiation, by passing components to a node <code>onControlBar</code> or <code>onScreen</code>.  See example below.
+		<br><br>
+
+		<b>Accepted Components:</b><br>
+		<ul>
+			<li><code>buttonPlayPause</code>, see <a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li>
+			<li><code>buttonReplay</code>, see <a href="UIButtonReplay.html">UIButtonReplay</a></li>
+			<li><code>buttonFullScreen</code>, see <a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li>
+			<li><code>buttonMute</code>, see <a href="UIButtonMute.html">UIButtonMute</a></li>
+			<li><code>timeDisplay</code>, see <a href="UITimeDisplay.html">UITimeDisplay</a></li>
+			<li><code>sliderProgress</code>, see UISliderProgress</li>	 
+			<li><code>sliderVolume</code>, see UISliderVolume</li>
+		</ul>
+
+		<b>Example adding a play/pause button to the screen:</b><br>
+		<pre class="sunlight-highlight-javascript">
+adData.elements.videoPlayer = new VideoPlayer({
+	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+	target: adData.elements.redAdContainer,
+	id: 'My_Unique_ID',
+	css: {
+		width: 300,
+		height: 250
+	},				
+	controls : {
+		onScreen : {
+			buttonPlayPause : {
+				css : {
+					x : 130,
+					y : 40,
+					width : 80,
+					height : 80,
+					backgroundColor : 'rgba(10,200,10,.5)'
+				},
+				icon : [ 'btnPlay', 'btnPause' ]
+			}
+		}	
+	}
+});
+
+// access button 
+adData.elements.videoPlayer.controls.buttonPlayPause;
+</pre>
+		<br><br>
+
+
+		<b>Example adding a play/pause button to the ControlBar:</b><br>
+		<pre class="sunlight-highlight-javascript">
+adData.elements.videoPlayer = new VideoPlayer({
+	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+	target: adData.elements.redAdContainer,
+	id: 'My_Unique_ID',
+	css: {
+		width: 300,
+		height: 250
+	},				
+	controls : {
+		onControlBar : {
+			buttonPlayPause : {
+				icon : [ 'btnPlay', 'btnPause' ]
+			}
+		}	
+	}
+})
+
+// access button 
+adData.elements.videoPlayer.controls.controlBar.buttonPlayPause;
+</pre>
+		<br><br>
+			
+
+		<b>Example All Controls on ControlBar:</b><br>
+		<pre class="sunlight-highlight-javascript">
+// Full VideoPlayer with all options and controls
+adData.elements.videoPlayer = new VideoPlayer({
+	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+	target: adData.elements.redAdContainer,
+	id: 'My_Unique_ID',
+	css: {
+		width: 300,
+		height: 250
+	},
+	controls : {
+		replayOnInteraction : false,
+		unmuteOnInteraction : true,
+
+		onControlBar : {
+			controlBar : {
+				constant : false,
+				showOnPoster : false,
+				css : {
+					backgroundColor : 'rgba(250,100,20,.5)'
+				}					
+			},
+			buttonPlayPause : {
+				icon : [ 'btnPlay', 'btnPause' ]
+			},
+			buttonReplay : {
+				icon : [ 'btnReplay' ]
+			},
+			buttonMute : {
+				icon : [ 'btnUnMute', 'btnMute' ]
+			},
+			buttonFullScreen : {
+				icon : [ 'btnFullScreen' ]
+			},
+			sliderProgress : {
+				inline : true,
+				css : {
+					width : 120
+				},
+				onOver : function(){
+					console.log( this.track )
+				},
+				onOut : function(){
+					console.log( this.handle )
+				}
+			},
+			sliderVolume : {
+				css : {
+					width : 60
+				},
+				bg : {},
+				track : {},
+				handle : {}
+			},
+			timeDisplay : {
+				css : {
+					height : 'inherit',
+					color : '#ffffff'
+				},
+				fontSize : 18,
+				fontFamily : 'Arial',
+				alignText : Align.CENTER,
+				bufferText : {
+					left : 5,
+					right : 5
+				},
+
+				showDuration : true
+			}
+		}	
+	}
+});
+</pre>
+		<br><br>
+
+
+		<b>Example Controls on ControlBar AND on screen:</b><br>
+		<pre class="sunlight-highlight-javascript">
+// Full VideoPlayer with all options and controls
+adData.elements.videoPlayer = new VideoPlayer({
+	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
+	target: adData.elements.redAdContainer,
+	id: 'My_Unique_ID',
+	css: {
+		width: 300,
+		height: 250
+	},
+	
+	controls : {
+
+		replayOnInteraction : false,
+		unmuteOnInteraction : true,
+
+		onScreen : {
+			buttonPlayPause : {
+				css : {
+					x : 130,
+					y : 40,
+					backgroundColor : 'rgba(10,200,10,.5)'
+				},
+				icon : [ 'btnPlay', 'btnPause' ]
+			},
+			buttonReplay : {
+				css : {
+					x : 200,
+					y : 50,
+					width : 80,
+					height : 80,
+					backgroundColor : 'rgb(100,200,100)'
+				},
+				icon : [ 'btnReplay' ]
+			},
+			buttonMute : {
+				css : {
+					width : 70,
+					height : 70,
+					backgroundColor : 'rgba(20,200,10,.5)'
+				},
+				icon : [ 'btnUnMute', 'btnMute' ]
+			},
+		},
+		onControlBar : {
+			controlBar : {
+				constant : false,
+				showOnPoster : false,
+				css : {
+					//height : 50,
+					backgroundColor : 'rgba(250,100,20,.5)'
+				}					
+			},
+			buttonPlayPause : {
+				icon : [ 'btnPlay', 'btnPause' ]
+			},
+			buttonReplay : {
+				icon : [ 'btnReplay' ]
+			},
+			buttonMute : {
+				icon : [ 'btnUnMute', 'btnMute' ]
+			},
+			buttonFullScreen : {
+				icon : [ 'btnFullScreen' ]
+			},
+			sliderProgress : {
+				inline : true,
+				css : {
+					width : 120
+				},
+				bg : {},
+				loaded : {},
+				track : {},
+				handle : {},
+
+				onOver : function(){
+					console.log( this.track )
+				},
+
+				onOut : function(){
+					console.log( this.handle )
+				}
+			},
+			sliderVolume : {
+				css : {
+					width : 60
+				},
+				bg : {},
+				track : {},
+				handle : {}
+			},
+			timeDisplay : {
+				css : {
+					height : 'inherit',
+					color : '#ffffff'
+				},
+				fontSize : 18,
+				fontFamily : 'Arial',
+				alignText : Align.CENTER,
+				bufferText : {
+					left : 5,
+					right : 5
+				},
+
+				showDuration : true
+			}
+		}	
+	}
+});
+</pre>
+		<br><br>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoControls.js.html">ad-video/lib/VideoControls.js</a>,
+				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".controlBar">
+    <h4 id=".controlBar"><span class="type-signature">&lt;static> </span>controlBar<span class="type-signature"> :<a href="UIControlBar.html">UIControlBar</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Public access to the UIControlBar instance.  All UIComponents added to this will be accessed via the variable.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="UIControlBar.html">UIControlBar</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoControls.js.html">ad-video/lib/VideoControls.js</a>,
+				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-397">line 397</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".replayOnInteraction">
+    <h4 id=".replayOnInteraction"><span class="type-signature">&lt;static> </span>replayOnInteraction<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Get|Set: A Boolean that changes if the video player will start over on any click interaction, default is false.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoControls.js.html">ad-video/lib/VideoControls.js</a>,
+				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-406">line 406</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// GET
+console.log( myVideoPlayer.controls.replayOnInteraction );
+	// SET
+myVideoPlayer.controls.replayOnInteraction = false;			</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".unmuteOnInteraction">
+    <h4 id=".unmuteOnInteraction"><span class="type-signature">&lt;static> </span>unmuteOnInteraction<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Get|Set: A Boolean that changes if the video player will unmute on any click interaction, default is false.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-video_lib_VideoControls.js.html">ad-video/lib/VideoControls.js</a>,
+				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-431">line 431</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// GET
+console.log( myVideoPlayer.controls.unmuteOnInteraction );
+	// SET
+myVideoPlayer.controls.unmuteOnInteraction = true;			</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

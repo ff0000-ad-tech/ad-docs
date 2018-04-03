@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-animation/lib/SpritePlayer.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-animation/lib/SpritePlayer.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class SpritePlayer
+	@param {object} arg
+		See the example below to see all of the properties of this object.
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-animation">Github repo&lt;/a>
+		&lt;br>&lt;br>
+
+		SpritePlayer is an image sequence player. This can be used as a stand alone player or can be used with other systems such as {@link CanvasDrawer}.
+		&lt;br>&lt;br>
+
+		&lt;codeblock>
+			// Stand Alone Example:
+			var myPlayer = new SpritePlayer ({
+				id : 'my-canvas',
+				target : 'redAdContainer',
+				css : {
+					x : 10,
+					y : 15,
+					width : 160,
+					height : 160,
+					backgroundColor : '#cccccc'
+				},
+				source : 'star_160x160_16f',
+				sprite : {
+					x : 0,
+					y : 0,
+					frameWidth : 160,
+					frameHeight : 160,
+					frameNumber : 16,
+					//transformOrigin: { x: 0.5, y: 0.5 }
+					//scale : 2
+				},
+				//autoPlay : false,
+				loop : 4,
+				frame : 0,
+				speed:22,
+				//freeze : true,
+
+				onComplete:function(){
+					FrameRate.unregister ( A, handleTick, 15 )
+				}
+			});
+		&lt;/codeblock>
+*/
+import { UICanvas } from 'ad-ui'
+import { Graphic } from 'ad-particles'
+import { FrameRate } from 'ad-events'
+import { ImageManager } from 'ad-control'
+import { Styles, Align } from 'ad-view'
+
+function SpritePlayer(arg) {
+	/* ----------------------------------------------------------------------------------------------- */
+	// MARKUP
+	var spriteStyle = {
+		x: 0,
+		y: 0,
+		alpha: 1,
+		scale: 1,
+		rotation: 0,
+		transformOrigin: { x: 0, y: 0 }
+	}
+
+	var spriteSetting = {
+		frameWidth: 50,
+		frameHeight: 50,
+		frameNumber: 14,
+		speed: 1
+	}
+
+	for (var param in arg.sprite) {
+		if (param in spriteStyle) {
+			spriteStyle[param] = arg.sprite[param]
+		}
+		if (param in spriteSetting) {
+			spriteSetting[param] = arg.sprite[param]
+		}
+	}
+
+	var graphic = new Graphic.Sprite(ImageManager.get(arg.source), spriteSetting.frameWidth, spriteStyle, spriteSetting)
+
+	if (arg.target instanceof HTMLCanvasElement) {
+		// is a canvas already
+		var S = arg.target
+	} else {
+		var canvasW = arg.css.width
+		var canvasH = arg.css.height
+		var align = arg.align
+		delete arg.align
+		arg.css.width = spriteSetting.frameWidth
+		arg.css.height = spriteSetting.frameHeight
+
+		var S = new UICanvas(arg)
+		Styles.setCss(S, { width: canvasW, height: canvasH })
+		if (align) Align.set(S, align)
+	}
+
+	/* ----------------------------------------------------------------------------------------------- */
+	// PRIVATE PROPERTIES
+	var _isPlaying = false
+	var _speed = arg.speed || 24
+	var _frame = 0
+	var _total = spriteSetting.frameNumber
+	var _endFrame = _total - 1
+	var _loopTotal = Infinity
+	var _loopCount = -1
+	var _iterate = false
+
+	/* ----------------------------------------------------------------------------------------------- */
+	// PUBLIC PROPERTIES
+
+	/**
+		@memberOf SpritePlayer
+		@var {function} onComplete
+		@desc
+			A callback for when the Sprite is finished.
+	*/
+	S.onComplete = arg.onComplete || function() {}
+
+	/**
+		@memberOf SpritePlayer
+		@var {function} onComplete
+		@desc
+			A callback for when the Sprite loops.
+	*/
+	S.onLoop = arg.onLoop || function() {}
+
+	/* ----------------------------------------------------------------------------------------------- */
+	// GETTER | SETTERS
+	Object.defineProperties(S, {
+		/**
+			@memberOf SpritePlayer
+			@var {Graphic.Sprite} sprite
+			@desc
+				Direct access to the sprite object, which is used to manipulate the drawing within the canvas.
+			@example
+				TweenLite.to ( myPlayer.sprite, 3, { x:180, y:240, alpha:.2, scale:1, rotation:270 });
+		*/
+		sprite: {
+			get: function() {
+				return graphic.style
+			}
+		},
+
+		/**
+			@memberOf SpritePlayer
+			@var {boolean} loop
+			@desc
+				A boolean to toggle if the Sprite will continuously play.
+			@example
+				console.log( myPlayer.loop );
+				myPlayer.loop = true;
+		*/
+		loop: {
+			get: function() {
+				return graphic.setting.loop
+			},
+			set: function(value) {
+				var isLoop = value
+				if (typeof value === 'boolean') {
+					_loopTotal = Infinity
+				} else {
+					if (value == -1) {
+						_loopTotal = Infinity
+					} else {
+						_loopTotal = value
+					}
+					isLoop = value != 0
+				}
+				graphic.setting.loop = isLoop
+			}
+		},
+
+		/**
+			@memberOf SpritePlayer
+			@var {number} frame
+			@desc
+				A number representing the current frame displayed.
+			@example
+				console.log( myPlayer.frame );
+				myPlayer.frame = 7;
+		*/
+		frame: {
+			get: function() {
+				return _frame
+			},
+			set: function(value) {
+				_frame = value
+
+				if (value >= _total) {
+					_frame = 0
+				} else if (value &lt; 0) {
+					_frame = _total - 1
+				}
+				S.render()
+			}
+		},
+
+		/**	
+			@memberOf SpritePlayer	
+			@var {number} endframe
+			@desc
+				A number representing the endframe.
+			@example
+				trace ( myPlayer.frame );
+				myPlayer.endFrame = 7;
+				myPlayer.play()
+		*/
+		endFrame: {
+			get: function() {
+				return _endFrame
+			},
+			set: function(value) {
+				_endFrame = value
+
+				if (value == -1) {
+					_endFrame = _total - 1
+				}
+			}
+		},
+
+		/**
+			@memberOf SpritePlayer
+			@var {number} speed
+			@desc
+				A number representing the FrameRate, only applies when used as a stand alone player.
+			@example
+				console.log( myPlayer.speed );
+				myPlayer.speed = 18;
+
+		*/
+		speed: {
+			get: function() {
+				return _speed
+			},
+			set: function(value) {
+				S.pause()
+				_speed = value
+				S.play()
+			}
+		}
+	})
+
+	/* ----------------------------------------------------------------------------------------------- */
+	// PUBLIC METHODS
+	/**
+		@memberOf SpritePlayer
+		@method play
+		@desc
+			Plays the current sprite sheet.
+		@example
+			myPlayer.play();
+	*/
+
+	S.play = function() {
+		if (!_isPlaying) {
+			_iterate = false
+			FrameRate.register(S, handleFrameRate, _speed)
+			_isPlaying = true
+		}
+	}
+
+	/**
+		@memberOf SpritePlayer
+		@method pause
+		@desc
+			Pauses the current sprite sheet.
+		@example
+			myPlayer.pause();
+	*/
+
+	S.pause = function() {
+		if (_isPlaying) {
+			FrameRate.unregister(S, handleFrameRate, _speed)
+			_isPlaying = false
+		}
+	}
+
+	/**
+		@memberOf SpritePlayer
+		@method stop
+		@desc
+			Stops the sprite sheet and resets it to the beginning.
+		@example
+			myPlayer.stop();
+	*/
+	S.stop = function() {
+		_loopCount = 0
+		_frame = 0
+		S.pause()
+	}
+
+	S.clear = function() {
+		S.context2d.clearRect(0, 0, S.width, S.height)
+	}
+
+	/**
+		@memberOf SpritePlayer
+		@method render
+		@desc
+			Render the current frame on to the canvas.
+		@example
+			myPlayer.render();
+	*/
+	S.render = function() {
+		//	console.log( _frame )
+		graphic.render(S.context2d, {}, _frame)
+	}
+
+	/* ----------------------------------------------------------------------------------------------- */
+	// PRIVATE METHODS
+	function checkComplete() {
+		if (_frame == _endFrame) {
+			if (!S.loop || _loopCount >= _loopTotal) {
+				S.pause()
+				S.onComplete.call(S)
+				S.dispatchEvent(new CustomEvent('complete'))
+			}
+		} else if (_frame == 0) {
+			_loopCount++
+			S.onLoop.call(S)
+			S.dispatchEvent(new CustomEvent('loop'))
+		}
+	}
+
+	/* ----------------------------------------------------------------------------------------------- */
+	// EVENT HANDLERS
+	function handleFrameRate(event) {
+		S.clear()
+		if (_iterate) S.frame++
+		S.render()
+		checkComplete()
+		_iterate = true
+	}
+
+	/* ----------------------------------------------------------------------------------------------- */
+	if (arg.frame > -1) {
+		S.frame = arg.frame || 0
+	}
+	if (arg.endFrame > -1 &amp;&amp; arg.endFrame &lt; _endFrame) {
+		S.endFrame = arg.endFrame
+	}
+
+	S.loop = arg.loop
+	if (arg.autoPlay) {
+		S.play()
+	}
+
+	return S
+}
+
+export default SpritePlayer
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

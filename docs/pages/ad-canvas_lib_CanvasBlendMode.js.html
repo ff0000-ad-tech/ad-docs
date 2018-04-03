@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-canvas/lib/CanvasBlendMode.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-canvas/lib/CanvasBlendMode.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class CanvasBlendMode
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-canvas">Github repo&lt;/a>
+		&lt;br>&lt;br>
+		
+		See also {@link http://www.w3schools.com/tags/canvas_globalcompositeoperation.asp} and here 
+		{@link https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation}
+		&lt;br>&lt;br>
+		&lt;b>WARNING: If you try to apply a blend mode of any kind (masking) to a CanvasImage whose source is an SVG, it will not render properly in FireFox. This is a known browser issue&lt;/b>&lt;br>
+		&lt;ul>
+			&lt;li>Try drawing the SVG into a dummy canvas and then use that dummy canvas as the image source in place of the SVG for your masking&lt;/li>
+			&lt;li>Use a PNG instead&lt;/li>
+		&lt;/ul>
+		&lt;br>&lt;br>
+		&lt;b>DEFAULT / PLACEMENTS:&lt;/b>&lt;br>
+		&lt;ul>
+			&lt;li>NONE&lt;/li>
+			&lt;li>UNDER&lt;/li>
+		&lt;/ul>
+		&lt;br>&lt;br>
+		
+		&lt;b>MASKING BLENDS:&lt;/b>&lt;br>
+			Use the existing canvas drawings to act as the mask to the given drawing with this mode:
+			&lt;ul>
+				&lt;li>SOURCE_IN&lt;/li>
+				&lt;li>SOURCE_OUT&lt;/li>
+				&lt;li>SOURCE_ATOP&lt;/li>
+			&lt;/ul>
+			&lt;br>&lt;br>
+			Use the given drawing with this mode to act as the mask to existing canvas drawings:
+			&lt;ul>
+				&lt;li>DEST_IN&lt;/li>
+				&lt;li>DEST_OUT&lt;/li>
+				&lt;li>DEST_ATOP&lt;/li>
+			&lt;/ul>
+			&lt;br>&lt;br>
+			Miscellaneous:
+			&lt;ul>
+				&lt;li>XOR&lt;/li>
+				&lt;li>COPY&lt;/li>
+			&lt;/ul>
+			&lt;br>&lt;br>
+		&lt;b>UNIVERSAL BLEND MODES:&lt;/b>
+			&lt;ul>
+				&lt;li>ADD&lt;/li>
+			&lt;/ul>
+			&lt;br>&lt;br>
+		&lt;b>NOT SUPPORTED BY THESE BROWSER VERSIONS AND EARLIER:&lt;/b>&lt;br>
+		Internet Explorer, Edge 12, Opera Mini 8, Android Browser 4.3:&lt;/b>
+			&lt;ul>
+				&lt;li>DARKEN&lt;/li>
+				&lt;li>LIGHTEN&lt;/li>
+				&lt;li>OVERLAY&lt;/li>
+				&lt;li>MULTIPLY&lt;/li>
+				&lt;li>SCREEN&lt;/li>
+				&lt;li>DODGE&lt;/li>
+				&lt;li>BURN&lt;/li>
+				&lt;li>HARD&lt;/li>
+				&lt;li>SOFT&lt;/li>
+				&lt;li>DIFFERENCE&lt;/li>
+				&lt;li>EXCLUSION&lt;/li>
+				&lt;li>HUE&lt;/li>
+				&lt;li>SATURATION&lt;/li>
+				&lt;li>COLOR&lt;/li>
+				&lt;li>LUMINOSITY&lt;/li>
+			&lt;/ul>
+			&lt;br>&lt;br>
+*/
+
+/**
+		@memberof CanvasBlendMode
+		@const {string} NONE
+			Represents 'source-over'. Displays the source content over the destination content. This is the default setting.
+			&lt;br>
+			&lt;img src="../docs_images/canvasdrawer/blend_none.jpg" />
+		@example
+			CanvasBlendMode.NONE
+	*/
+export const NONE = 'source-over'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} UNDER
+		Represents 'destination-over'. Displays the destination content over the source content.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_under.jpg" />
+	@example
+		CanvasBlendMode.UNDER
+*/
+export const UNDER = 'destination-over'
+
+// MASKS
+/**
+	@memberof CanvasBlendMode
+	@const {string} SOURCE_IN
+		Represents 'source-in'. Displays the source content within the destination content. Only the part of the source content that is INSIDE the destination content is shown, and the destination content is transparent.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_sourceIn.jpg" />
+	@example
+		CanvasBlendMode.SOURCE_IN
+*/
+export const SOURCE_IN = 'source-in'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} SOURCE_OUT
+		Represents 'source-out'. Displays the source content outside of the destination content. Only the part of the source content that is OUTSIDE the destination content is shown, and the destination content is transparent.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_sourceOut.jpg" />
+	@example
+		CanvasBlendMode.SOURCE_OUT
+*/
+export const SOURCE_OUT = 'source-out'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} SOURCE_ATOP
+		Represents 'source-atop'. Displays the destination content on top of the source content. The part of the destination content that is outside the source content is not shown.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_sourceAtop.jpg" />
+	@example
+		CanvasBlendMode.SOURCE_ATOP
+*/
+export const SOURCE_ATOP = 'source-atop'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} DEST_IN
+		Represents 'destination-in'. Displays the destination content within the source content. Only the part of the destination content that is INSIDE the source content is shown, and the source content is transparent.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_destIn.jpg" />
+	@example
+		CanvasBlendMode.DEST_IN
+*/
+export const DEST_IN = 'destination-in'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} DEST_OUT
+		Represents 'destination-out'. Displays the destination content outside of the source content. Only the part of the destination content that is OUTSIDE the source content is shown, and the source content is transparent.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_destOut.jpg" />
+	@example
+		CanvasBlendMode.DEST_OUT
+*/
+export const DEST_OUT = 'destination-out'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} DEST_ATOP
+		Represents 'destination-atop'. Displays the destination content on top of the source content. The part of the destination content that is outside the source content is not shown.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_destAtop.jpg" />
+	@example
+		CanvasBlendMode.DEST_ATOP
+*/
+export const DEST_ATOP = 'destination-atop'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} XOR
+		Represents 'xor'. Only areas where the destination content and source content do not overlap are displayed. The parts that do overlap are not shown.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_xor.jpg" />
+	@example
+		CanvasBlendMode.XOR
+*/
+export const XOR = 'xor'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} COPY
+		Represents 'copy'. Displays the source content. The destination content is ignored.
+		&lt;br>
+		&lt;img src="../docs_images/canvasdrawer/blend_copy.jpg" />
+	@example
+		CanvasBlendMode.COPY
+*/
+export const COPY = 'copy'
+
+// PROPER BLEND MODES
+/**
+	@memberof CanvasBlendMode
+	@const {string} ADD
+		Represents 'lighter'. Where both shapes overlap, the color is values are added together.
+	@example
+		CanvasBlendMode.ADD
+*/
+export const ADD = 'lighter'
+
+// THE FOLLOWING BLEND MODES MIGHT NOT BE SUPPORTED BY INTERNET EXPLORER 11 (and earlier) OR SAFARI
+/**
+	@memberof CanvasBlendMode
+	@const {string} DARKEN
+		Represents 'darken'. Retains the darkest pixels of both layers.
+	@example
+		CanvasBlendMode.DARKEN
+*/
+export const DARKEN = 'darken'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} LIGHTEN
+		Represents 'lighten'. Retains the lightest pixels of both layers.
+	@example
+		CanvasBlendMode.LIGHTEN
+*/
+export const LIGHTEN = 'lighten'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} OVERLAY
+		Represents 'overlay'. A combination of multiply and screen. Dark parts on the base layer become darker, and light parts become lighter.
+	@example
+		CanvasBlendMode.OVERLAY
+*/
+export const OVERLAY = 'overlay'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} MULTIPLY
+		Represents 'multiply'. The pixels are of the top layer are multiplied with the corresponding pixel of the bottom layer. A darker picture is the result.
+	@example
+		CanvasBlendMode.MULTIPLY
+*/
+export const MULTIPLY = 'multiply'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} SCREEN
+		Represents 'screen'. The pixels are inverted, multiplied, and inverted again. A lighter picture is the result (opposite of multiply)
+	@example
+		CanvasBlendMode.SCREEN
+*/
+export const SCREEN = 'screen'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} DODGE
+		Represents 'color-dodge'. Divides the bottom layer by the inverted top layer.
+	@example
+		CanvasBlendMode.DODGE
+*/
+export const DODGE = 'color-dodge'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} BURN
+		Represents 'color-burn'. Divides the inverted bottom layer by the top layer, and then inverts the result.
+	@example
+		CanvasBlendMode.BURN
+*/
+export const BURN = 'color-burn'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} HARD
+	Represents 'hard-light'. A combination of multiply and screen like overlay, but with top and bottom layer swapped.
+	@example
+		CanvasBlendMode.HARD
+*/
+export const HARD = 'hard-light'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} SOFT
+		Represents 'soft-light'. A softer version of hard-light. Pure black or white does not result in pure black or white.
+	@example
+		CanvasBlendMode.SOFT
+*/
+export const SOFT = 'soft-light'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} DIFFERENCE
+		Represents 'difference'. Subtracts the bottom layer from the top layer or the other way round to always get a positive value.
+	@example
+		CanvasBlendMode.DIFFERENCE
+*/
+export const DIFFERENCE = 'difference'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} EXCLUSION
+		Represents 'exclusion'. Like difference, but with lower contrast.
+	@example
+		CanvasBlendMode.EXCLUSION
+*/
+export const EXCLUSION = 'exclusion'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} HUE
+		Represents 'hue'. Preserves the luma and chroma of the bottom layer, while adopting the hue of the top layer.
+	@example
+		CanvasBlendMode.HUE
+*/
+export const HUE = 'hue'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} SATURATION
+		Represents 'saturation'. Preserves the luma and hue of the bottom layer, while adopting the chroma of the top layer.
+	@example
+		CanvasBlendMode.SATURATION
+*/
+export const SATURATION = 'saturation'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} COLOR
+		Represents 'color'. Preserves the luma of the bottom layer, while adopting the hue and chroma of the top layer.
+	@example
+		CanvasBlendMode.COLOR
+*/
+export const COLOR = 'color'
+
+/**
+	@memberof CanvasBlendMode
+	@const {string} LUMINOSITY
+		Represents 'luminosity'. Preserves the hue and chroma of the bottom layer, while adopting the luma of the top layer.
+	@example
+		CanvasBlendMode.LUMINOSITY
+*/
+export const LUMINOSITY = 'luminosity'
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Class: DateSchedule</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-MathUtils.html">MathUtils</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="Countdown.html">Countdown</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.html">Graphic</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="NetUtils.html">NetUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: DateSchedule</h1>
+<section>
+
+<header>
+    
+        <h2>
+        DateSchedule
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="DateSchedule"><span class="type-signature"></span>new DateSchedule(arg)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <a href="https://github.com/ff0000-ad-tech/ad-dates">Github repo</a>
+		<br><br>
+		
+		This class creates a schedule of dates that will be compared agains the currentdate/time. There are 2 ways to use 
+		this class: standard and custom.
+		
+		<br><br>
+
+		<b>AdData.js:</b><br>
+		It is recommended that you centralize your schedule in AdData. This way, changes to the schedule can easily 
+		be achieved with one common update.<br>
+
+		<br><br>
+		
+		<b>Standard</b><br>
+		This will create a schedule of dates leading up to the target date, which was formerly achieved by using		
+		the selectMessageForDate() method.  This standard way will produce a schedule pre-populated with:
+		
+		<ul>
+			<li>DATE - returns the target date, using the toSimpleDateTime() for anything further than a week out from the target</li>
+			<li>WEEK - returns the day of the week the target date is, ie Wednesday</li>
+			<li>TOMORROW - returns the word "Tomorrow", beginning at midnight the day before the target date</li>
+			<li>TODAY - returns the string "Today", beginning at midnight on the target date</li>
+			<li>TONIGHT - returns the string "Tonight", beginning at the time set with tonightStartsAt</li>
+			<li>NOW - returns the string "Live Now"</li>
+			<li>PAST - returns the string "Past", called after NOW plus the eventDuration value</li>
+		</ul>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Settings are passed in via this object, see Properties for more info:</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="TzDate.html">TzDate</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The date that the schedule will count down to</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isStandard</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">If true, will create a standard schedule with default messaging</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eventDuration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">In a standard schedule, the amount of minutes after the target time the PAST messaging shows. Defaults to 120 which is 2 hours</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tonightStartsAt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">In a standard schedule, when the today message changes to tonight. If the target time is before this value, tonight will never show. Defaults to '17:50' which is 5:30PM</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hasOneDayOf</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">In a standard schedule, will determine if only 'tonight' OR 'today' will show, or if it is possible to have both. For example, in ESPN units, the need is that 
+		only one of the options will show at midnight day of the event. So if the event is before the tonightStartsAt value, it will only show 'today', while if it is after
+		it will only show 'tonight'.  If this is set to false, it will allow for both following the logic of tonightStartsAt.  Defaults to true.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>standardOverrides</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object to overwrite any of the standard labels. Using the standard keys, apply a new label string or callback function passing in the target date
+	
+	
+		<codeblock>
+			// Standard Schedule
+			this.schedule = new DateSchedule({
+				target : new TzDate ({
+					datetime : [ '2015-08-01 20:00:00', Timezone.EST ],
+					outputTimezone : Timezone.LOCAL 
+				}),
+				isStandard : true
+			});
+			this.schedule.print();
+
+			this.dateMessage = this.schedule.currentLabel;
+			this.dateHour = this.schedule.target.toDateTime();
+		</codeblock>
+
+		Each standard label can be overridded by either assigning a different string or by passing in a callback function 
+		that will return a differently formatted message. Note each callback gets fired at runtime, creating each label.
+				
+		<codeblock>
+			this.schedule = new DateSchedule({
+				target : new TzDate ({
+					datetime : [ '2015-08-01 20:00:00', Timezone.EST ],
+					outputTimezone : Timezone.LOCAL 
+				}),
+				eventDuration : 120,
+				isStandard : true,
+				standardOverrides : {
+					DATE : function( date ){
+						return date.toSimpleDate();
+					},
+					TOMORROW : 'Tommorow Night!',
+					NOW : 'Watch Live Now'
+				}
+			});
+			this.schedule.print();
+
+			this.dateMessage = this.schedule.currentLabel;
+			this.dateHour = this.schedule.target.toDateTime();
+		</codeblock>
+
+		<br><br>
+
+		<b>Custom</b><br>
+		This is used to set a specific list of dates to check now against, returning the latest.
+
+		<codeblock>
+			this.schedule = new DateSchedule();
+			this.schedule.addDate( 
+				new TzDate ({
+					datetime : [ '2015-08-01 12:00:00', Timezone.EST ],
+					outputTimezone : Timezone.LOCAL 
+				}),
+				"Hey I'm the first date"
+			);
+			this.schedule.addDate( 
+				new TzDate ({
+					datetime : [ '2015-08-05 14:00:00', Timezone.UTC ],
+					outputTimezone : Timezone.PST 
+				}),
+				"I'm the last date"
+			);
+			this.schedule.print();
+		</codeblock>
+
+		The schedule can also be used to call different markup builds.  Use the third param of addDates() to pass in 
+		a callback, then simply call it from Control.preMarkup() or where ever makes sense.
+
+		<codeblock>
+			this.schedule = new DateSchedule();
+			this.schedule.addDate( 
+				new TzDate ({
+					datetime : [ '2015-08-01 12:00:00', Timezone.EST ],
+					outputTimezone : Timezone.LOCAL 
+				}),
+				"Hey I'm the first date",
+				View.buildFromDate0
+			);
+			this.schedule.addDate( 
+				new TzDate ({
+					datetime : [ '2015-08-05 14:00:00', Timezone.UTC ],
+					outputTimezone : Timezone.PST 
+				}),
+				"I'm the last date",
+				View.buildFromDate1
+			);
+			this.schedule.print();
+		</codeblock>
+
+		<b>build.js:</b><br>
+		In <u>build.View</u>, you can write functions that build out the DOM for each of your states. 
+		<codeblock>
+			this.buildFromDate0 = function() {
+				console.log( 'View.buildFromDate0()' );
+				// Markup...
+			}
+			this.buildFromDate1 = function() {
+				console.log( 'View.buildFromDate1()' );
+				// Markup...
+			}
+		</codeblock>
+
+		In <u>build.Control</u> or <u>build.buildMarkup</u>, you simply call the callback of the current date on the schedule.  This will
+		find the current added date object and fire that callback
+		<codeblock>
+			var message = adData.schedule.current.callback();
+			console.log( message );
+
+			var myTextField = new UITextField({
+				target : T,
+				id : 'my-textfield',
+				css : {
+					width : 300,
+					height : 90
+				},
+				fontSize : 30,
+				fontFamily : 'template_font',
+				format : TextFormat.INLINE,
+				alignText : Align.CENTER,
+				text : message.label
+			});
+		</codeblock></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".current">
+    <h4 id=".current"><span class="type-signature">&lt;static> </span>current<span class="type-signature"> :object</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter : An object of the current date, label and optional callback
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-213">line 213</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">mySchedule.current.date;
+mySchedule.current.label;
+mySchedule.current.callback();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".currentDate">
+    <h4 id=".currentDate"><span class="type-signature">&lt;static> </span>currentDate<span class="type-signature"> :<a href="TzDate.html">TzDate</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter : Is direct access to the current date, same as mySchedule.current.date
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="TzDate.html">TzDate</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-228">line 228</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">mySchedule.currentDate;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".currentIndex">
+    <h4 id=".currentIndex"><span class="type-signature">&lt;static> </span>currentIndex<span class="type-signature"> :Number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter : The index, zero based, of the current date
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-254">line 254</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">mySchedule.currentIndex;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".currentLabel">
+    <h4 id=".currentLabel"><span class="type-signature">&lt;static> </span>currentLabel<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter : Is direct access to the current label, same as mySchedule.current.label
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-241">line 241</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">mySchedule.currentLabel;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".isComplete">
+    <h4 id=".isComplete"><span class="type-signature">&lt;static> </span>isComplete<span class="type-signature"> :Boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter : When using a standard schedule, whether or not the target date and eventDuration has been passed
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-309">line 309</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">mySchedule.isComplete;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".isLive">
+    <h4 id=".isLive"><span class="type-signature">&lt;static> </span>isLive<span class="type-signature"> :Boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter : When using a standard schedule, whether or not the target date has been passed, but not passed the eventDuration
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-294">line 294</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">mySchedule.isLive;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".target">
+    <h4 id=".target"><span class="type-signature">&lt;static> </span>target<span class="type-signature"> :<a href="TzDate.html">TzDate</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter : The target date of a standard schedule
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="TzDate.html">TzDate</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-200">line 200</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">mySchedule.target.print();</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".addDate"><span class="type-signature">&lt;static> </span>addDate(tzDate, label, callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Add a date to the schedule, which can be either a TzDate or an object to create a date from the target
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tzDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="TzDate.html">TzDate</a></span>
+|
+
+<span class="param-type">Date</span>
+|
+
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Expected to be either a Date object, a TzDate or an Object for creating a date from the target using DateFormatter.adjust()</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optionally specify a label as a  String or creeate a function to format the date using the TxDate methods</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optionally a function that can be called when this date is the current. Does NOT auto fire, must me called.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-327">line 327</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// start with a target date
+var schedule = new DateSchedule({
+	target : new TzDate ({
+		datetime : [ &#x27;2017-08-01 08:00:00&#x27;, Timezone.EST ],
+		outputTimezone : Timezone.LOCAL 
+	})
+});
+	// add TzDate
+schedule.addDate ( 
+	new TzDate ({
+		datetime : &#x27;2017-04-01T14:00:00+00:00&#x27;,
+		outputTimezone : Timezone.EST
+	})
+);
+	// creates a date 1 day before and 4 hours ahead of the target date
+schedule.addDate ({ day:-1, hour:4 }); 
+	// uses a callback to get a custom date message
+schedule.addDate ( 
+	new TzDate ({
+		datetime : &#x27;2017-06-01T22:00:00+00:00&#x27;,
+		outputTimezone : Timezone.LOCAL
+	}),
+	function ( date ){
+		return date.toSimpleTime() + &#x27; &#x27; + date.toMeridiem() + &#x27;!!&#x27;;
+	}
+);
+	// add a message and a callback
+schedule.addDate ( 
+	new TzDate ({
+		datetime : &#x27;2017-05-01T17:00:00+00:00&#x27;,
+		outputTimezone : Timezone.PST
+	}),
+	&#x27;Custom Message&#x27;,
+	function(){
+		console.log( &#x27;i am the callback&#x27;)
+	}
+);
+	schedule.print();
+// DateSchedule.print(), length: 7
+//  - 0 Sat Jan 01 2000 00:00:00 UTC label: 1/1 12:00 am
+//  - 1 Sat Apr 01 2017 10:00:00 US/Eastern label: undefined
+//  - 2 Mon May 01 2017 10:00:00 US/Pacific label: Custom Message
+//  - 3 Thu Jun 01 2017 15:00:00 Local label: 3:00 pm!!
+//  - 4 Mon Jul 31 2017 09:00:00 Local label: undefined
+//  - 5 Tue Aug 01 2017 05:00:00 Local label: Live Now
+//  - 6 Tue Aug 01 2017 07:00:00 Local label: Past				</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getDates"><span class="type-signature">&lt;static> </span>getDates()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns an Array copy of the dates, leaving the original untouched.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-507">line 507</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">schedule.getDates();</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".print"><span class="type-signature">&lt;static> </span>print()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Traces out all dates in order
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-475">line 475</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// standard schedule
+var schedule = new DateSchedule({
+    target : new TzDate ({
+        datetime : [ &#x27;2017-08-01 20:00:00&#x27;, Timezone.EST ],
+        outputTimezone : Timezone.LOCAL 
+    }), 
+    isStandard : true
+});
+	schedule.print()
+// DateSchedule.print(), length: 7
+//  - 0 Sat Jan 01 2000 00:00:00 UTC label: 8/1 5:00 pm
+//  - 1 Tue Jul 25 2017 17:00:00 Local label: Tuesday
+//  - 2 Mon Jul 31 2017 00:00:00 Local label: Tomorrow
+//  - 3 Tue Aug 01 2017 00:00:00 Local label: Today
+//  - 4 Tue Aug 01 2017 10:30:00 Local label: Tonight
+//  - 5 Tue Aug 01 2017 17:00:00 Local label: Live Now
+//  - 6 Tue Aug 01 2017 19:00:00 Local label: Past</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Tue Apr 3rd 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

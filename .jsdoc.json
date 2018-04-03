@@ -1,7 +1,10 @@
 {
     "tags": {
         "allowUnknownTags": true,
-        "dictionaries": ["jsdoc", "closure"]
+        "dictionaries": [
+            "jsdoc",
+            "closure"
+        ]
     },
     "source": {
         "include": [
@@ -30,7 +33,9 @@
         "node_modules/jsdoc-package-tag"
     ],
     "babel": {
-        "plugins": ["transform-class-properties"]
+        "plugins": [
+            "transform-class-properties"
+        ]
     },
     "templates": {
         "logoFile": "",
@@ -51,7 +56,7 @@
         "methodHeadingReturns": false
     },
     "opts": {
-        "destination": "./docs/",
+        "destination": "./docs/pages/",
         "encoding": "utf8",
         "recurse": true,
         "template": "./node_modules/ink-docstrap/template"
