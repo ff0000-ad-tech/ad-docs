@@ -6958,6 +6958,13 @@ img.branding-logo {
   padding-bottom: 7px;
   display: block;
 }
+.secondary-page-title {
+  font-size: 200%;
+  color: #537ca8;
+  font-weight: 600;
+  padding-bottom: 7px;
+  display: block;
+}
 footer {
   border-top: 1px solid transparent;
   padding-top: 15px;

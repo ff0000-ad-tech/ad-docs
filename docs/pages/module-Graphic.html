@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Source: ad-geom/lib/SimpleNoise2D.js</title>
+	<title>DocStrap Module: Graphic</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -74,90 +74,116 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: ad-geom/lib/SimpleNoise2D.js</h1>
+	
+        <h1 class="page-title">@ff0000-ad-tech/ad-particles</h1>
+        <h2 class="secondary-page-title">Module: Graphic</h2>
     
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">/**
-    @npmpackage
-    @class SimpleNoise2D
-	@desc
-		Import from &lt;a href="https://github.com/ff0000-ad-tech/ad-geom">ad-geom&lt;/a>
-        &lt;br>&lt;br>
+
+<header>
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
         
-        SimpleNoise2D is a workaround for creating 2D noise with lightweight code. 
-        It returns a {@link Vector2D} with x and y values between -0.5 - 0.5.
-        For a more sophisticated purpose, please use Perline Noise https://github.com/josephg/noisejs
-*/
-import Vector2D from './Vector2D'
-
-class SimpleNoise2D {
-	
-	static rx = []
-	static ry = []
-	static MAX_VERTICES = 256
-	static MAX_VERTICES_MASK = 255 //SimpleNoise2D.MAX_VERTICES - 1
-	
-	/** 
-        @memberOf SimpleNoise2D
-        @method get
-        @param {number} x
-            number of location x of the desired noise value
-        @param {number} y
-            number of location y of the desired noise value
-        @returns
-            2D Noise value in {@link Vector2D}
-
-        @example
-            var noiseVec = SimpleNoise2D.get( 0, 5 );
-    */
-	static get = (x, y) => {
-		return new Vector2D(SimpleNoise2D._getVal('x', x), SimpleNoise2D._getVal('y', y))
-	}
-
-	static _init = () => {
-		for (let i = 0; i &lt; SimpleNoise2D.MAX_VERTICES; ++i) {
-			if (i === SimpleNoise2D.MAX_VERTICES - 1) {
-				SimpleNoise2D.rx.push(SimpleNoise2D.rx[0])
-				SimpleNoise2D.ry.push(SimpleNoise2D.ry[0])
-			}
-			SimpleNoise2D.rx.push(Math.random() - 0.5)
-			SimpleNoise2D.ry.push(Math.random() - 0.5)
-		}
-	}
-
-	//a : min value, b: max value, t: step
-	static _lerp = (a, b, t) => {
-		return a * (1 - t) + b * t
-	}
-
-	static _getVal = (axis, index) => {
-		if (SimpleNoise2D.rx.length == 0) SimpleNoise2D._init()
+            <div class="description">Import from <a href="https://github.com/ff0000-ad-tech/ad-particles">ad-particles</a>
+		<br><br>
 		
-		const vals = axis === 'x' ? SimpleNoise2D.rx : SimpleNoise2D.ry
+		A simple, light weight class for rendering shapes and images on canvas element with assigned style to work with the particle system.
+		Graphic.Shape is the parent class that remains netural to keep the flexiblity to create more classes based on needs in different projects.
+		<br><br>
 
-		index = index % SimpleNoise2D.MAX_VERTICES
-		const t = index - ~~index
-		const step = t * t * (3 - 2 * t)
+		To keep it practical while maintaining it as light as possible, there are four classes currently available:<br>
+		<ul>
+			<li>Graphic.Image</li>
+			<li>Graphic.Sprite</li>
+			<li>Graphic.Circle</li>
+			<li>Graphic.Rect</li>
+		</ul></div>
+        
 
-		const min = ~~index &amp; SimpleNoise2D.MAX_VERTICES_MASK
-		const max = (min + 1) &amp; SimpleNoise2D.MAX_VERTICES_MASK
+        
+<dl class="details">
+    
 
-		return SimpleNoise2D._lerp(vals[min], vals[max], step)
-	}
-}
+	
 
-export default SimpleNoise2D
-</pre>
-    </article>
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-particles_lib_Graphic.js.html">ad-particles/lib/Graphic.js</a>,
+				 <a href="ad-particles_lib_Graphic.js.html#sunlight-1-line-3">line 3</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -167,6 +193,10 @@ export default SimpleNoise2D
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>
