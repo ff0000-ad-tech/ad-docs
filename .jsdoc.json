@@ -30,7 +30,7 @@
     "plugins": [
         "node_modules/jsdoc-babel",
         "plugins/codeblock.js",
-        "node_modules/jsdoc-package-tag"
+        "node_modules/jsdoc-npmpackage-tag"
     ],
     "babel": {
         "plugins": [
