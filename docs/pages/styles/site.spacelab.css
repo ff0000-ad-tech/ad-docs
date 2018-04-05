@@ -6951,19 +6951,19 @@ img.branding-logo {
   display: block;
 }
 .page-title {
-  font-size: 220%;
+  font-size: 160%;
   color: #446E9B;
   font-weight: 700;
   padding-top: 10px;
   padding-bottom: 7px;
   display: block;
 }
-.secondary-page-title {
-  font-size: 200%;
-  color: #537ca8;
-  font-weight: 600;
-  padding-bottom: 7px;
-  display: block;
+.module-name {
+  color: #719ac5;
+  font-size: calc(160% * 1.5);
+  font-weight: 700;
+  margin-top: -14px;
+  margin-bottom: 0;
 }
 footer {
   border-top: 1px solid transparent;
