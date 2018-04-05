@@ -29,7 +29,7 @@
 		"@ff0000-ad-tech/ad-view": "git+https://github.com/ff0000-ad-tech/ad-view.git",
 		"babel-core": "^6.26.0",
 		"babel-plugin-transform-class-properties": "^6.24.1",
-		"ink-docstrap": "git+https://github.com/ff0000-ad-tech/docstrap.git",
+		"ink-docstrap": "git+https://github.com/ff0000-ad-tech/docstrap.git#feature/npmpackage",
 		"jsdoc": "git+https://github.com/ff0000-ad-tech/jsdoc.git",
 		"jsdoc-babel": "^0.3.0",
 		"jsdoc-npmpackage-tag": "git+https://github.com/ff0000-ad-tech/jsdoc-npmpackage-tag.git"
