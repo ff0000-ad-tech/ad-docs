@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-video">ad-video</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { VideoPlayer } from 'ad-video'
+</pre>
 		<br><br>
 		
 		This object creates a custom Video Player instance.  This player has the ability to function as a regular player or it can work as the inline/autoplay video.
@@ -105,9 +121,9 @@
 
 		<b>Sample Player</b><br>
 		<pre class="sunlight-highlight-javascript">
-adData.elements.videoPlayer = new VideoPlayer({
+View.main.videoPlayer = new VideoPlayer({
 	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	id: 'My_Unique_ID',
 	css: {
 		width: 300,
@@ -124,19 +140,19 @@ adData.elements.videoPlayer = new VideoPlayer({
 	onFail: global.failAd,
 });
 
-adData.elements.videoPlayer.play();
+View.main.videoPlayer.play();
 </pre>
 		<br><br>
 
 
 		<b>Sample Autoplay</b><br>
 		<pre class="sunlight-highlight-javascript">
-adData.elements.videoPlayer = new VideoPlayer({
+View.main.videoPlayer = new VideoPlayer({
 	source: [
 		adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
 		adParams.videosPath + 'RED_Html5_Showcase_300x250.mpg'
 	],
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	id: 'My_Unique_ID',
 	css: {
 		width: 300,
@@ -308,7 +324,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-216">line 216</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-221">line 221</a>
 			</li>
 		</ul>
 	</dd>
@@ -395,7 +411,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-88">line 88</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-93">line 93</a>
 			</li>
 		</ul>
 	</dd>
@@ -476,7 +492,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-164">line 164</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-169">line 169</a>
 			</li>
 		</ul>
 	</dd>
@@ -557,7 +573,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-266">line 266</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-271">line 271</a>
 			</li>
 		</ul>
 	</dd>
@@ -638,7 +654,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-277">line 277</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-282">line 282</a>
 			</li>
 		</ul>
 	</dd>
@@ -719,7 +735,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-95">line 95</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-100">line 100</a>
 			</li>
 		</ul>
 	</dd>
@@ -800,7 +816,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-380">line 380</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-385">line 385</a>
 			</li>
 		</ul>
 	</dd>
@@ -881,7 +897,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-116">line 116</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-121">line 121</a>
 			</li>
 		</ul>
 	</dd>
@@ -962,7 +978,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-102">line 102</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-107">line 107</a>
 			</li>
 		</ul>
 	</dd>
@@ -1043,7 +1059,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-109">line 109</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-114">line 114</a>
 			</li>
 		</ul>
 	</dd>
@@ -1124,7 +1140,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-123">line 123</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-128">line 128</a>
 			</li>
 		</ul>
 	</dd>
@@ -1205,7 +1221,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-130">line 130</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-135">line 135</a>
 			</li>
 		</ul>
 	</dd>
@@ -1286,7 +1302,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-288">line 288</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-293">line 293</a>
 			</li>
 		</ul>
 	</dd>
@@ -1367,7 +1383,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-299">line 299</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-304">line 304</a>
 			</li>
 		</ul>
 	</dd>
@@ -1448,7 +1464,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-206">line 206</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-211">line 211</a>
 			</li>
 		</ul>
 	</dd>
@@ -1529,7 +1545,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-310">line 310</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-315">line 315</a>
 			</li>
 		</ul>
 	</dd>
@@ -1616,7 +1632,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-360">line 360</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-365">line 365</a>
 			</li>
 		</ul>
 	</dd>
@@ -1754,7 +1770,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-607">line 607</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-612">line 612</a>
 			</li>
 		</ul>
 	</dd>
@@ -1953,7 +1969,7 @@ myVideoPlayer.addControls({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-571">line 571</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-576">line 576</a>
 			</li>
 		</ul>
 	</dd>
@@ -2051,7 +2067,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-408">line 408</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-413">line 413</a>
 			</li>
 		</ul>
 	</dd>
@@ -2145,7 +2161,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-519">line 519</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-524">line 524</a>
 			</li>
 		</ul>
 	</dd>
@@ -2236,7 +2252,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-454">line 454</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-459">line 459</a>
 			</li>
 		</ul>
 	</dd>
@@ -2330,7 +2346,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-421">line 421</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-426">line 426</a>
 			</li>
 		</ul>
 	</dd>
@@ -2498,7 +2514,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-551">line 551</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-556">line 556</a>
 			</li>
 		</ul>
 	</dd>
@@ -2642,7 +2658,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-474">line 474</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-479">line 479</a>
 			</li>
 		</ul>
 	</dd>
@@ -2736,7 +2752,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-500">line 500</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-505">line 505</a>
 			</li>
 		</ul>
 	</dd>
@@ -2830,7 +2846,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoPlayer.js.html">ad-video/lib/VideoPlayer.js</a>,
-				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-535">line 535</a>
+				 <a href="ad-video_lib_VideoPlayer.js.html#sunlight-1-line-540">line 540</a>
 			</li>
 		</ul>
 	</dd>
@@ -2919,7 +2935,7 @@ myVideoPlayer.addCuePoint( 3, handleCuePoint, [ true, .3, {} ]);
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

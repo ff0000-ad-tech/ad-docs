@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { CanvasTweener } from 'ad-canvas'
+</pre>
 		<br><br>
 		
 		Tween engine for <a href="CanvasDrawer.html">CanvasDrawer</a>
@@ -219,16 +235,16 @@
 		First example uses CanvasTwener to execute the tweens:<br>
 		<pre class="sunlight-highlight-javascript">
 // referring to an object to tween directly through the elements object
-adData.elements.myCanvasDrawer.tween.to(adData.elements.myCanvasDrawer.elements.circle, 1, {x: 100 });
+View.main.myCanvasDrawer.tween.to(View.main.myCanvasDrawer.elements.circle, 1, {x: 100 });
 // referring to an object to tween by its ID, which is a string
-adData.elements.myCanvasDrawer.tween.from('arc', 1, { x: 100 });
-adData.elements.myCanvasDrawer.tween.start();
+View.main.myCanvasDrawer.tween.from('arc', 1, { x: 100 });
+View.main.myCanvasDrawer.tween.start();
 </pre>
 		<br><br>
 		<b>DISCOURAGED METHOD</b><br>
 		<pre class="sunlight-highlight-javascript">
-TweenLite.to('circle', 3, {x: 100, onUpdate: adData.elements.myCanvasDrawer.update.bind(adData.elements.myCanvasDrawer)});
-TweenLite.to('arc', 3, {x: 100,  onUpdate: adData.elements.myCanvasDrawer.update.bind(adData.elements.myCanvasDrawer)});
+TweenLite.to('circle', 3, {x: 100, onUpdate: View.main.myCanvasDrawer.update.bind(View.main.myCanvasDrawer)});
+TweenLite.to('arc', 3, {x: 100,  onUpdate: View.main.myCanvasDrawer.update.bind(View.main.myCanvasDrawer)});
 </pre>
 		<br><br>
 		<b>THE REASON WHY:</b><br>
@@ -463,7 +479,7 @@ TweenLite.to('arc', 3, {x: 100,  onUpdate: adData.elements.myCanvasDrawer.update
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasTweener.js.html">ad-canvas/lib/CanvasTweener.js</a>,
-				 <a href="ad-canvas_lib_CanvasTweener.js.html#sunlight-1-line-27">line 27</a>
+				 <a href="ad-canvas_lib_CanvasTweener.js.html#sunlight-1-line-32">line 32</a>
 			</li>
 		</ul>
 	</dd>
@@ -598,7 +614,7 @@ TweenLite.to('arc', 3, {x: 100,  onUpdate: adData.elements.myCanvasDrawer.update
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasTweener.js.html">ad-canvas/lib/CanvasTweener.js</a>,
-				 <a href="ad-canvas_lib_CanvasTweener.js.html#sunlight-1-line-11">line 11</a>
+				 <a href="ad-canvas_lib_CanvasTweener.js.html#sunlight-1-line-16">line 16</a>
 			</li>
 		</ul>
 	</dd>
@@ -700,7 +716,7 @@ CanvasTweener.init(_myCanvasDrawer.elements.rectangle);
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasTweener.js.html">ad-canvas/lib/CanvasTweener.js</a>,
-				 <a href="ad-canvas_lib_CanvasTweener.js.html#sunlight-1-line-108">line 108</a>
+				 <a href="ad-canvas_lib_CanvasTweener.js.html#sunlight-1-line-113">line 113</a>
 			</li>
 		</ul>
 	</dd>
@@ -730,9 +746,9 @@ CanvasTweener.init(_myCanvasDrawer.elements.rectangle);
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// referring to an object to tween directly through the elements object
-adData.elements.myCanvasDrawer.tween.to(&#x27;circle&#x27;, 1, {rotation: 360, width: 100, delay: 5 });
-adData.elements.myCanvasDrawer.tween.start();
-adData.elements.myCanvasDrawer.tween.kill();
+View.main.myCanvasDrawer.tween.to(&#x27;circle&#x27;, 1, {rotation: 360, width: 100, delay: 5 });
+View.main.myCanvasDrawer.tween.start();
+View.main.myCanvasDrawer.tween.kill();
 	(end)</pre>
 
 
@@ -1072,7 +1088,7 @@ adData.elements.myCanvasDrawer.tween.kill();
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasTweener.js.html">ad-canvas/lib/CanvasTweener.js</a>,
-				 <a href="ad-canvas_lib_CanvasTweener.js.html#sunlight-1-line-76">line 76</a>
+				 <a href="ad-canvas_lib_CanvasTweener.js.html#sunlight-1-line-81">line 81</a>
 			</li>
 		</ul>
 	</dd>
@@ -1101,9 +1117,9 @@ adData.elements.myCanvasDrawer.tween.kill();
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">adData.elements.myCanvasDrawer.tween.to(adData.elements.myCanvasDrawer.elements.circle, 1, {rotation: 360, width: 100, delay: 5 });
-adData.elements.myCanvasDrawer.tween.to(adData.elements.myCanvasDrawer.elements.arc, 1, {rotation: 360, width: 100, delay: 5 });
-adData.elements.myCanvasDrawer.tween.start( { delay: 2, timePadding: 0.02, onUpdate: trace, onUpdateParams:[&#x27;look at this tween go!&#x27;] } );</pre>
+    <pre class="sunlight-highlight-javascript">View.main.myCanvasDrawer.tween.to(View.main.myCanvasDrawer.elements.circle, 1, {rotation: 360, width: 100, delay: 5 });
+View.main.myCanvasDrawer.tween.to(View.main.myCanvasDrawer.elements.arc, 1, {rotation: 360, width: 100, delay: 5 });
+View.main.myCanvasDrawer.tween.start( { delay: 2, timePadding: 0.02, onUpdate: trace, onUpdateParams:[&#x27;look at this tween go!&#x27;] } );</pre>
 
 
     
@@ -1163,7 +1179,7 @@ adData.elements.myCanvasDrawer.tween.start( { delay: 2, timePadding: 0.02, onUpd
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

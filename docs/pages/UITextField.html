@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-ui">ad-ui</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { UITextField } from 'ad-ui'
+</pre>
 		<br><br>
 		
 		This is a display object class, extending <a href="UIComponent.html">UIComponent</a>.  By extending <a href="UIComponent.html">UIComponent</a> this has all of its native properties and methods.  
@@ -180,7 +196,7 @@ T.myTextField = new UITextField ({
 		<b>Sample 3:</b><br>
 		<pre class="sunlight-highlight-javascript">
 // creates a textfield and resizes the container to fit the text
-adData.elements.myTextField = new UITextField ({
+View.main.myTextField = new UITextField ({
 	target : View.main,
 	id : 'my-textfield',
 	css : {
@@ -356,7 +372,7 @@ adData.elements.myTextField = new UITextField ({
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-181">line 181</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-186">line 186</a>
 			</li>
 		</ul>
 	</dd>
@@ -374,9 +390,9 @@ adData.elements.myTextField = new UITextField ({
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// change the size of the font
-adData.elements.myTextField.alignText = Align.BOTTOM_RIGHT;
+View.main.myTextField.alignText = Align.BOTTOM_RIGHT;
 	// get the current size of the font
-console.log( adData.elements.myTextField.alignText );</pre>
+console.log( View.main.myTextField.alignText );</pre>
 
 
     
@@ -453,7 +469,7 @@ console.log( adData.elements.myTextField.alignText );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-367">line 367</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-372">line 372</a>
 			</li>
 		</ul>
 	</dd>
@@ -471,13 +487,13 @@ console.log( adData.elements.myTextField.alignText );</pre>
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// set the padding on all 4 sides uniformly
-adData.elements.myTextField.bufferText = 5;
+View.main.myTextField.bufferText = 5;
 	// set the padding on top &amp; bottom = 7 and left &amp; right = 5
-adData.elements.myTextField.bufferText = [7,5];
+View.main.myTextField.bufferText = [7,5];
 	// set the top = 7, right = 3, bottom = 5, left = 6
-adData.elements.myTextField.bufferText = [7,3,5,6];
+View.main.myTextField.bufferText = [7,3,5,6];
 	// get the current padding
-console.log( adData.elements.myTextField.bufferText );</pre>
+console.log( View.main.myTextField.bufferText );</pre>
 
 
     
@@ -547,7 +563,7 @@ console.log( adData.elements.myTextField.bufferText );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-238">line 238</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-243">line 243</a>
 			</li>
 		</ul>
 	</dd>
@@ -565,9 +581,9 @@ console.log( adData.elements.myTextField.bufferText );</pre>
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// change the font 
-adData.elements.myTextField.fontFamily = &#x27;Arial&#x27;;
+View.main.myTextField.fontFamily = &#x27;Arial&#x27;;
 	// get the current font
-console.log( adData.elements.myTextField.fontFamily );</pre>
+console.log( View.main.myTextField.fontFamily );</pre>
 
 
     
@@ -637,7 +653,7 @@ console.log( adData.elements.myTextField.fontFamily );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-214">line 214</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-219">line 219</a>
 			</li>
 		</ul>
 	</dd>
@@ -655,9 +671,9 @@ console.log( adData.elements.myTextField.fontFamily );</pre>
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// change the size of the font
-adData.elements.myTextField.fontSize = 14;
+View.main.myTextField.fontSize = 14;
 	// get the current size of the font
-console.log( adData.elements.myTextField.fontSize );</pre>
+console.log( View.main.myTextField.fontSize );</pre>
 
 
     
@@ -733,7 +749,7 @@ console.log( adData.elements.myTextField.fontSize );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-259">line 259</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-264">line 264</a>
 			</li>
 		</ul>
 	</dd>
@@ -750,7 +766,7 @@ console.log( adData.elements.myTextField.fontSize );</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">adData.elements.myTextField = new UITextField({
+    <pre class="sunlight-highlight-javascript">View.main.myTextField = new UITextField({
 target : View.main,
 id : &#x27;my-textfield&#x27;,
 css : {
@@ -762,15 +778,15 @@ format : TextFormat.INLINE,
 text : &#x27;This is my awesome sentence!&#x27;
    		});
 // change from an inline to a word warping paragraph style
-   		adData.elements.myTextField.format = TextFormat.PARAGRAPH;
+   		View.main.myTextField.format = TextFormat.PARAGRAPH;
 // change back to inline with autosizing
-   		adData.elements.myTextField.format = TextFormat.INLINE_FIT;
+   		View.main.myTextField.format = TextFormat.INLINE_FIT;
 // change back to a word warpping paragraph style that auto sizes the font to fit perfectly
-   		adData.elements.myTextField.format = TextFormat.PARAGRAPH_FIT;
+   		View.main.myTextField.format = TextFormat.PARAGRAPH_FIT;
 // resize the UITextField to fit the size of all the text as inline
-   		adData.elements.myTextField.format = TextFormat.INLINE_CLAMP;
+   		View.main.myTextField.format = TextFormat.INLINE_CLAMP;
 // resize the UITextField to fit the size of all the text as a paragraph
-   		adData.elements.myTextField.format = TextFormat.PARAGRAPH_CLAMP;</pre>
+   		View.main.myTextField.format = TextFormat.PARAGRAPH_CLAMP;</pre>
 
 
     
@@ -846,7 +862,7 @@ text : &#x27;This is my awesome sentence!&#x27;
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-306">line 306</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-311">line 311</a>
 			</li>
 		</ul>
 	</dd>
@@ -864,9 +880,9 @@ text : &#x27;This is my awesome sentence!&#x27;
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// change the percentage of spacing between lines relative to the font size
-adData.elements.myTextField.leading = .8;
+View.main.myTextField.leading = .8;
 	// get the current percentage of spacing between lines relative to the font size
-console.log( adData.elements.myTextField.leading );</pre>
+console.log( View.main.myTextField.leading );</pre>
 
 
     
@@ -936,7 +952,7 @@ console.log( adData.elements.myTextField.leading );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-437">line 437</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-442">line 442</a>
 			</li>
 		</ul>
 	</dd>
@@ -953,10 +969,10 @@ console.log( adData.elements.myTextField.leading );</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">adData.elements.myTextField.smoothing = false;
+    <pre class="sunlight-highlight-javascript">View.main.myTextField.smoothing = false;
 //
 // get the current smoothing
-console.log( adData.elements.myTextField.smoothing );</pre>
+console.log( View.main.myTextField.smoothing );</pre>
 
 
     
@@ -1026,7 +1042,7 @@ console.log( adData.elements.myTextField.smoothing );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-340">line 340</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-345">line 345</a>
 			</li>
 		</ul>
 	</dd>
@@ -1044,9 +1060,9 @@ console.log( adData.elements.myTextField.smoothing );</pre>
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// change the spacing between each letter
-adData.elements.myTextField.spacing = 3;
+View.main.myTextField.spacing = 3;
 	// get the current letter spacing
-console.log( adData.elements.myTextField.spacing );</pre>
+console.log( View.main.myTextField.spacing );</pre>
 
 
     
@@ -1116,7 +1132,7 @@ console.log( adData.elements.myTextField.spacing );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-412">line 412</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-417">line 417</a>
 			</li>
 		</ul>
 	</dd>
@@ -1134,9 +1150,9 @@ console.log( adData.elements.myTextField.spacing );</pre>
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// change the display text
-adData.elements.myTextField.text = &quot;Change my text to say this.&quot;;
+View.main.myTextField.text = &quot;Change my text to say this.&quot;;
 	// get the current display text
-console.log( adData.elements.myTextField.text );</pre>
+console.log( View.main.myTextField.text );</pre>
 
 
     
@@ -1259,7 +1275,7 @@ console.log( adData.elements.myTextField.text );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-461">line 461</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-466">line 466</a>
 			</li>
 		</ul>
 	</dd>
@@ -1356,7 +1372,7 @@ myTextField.resetToDefault();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UITextField.js.html">ad-ui/lib/UITextField.js</a>,
-				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-496">line 496</a>
+				 <a href="ad-ui_lib_UITextField.js.html#sunlight-1-line-501">line 501</a>
 			</li>
 		</ul>
 	</dd>
@@ -1445,7 +1461,7 @@ myTextField.resetToDefault();</pre>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-particles">ad-particles</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { Emitter } from 'ad-particles'
+</pre>
 		<br><br>
 
 		( v1.1 )
@@ -190,9 +206,9 @@
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">//create a canvas element
-adData.elements.particleCanvas = new UICanvas({
+View.main.particleCanvas = new UICanvas({
 	id: &#x27;particle-canvas&#x27;,
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	css: {
 		width: adParams.adWidth,
 		height: adParams.adHeight
@@ -203,7 +219,7 @@ adData.elements.particleCanvas = new UICanvas({
 adData.particleSystem = new Emitter();
 
 //initiate the emitter with the target canvas element
-adData.particleSystem.init( adData.elements.particleCanvas );
+adData.particleSystem.init( View.main.particleCanvas );
 
 //start emitting
 adData.particleSystem.emit();
@@ -337,7 +353,7 @@ adData.particleSystem.stopEmitting();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-317">line 317</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-322">line 322</a>
 			</li>
 		</ul>
 	</dd>
@@ -495,7 +511,7 @@ adData.particleSystem.stopEmitting();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-183">line 183</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-188">line 188</a>
 			</li>
 		</ul>
 	</dd>
@@ -663,7 +679,7 @@ myEmitter.addCustomBehavier( &#x27;particle&#x27;, customParticleBehavier1 );
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-424">line 424</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-429">line 429</a>
 			</li>
 		</ul>
 	</dd>
@@ -813,7 +829,7 @@ type: &quot;Circle&quot;,
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-380">line 380</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-385">line 385</a>
 			</li>
 		</ul>
 	</dd>
@@ -901,7 +917,7 @@ type: &quot;Circle&quot;,
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-248">line 248</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-253">line 253</a>
 			</li>
 		</ul>
 	</dd>
@@ -995,7 +1011,7 @@ type: &quot;Circle&quot;,
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-278">line 278</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-283">line 283</a>
 			</li>
 		</ul>
 	</dd>
@@ -1139,7 +1155,7 @@ type: &quot;Circle&quot;,
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-140">line 140</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-145">line 145</a>
 			</li>
 		</ul>
 	</dd>
@@ -1418,7 +1434,7 @@ var lifeSpanValue = myEmitter.get( &#x27;lifeSpan.value&#x27; );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-63">line 63</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-68">line 68</a>
 			</li>
 		</ul>
 	</dd>
@@ -1521,7 +1537,7 @@ emitterData: myCustomEmitterData
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-293">line 293</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-298">line 298</a>
 			</li>
 		</ul>
 	</dd>
@@ -1689,7 +1705,7 @@ emitterData: myCustomEmitterData
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-225">line 225</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-230">line 230</a>
 			</li>
 		</ul>
 	</dd>
@@ -1834,7 +1850,7 @@ myEmitter.removeCustomBehavier( &#x27;emitter&#x27;, customEmitterBehavier );</p
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-445">line 445</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-450">line 450</a>
 			</li>
 		</ul>
 	</dd>
@@ -1928,7 +1944,7 @@ myEmitter.removeCustomBehavier( &#x27;emitter&#x27;, customEmitterBehavier );</p
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-305">line 305</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-310">line 310</a>
 			</li>
 		</ul>
 	</dd>
@@ -2129,7 +2145,7 @@ myEmitter.removeCustomBehavier( &#x27;emitter&#x27;, customEmitterBehavier );</p
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-115">line 115</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-120">line 120</a>
 			</li>
 		</ul>
 	</dd>
@@ -2274,7 +2290,7 @@ myEmitter.set( &#x27;origin.value.x&#x27;, 0 );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-158">line 158</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-163">line 163</a>
 			</li>
 		</ul>
 	</dd>
@@ -2372,7 +2388,7 @@ myEmitter.set( &#x27;origin.value.x&#x27;, 0 );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-266">line 266</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-271">line 271</a>
 			</li>
 		</ul>
 	</dd>
@@ -2544,7 +2560,7 @@ myEmitter.set( &#x27;origin.value.x&#x27;, 0 );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-particles_lib_Emitter.js.html">ad-particles/lib/Emitter.js</a>,
-				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-327">line 327</a>
+				 <a href="ad-particles_lib_Emitter.js.html#sunlight-1-line-332">line 332</a>
 			</li>
 		</ul>
 	</dd>
@@ -2642,7 +2658,7 @@ onComplete: function () {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

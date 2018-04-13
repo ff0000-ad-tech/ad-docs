@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-ui">ad-ui</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { UIComponent } from 'ad-ui'
+</pre>
 		<br><br>
 		
 		This is a display object class, which is an extension of a DOM element &lt;div> with extra base functionality.  
@@ -315,7 +331,7 @@ var myImage = new UIComponent({
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-139">line 139</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-144">line 144</a>
 			</li>
 		</ul>
 	</dd>
@@ -405,7 +421,7 @@ myComponent.enabled = true;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-205">line 205</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-210">line 210</a>
 			</li>
 		</ul>
 	</dd>
@@ -495,7 +511,7 @@ myComponent.height = 140;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-160">line 160</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-165">line 165</a>
 			</li>
 		</ul>
 	</dd>
@@ -583,7 +599,7 @@ console.log( myComponent.showing );</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-180">line 180</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-185">line 185</a>
 			</li>
 		</ul>
 	</dd>
@@ -673,7 +689,7 @@ myComponent.width = 140;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-95">line 95</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-100">line 100</a>
 			</li>
 		</ul>
 	</dd>
@@ -763,7 +779,7 @@ myComponent.x = 7;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-117">line 117</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-122">line 122</a>
 			</li>
 		</ul>
 	</dd>
@@ -854,7 +870,7 @@ myComponent.y = 14;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-282">line 282</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-287">line 287</a>
 			</li>
 		</ul>
 	</dd>
@@ -948,7 +964,7 @@ myComponent.y = 14;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-235">line 235</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-240">line 240</a>
 			</li>
 		</ul>
 	</dd>
@@ -1042,7 +1058,7 @@ myComponent.y = 14;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-297">line 297</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-302">line 302</a>
 			</li>
 		</ul>
 	</dd>
@@ -1136,7 +1152,7 @@ myComponent.y = 14;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-267">line 267</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-272">line 272</a>
 			</li>
 		</ul>
 	</dd>
@@ -1233,7 +1249,7 @@ height : 150
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-248">line 248</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-253">line 253</a>
 			</li>
 		</ul>
 	</dd>
@@ -1327,7 +1343,7 @@ height : 150
 		<ul class="dummy">
 			<li>
 				<a href="ad-ui_lib_UIComponent.js.html">ad-ui/lib/UIComponent.js</a>,
-				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-315">line 315</a>
+				 <a href="ad-ui_lib_UIComponent.js.html#sunlight-1-line-320">line 320</a>
 			</li>
 		</ul>
 	</dd>
@@ -1416,7 +1432,7 @@ height : 150
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
