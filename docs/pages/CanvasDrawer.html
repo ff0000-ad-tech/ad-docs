@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -97,7 +108,14 @@
 
     
     <div class="description">
-        Is the returned instance of CanvasDrawer.
+        Import from <a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas</a>	
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { CanvasDrawer } from 'ad-canvas'
+</pre>
+		<br><br>
+		Is the returned instance of CanvasDrawer.
 		<br><br>	
 		<b>NOTE::</b>
 		<ul>
@@ -426,7 +444,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">adData.elements.myCanvasDrawer = new CanvasDrawer({
+    <pre class="sunlight-highlight-javascript">View.main.myCanvasDrawer = new CanvasDrawer({
 id: &#x27;myCanvasDrawer&#x27;, 
 target: View.main,
 css: {
@@ -523,7 +541,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-58">line 58</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-65">line 65</a>
 			</li>
 		</ul>
 	</dd>
@@ -604,7 +622,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-72">line 72</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-79">line 79</a>
 			</li>
 		</ul>
 	</dd>
@@ -674,7 +692,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-65">line 65</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-72">line 72</a>
 			</li>
 		</ul>
 	</dd>
@@ -755,7 +773,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-86">line 86</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-93">line 93</a>
 			</li>
 		</ul>
 	</dd>
@@ -836,7 +854,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-93">line 93</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-100">line 100</a>
 			</li>
 		</ul>
 	</dd>
@@ -917,7 +935,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-160">line 160</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-167">line 167</a>
 			</li>
 		</ul>
 	</dd>
@@ -998,7 +1016,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-79">line 79</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-86">line 86</a>
 			</li>
 		</ul>
 	</dd>
@@ -1079,7 +1097,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-147">line 147</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-154">line 154</a>
 			</li>
 		</ul>
 	</dd>
@@ -1161,7 +1179,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-212">line 212</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-219">line 219</a>
 			</li>
 		</ul>
 	</dd>
@@ -1249,7 +1267,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-195">line 195</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-202">line 202</a>
 			</li>
 		</ul>
 	</dd>
@@ -1278,7 +1296,7 @@ debug: false
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">adData.elements.myCanvasDrawer.removeAllElements();</pre>
+    <pre class="sunlight-highlight-javascript">View.main.myCanvasDrawer.removeAllElements();</pre>
 
 
     
@@ -1396,7 +1414,7 @@ debug: false
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-178">line 178</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-185">line 185</a>
 			</li>
 		</ul>
 	</dd>
@@ -1425,8 +1443,8 @@ debug: false
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">adData.elements.myCanvasDrawer.removeElement(&#x27;smoke&#x27;);
-adData.elements.myCanvasDrawer.removeElement( adData.elements.myCanvasDrawer.elements.smoke );</pre>
+    <pre class="sunlight-highlight-javascript">View.main.myCanvasDrawer.removeElement(&#x27;smoke&#x27;);
+View.main.myCanvasDrawer.removeElement( View.main.myCanvasDrawer.elements.smoke );</pre>
 
 
     
@@ -1547,7 +1565,7 @@ adData.elements.myCanvasDrawer.removeElement( adData.elements.myCanvasDrawer.ele
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasDrawer.js.html">ad-canvas/lib/CanvasDrawer.js</a>,
-				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-223">line 223</a>
+				 <a href="ad-canvas_lib_CanvasDrawer.js.html#sunlight-1-line-230">line 230</a>
 			</li>
 		</ul>
 	</dd>
@@ -1630,7 +1648,7 @@ adData.elements.myCanvasDrawer.removeElement( adData.elements.myCanvasDrawer.ele
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

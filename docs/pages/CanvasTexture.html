@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { CanvasTexture } from 'ad-canvas'
+</pre>
 		<br><br>
 		
 		Texture generating methods for <a href="CanvasDrawer.html">CanvasDrawer</a>.
@@ -211,9 +227,9 @@
 			<b>EXAMPLES</b><br>
 			adding a 100x100 rectangle at 0, 0 with a linear gradient going from coordinate 0,0 to coordinate 0,100 fading from solid black to transparent black:<br>
 			<pre class="sunlight-highlight-javascript">
-adData.elements.myCanvasDrawer = new CanvasDrawer({
+View.main.myCanvasDrawer = new CanvasDrawer({
 	id: 'myCanvasDrawer', 
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	css: {
 		x: 0,
 		y: 0,
@@ -223,7 +239,7 @@ adData.elements.myCanvasDrawer = new CanvasDrawer({
 	debug: false
 });
 var gradient = CanvasTexture.makeLinearGradient({
-	target: adData.elements.myCanvasDrawer,
+	target: View.main.myCanvasDrawer,
 	xStart: 0,
 	yStart: 0,
 	xEnd: 0, 
@@ -233,7 +249,7 @@ var gradient = CanvasTexture.makeLinearGradient({
 			]
 });
 new CanvasRect({
-	target: adData.elements.myCanvasDrawer,
+	target: View.main.myCanvasDrawer,
 	id: 'myRect',
 	params: {
 		x: 0,
@@ -587,7 +603,7 @@ new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasTexture.js.html">ad-canvas/lib/CanvasTexture.js</a>,
-				 <a href="ad-canvas_lib_CanvasTexture.js.html#sunlight-1-line-12">line 12</a>
+				 <a href="ad-canvas_lib_CanvasTexture.js.html#sunlight-1-line-17">line 17</a>
 			</li>
 		</ul>
 	</dd>
@@ -633,9 +649,9 @@ new CanvasRect({
 		<b>EXAMPLES:</b><br>
 		Adding a circle with a radius of 400 at 0, 0 with a pattern from an image named 'tileJPG' which only repeats horizontally:
 		<pre class="sunlight-highlight-javascript">
-adData.elements.myCanvasDrawerPattern = new CanvasDrawer({
+View.main.myCanvasDrawerPattern = new CanvasDrawer({
 	id: 'myCanvasDrawer', 
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	css: {
 		x: 0,
 		y: 0,
@@ -645,12 +661,12 @@ adData.elements.myCanvasDrawerPattern = new CanvasDrawer({
 	debug: false
 });
 var pattern = CanvasTexture.makePattern({
-	target: adData.elements.myCanvasDrawerPattern,
+	target: View.main.myCanvasDrawerPattern,
 	source: 'tileJPG', 
 	repeat: CanvasTiling.X
 });
 new CanvasCircle({
-	target: adData.elements.myCanvasDrawer,
+	target: View.main.myCanvasDrawer,
 	id: 'myCircle', 
 	params: {
 		x: 0,
@@ -665,9 +681,9 @@ new CanvasCircle({
 		<br><br>
 	Adding a circle with a radius of 400 at 0, 0 with a pattern from an the above canvas source which repeats horizontally and vertically:
 	<pre class="sunlight-highlight-javascript">
-adData.elements.myCanvasDrawerCanvasTiling = new CanvasDrawer({
+View.main.myCanvasDrawerCanvasTiling = new CanvasDrawer({
 	id: 'myCanvasDrawer', 
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	css: {
 		x: 0,
 		y: 0,
@@ -677,12 +693,12 @@ adData.elements.myCanvasDrawerCanvasTiling = new CanvasDrawer({
 	debug: false
 });
 var pattern = CanvasTexture.makePattern({
-	target: adData.elements.myCanvasDrawer,
-	source: adData.elements.myCanvasDrawerPattern.canvas,
+	target: View.main.myCanvasDrawer,
+	source: View.main.myCanvasDrawerPattern.canvas,
 	repeat: CanvasTiling.COVER
 });
 new CanvasCircle({
-	target: adData.elements.myCanvasDrawer,
+	target: View.main.myCanvasDrawer,
 	id: 'myCircle',
 	params: {
 		x: 0,
@@ -900,7 +916,7 @@ new CanvasCircle({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasTexture.js.html">ad-canvas/lib/CanvasTexture.js</a>,
-				 <a href="ad-canvas_lib_CanvasTexture.js.html#sunlight-1-line-155">line 155</a>
+				 <a href="ad-canvas_lib_CanvasTexture.js.html#sunlight-1-line-160">line 160</a>
 			</li>
 		</ul>
 	</dd>
@@ -946,9 +962,9 @@ new CanvasCircle({
 		<b>EXAMPLES</b><br>
 		adding a circle with a radius of 400 at 0, 0 with a radial gradient starting from a radius of 50 to a radius of 200 and fading from solid red to transparent green: : 
 		<pre class="sunlight-highlight-javascript">
-adData.elements.myCanvasDrawer = new CanvasDrawer({
+View.main.myCanvasDrawer = new CanvasDrawer({
 	id: 'myCanvasDrawer', 
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	css: {
 		x: 0,
 		y: 0,
@@ -958,7 +974,7 @@ adData.elements.myCanvasDrawer = new CanvasDrawer({
 	debug: false
 });
 var gradient = CanvasTexture.makeRadialGradient({
-	target: adData.elements.myCanvasDrawer,
+	target: View.main.myCanvasDrawer,
 	xInner: 0,
 	yInner: 0,
 	radiusInner: 50,
@@ -970,7 +986,7 @@ var gradient = CanvasTexture.makeRadialGradient({
 				]
 });
 new CanvasCircle({
-	target: adData.elements.myCanvasDrawer,
+	target: View.main.myCanvasDrawer,
 	id: 'myCircle',
 	params: {
 		x:0,
@@ -1373,7 +1389,7 @@ new CanvasCircle({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasTexture.js.html">ad-canvas/lib/CanvasTexture.js</a>,
-				 <a href="ad-canvas_lib_CanvasTexture.js.html#sunlight-1-line-80">line 80</a>
+				 <a href="ad-canvas_lib_CanvasTexture.js.html#sunlight-1-line-85">line 85</a>
 			</li>
 		</ul>
 	</dd>
@@ -1456,7 +1472,7 @@ new CanvasCircle({
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

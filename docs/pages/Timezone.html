@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-dates">ad-dates</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { Timezone } from 'ad-dates'
+</pre>
 		<br><br>
 		
 		This class provides constants and methods for accessing Timezone offsets, used by the TzDate class.
@@ -256,7 +272,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-154">line 154</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-159">line 159</a>
 			</li>
 		</ul>
 	</dd>
@@ -346,7 +362,7 @@ Timezone.AKST
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-171">line 171</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-176">line 176</a>
 			</li>
 		</ul>
 	</dd>
@@ -436,7 +452,7 @@ Timezone.AZ
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-103">line 103</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-108">line 108</a>
 			</li>
 		</ul>
 	</dd>
@@ -526,7 +542,7 @@ Timezone.CST
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-86">line 86</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-91">line 91</a>
 			</li>
 		</ul>
 	</dd>
@@ -616,7 +632,7 @@ Timezone.EST
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-188">line 188</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-193">line 193</a>
 			</li>
 		</ul>
 	</dd>
@@ -706,7 +722,7 @@ Timezone.HST
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-21">line 21</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-26">line 26</a>
 			</li>
 		</ul>
 	</dd>
@@ -796,7 +812,7 @@ Timezone.LOCAL
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-120">line 120</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-125">line 125</a>
 			</li>
 		</ul>
 	</dd>
@@ -886,7 +902,7 @@ Timezone.MST
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-137">line 137</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-142">line 142</a>
 			</li>
 		</ul>
 	</dd>
@@ -976,7 +992,7 @@ Timezone.PST
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-69">line 69</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-74">line 74</a>
 			</li>
 		</ul>
 	</dd>
@@ -1126,7 +1142,7 @@ Timezone.UTC
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-255">line 255</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-260">line 260</a>
 			</li>
 		</ul>
 	</dd>
@@ -1290,7 +1306,7 @@ Timezone.UTC
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_Timezone.js.html">ad-dates/lib/Timezone.js</a>,
-				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-298">line 298</a>
+				 <a href="ad-dates_lib_Timezone.js.html#sunlight-1-line-303">line 303</a>
 			</li>
 		</ul>
 	</dd>
@@ -1393,7 +1409,7 @@ Timezone.UTC
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

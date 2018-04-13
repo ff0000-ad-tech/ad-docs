@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -78,6 +89,11 @@
 	@class UITextField
 	@desc
 		Import from &lt;a href="https://github.com/ff0000-ad-tech/ad-ui">ad-ui&lt;/a>
+		&lt;br>
+		&lt;codeblock>
+			// importing into an ES6 class
+			import { UITextField } from 'ad-ui'
+		&lt;/codeblock>
 		&lt;br>&lt;br>
 		
 		This is a display object class, extending {@link UIComponent}.  By extending {@link UIComponent} this has all of its native properties and methods.  
@@ -160,7 +176,7 @@
 		&lt;b>Sample 3:&lt;/b>&lt;br>
 		&lt;codeblock>
 			// creates a textfield and resizes the container to fit the text
-			adData.elements.myTextField = new UITextField ({
+			View.main.myTextField = new UITextField ({
 				target : View.main,
 				id : 'my-textfield',
 				css : {
@@ -269,10 +285,10 @@ class UITextField {
 					Getter|Setter : A String, or {@link Align} constant, representing the alignment of the text content inside the UITextField.
 				@example
 					// change the size of the font
-					adData.elements.myTextField.alignText = Align.BOTTOM_RIGHT;
+					View.main.myTextField.alignText = Align.BOTTOM_RIGHT;
 
 					// get the current size of the font
-					console.log( adData.elements.myTextField.alignText );
+					console.log( View.main.myTextField.alignText );
 			*/
 			alignText: {
 				get: function() {
@@ -303,10 +319,10 @@ class UITextField {
 					Getter|Setter : A Number representing the current size of the text font. 
 				@example
 					// change the size of the font
-					adData.elements.myTextField.fontSize = 14;
+					View.main.myTextField.fontSize = 14;
 
 					// get the current size of the font
-					console.log( adData.elements.myTextField.fontSize );
+					console.log( View.main.myTextField.fontSize );
 			*/
 			fontSize: {
 				get: function() {
@@ -328,10 +344,10 @@ class UITextField {
 					Getter|Setter : A String representing the current font family being assigned to the text. 
 				@example
 					// change the font 
-					adData.elements.myTextField.fontFamily = 'Arial';
+					View.main.myTextField.fontFamily = 'Arial';
 
 					// get the current font
-					console.log( adData.elements.myTextField.fontFamily );
+					console.log( View.main.myTextField.fontFamily );
 			*/
 			fontFamily: {
 				get: function() {
@@ -353,7 +369,7 @@ class UITextField {
 					This is what defines if the text is either in a line, word wrapped like a paragraph, has auto sizing to the font soze or if the 
 					UITextField is resized to the content.  See {@link TextFormat} for more info.
 				@example
-					adData.elements.myTextField = new UITextField({
+					View.main.myTextField = new UITextField({
 						target : View.main,
 						id : 'my-textfield',
 						css : {
@@ -366,19 +382,19 @@ class UITextField {
 					});
 
 					// change from an inline to a word warping paragraph style
-					adData.elements.myTextField.format = TextFormat.PARAGRAPH;
+					View.main.myTextField.format = TextFormat.PARAGRAPH;
 
 					// change back to inline with autosizing
-					adData.elements.myTextField.format = TextFormat.INLINE_FIT;
+					View.main.myTextField.format = TextFormat.INLINE_FIT;
 
 					// change back to a word warpping paragraph style that auto sizes the font to fit perfectly
-					adData.elements.myTextField.format = TextFormat.PARAGRAPH_FIT;
+					View.main.myTextField.format = TextFormat.PARAGRAPH_FIT;
 
 					// resize the UITextField to fit the size of all the text as inline
-					adData.elements.myTextField.format = TextFormat.INLINE_CLAMP;
+					View.main.myTextField.format = TextFormat.INLINE_CLAMP;
 
 					// resize the UITextField to fit the size of all the text as a paragraph
-					adData.elements.myTextField.format = TextFormat.PARAGRAPH_CLAMP;
+					View.main.myTextField.format = TextFormat.PARAGRAPH_CLAMP;
 			*/
 			format: {
 				get: function() {
@@ -411,10 +427,10 @@ class UITextField {
 					The use of a percentage allows for the font size to change without having to redefine the line-height spacing.
 				@example
 					// change the percentage of spacing between lines relative to the font size
-					adData.elements.myTextField.leading = .8;
+					View.main.myTextField.leading = .8;
 
 					// get the current percentage of spacing between lines relative to the font size
-					console.log( adData.elements.myTextField.leading );
+					console.log( View.main.myTextField.leading );
 			*/
 			leading: {
 				get: function() {
@@ -440,10 +456,10 @@ class UITextField {
 					Getter|Setter : A Number representing the spacing between each letter.
 				@example
 					// change the spacing between each letter
-					adData.elements.myTextField.spacing = 3;
+					View.main.myTextField.spacing = 3;
 
 					// get the current letter spacing
-					console.log( adData.elements.myTextField.spacing );
+					console.log( View.main.myTextField.spacing );
 			*/
 			spacing: {
 				get: function() {
@@ -473,16 +489,16 @@ class UITextField {
 					manually will cause layout issues as the class does not have those numbers to calculate against.
 				@example
 					// set the padding on all 4 sides uniformly
-					adData.elements.myTextField.bufferText = 5;
+					View.main.myTextField.bufferText = 5;
 
 					// set the padding on top &amp; bottom = 7 and left &amp; right = 5
-					adData.elements.myTextField.bufferText = [7,5];
+					View.main.myTextField.bufferText = [7,5];
 
 					// set the top = 7, right = 3, bottom = 5, left = 6
-					adData.elements.myTextField.bufferText = [7,3,5,6];
+					View.main.myTextField.bufferText = [7,3,5,6];
 
 					// get the current padding
-					console.log( adData.elements.myTextField.bufferText );
+					console.log( View.main.myTextField.bufferText );
 			*/
 			bufferText: {
 				get: function() {
@@ -517,10 +533,10 @@ class UITextField {
 					Getter|Setter : A String representing the current String text content. 
 				@example
 					// change the display text
-					adData.elements.myTextField.text = "Change my text to say this.";
+					View.main.myTextField.text = "Change my text to say this.";
 
 					// get the current display text
-					console.log( adData.elements.myTextField.text );
+					console.log( View.main.myTextField.text );
 			*/
 			text: {
 				get: function() {
@@ -542,10 +558,10 @@ class UITextField {
 				@var {boolean} smoothing
 					Getter|Setter : A Boolean to add or remove the css smoothing: &lt;code>-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;&lt;/code>
 				@example
-					adData.elements.myTextField.smoothing = false;
+					View.main.myTextField.smoothing = false;
 					//
 					// get the current smoothing
-					console.log( adData.elements.myTextField.smoothing );
+					console.log( View.main.myTextField.smoothing );
 			*/
 			smoothing: {
 				get: function() {
@@ -812,7 +828,7 @@ export default UITextField
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

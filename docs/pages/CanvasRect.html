@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { CanvasRect } from 'ad-canvas'
+</pre>
 		<br><br>
 		
 		Add a rectangle shape to a <a href="CanvasDrawer.html">CanvasDrawer</a> based on a given object, and return a reference to that shape.
@@ -106,7 +122,7 @@
 		Adding a rectangle with an overlay blend, blue fill, 5px yellow stroke<br>
 		<pre class="sunlight-highlight-javascript">
 var _myShape = new CanvasRect({
-	target: adData.elements.myCanvasDrawer,
+	target: View.main.myCanvasDrawer,
 	id: 'myRect',
 	params: {
 		x: 20,
@@ -1196,7 +1212,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-153">line 153</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-158">line 158</a>
 			</li>
 		</ul>
 	</dd>
@@ -1277,7 +1293,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-183">line 183</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-188">line 188</a>
 			</li>
 		</ul>
 	</dd>
@@ -1358,7 +1374,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-216">line 216</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-221">line 221</a>
 			</li>
 		</ul>
 	</dd>
@@ -1439,7 +1455,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-141">line 141</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-146">line 146</a>
 			</li>
 		</ul>
 	</dd>
@@ -1520,7 +1536,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-105">line 105</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-110">line 110</a>
 			</li>
 		</ul>
 	</dd>
@@ -1601,7 +1617,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-117">line 117</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-122">line 122</a>
 			</li>
 		</ul>
 	</dd>
@@ -1682,7 +1698,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-159">line 159</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-164">line 164</a>
 			</li>
 		</ul>
 	</dd>
@@ -1763,7 +1779,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-147">line 147</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-152">line 152</a>
 			</li>
 		</ul>
 	</dd>
@@ -1844,7 +1860,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-165">line 165</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-170">line 170</a>
 			</li>
 		</ul>
 	</dd>
@@ -1925,7 +1941,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-171">line 171</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-176">line 176</a>
 			</li>
 		</ul>
 	</dd>
@@ -2006,7 +2022,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-177">line 177</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-182">line 182</a>
 			</li>
 		</ul>
 	</dd>
@@ -2087,7 +2103,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-282">line 282</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-287">line 287</a>
 			</li>
 		</ul>
 	</dd>
@@ -2168,7 +2184,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-276">line 276</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-281">line 281</a>
 			</li>
 		</ul>
 	</dd>
@@ -2249,7 +2265,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-270">line 270</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-275">line 275</a>
 			</li>
 		</ul>
 	</dd>
@@ -2330,7 +2346,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-288">line 288</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-293">line 293</a>
 			</li>
 		</ul>
 	</dd>
@@ -2411,7 +2427,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-234">line 234</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-239">line 239</a>
 			</li>
 		</ul>
 	</dd>
@@ -2492,7 +2508,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-258">line 258</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-263">line 263</a>
 			</li>
 		</ul>
 	</dd>
@@ -2573,7 +2589,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-264">line 264</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-269">line 269</a>
 			</li>
 		</ul>
 	</dd>
@@ -2654,7 +2670,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-252">line 252</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-257">line 257</a>
 			</li>
 		</ul>
 	</dd>
@@ -2735,7 +2751,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-222">line 222</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-227">line 227</a>
 			</li>
 		</ul>
 	</dd>
@@ -2816,7 +2832,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-240">line 240</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-245">line 245</a>
 			</li>
 		</ul>
 	</dd>
@@ -2897,7 +2913,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-246">line 246</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-251">line 251</a>
 			</li>
 		</ul>
 	</dd>
@@ -2978,7 +2994,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-228">line 228</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-233">line 233</a>
 			</li>
 		</ul>
 	</dd>
@@ -3059,7 +3075,7 @@ var _myShape = new CanvasRect({
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-129">line 129</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-134">line 134</a>
 			</li>
 		</ul>
 	</dd>
@@ -3098,9 +3114,9 @@ var _myShape = new CanvasRect({
 		<br>
 		<b>EXAMPLES::</b><br>
 		<pre class="sunlight-highlight-javascript">
-adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '50% 50%';
-adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10px 100px';
-adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
+View.main.myCanvasDrawer.elements.smoke.transformOrigin = '50% 50%';
+View.main.myCanvasDrawer.elements.smoke.transformOrigin = '10px 100px';
+View.main.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
 </pre>
 		<br>
     </div>
@@ -3155,7 +3171,7 @@ adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-195">line 195</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-200">line 200</a>
 			</li>
 		</ul>
 	</dd>
@@ -3236,7 +3252,7 @@ adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-189">line 189</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-194">line 194</a>
 			</li>
 		</ul>
 	</dd>
@@ -3317,7 +3333,7 @@ adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-135">line 135</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-140">line 140</a>
 			</li>
 		</ul>
 	</dd>
@@ -3398,7 +3414,7 @@ adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-111">line 111</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-116">line 116</a>
 			</li>
 		</ul>
 	</dd>
@@ -3479,7 +3495,7 @@ adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
 		<ul class="dummy">
 			<li>
 				<a href="ad-canvas_lib_CanvasRect.js.html">ad-canvas/lib/CanvasRect.js</a>,
-				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-123">line 123</a>
+				 <a href="ad-canvas_lib_CanvasRect.js.html#sunlight-1-line-128">line 128</a>
 			</li>
 		</ul>
 	</dd>
@@ -3552,7 +3568,7 @@ adData.elements.myCanvasDrawer.elements.smoke.transformOrigin = '10 100';
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

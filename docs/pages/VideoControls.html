@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-video">ad-video</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { VideoControls } from 'ad-video'
+</pre>
 		<br><br>
 		
 		This is a display object class, extending <a href="UIComponent.html">UIComponent</a>.  It is a DOM element that houses all the video control components:
@@ -122,9 +138,9 @@
 
 		<b>Example adding a play/pause button to the screen:</b><br>
 		<pre class="sunlight-highlight-javascript">
-adData.elements.videoPlayer = new VideoPlayer({
+View.main.videoPlayer = new VideoPlayer({
 	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	id: 'My_Unique_ID',
 	css: {
 		width: 300,
@@ -147,16 +163,16 @@ adData.elements.videoPlayer = new VideoPlayer({
 });
 
 // access button 
-adData.elements.videoPlayer.controls.buttonPlayPause;
+View.main.videoPlayer.controls.buttonPlayPause;
 </pre>
 		<br><br>
 
 
 		<b>Example adding a play/pause button to the ControlBar:</b><br>
 		<pre class="sunlight-highlight-javascript">
-adData.elements.videoPlayer = new VideoPlayer({
+View.main.videoPlayer = new VideoPlayer({
 	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	id: 'My_Unique_ID',
 	css: {
 		width: 300,
@@ -172,7 +188,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 })
 
 // access button 
-adData.elements.videoPlayer.controls.controlBar.buttonPlayPause;
+View.main.videoPlayer.controls.controlBar.buttonPlayPause;
 </pre>
 		<br><br>
 			
@@ -180,9 +196,9 @@ adData.elements.videoPlayer.controls.controlBar.buttonPlayPause;
 		<b>Example All Controls on ControlBar:</b><br>
 		<pre class="sunlight-highlight-javascript">
 // Full VideoPlayer with all options and controls
-adData.elements.videoPlayer = new VideoPlayer({
+View.main.videoPlayer = new VideoPlayer({
 	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	id: 'My_Unique_ID',
 	css: {
 		width: 300,
@@ -257,9 +273,9 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<b>Example Controls on ControlBar AND on screen:</b><br>
 		<pre class="sunlight-highlight-javascript">
 // Full VideoPlayer with all options and controls
-adData.elements.videoPlayer = new VideoPlayer({
+View.main.videoPlayer = new VideoPlayer({
 	source: adParams.videosPath + 'RED_Html5_Showcase_300x250.mp4',
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	id: 'My_Unique_ID',
 	css: {
 		width: 300,
@@ -521,7 +537,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoControls.js.html">ad-video/lib/VideoControls.js</a>,
-				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-398">line 398</a>
+				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-403">line 403</a>
 			</li>
 		</ul>
 	</dd>
@@ -602,7 +618,7 @@ adData.elements.videoPlayer = new VideoPlayer({
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoControls.js.html">ad-video/lib/VideoControls.js</a>,
-				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-407">line 407</a>
+				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-412">line 412</a>
 			</li>
 		</ul>
 	</dd>
@@ -692,7 +708,7 @@ myVideoPlayer.controls.replayOnInteraction = false;			</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_VideoControls.js.html">ad-video/lib/VideoControls.js</a>,
-				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-432">line 432</a>
+				 <a href="ad-video_lib_VideoControls.js.html#sunlight-1-line-437">line 437</a>
 			</li>
 		</ul>
 	</dd>
@@ -774,7 +790,7 @@ myVideoPlayer.controls.unmuteOnInteraction = true;			</pre>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

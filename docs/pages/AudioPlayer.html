@@ -30,7 +30,12 @@
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
-			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-Graphic.html">Graphic</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -39,6 +44,12 @@
 				</ul>
 			</li>
 			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#_collection">_collection</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addiFrame">addiFrame</a></li><li><a href="global.html#addSvg">addSvg</a></li><li><a href="global.html#get">get</a></li>
+				</ul>
+			</li>
 			
 		</ul>
         
@@ -98,6 +109,11 @@
     
     <div class="description">
         Import from <a href="https://github.com/ff0000-ad-tech/ad-video">ad-video</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { AudioPlayer } from 'ad-video'
+</pre>
 		<br><br>
 		
 		This object creates a custom Audio Player instance, which is an extension of the native DOM <audio> tag.  All native
@@ -178,9 +194,9 @@
         <h5>Example</h5>
         
     <pre class="sunlight-highlight-javascript">// instantiate new audio player
-adData.elements.audioPlayer = new AudioPlayer({
+View.main.audioPlayer = new AudioPlayer({
 	source: &#x27;mySoundFile.mp3&#x27;,
-	target: adData.elements.redAdContainer,
+	target: View.main,
 	id: &#x27;My_Unique_ID&#x27;,
 	preload : false,
 	autoPlay : false,
@@ -198,7 +214,7 @@ adData.elements.audioPlayer = new AudioPlayer({
 	onFail: global.failAd,
 })
 
-adData.elements.audioPlayer.play();</pre>
+View.main.audioPlayer.play();</pre>
 
 
     
@@ -284,7 +300,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-59">line 59</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-64">line 64</a>
 			</li>
 		</ul>
 	</dd>
@@ -371,7 +387,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-77">line 77</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-82">line 82</a>
 			</li>
 		</ul>
 	</dd>
@@ -452,7 +468,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-88">line 88</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-93">line 93</a>
 			</li>
 		</ul>
 	</dd>
@@ -539,7 +555,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-106">line 106</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-111">line 111</a>
 			</li>
 		</ul>
 	</dd>
@@ -627,7 +643,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-117">line 117</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-122">line 122</a>
 			</li>
 		</ul>
 	</dd>
@@ -721,7 +737,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-178">line 178</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-183">line 183</a>
 			</li>
 		</ul>
 	</dd>
@@ -815,7 +831,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-135">line 135</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-140">line 140</a>
 			</li>
 		</ul>
 	</dd>
@@ -909,7 +925,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-126">line 126</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-131">line 131</a>
 			</li>
 		</ul>
 	</dd>
@@ -1053,7 +1069,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-144">line 144</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-149">line 149</a>
 			</li>
 		</ul>
 	</dd>
@@ -1147,7 +1163,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-162">line 162</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-167">line 167</a>
 			</li>
 		</ul>
 	</dd>
@@ -1241,7 +1257,7 @@ adData.elements.audioPlayer.play();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-video_lib_AudioPlayer.js.html">ad-video/lib/AudioPlayer.js</a>,
-				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-191">line 191</a>
+				 <a href="ad-video_lib_AudioPlayer.js.html#sunlight-1-line-196">line 196</a>
 			</li>
 		</ul>
 	</dd>
@@ -1330,7 +1346,7 @@ adData.elements.audioPlayer.play();</pre>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Apr 5th 2018
+		on Fri Apr 13th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
