@@ -213,6 +213,406 @@
             
 <hr>
 <dt>
+    <h4 class="name" id=".addLanguage"><span class="type-signature">&lt;static> </span>addLanguage()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Adds a langauge option. 
+	<pre class="sunlight-highlight-javascript">
+import { spanish } from 'ad-dates'
+DateFormatter.addLanguage(spanish)
+</pre>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A language object, such as labelSpanish.js</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateFormatter.js.html">ad-dates/lib/DateFormatter.js</a>,
+				 <a href="ad-dates_lib_DateFormatter.js.html#sunlight-1-line-39">line 39</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".format"><span class="type-signature">&lt;static> </span>format()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Is the returned instance of a CanvasElement, which makes up all <a href="CanvasShape.html">CanvasShape</a>s and <a href="CanvasImage.html">CanvasImage</a>s. Never called directly by a user.
+		<br><br>
+		<b>Properties available to every <a href="CanvasElement.html">CanvasElement</a>, except where noted::</b><br>
+		<table>
+			<tr><td>YYYY</td>	<td>Year as full Number: 2018</td></tr>
+			<tr><td>YY</td>		<td>Year as abbreviated Number: 18</td></tr>
+			<tr><td>MMMM</td>	<td>Month as full String: September</td></tr>
+			<tr><td>MMM</td>	<td>Month as abbreviated String: sept</td></tr>
+			<tr><td>MM</td>		<td>Month as full Number: 08, 09, 10, 11</td></tr>
+			<tr><td>M</td>		<td>Month as shortest Number: 8, 9, 10, 11</td></tr>
+			<tr><td>DDDD</td>	<td>Day of the week as full String: Monday</td></tr>
+			<tr><td>DDD</td>	<td>Day of the week as abbreviated String: mon</td></tr>
+			<tr><td>DD</td>		<td>Date as full Number: 08, 09, 10, 11</td></tr>
+			<tr><td>D</td>		<td>Date as shortest Number: 8, 9, 10, 11</td></tr>
+			<tr><td>o</td>		<td>Date Suffix String: st, nd, rd, th</td></tr>
+			<tr><td>Do</td>		<td>Date AND Suffix as Number/String: 1st, 2nd, 3rd, 4th</td></tr>
+			<tr><td>TT</td>		<td>Time (Hour:Minute) in full military time as String: 19:00, 20:15</td></tr>
+			<tr><td>T</td>		<td>Time (Hour:Minute) in shortest military time as String: 19, 20:15</td></tr>
+			<tr><td>tt</td>		<td>Time (Hour:Minute) in full standard time as String: 7:00, 8:15</td></tr>
+			<tr><td>t</td>		<td>Time (Hour:Minute) in shortest standard time as String: 7, 8:15</td></tr>
+			<tr><td>HH</td>		<td>Hour in full military time as Number: 0...23 > 08, 09, 10, 20, 21</td></tr>
+			<tr><td>H</td>		<td>Hour in shortest military time as Number: 0...23 > 8, 9, 10, 20, 21</td></tr>
+			<tr><td>hh</td>		<td>Hour in full standard time as Number: 1...12 > 08, 09, 10, 11</td></tr>
+			<tr><td>h</td><		td>Hour in shortest standard time as Number: 1...12 > 8, 9, 10, 11</td></tr>
+			<tr><td>mm</td>		<td>Minute in full standard time as Number: 0...59 > 08, 09, 10, 11</td></tr>
+			<tr><td>m</td>		<td>Minute in shortest standard time as Number: 0...59 > 8, 9, 10, 11</td></tr>
+			<tr><td>ss</td>		<td>Second in full standard time as Number: 0...59 > 08, 09, 10, 11</td></tr>
+			<tr><td>s</td>		<td>Second in shortest standard time as Number: 0...59 > 8, 9, 10, 11</td></tr>
+			<tr><td>a</td>		<td>Meridiem as String: am, pm</td></tr>
+			<tr><td>z</td>		<td>Timezone abbreviation as String: pt, mt, ct, et</td></tr>
+			<tr><td>^</td>		<td>Special Character - add to the end of any token will run toUpperCase() the return as String: ${Do} = 1st, ${Do^} = 1ST</td></tr>						
+		</table>
+
+	<pre class="sunlight-highlight-javascript">
+const targetDate = new TzDate({
+	datetime: ['2015-08-01 14:00:07', 'US/Eastern']
+})
+
+const asDateSlashed = targetDate.format('${M}/${D}/${YYYY}')
+// 8/1/2015
+
+const asDayOfMonth = targetDate.format('Watch this ${DDDD} the ${Do} of ${MMMM}')
+// Watch this Saturday the 1st of August
+
+const asTuneIn = targetDate.format('${M}/${D} <span style="color: red;">${t}${a^}</span>')
+// 8/1 <span style="color: red;">2PM</span>
+</pre>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tzDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="TzDate.html">TzDate</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The date to format</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>format</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Pass in a mark up output of the date, including html, inline styling and spacing. In place of key data, use tokens from chart wrapped in ${}</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optional Object to change the outputTimezone, langouage of formatting</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateFormatter.js.html">ad-dates/lib/DateFormatter.js</a>,
+				 <a href="ad-dates_lib_DateFormatter.js.html#sunlight-1-line-121">line 121</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id=".getLabels"><span class="type-signature">&lt;static> </span>getLabels()</h4>
     
     
@@ -279,7 +679,8 @@
 
             
 
-            <td class="description last">The language that will be used.  Currently only "english" and "spanish".  Defaults to the value set on the class level Dateformatter.langauge</td>
+            <td class="description last">The language that will be used.  Currently only "english". Otheres such as "spanish" must be imported and use addLanguage().  
+		Defaults to the value set on the class level Dateformatter.langauge</td>
         </tr>
 
     
@@ -321,7 +722,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateFormatter.js.html">ad-dates/lib/DateFormatter.js</a>,
-				 <a href="ad-dates_lib_DateFormatter.js.html#sunlight-1-line-36">line 36</a>
+				 <a href="ad-dates_lib_DateFormatter.js.html#sunlight-1-line-59">line 59</a>
 			</li>
 		</ul>
 	</dd>
@@ -525,7 +926,7 @@ var adjustedDate = DateFormatter.adjust( myDate, { day:-1.5, hour:4.2, minute:90
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateFormatter.js.html">ad-dates/lib/DateFormatter.js</a>,
-				 <a href="ad-dates_lib_DateFormatter.js.html#sunlight-1-line-52">line 52</a>
+				 <a href="ad-dates_lib_DateFormatter.js.html#sunlight-1-line-73">line 73</a>
 			</li>
 		</ul>
 	</dd>
@@ -573,6 +974,150 @@ var adjustedDate = DateFormatter.adjust( myDate, { day:-1.5, hour:4.2, minute:90
 
 
         
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setLanguage"><span class="type-signature">&lt;static> </span>setLanguage()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Changes teh language used for date formatting
+	<pre class="sunlight-highlight-javascript">
+DateFormatter.setLanguage(spanish)
+</pre>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label associated with an added language object, such as 'english' or 'spanish'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-dates_lib_DateFormatter.js.html">ad-dates/lib/DateFormatter.js</a>,
+				 <a href="ad-dates_lib_DateFormatter.js.html#sunlight-1-line-24">line 24</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
@@ -631,7 +1176,7 @@ var adjustedDate = DateFormatter.adjust( myDate, { day:-1.5, hour:4.2, minute:90
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Fri Apr 13th 2018
+		on Wed Apr 25th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

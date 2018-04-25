@@ -107,10 +107,33 @@ import english from './languages/labelEnglish.js'
 let _language = 'english'
 let _languageLabels = {}
 
+/**
+	@memberOf DateFormatter	
+	@method setLanguage
+	@property {String} value
+		The label associated with an added language object, such as 'english' or 'spanish'
+	@desc
+		Changes teh language used for date formatting
+	&lt;codeblock>
+		DateFormatter.setLanguage(spanish)
+	&lt;/codeblock>
+*/
 export function setLanguage(value) {
 	_language = value || _language
 }
 
+/**
+	@memberOf DateFormatter	
+	@method addLanguage
+	@property {Object} value
+		A language object, such as labelSpanish.js
+	@desc
+		Adds a langauge option. 
+	&lt;codeblock>
+		import { spanish } from 'ad-dates'
+		DateFormatter.addLanguage(spanish)
+	&lt;/codeblock>
+*/
 export function addLanguage(value) {
 	for (let key in value) {
 		_languageLabels[key] = value[key]
@@ -121,12 +144,10 @@ addLanguage(english)
 
 /**
 	@memberOf DateFormatter	
-	@method 
-		
-	@memberOf DateFormatter	
 	@method getLabels
 	@property {String} language
-		The language that will be used.  Currently only "english" and "spanish".  Defaults to the value set on the class level Dateformatter.langauge
+		The language that will be used.  Currently only "english". Otheres such as "spanish" must be imported and use addLanguage().  
+		Defaults to the value set on the class level Dateformatter.langauge
 	@returns {TzDate|Date}
 	@desc
 		Returns an objects that defines labels that date-messaging will use in the ad, used directly by DateSchedule and RecurringSchedule 
@@ -183,61 +204,93 @@ export function getNumericSuffixFor(value, includeDate) {
 	return (includeDate ? value : '') + output
 }
 
-// YYYY - 2017
-// YY - 17
-// MMMM - September
-// MMM - Sept
-// MM - 09, 10, 11
-// M - 9, 10, 11
-// DDDD - Monday
-// DDD = Mon
-// DD - 08, 09, 10 (date)
-// D - 8, 9, 10
-// o - st, nd, rd, th
-// Do - 1st, 2nd, 3rd, 4th
-// HH - 0...23 > 09, 10, 11
-// H - 0...23 > 9, 10, 11
-// hh - 1...12 > 09, 10, 11
-// h - 1...12 > 9, 10, 11
-// mm - 0...59 > 09, 10, 11
-// m - 0...59 > 9, 10, 11
-// ss - 0...59 > 09, 10, 11
-// s - 0...59 > 9, 10, 11
-// T - 7:00, 8:15
-// TT - 19:00, 20:15
-// t - 7, 8:15
-// tt - 19, 20:15
-// a - am pm
-// z - timezone abbreviation
-// ^ - toUpperCase()
+/**
+	@memberOf DateFormatter	
+	@method format
+	@property {TzDate} tzDate
+		The date to format
+	@property {String} format
+		Pass in a mark up output of the date, including html, inline styling and spacing. In place of key data, use tokens from chart wrapped in ${}
+	@property {Object} args
+		Optional Object to change the outputTimezone, langouage of formatting
+	@returns {String}
+	@desc
+		Is the returned instance of a CanvasElement, which makes up all {@link CanvasShape}s and {@link CanvasImage}s. Never called directly by a user.
+		&lt;br>&lt;br>
+		&lt;b>Properties available to every {@link CanvasElement}, except where noted::&lt;/b>&lt;br>
+		&lt;table>
+			&lt;tr>&lt;td>YYYY&lt;/td>	&lt;td>Year as full Number: 2018&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>YY&lt;/td>		&lt;td>Year as abbreviated Number: 18&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>MMMM&lt;/td>	&lt;td>Month as full String: September&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>MMM&lt;/td>	&lt;td>Month as abbreviated String: sept&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>MM&lt;/td>		&lt;td>Month as full Number: 08, 09, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>M&lt;/td>		&lt;td>Month as shortest Number: 8, 9, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>DDDD&lt;/td>	&lt;td>Day of the week as full String: Monday&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>DDD&lt;/td>	&lt;td>Day of the week as abbreviated String: mon&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>DD&lt;/td>		&lt;td>Date as full Number: 08, 09, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>D&lt;/td>		&lt;td>Date as shortest Number: 8, 9, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>o&lt;/td>		&lt;td>Date Suffix String: st, nd, rd, th&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>Do&lt;/td>		&lt;td>Date AND Suffix as Number/String: 1st, 2nd, 3rd, 4th&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>TT&lt;/td>		&lt;td>Time (Hour:Minute) in full military time as String: 19:00, 20:15&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>T&lt;/td>		&lt;td>Time (Hour:Minute) in shortest military time as String: 19, 20:15&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>tt&lt;/td>		&lt;td>Time (Hour:Minute) in full standard time as String: 7:00, 8:15&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>t&lt;/td>		&lt;td>Time (Hour:Minute) in shortest standard time as String: 7, 8:15&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>HH&lt;/td>		&lt;td>Hour in full military time as Number: 0...23 > 08, 09, 10, 20, 21&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>H&lt;/td>		&lt;td>Hour in shortest military time as Number: 0...23 > 8, 9, 10, 20, 21&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>hh&lt;/td>		&lt;td>Hour in full standard time as Number: 1...12 > 08, 09, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>h&lt;/td>&lt;		td>Hour in shortest standard time as Number: 1...12 > 8, 9, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>mm&lt;/td>		&lt;td>Minute in full standard time as Number: 0...59 > 08, 09, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>m&lt;/td>		&lt;td>Minute in shortest standard time as Number: 0...59 > 8, 9, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>ss&lt;/td>		&lt;td>Second in full standard time as Number: 0...59 > 08, 09, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>s&lt;/td>		&lt;td>Second in shortest standard time as Number: 0...59 > 8, 9, 10, 11&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>a&lt;/td>		&lt;td>Meridiem as String: am, pm&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>z&lt;/td>		&lt;td>Timezone abbreviation as String: pt, mt, ct, et&lt;/td>&lt;/tr>
+			&lt;tr>&lt;td>^&lt;/td>		&lt;td>Special Character - add to the end of any token will run toUpperCase() the return as String: ${Do} = 1st, ${Do^} = 1ST&lt;/td>&lt;/tr>						
+		&lt;/table>
+
+	&lt;codeblock>
+		const targetDate = new TzDate({
+			datetime: ['2015-08-01 14:00:07', 'US/Eastern']
+		})
+
+		const asDateSlashed = targetDate.format('${M}/${D}/${YYYY}')
+		// 8/1/2015
+
+		const asDayOfMonth = targetDate.format('Watch this ${DDDD} the ${Do} of ${MMMM}')
+		// Watch this Saturday the 1st of August
+
+		const asTuneIn = targetDate.format('${M}/${D} &lt;span style="color: red;">${t}${a^}&lt;/span>')
+		// 8/1 &lt;span style="color: red;">2PM&lt;/span>
+	&lt;/codeblock>
+*/
 export function format(tzDate, format, args) {
 	// args - language, weekday exceptions, month exceptions
 	args = args || {}
 
-	var tz = args.inTimezone || tzDate.outputTimezone
-	var language = args.language
+	let tz = args.inTimezone || tzDate.outputTimezone
+	let language = args.language
 
-	var dateIn = tzDate.getIn(tz)
+	let dateIn = tzDate.getIn(tz)
 	//	console.log(".format('" + format + "')")
 
-	var labels = getLabels(language)
-	var month = dateIn.getMonth()
-	var hours = dateIn.getHours()
-	var minutes = dateIn.getMinutes()
+	let labels = getLabels(language)
+	let month = dateIn.getMonth()
+	let hours = dateIn.getHours()
+	let minutes = dateIn.getMinutes()
 
 	// ${YYYY}
-	var result = format.replace(/\$\{(.*?)\}/g, function(match, token) {
+	let result = format.replace(/\$\{(.*?)\}/g, (match, token) => {
 		//	console.log('match:', match, '| token:', token)
-		var output = token
-		var trim = 0 // only used for year
-		var padding
-		var needsLabel
-		var upper = false
-		var keep = true
+		let output = token
+		let trim = 0 // only used for year
+		let padding
+		let needsLabel
+		let upper = false
+		let keep = true
 		let suffix = true
 
 		// searches for ^ char for toUpperCase()
-		token.replace(/(.+)(\^)/, function(match3, token3) {
+		token.replace(/(.+)(\^)/, (match3, token3) => {
 			token = token3
 			upper = true
 			// console.log('\t\t\t', match3, token3)
@@ -245,7 +298,7 @@ export function format(tzDate, format, args) {
 
 		// check for a set of 2, except Y. flags padding then converts to single character MM > M
 		if (token.length == 2) {
-			token.replace(/(?![Yo])([a-zA-Z]).*?\1/, function(match2, token2) {
+			token.replace(/(?![Yo])([a-zA-Z]).*?\1/, (match2, token2) => {
 				token = token2.substr(0, 1)
 				// console.log('\t\t', match2, token2, token)
 				padding = 2
@@ -284,23 +337,16 @@ export function format(tzDate, format, args) {
 				output = labels.WEEKDAYS_FULL[dateIn.getDay()]
 				break
 
-			case 'TT': // TT - 19:00, 20:15
-				keep = minutes > 0
-			case 'tt': // tt - 19, 20:15
+			// padding decides if keep minutes
+			case 't': // t - 7, 8:15 | tt - 7:00, 8:15
+				keep = false
+			case 'T': // T - 19, 20:15 | TT - 19:00, 20:15
 				output = hours
-				if (keep) {
-					output += ':' + TextUtils.pad(minutes, 2)
+				if (!keep) {
+					output %= 12
+					if (output == 0) output = 12
 				}
-				break
-
-			case 't': // t - 7, 8:15
-				keep = minutes > 0
-			case 'T': // T - 7:00, 8:15
-				output = hours % 12
-				if (output == 0) output = 12
-				if (keep) {
-					output += ':' + TextUtils.pad(minutes, 2)
-				}
+				if (padding) output += ':' + TextUtils.pad(minutes, 2)
 				break
 
 			case 'H':
@@ -327,7 +373,7 @@ export function format(tzDate, format, args) {
 				break
 
 			case 'z':
-				output = tz.abbr
+				output = tz.abbr[0] // some kind of flag for which one to use?
 				break
 		}
 
@@ -335,10 +381,9 @@ export function format(tzDate, format, args) {
 			output = TextUtils.pad(output, padding)
 		}
 
-		if (upper) {
+		if (upper &amp;&amp; typeof output == 'string') {
 			output = output.toUpperCase()
 		}
-
 		// console.log('\t', match, token, output)
 
 		return output
@@ -391,7 +436,7 @@ export function format(tzDate, format, args) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Fri Apr 13th 2018
+		on Wed Apr 25th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

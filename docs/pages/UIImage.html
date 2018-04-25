@@ -695,6 +695,567 @@ myImage.source = &#x27;template_image&#x27;;</pre>
 
 
 
+	
+        <h1 class="page-title">@ff0000-ad-tech/ad-ui</h1>
+    
+<section>
+
+<header>
+    
+        <h2 class="module-name">
+        UIImage
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="UIImage"><span class="type-signature"></span>new UIImage()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Import from <a href="https://github.com/ff0000-ad-tech/ad-ui">ad-ui</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { UIFlex } from 'ad-ui'
+</pre>
+		<br><br>
+		
+		This is a display object class, extending <a href="UIComponent.html">UIComponent</a>.  It is a DOM element that has default values for css flexbox. All children's position
+		is set to relative, to allow the flexbox to work. The default setup of UIFlex is to make a row, with the content evenly spread with no buffers on 
+		the outside, aka space-around. There are setters for the primary orientation css keys. They can be passed in to the constructor or using the seeters.
+		They can still be overwritten by simply changing them with <a href="Styles.html#.setCss">Styles.setCss</a>
+		<br><br>
+		
+		By default, UIFlex has these styles set:<br>
+		<pre class="sunlight-highlight-javascript">
+display: flex; 
+flex-wrap: nowrap; 
+justify-content: space-around;
+</pre>
+		<br><br>
+
+		By extending UIComponent this has all of its native properties and methods.  See <a href="UIComponent.html">UIComponent</a> for more info.
+		<br><br>
+
+		For all flexbox options, see https://www.w3schools.com/css/css3_flexbox.asp
+
+		<br><br>
+
+		<b>Sample 1:</b><br>
+		<pre class="sunlight-highlight-javascript">
+var myFlexContainer = new UIFlex({
+	target: T,
+	css: {
+		width: 350,
+		height: 100,
+		backgroundColor: 'rgba(255,0,0,0.3)'
+	},
+	// optional
+	flexDirection: 'column',
+	justifyContent: 'space-between',
+	flexWrap: 'wrap'
+})
+</pre>
+
+		<b>Sample 2:</b>Replace EndFrame UIComponent with a UIFlex<br>
+		<pre class="sunlight-highlight-javascript">
+function EndFrame() {
+	var T = new UIFlex({
+		id: 'endframe-container',
+		target: View.main,
+		css: {
+			width: 'inherit',
+			height: 'inherit'
+		}
+	})
+
+	return T
+}
+</pre>
+	----------------------------------------------------------------------------------------------------------------------------------------------------------
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIFlex.js.html">ad-ui/lib/UIFlex.js</a>,
+				 <a href="ad-ui_lib_UIFlex.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".aspectRatio">
+    <h4 id=".aspectRatio"><span class="type-signature">&lt;static> </span>aspectRatio<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter|Setter : A Boolean to allow for the size of the element to maintain aspect ratio when either the width or height
+   		are changed by directly setting them on the element, ie UIImage.width or UIImage.height.  If using Styles.setCss() this will NOT work.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIImage.js.html">ad-ui/lib/UIImage.js</a>,
+				 <a href="ad-ui_lib_UIImage.js.html#sunlight-1-line-222">line 222</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// get
+console.log( myImage.aspectRatio );
+		// set
+myImage.aspectRatio = true;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".ratio">
+    <h4 id=".ratio"><span class="type-signature">&lt;static> </span>ratio<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter|Setter : A String to set the background-size property.  Use the <a href="Ratio.html">Ratio</a> class for constants that are easier
+   		to understand: <a href="Ratio.html#.EXACT">Ratio.EXACT</a>, <a href="Ratio.html#.FIT">Ratio.FIT</a>, <a href="Ratio.html#.FILL">Ratio.FILL</a>, <a href="Ratio.html#.STRETCH">Ratio.STRETCH</a>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIImage.js.html">ad-ui/lib/UIImage.js</a>,
+				 <a href="ad-ui_lib_UIImage.js.html#sunlight-1-line-201">line 201</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// get
+console.log( myImage.ratio );
+		// set
+myImage.ratio = Ratio.FILL;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".retina">
+    <h4 id=".retina"><span class="type-signature">&lt;static> </span>retina<span class="type-signature"> :boolean</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter|Setter : A Boolean to determine if the image source is double the size of the desired width & height. This is only relevant
+   		if when creating a new UIImage, you do not proved a width or height value.  If you do, the UIImage will simply be
+   		the size provided.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">boolean</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIImage.js.html">ad-ui/lib/UIImage.js</a>,
+				 <a href="ad-ui_lib_UIImage.js.html#sunlight-1-line-178">line 178</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// get
+console.log( myImage.retina );
+		// set
+myImage.retina = false;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".source">
+    <h4 id=".source"><span class="type-signature">&lt;static> </span>source<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Getter|Setter : The Image element id, via <a href="ImageManager.html">ImageManager</a>, can be changed if need be but best to just make a new UIImage if a new source is needed.
+   		Also, use this if you need to access the image for things like getting the original width or height.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIImage.js.html">ad-ui/lib/UIImage.js</a>,
+				 <a href="ad-ui_lib_UIImage.js.html#sunlight-1-line-156">line 156</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// get
+console.log( myImage.source );
+		// set
+myImage.source = &#x27;template_image&#x27;;</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
 		</div>
 	</div>
 
@@ -736,7 +1297,7 @@ myImage.source = &#x27;template_image&#x27;;</pre>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Fri Apr 13th 2018
+		on Wed Apr 25th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
