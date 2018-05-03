@@ -134,17 +134,14 @@
 			eventDuration: 120,
 			isStandard: true,
 			standardOverrides: {
-				DATE: function(date) {
-					return date.toSimpleDate()
-				},
-				TOMORROW: 'Tommorow Night!',
+				DATE: date => date.format('${M}/${D} ${t} ${a^}'), // 8/01 8 PM
+				TOMORROW: (date, label) => label + date.format(' ${t} ${a^}'), // Tomorrow 8 PM
 				NOW: 'Watch Live Now'
 			}
 		})
 		this.schedule.print()
 
 		this.dateMessage = this.schedule.currentLabel
-		this.dateHour = this.schedule.target.toDateTime()
 	&lt;/codeblock>
 
 		&lt;br>&lt;br>
@@ -484,7 +481,7 @@ export default function(arg) {
 			schedule.addDate(
 				new TzDate({
 					datetime: '2017-05-01T17:00:00+00:00',
-					outputTimezone: 'US?Pacific'
+					outputTimezone: 'US/Pacific'
 				}),
 				'Custom Message',
 				function() {
