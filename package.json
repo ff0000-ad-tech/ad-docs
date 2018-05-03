@@ -27,7 +27,7 @@
 		"@ff0000-ad-tech/ad-utils": "git+https://github.com/ff0000-ad-tech/ad-utils.git",
 		"@ff0000-ad-tech/ad-video": "git+https://github.com/ff0000-ad-tech/ad-video.git",
 		"@ff0000-ad-tech/ad-view": "git+https://github.com/ff0000-ad-tech/ad-view.git",
-		"babel-core": "^6.26.0",
+		"babel-core": "^6.26.3",
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"ink-docstrap": "git+https://github.com/ff0000-ad-tech/docstrap.git",
 		"jsdoc": "git+https://github.com/ff0000-ad-tech/jsdoc.git",
