@@ -97,35 +97,17 @@
 		This will create a schedule of dates leading up to the target date, which was formerly achieved by using		
 		the selectMessageForDate() method.  This standard way will produce a schedule pre-populated with:
 		
-		&lt;ul>
-			&lt;li>DATE - returns the target date, using the toSimpleDateTime() for anything further than a week out from the target&lt;/li>
-			&lt;li>WEEK - returns the day of the week the target date is, ie Wednesday&lt;/li>
-			&lt;li>TOMORROW - returns the word "Tomorrow", beginning at midnight the day before the target date&lt;/li>
-			&lt;li>TODAY - returns the string "Today", beginning at midnight on the target date&lt;/li>
-			&lt;li>TONIGHT - returns the string "Tonight", beginning at the time set with tonightStartsAt&lt;/li>
-			&lt;li>NOW - returns the string "Live Now"&lt;/li>
-			&lt;li>PAST - returns the string "Past", called after NOW plus the eventDuration value&lt;/li>
-		&lt;/ul>
+		&lt;table>
+			&lt;tr>&lt;td>DATE&lt;/td>&lt;td>returns the target date, using the toSimpleDateTime() for anything further than a week out from the target&lt;/tr>&lt;/td>
+			&lt;tr>&lt;td>WEEK&lt;/td>&lt;td>returns the day of the week the target date is, ie Wednesday&lt;/tr>&lt;/td>
+			&lt;tr>&lt;td>TOMORROW&lt;/td>&lt;td>returns the word "Tomorrow", beginning at midnight the day before the target date&lt;/tr>&lt;/td>
+			&lt;tr>&lt;td>TODAY&lt;/td>&lt;td>returns the string "Today", beginning at midnight on the target date&lt;/tr>&lt;/td>
+			&lt;tr>&lt;td>TONIGHT&lt;/td>&lt;td>returns the string "Tonight", beginning at the time set with tonightStartsAt&lt;/tr>&lt;/td>
+			&lt;tr>&lt;td>NOW&lt;/td>&lt;td>returns the string "Live Now"&lt;/tr>&lt;/td>
+			&lt;tr>&lt;td>PAST&lt;/td>&lt;td>returns the string "Past", called after NOW plus the eventDuration value&lt;/tr>&lt;/td>
+		&lt;/table>
 
-	@param {object} arg
-		Settings are passed in via this object, see Properties for more info:
-
-	@property {TzDate} target
-		The date that the schedule will count down to
-	@property {boolean} isStandard
-		If true, will create a standard schedule with default messaging
-	@property {number} eventDuration
-		In a standard schedule, the amount of minutes after the target time the PAST messaging shows. Defaults to 120 which is 2 hours
-	@property {string} tonightStartsAt
-		In a standard schedule, when the today message changes to tonight. If the target time is before this value, tonight will never show. Defaults to '17:50' which is 5:30PM
-	@property {boolean} hasOneDayOf
-		In a standard schedule, will determine if only 'tonight' OR 'today' will show, or if it is possible to have both. For example, in ESPN units, the need is that 
-		only one of the options will show at midnight day of the event. So if the event is before the tonightStartsAt value, it will only show 'today', while if it is after
-		it will only show 'tonight'.  If this is set to false, it will allow for both following the logic of tonightStartsAt.  Defaults to true.
-	@property {object} standardOverrides
-		An object to overwrite any of the standard labels. Using the standard keys, apply a new label string or callback function passing in the target date
-		
-	&lt;codeblock>
+			&lt;codeblock>
 		// Standard Schedule
 		this.schedule = new DateSchedule({
 			target: new TzDate({
@@ -248,6 +230,26 @@
 			text: message.label
 		})
 	&lt;/codeblock>
+
+	@param {object} arg
+		Settings are passed in via this object, see Properties for more info:
+
+	@property {TzDate} target
+		The date that the schedule will count down to
+	@property {boolean} isStandard
+		If true, will create a standard schedule with default messaging
+	@property {number} eventDuration
+		In a standard schedule, the amount of minutes after the target time the PAST messaging shows. Defaults to 120 which is 2 hours
+	@property {string} tonightStartsAt
+		In a standard schedule, when the today message changes to tonight. If the target time is before this value, tonight will never show. Defaults to '17:50' which is 5:30PM
+	@property {boolean} hasOneDayOf
+		In a standard schedule, will determine if only 'tonight' OR 'today' will show, or if it is possible to have both. For example, in ESPN units, the need is that 
+		only one of the options will show at midnight day of the event. So if the event is before the tonightStartsAt value, it will only show 'today', while if it is after
+		it will only show 'tonight'.  If this is set to false, it will allow for both following the logic of tonightStartsAt.  Defaults to true.
+	@property {object} standardOverrides
+		An object to overwrite any of the standard labels. Using the standard keys, apply a new label string or callback function passing in the target date
+		
+
 */
 import * as DateManager from './DateManager.js'
 import * as DateFormatter from './DateFormatter.js'

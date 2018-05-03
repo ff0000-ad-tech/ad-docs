@@ -117,15 +117,139 @@ import { DateSchedule } from 'ad-dates'
 		This will create a schedule of dates leading up to the target date, which was formerly achieved by using		
 		the selectMessageForDate() method.  This standard way will produce a schedule pre-populated with:
 		
-		<ul>
-			<li>DATE - returns the target date, using the toSimpleDateTime() for anything further than a week out from the target</li>
-			<li>WEEK - returns the day of the week the target date is, ie Wednesday</li>
-			<li>TOMORROW - returns the word "Tomorrow", beginning at midnight the day before the target date</li>
-			<li>TODAY - returns the string "Today", beginning at midnight on the target date</li>
-			<li>TONIGHT - returns the string "Tonight", beginning at the time set with tonightStartsAt</li>
-			<li>NOW - returns the string "Live Now"</li>
-			<li>PAST - returns the string "Past", called after NOW plus the eventDuration value</li>
-		</ul>
+		<table>
+			<tr><td>DATE</td><td>returns the target date, using the toSimpleDateTime() for anything further than a week out from the target</tr></td>
+			<tr><td>WEEK</td><td>returns the day of the week the target date is, ie Wednesday</tr></td>
+			<tr><td>TOMORROW</td><td>returns the word "Tomorrow", beginning at midnight the day before the target date</tr></td>
+			<tr><td>TODAY</td><td>returns the string "Today", beginning at midnight on the target date</tr></td>
+			<tr><td>TONIGHT</td><td>returns the string "Tonight", beginning at the time set with tonightStartsAt</tr></td>
+			<tr><td>NOW</td><td>returns the string "Live Now"</tr></td>
+			<tr><td>PAST</td><td>returns the string "Past", called after NOW plus the eventDuration value</tr></td>
+		</table>
+
+			<pre class="sunlight-highlight-javascript">
+// Standard Schedule
+this.schedule = new DateSchedule({
+	target: new TzDate({
+		datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
+		outputTimezone: 'local'
+	}),
+	isStandard: true
+})
+this.schedule.print()
+
+this.dateMessage = this.schedule.currentLabel
+this.dateHour = this.schedule.target.toDateTime()
+</pre>
+
+		// 	Each standard label can be overridded by either assigning a different string or by passing in a callback function
+		// 	that will return a differently formatted message. Note each callback gets fired at runtime, creating each label.
+
+		// <pre class="sunlight-highlight-javascript">
+this.schedule = new DateSchedule({
+	target: new TzDate({
+		datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
+		outputTimezone: 'local'
+	}),
+	eventDuration: 120,
+	isStandard: true,
+	standardOverrides: {
+		DATE: function(date) {
+			return date.toSimpleDate()
+		},
+		TOMORROW: 'Tommorow Night!',
+		NOW: 'Watch Live Now'
+	}
+})
+this.schedule.print()
+
+this.dateMessage = this.schedule.currentLabel
+this.dateHour = this.schedule.target.toDateTime()
+</pre>
+
+		<br><br>
+
+		<b>Custom</b><br>
+		This is used to set a specific list of dates to check now against, returning the latest.
+
+	<pre class="sunlight-highlight-javascript">
+this.schedule = new DateSchedule()
+this.schedule.addDate(
+	new TzDate({
+		datetime: ['2015-08-01 12:00:00', 'US/Eastern'],
+		outputTimezone: 'local'
+	}),
+	"Hey I'm the first date"
+)
+this.schedule.addDate(
+	new TzDate({
+		datetime: ['2015-08-05 14:00:00', 'utc'],
+		outputTimezone: 'US/Pacific'
+	}),
+	"I'm the last date"
+)
+this.schedule.print()
+</pre>
+
+		The schedule can also be used to call different markup builds.  Use the third param of addDates() to pass in
+		a callback, then simply call it from Control.preMarkup() or where ever makes sense.
+
+	<pre class="sunlight-highlight-javascript">
+this.schedule = new DateSchedule()
+this.schedule.addDate(
+	new TzDate({
+		datetime: ['2015-08-01 12:00:00', 'US/Eastern'],
+		outputTimezone: 'local'
+	}),
+	"Hey I'm the first date",
+	View.buildFromDate0
+)
+this.schedule.addDate(
+	new TzDate({
+		datetime: ['2015-08-05 14:00:00', 'utc'],
+		outputTimezone: 'US/Pacific'
+	}),
+	"I'm the last date",
+	View.buildFromDate1
+)
+this.schedule.print()
+</pre>
+
+		<b>build.js:</b><br>
+		In <u>build.View</u>, you can write functions that build out the DOM for each of your states.
+
+	<pre class="sunlight-highlight-javascript">
+this.buildFromDate0 = function() {
+	console.log('View.buildFromDate0()')
+	// Markup...
+}
+this.buildFromDate1 = function() {
+	console.log('View.buildFromDate1()')
+	// Markup...
+}
+</pre>
+
+		In <u>build.Control</u> or <u>build.buildMarkup</u>, you simply call the callback of the current date on the schedule.  This will
+		find the current added date object and fire that callback
+
+	<pre class="sunlight-highlight-javascript">
+const message = adData.schedule.current.callback()
+console.log(message)
+
+const myTextField = new UITextField({
+	target: T,
+	id: 'my-textfield',
+	css: {
+		width: 300,
+		height: 90
+	},
+	fontSize: 30,
+	fontFamily: 'template_font',
+	format: TextFormat.INLINE,
+	alignText: Align.CENTER,
+	text: message.label
+})
+</pre>
     </div>
     
 
@@ -355,131 +479,7 @@ import { DateSchedule } from 'ad-dates'
 
             
 
-            <td class="description last">An object to overwrite any of the standard labels. Using the standard keys, apply a new label string or callback function passing in the target date
-		
-	<codeblock>
-		// Standard Schedule
-		this.schedule = new DateSchedule({
-			target: new TzDate({
-				datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
-				outputTimezone: 'local'
-			}),
-			isStandard: true
-		})
-		this.schedule.print()
-
-		this.dateMessage = this.schedule.currentLabel
-		this.dateHour = this.schedule.target.toDateTime()
-		// </codeblock>
-
-		// 	Each standard label can be overridded by either assigning a different string or by passing in a callback function
-		// 	that will return a differently formatted message. Note each callback gets fired at runtime, creating each label.
-
-		// <codeblock>
-		this.schedule = new DateSchedule({
-			target: new TzDate({
-				datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
-				outputTimezone: 'local'
-			}),
-			eventDuration: 120,
-			isStandard: true,
-			standardOverrides: {
-				DATE: function(date) {
-					return date.toSimpleDate()
-				},
-				TOMORROW: 'Tommorow Night!',
-				NOW: 'Watch Live Now'
-			}
-		})
-		this.schedule.print()
-
-		this.dateMessage = this.schedule.currentLabel
-		this.dateHour = this.schedule.target.toDateTime()
-	</codeblock>
-
-		<br><br>
-
-		<b>Custom</b><br>
-		This is used to set a specific list of dates to check now against, returning the latest.
-
-	<codeblock>
-		this.schedule = new DateSchedule()
-		this.schedule.addDate(
-			new TzDate({
-				datetime: ['2015-08-01 12:00:00', 'US/Eastern'],
-				outputTimezone: 'local'
-			}),
-			"Hey I'm the first date"
-		)
-		this.schedule.addDate(
-			new TzDate({
-				datetime: ['2015-08-05 14:00:00', 'utc'],
-				outputTimezone: 'US/Pacific'
-			}),
-			"I'm the last date"
-		)
-		this.schedule.print()
-	</codeblock>
-
-		The schedule can also be used to call different markup builds.  Use the third param of addDates() to pass in
-		a callback, then simply call it from Control.preMarkup() or where ever makes sense.
-
-	<codeblock>
-		this.schedule = new DateSchedule()
-		this.schedule.addDate(
-			new TzDate({
-				datetime: ['2015-08-01 12:00:00', 'US/Eastern'],
-				outputTimezone: 'local'
-			}),
-			"Hey I'm the first date",
-			View.buildFromDate0
-		)
-		this.schedule.addDate(
-			new TzDate({
-				datetime: ['2015-08-05 14:00:00', 'utc'],
-				outputTimezone: 'US/Pacific'
-			}),
-			"I'm the last date",
-			View.buildFromDate1
-		)
-		this.schedule.print()
-	</codeblock>
-
-		<b>build.js:</b><br>
-		In <u>build.View</u>, you can write functions that build out the DOM for each of your states.
-
-	<codeblock>
-		this.buildFromDate0 = function() {
-			console.log('View.buildFromDate0()')
-			// Markup...
-		}
-		this.buildFromDate1 = function() {
-			console.log('View.buildFromDate1()')
-			// Markup...
-		}
-	</codeblock>
-
-		In <u>build.Control</u> or <u>build.buildMarkup</u>, you simply call the callback of the current date on the schedule.  This will
-		find the current added date object and fire that callback
-
-	<codeblock>
-		const message = adData.schedule.current.callback()
-		console.log(message)
-
-		const myTextField = new UITextField({
-			target: T,
-			id: 'my-textfield',
-			css: {
-				width: 300,
-				height: 90
-			},
-			fontSize: 30,
-			fontFamily: 'template_font',
-			format: TextFormat.INLINE,
-			alignText: Align.CENTER,
-			text: message.label
-		})
-	</codeblock></td>
+            <td class="description last">An object to overwrite any of the standard labels. Using the standard keys, apply a new label string or callback function passing in the target date</td>
         </tr>
 
     
@@ -630,7 +630,7 @@ import { DateSchedule } from 'ad-dates'
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-220">line 220</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-222">line 222</a>
 			</li>
 		</ul>
 	</dd>
@@ -719,7 +719,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-235">line 235</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-237">line 237</a>
 			</li>
 		</ul>
 	</dd>
@@ -806,7 +806,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-261">line 261</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-263">line 263</a>
 			</li>
 		</ul>
 	</dd>
@@ -893,7 +893,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-248">line 248</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-250">line 250</a>
 			</li>
 		</ul>
 	</dd>
@@ -980,7 +980,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-349">line 349</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-351">line 351</a>
 			</li>
 		</ul>
 	</dd>
@@ -1067,7 +1067,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-335">line 335</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-337">line 337</a>
 			</li>
 		</ul>
 	</dd>
@@ -1154,7 +1154,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-281">line 281</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-283">line 283</a>
 			</li>
 		</ul>
 	</dd>
@@ -1243,7 +1243,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-296">line 296</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-298">line 298</a>
 			</li>
 		</ul>
 	</dd>
@@ -1330,7 +1330,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-322">line 322</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-324">line 324</a>
 			</li>
 		</ul>
 	</dd>
@@ -1417,7 +1417,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-309">line 309</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-311">line 311</a>
 			</li>
 		</ul>
 	</dd>
@@ -1504,7 +1504,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-207">line 207</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-209">line 209</a>
 			</li>
 		</ul>
 	</dd>
@@ -1699,7 +1699,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-366">line 366</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-368">line 368</a>
 			</li>
 		</ul>
 	</dd>
@@ -1838,7 +1838,7 @@ schedule.addDate(
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-554">line 554</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-556">line 556</a>
 			</li>
 		</ul>
 	</dd>
@@ -1952,7 +1952,7 @@ schedule.addDate(
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-521">line 521</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-523">line 523</a>
 			</li>
 		</ul>
 	</dd>
