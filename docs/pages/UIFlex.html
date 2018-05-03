@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Source: ad-external/lib/Device.js</title>
+	<title>DocStrap Class: UIFlex</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -60,338 +60,467 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: ad-external/lib/Device.js</h1>
+	
+        <h1 class="page-title">@ff0000-ad-tech/ad-ui</h1>
     
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">/**
-	@npmpackage
-	@class Device
-	@desc
-		Import from &lt;a href="https://github.com/ff0000-ad-tech/ad-external">ad-external&lt;/a>
-		&lt;br>
-		&lt;codeblock>
-			// importing into an ES6 class
-			import { Device } from 'ad-external'
-		&lt;/codeblock>
-		&lt;br>&lt;br>
-		
-		Global constant that provide information about the Device on which the code is currently executing
-*/
 
-class Device {
-	static pixelRatio = window.devicePixelRatio || 'unknown'
+<header>
+    
+        <h2 class="module-name">
+        UIFlex
+        </h2>
+        
+    
+</header>
 
-	/**	
-		@memberOf Device	
-		@var {string} agentString
-		@desc
-			Current user agent of browser. */
 
-	/**	
-		@memberOf Device	
-		@var {string} brand
-		@desc
-			Brand of device, possible values are: 
-			&lt;code>microsoft&lt;/code>, 
-			&lt;code>apple&lt;/code>, 
-			&lt;code>android&lt;/code>, 
-			&lt;code>rim&lt;/code>, 
-			&lt;code>unknown&lt;/code>. 
-	*/
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="UIFlex"><span class="type-signature"></span>new UIFlex()</h4>
+    
+    
+</dt>
+<dd>
 
-	/**	
-		@memberOf Device	
-		@var {string} product
-		@desc
-			Brand subtype, possible values are: 
-			&lt;code>windows phone&lt;/code>, 
-			&lt;code>windows&lt;/code>, 
-			&lt;code>iphone&lt;/code>, 
-			&lt;code>ipad&lt;/code>, 
-			&lt;code>ipod&lt;/code>, 
-			&lt;code>mac&lt;/code>, 
-			&lt;code>android&lt;/code>, 
-			&lt;code>pixel 2&lt;/code>, 
-			&lt;code>blackberry&lt;/code>. 
-		*/
-
-	/**	
-		@memberOf Device	
-		@var {string} type
-		@desc
-			Device type, possible values are: 
-			&lt;code>mobile&lt;/code>, 
-			&lt;code>tablet&lt;/code>, 
-			&lt;code>desktop&lt;/code>. 
-			&lt;br>&lt;br>
-			Windows > 8 currently returns tablet, currently no way to differentiate from desktop. */
-
-	/**	
-		@memberOf Device	
-		@var {string} os
-		@desc
-			Operating system of device. */
-
-	/**	
-		@memberOf Device	
-		@var {string} osVersion
-		@desc
-			Version of operating system of device. */
-
-	/** 	
-		@memberOf Device	
-		@var {string} browser
-		@desc
-			Brand of browser. */
-
-	/**	
-		@memberOf Device	
-		@var {string} browserVersion
-		@desc
-			Version of browser. 
-	*/
-
-	/**	
-		@memberOf Device	
-		@var {string} pixelRatio
-		@desc
-			Pixel ratio of device viewport. 
-	*/
-
-	/** ------------------------------------------------------------------------------------------------------------- */
-	// GETTERS
-
-	/**	
-		@memberOf Device	
-		@var {string} orientation
-		@desc
-			Orientaion of device viewport: landscape or portrait. 
-	*/
-	static get orientation() {
-		return window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'
-	}
-
-	/**	
-		@memberOf Device	
-		@var {object} dimensions
-		@property {number} width
-			window inner-width
-		@property {number} height
-			window inner-height
-		@desc
-			The current dimensions of the device's viewport, returns an object with a width and height 
-			value that are direct returns of windowWidth and windowHeight.
-	*/
-	static get dimensions() {
-		return {
-			width: window.innerWidth,
-			height: window.innerHeight
-		}
-	}
-
-	/** ------------------------------------------------------------------------------------------------------------- */
-	// PUBLIC METHODS
-
-	/**	
-		@memberOf Device	
-		@method init
-		@desc
-			Initializes the module, which is called from within the pipeline.
-	*/
-	static init = function() {
-		console.log('Device.init()')
-		const D = this
-		D.agentString = navigator.userAgent
-
-		D._getType()
-		D._getBrandAndOS()
-		D._getBrowser()
-
-		if (D.type !== 'desktop' &amp;&amp; D.os === 'windows' &amp;&amp; D.osVersion &lt;= 8 &amp;&amp; D.browser === 'ie' &amp;&amp; D.browserVersion &lt; 12) {
-			console.log(
-				"You appear to be on Windows 7 or 8 using Internet Explorer 11 or under. You also appear to be on a touchscreen device. We will assume you're actually on a desktop, since it's extremely unlikely you're on a tablet or mobile device using this specific operating system and browser."
-			)
-			D.type = 'desktop'
-		}
-
-		var line = Array(70).join('-')
-		var str = '\n' + line
-		// str += '\n AGENT:\n\n\t' + D.agentString + '\n'
-		// str += '\n  Brand:\t\t\t' + D.brand
-		// str += '\n  Product:\t\t\t' + D.product
-		// str += '\n  Type:\t\t\t\t' + D.type
-		// str += '\n  Os:\t\t\t\t' + D.os + ' - ' + D.osVersion
-		// str += '\n  Browser:\t\t\t' + D.browser + ' - ' + D.browserVersion
-		// str += '\n  Dimensions: \t\t' + D.dimensions.width + 'x' + D.dimensions.height
-		// str += '\n  Orientation:\t\t' + D.orientation
-		// str += '\n  Pixel Ratio:\t\t' + D.pixelRatio
-		for (var property in D) {
-			if (D.hasOwnProperty(property) &amp;&amp; typeof D[property] !== 'function') {
-				str += '\n' + property + ': ' + D[property]
-			}
-		}
-		str += '\n' + line
-		console.log(str)
-	}
-
-	/** ------------------------------------------------------------------------------------------------------------- */
-	// PRIVATE METHODS
-	static _getType = function() {
-		const D = this
-		var hasMobile = /(android|mobile)/gi.exec(D.agentString)
-		var hasTablet = /(tablet|touch)/gi.exec(D.agentString)
-		var hasIPad = /(ipad)/gi.exec(D.agentString)
-		D.type = 'desktop'
-		if (hasMobile) D.type = 'mobile'
-		if (hasTablet) D.type = 'tablet'
-		if (hasIPad) D.type = 'tablet'
-	}
-
-	static _getBrandAndOS = function() {
-		var D = this
-		var apple = D.agentString.match(/ip(hone|od|ad)|mac/gi)
-		if (apple) {
-			D.brand = 'apple'
-			D.product = apple[0].toLowerCase()
-			var appleOS = /(OS\s)(\X\s|)([\d\.\_]+)/gi.exec(D.agentString)
-			D.os = appleOS[2] == '' ? 'ios' : 'osx'
-			D.osVersion = appleOS[3].replace(/\_/g, '.')
-			return
-		}
-
-		var android = /(android)\/?\s*([0-9\.]+)/gi.exec(D.agentString)
-		if (android) {
-			D.brand = D.product = D.os = android[1].toLowerCase()
-			D._checkForSpecial('product', ['pixel 2'], D.agentString.split('(')[1].split(')')[0])
-			D.osVersion = android[2]
-			return
-		}
-
-		var microsoft = /(windows\snt\s|windows\sphone)\/?\s*([0-9\.]+)/gi.exec(D.agentString)
-		if (microsoft) {
-			D.brand = 'microsoft'
-			D.os = 'windows'
-
-			switch (microsoft[2]) {
-				case '5.2':
-					D.osVersion = 'xp'
-					break
-				case '6.0':
-					D.osVersion = 'vista'
-					break
-				case '6.1':
-					D.osVersion = '7'
-					break
-				case '6.2':
-					D.osVersion = '8'
-					break
-				case '6.3':
-					D.osVersion = '8.1'
-					break
-				case '10.0':
-					D.osVersion = '10'
-					break
-				default:
-					D.osVersion = microsoft[2]
-			}
-
-			D.product = microsoft[1].toLowerCase()
-			if (D.product.match(/\snt/i)) {
-				D.product = 'pc'
-			}
-			return
-		}
-
-		// blackberry
-		var blackberry = D.agentString.match(/(blackberry|bb10|playbook)/i)
-		if (blackberry) {
-			D.brand = D.product = D.os = 'blackberry'
-			D.osVersion = /(version)\/?\s*([0-9\.]+)/gi.exec(D.agentString)[2]
-		}
-	}
-
-	static _getBrowser = function() {
-		const D = this
-		var browserMatches = /(edge(?=\/))\/?\s*([0-9\.]+)/i.exec(D.agentString) // check for edge first
-
-		// if it's not edge, check for other common browsers
-		if (!browserMatches) {
-			browserMatches = D.agentString.match(/(fban|fbav|opera|chrome|crios|safari|firefox|msie|trident(?=\/))\/?\s*([0-9\.]+)/i)
-		}
-
-		// if we checked for common browsers and got NOTHING in return, let's just use the device's default browser
-		if (!browserMatches || browserMatches.length &lt; 3) {
-			console.log('we received no browser data, so we are setting it to the default of the device')
-			switch (D.os) {
-				case 'ios':
-					D.browser = 'safari'
-					break
-				case 'windows':
-					D.browser = 'trident'
-					break
-				default:
-					D.browser = 'chrome'
-					break
-			}
-			D.browserVersion = 'os-default'
-			return
-		}
-
-		console.log('we received browser data')
-		D.browser = browserMatches[1].toLowerCase()
-		D.browserVersion = browserMatches[2]
-
-		switch (D.browser) {
-			case 'trident':
-				// Check for desktop IE 10
-				var versionMatch = /\brv:+(\d+)/g.exec(D.agentString)
-				if (versionMatch) D.browserVersion = versionMatch[1]
-			case 'msie':
-				D.browser = 'ie'
-				break
-			case 'crios':
-				D.browser = 'chrome'
-				break
-			case 'safari':
-				var versionMatch = D.agentString.match(/\sversion\/([0-9\.]+)\s/i)
-				if (versionMatch) D.browserVersion = versionMatch[1]
-				break
-			case 'chrome':
-				// check for Opera
-				var versionMatch = D.agentString.match(/\b(OPR)\/([0-9\.]+)/i)
-				if (versionMatch) {
-					D.browser = 'opera'
-					D.browserVersion = versionMatch[2]
-				}
-				break
-		}
-	}
-
-	static _checkForSpecial = function(targetParam, array, focus) {
-		const D = this
-		var param
-		for (var i = 0; i &lt; array.length; i++) {
-			param = array[i].toLowerCase()
-			if (focus.match(new RegExp(param, 'i'))) {
-				D[targetParam] = param
-				break
-			}
-		}
-	}
-}
-
-export default Device
+    
+    <div class="description">
+        Import from <a href="https://github.com/ff0000-ad-tech/ad-ui">ad-ui</a>
+		<br>
+		<pre class="sunlight-highlight-javascript">
+// importing into an ES6 class
+import { UIFlex } from 'ad-ui'
 </pre>
-    </article>
-</section>
+		<br><br>
+		
+		This is a display object class, extending <a href="UIComponent.html">UIComponent</a>.  It is a DOM element that has default values for css flexbox. All children's position
+		is set to relative, to allow the flexbox to work. The default setup of UIFlex is to make a row, with the content evenly spread with no buffers on 
+		the outside, aka space-around. There are setters for the primary orientation css keys. They can be passed in to the constructor or using the seeters.
+		They can still be overwritten by simply changing them with <a href="Styles.html#.setCss">Styles.setCss</a>
+		<br><br>
+		
+		By default, UIFlex has these styles set:<br>
+		<pre class="sunlight-highlight-javascript">
+display: flex; 
+flex-wrap: nowrap; 
+justify-content: space-around;
+</pre>
+		<br><br>
 
+		By extending UIComponent this has all of its native properties and methods.  See <a href="UIComponent.html">UIComponent</a> for more info.
+		<br><br>
+
+		For all flexbox options, see https://www.w3schools.com/css/css3_flexbox.asp
+
+		<br><br>
+
+		<b>Sample 1:</b><br>
+		<pre class="sunlight-highlight-javascript">
+var myFlexContainer = new UIFlex({
+	target: T,
+	css: {
+		width: 350,
+		height: 100,
+		backgroundColor: 'rgba(255,0,0,0.3)'
+	},
+	// optional
+	flexDirection: 'column',
+	justifyContent: 'space-between',
+	flexWrap: 'wrap'
+})
+</pre>
+
+		<b>Sample 2:</b>Replace EndFrame UIComponent with a UIFlex<br>
+		<pre class="sunlight-highlight-javascript">
+function EndFrame() {
+	var T = new UIFlex({
+		id: 'endframe-container',
+		target: View.main,
+		css: {
+			width: 'inherit',
+			height: 'inherit'
+		}
+	})
+
+	return T
+}
+</pre>
+	----------------------------------------------------------------------------------------------------------------------------------------------------------
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIFlex.js.html">ad-ui/lib/UIFlex.js</a>,
+				 <a href="ad-ui_lib_UIFlex.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".flexDirection">
+    <h4 id=".flexDirection"><span class="type-signature">&lt;static> </span>flexDirection<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Setter : Changes the direction of the flexbox. Options: 'row', 'column'. Default: 'row'
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIFlex.js.html">ad-ui/lib/UIFlex.js</a>,
+				 <a href="ad-ui_lib_UIFlex.js.html#sunlight-1-line-82">line 82</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// set
+myFlexContainer.flexDirection = &#x27;column&#x27;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".flexWrap">
+    <h4 id=".flexWrap"><span class="type-signature">&lt;static> </span>flexWrap<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Setter : Changes the justify layout of the flexbox. Options: 'nowrap', 'wrap'. Default: 'nowrap'
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIFlex.js.html">ad-ui/lib/UIFlex.js</a>,
+				 <a href="ad-ui_lib_UIFlex.js.html#sunlight-1-line-112">line 112</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// set
+myFlexContainer.flexWrap = &#x27;wrap&#x27;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".justifyContent">
+    <h4 id=".justifyContent"><span class="type-signature">&lt;static> </span>justifyContent<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Setter : Changes the justify layout of the flexbox. Options: 'center', 'flex-start', 'flex-end', 'space-around', 'space-between'. Default: 'space-around'
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-ui_lib_UIFlex.js.html">ad-ui/lib/UIFlex.js</a>,
+				 <a href="ad-ui_lib_UIFlex.js.html#sunlight-1-line-97">line 97</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// set
+myFlexContainer.justifyContent = &#x27;space-between&#x27;</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -401,6 +530,10 @@ export default Device
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>
