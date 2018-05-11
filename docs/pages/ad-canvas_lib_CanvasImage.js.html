@@ -376,391 +376,394 @@
 	@let {number} shadowDistance
 		NUMBER representing the distance of the drop shadow from the element,
 		*/
-		import CanvasRect from './CanvasRect'
-		import CanvasElement from './CanvasElement'
-		import CanvasCircle from './CanvasCircle'
-		import { Align } from 'ad-view'
-		import { ImageManager } from 'ad-control'
-		import { LoaderUtils } from 'ad-load'
-		import { Device as D } from 'ad-external'
-		
-		class CanvasImage extends CanvasElement {
-			constructor(imgObj) {
-				let _params = (imgObj.params = imgObj.params || {})
-				super(imgObj, 'image')
-		
-				let CI = this
-				CI.Device = new D()
-		
-				let _isSourceCanvas = imgObj.target._getIsSourceCanvas(imgObj.source)
-		
-				if (imgObj.source.tagName === 'VIDEO') CI.src = imgObj.source
-				else
-					CI.src = _isSourceCanvas
-						? imgObj.source.tagName === 'CANVAS' ? imgObj.source : imgObj.source.canvas
-						: imgObj.source.tagName === 'IMG' ? imgObj.source : ImageManager.get(imgObj.source)
-		
-				if (LoaderUtils.getFileType(CI.src.src) === 'svg') {
-					let _squigs = Array(100).join('~')
-					console.log('\t\t\t', _squigs)
-					console.log(
-						"\t\t\t\tWARNING: your image source '" +
-							imgObj.source +
-							"' is an SVG and any CanvasBlendMode applied to it will not render in FireFox"
-					)
-					console.log('\t\t\t\tConsider rendering the image into a dummy CanvasDrawer and referencing that as your image source instead')
-					console.log('\t\t\t', _squigs)
+import CanvasRect from './CanvasRect'
+import CanvasElement from './CanvasElement'
+import CanvasCircle from './CanvasCircle'
+import { Align } from 'ad-view'
+import { ImageManager } from 'ad-control'
+import { LoaderUtils } from 'ad-load'
+import { Device } from 'ad-external'
+
+class CanvasImage extends CanvasElement {
+	constructor(imgObj) {
+		let _params = (imgObj.params = imgObj.params || {})
+		super(imgObj, 'image')
+
+		let CI = this
+
+		let _isSourceCanvas = imgObj.target._getIsSourceCanvas(imgObj.source)
+
+		if (imgObj.source.tagName === 'VIDEO') CI.src = imgObj.source
+		else
+			CI.src = _isSourceCanvas
+				? imgObj.source.tagName === 'CANVAS'
+					? imgObj.source
+					: imgObj.source.canvas
+				: imgObj.source.tagName === 'IMG'
+					? imgObj.source
+					: ImageManager.get(imgObj.source)
+
+		if (LoaderUtils.getFileType(CI.src.src) === 'svg') {
+			let _squigs = Array(100).join('~')
+			console.log('\t\t\t', _squigs)
+			console.log(
+				"\t\t\t\tWARNING: your image source '" +
+					imgObj.source +
+					"' is an SVG and any CanvasBlendMode applied to it will not render in FireFox"
+			)
+			console.log('\t\t\t\tConsider rendering the image into a dummy CanvasDrawer and referencing that as your image source instead')
+			console.log('\t\t\t', _squigs)
+		}
+
+		let _imgSourceWidth = CI.src.width || CI.src.getAttribute('width')
+		let _imgSourceHeight = CI.src.height || CI.src.getAttribute('height')
+
+		CI.x = _params.x || 0
+		CI.y = _params.y || 0
+
+		let _imageScale = CI.stage._imageScale
+
+		// if our CanvasImage is meant to fit within a certain space, we have to format the sourceW, sourceH, sourceX, and sourceY
+		if (imgObj.fitTo) {
+			let _fitSpace = imgObj.fitTo
+
+			// is the image wider than it is tall
+			let _widerSource = _imgSourceWidth > _imgSourceHeight
+			// is the target dimension - the _fitSpace - wider than it is tall
+			let _widerSpace = _fitSpace.width > _fitSpace.height
+
+			// this function takes in an array of arguments to get the ratio dimension
+			// for example - if we know the width we want, we have to get the proportional height
+			function _makeRatios() {
+				let _args = arguments
+
+				// example using _paramsW: CI['width'] = _imgSourceWidth * (_fitSpace['width'] / _imgSourceHeight)
+				CI[_args[2]] = _args[5] * (_fitSpace[_args[3]] / _args[4])
+				_params['source' + _args[0]] = _args[4]
+				_params['source' + _args[1]] = _fitSpace[_args[2]] * (_args[5] / CI[_args[2]])
+			}
+
+			// these are the arguments arrays
+			// array for proportional width, fitting the image to _fitSpace.height
+			let _paramsW = ['H', 'W', 'width', 'height', _imgSourceHeight, _imgSourceWidth]
+			// array for proportional height, fitting the image to _fitSpace.width
+			let _paramsH = ['W', 'H', 'height', 'width', _imgSourceWidth, _imgSourceHeight]
+
+			// is the image wider than it is tall
+			if (_widerSource) {
+				_makeRatios.apply(CI, _paramsW)
+				// if, after getting new image size rations, the image isn't actually as wide as the _fitSpace...
+				// run _makeRatios again, but fit the image to _fitSpace.width
+				if (CI.width &lt; _fitSpace.width) _makeRatios.apply(CI, _paramsH)
+			} else {
+				_makeRatios.apply(CI, _paramsH)
+				// if, after getting new image size rations, the image isn't actually as wide as the _fitSpace...
+				// run _makeRatios again, but fit the image to _fitSpace.height
+				if (CI.height &lt; _fitSpace.height) _makeRatios.apply(CI, _paramsW)
+			}
+
+			// make the image width and height equal to what our _fitSpace values are
+			CI.width = _fitSpace.width
+			CI.height = _fitSpace.height
+
+			// this if check changes the transformOrigin, sourceW, sourceH, sourceX, and sourceH based on a target origin point
+			if (_fitSpace.origin) {
+				// set some defaults for our origin point - if none defined, make TOP-LEFT
+				let _fitOrigin = {
+					x: _fitSpace.origin.x || 0,
+					y: _fitSpace.origin.y || 0
 				}
-		
-				let _imgSourceWidth = CI.src.width || CI.src.getAttribute('width')
-				let _imgSourceHeight = CI.src.height || CI.src.getAttribute('height')
-		
-				CI.x = _params.x || 0
-				CI.y = _params.y || 0
-		
-				let _imageScale = CI.stage._imageScale
-		
-				// if our CanvasImage is meant to fit within a certain space, we have to format the sourceW, sourceH, sourceX, and sourceY
-				if (imgObj.fitTo) {
-					let _fitSpace = imgObj.fitTo
-		
+
+				// is the area we want to fit into - the _fitSpace - a square?
+				let _fitSquare = _fitSpace.width === _fitSpace.height
+
+				// ensure our sourceX and sourceY values are at least defined - they will get overwritten below
+				_params.sourceX = _params.sourceY = 0
+
+				// redefining parameters from our earlier _paramsW / _paramsH arrays so as to reuse arguments below
+				_paramsW[0] = 'x'
+				_paramsH[0] = 'y'
+
+				//	this function runs ALL of the calculations to determine:
+				//
+				//		* how the image should be positioned within th _fitSpace based on the ratio of
+				//			_fitSpace.width/_fitSpace.height and _imgSourceWidth/_imgSourceHeight
+				//		* the origin, and its location within the bounds of the image
+
+				function _setupOrientation(checkParam) {
 					// is the image wider than it is tall
-					let _widerSource = _imgSourceWidth > _imgSourceHeight
-					// is the target dimension - the _fitSpace - wider than it is tall
-					let _widerSpace = _fitSpace.width > _fitSpace.height
-		
-					// this function takes in an array of arguments to get the ratio dimension
-					// for example - if we know the width we want, we have to get the proportional height
-					function _makeRatios() {
+					// arguments via _paramsW = ['x', 'W', 'width', 'height', _imgSourceHeight, _imgSourceWidth]
+					function _fitSpaceSquare() {
 						let _args = arguments
-		
-						// example using _paramsW: CI['width'] = _imgSourceWidth * (_fitSpace['width'] / _imgSourceHeight)
-						CI[_args[2]] = _args[5] * (_fitSpace[_args[3]] / _args[4])
-						_params['source' + _args[0]] = _args[4]
-						_params['source' + _args[1]] = _fitSpace[_args[2]] * (_args[5] / CI[_args[2]])
+
+						// example using _paramsW: _fitOrigin.x *= ((CI.height * _imgSourceWidth) / _imgSourceHeight) / _imgSourceWidth;
+						_fitOrigin[_args[0]] *= CI[_args[3]] * _args[5] / _args[4] / _args[5]
+
+						// scale the _fitOrigin position property to the scale of the image
+						// example using _paramsW: _fitOrigin.x *= CI.height / _imgSourceHeight;
+						_fitOrigin[_args[0] === 'x' ? 'y' : 'x'] *= CI[_args[3]] / _args[4]
 					}
-		
-					// these are the arguments arrays
-					// array for proportional width, fitting the image to _fitSpace.height
-					let _paramsW = ['H', 'W', 'width', 'height', _imgSourceHeight, _imgSourceWidth]
-					// array for proportional height, fitting the image to _fitSpace.width
-					let _paramsH = ['W', 'H', 'height', 'width', _imgSourceWidth, _imgSourceHeight]
-		
+
+					// this function sets the positioning and sizing of the image within the _fitSpace, based on the _fitSpace.origin coordinates
+					// arguments via _paramsW = ['x', 'W', 'width', 'height', _imgSourceHeight, _imgSourceWidth]
+					// arguments via _paramsH = ['y', 'H', 'height', 'width', _imgSourceWidth, _imgSourceHeight];
+					function _orientToOrigin() {
+						let _args = arguments
+						// this scenario only exists if the _fitSpace is NOT a square
+						if (_args.length) {
+							// this is the scale of the fitted image compared to its default size
+							// example using _paramsW: _scale = CI.width / _imgSourceWidth;
+							let _scale = CI[_args[3]] / _args[4]
+
+							// the source property for positioning - either sourceX or sourceY
+							// example using _paramsW: _sourcePropPos = 'source' + 'x'.toUpperCase(); returns 'sourceX';
+							let _sourcePropPos = 'source' + _args[0].toUpperCase()
+
+							// changing the sourceX/Y property for positioning
+							// example using _paramsW: _params.sourceX = (_fitOrigin.x / CI.stage.qualityScale) - ((_fitSpace.width] * 0.5) / _scale);
+							_params[_sourcePropPos] = _fitOrigin[_args[0]] / 1 - _fitSpace[_args[2]] * 0.5 / _scale
+
+							// if the _fitOrigin data all exists within the bounds of the available bitmap data
+							// BUG: THIS ONLY CHECKS AGAINST ONE PARAMETER - sourceX or sourceY - BUT THEN AFFECTS BOTH _fitOrigin.x and _fitOrigin.y
+							// NEED TO CHECK AGAINST BOTH AND AFFECT BOTH
+							if (_params[_sourcePropPos] >= 0 &amp;&amp; _params[_sourcePropPos] &lt;= _args[5] - _params['source' + _args[1]]) {
+								// find out what the origin is in relation to its _fitSpace and _fitOrigin
+								// a loop to set _fitOrigin.x/y equal to (_fitOrigin.x/y - _params.sourceX/sourceY) * _scale;
+								for (let item in _fitOrigin) _fitOrigin[item] = (_fitOrigin[item] - _params['source' + item.toUpperCase()]) * _scale
+							}
+						}
+					}
+
+					// this keeps every value of _fitOrigin, as well as _sourceX/Y, within the bounds of the image
+					// arguments via _paramsW = ['x', 'W', 'width', 'height', _imgSourceHeight, _imgSourceWidth]
+					// arguments via _paramsH = ['y', 'H', 'height', 'width', _imgSourceWidth, _imgSourceHeight];
+					function _modifyOutOfBounds() {
+						let _subArgs = arguments
+						let _arg1 = _subArgs[0]
+						let _arg2 = _subArgs[2]
+
+						// if the image dimensions actually match the source dimensions
+						// then just scale the origin accordingly
+						// example using _paramsW:
+						// if (_params['sourceW'] == _imgSourceWidth) {
+						// 	_fitOrigin['x'] = _fitSpace.origin['x'] * (_fitSpace['width'] / _imgSourceWidth);
+						// }
+						if (_params['source' + _subArgs[1]] == _subArgs[5]) {
+							_fitOrigin[_arg1] = _fitSpace.origin[_arg1] * (_fitSpace[_arg2] / _subArgs[5])
+						}
+
+						// and this fits any bound that exceeds the available bitmap data and keeps it within the bounds
+						// example using _paramsW:
+						// 	if (_fitOrigin['x'] > _fitSpace['width']) {
+						// 		_fitOrigin['x'] = _fitSpace['width'];
+						// 		_params['source' + 'X'] = _imgSourceWidth - _params['source' + 'W'];
+						// 	}
+						if (_fitOrigin[_arg1] > _fitSpace[_arg2]) {
+							_fitOrigin[_arg1] = _fitSpace[_arg2]
+							_params['source' + _arg1.toUpperCase()] = _subArgs[5] - _params['source' + _subArgs[1]]
+						}
+					}
+
+					if (_fitSquare) _fitSpaceSquare.apply(CI, arguments)
+
+					_orientToOrigin.apply(CI, _fitSquare ? null : checkParam)
+
+					_modifyOutOfBounds.apply(CI, _paramsW)
+					_modifyOutOfBounds.apply(CI, _paramsH)
+
+					// this checks to make sure the _fitOrigin.x/y and sourceX/Y are within the bounds of the bitmap data
+					for (let item in _fitOrigin) {
+						// this keeps every value in _fitOrigin above or equal to 0
+						let _sourcePropSize = 'source' + item.toUpperCase()
+						if (_fitOrigin[item] &lt; 0 || _params[_sourcePropSize] &lt; 0) _fitOrigin[item] = _params[_sourcePropSize] = 0
+					}
+				}
+
+				// calling the function we just set up
+				if (_fitSquare) {
+					// call _setupOrientation() with no parameters - that function will recognize _fitSquare
+					_setupOrientation.apply(CI, _widerSource ? _paramsW : _paramsH)
+				} else {
 					// is the image wider than it is tall
 					if (_widerSource) {
-						_makeRatios.apply(CI, _paramsW)
-						// if, after getting new image size rations, the image isn't actually as wide as the _fitSpace...
-						// run _makeRatios again, but fit the image to _fitSpace.width
-						if (CI.width &lt; _fitSpace.width) _makeRatios.apply(CI, _paramsH)
-					} else {
-						_makeRatios.apply(CI, _paramsH)
-						// if, after getting new image size rations, the image isn't actually as wide as the _fitSpace...
-						// run _makeRatios again, but fit the image to _fitSpace.height
-						if (CI.height &lt; _fitSpace.height) _makeRatios.apply(CI, _paramsW)
-					}
-		
-					// make the image width and height equal to what our _fitSpace values are
-					CI.width = _fitSpace.width
-					CI.height = _fitSpace.height
-		
-					// this if check changes the transformOrigin, sourceW, sourceH, sourceX, and sourceH based on a target origin point
-					if (_fitSpace.origin) {
-						// set some defaults for our origin point - if none defined, make TOP-LEFT
-						let _fitOrigin = {
-							x: _fitSpace.origin.x || 0,
-							y: _fitSpace.origin.y || 0
-						}
-		
-						// is the area we want to fit into - the _fitSpace - a square?
-						let _fitSquare = _fitSpace.width === _fitSpace.height
-		
-						// ensure our sourceX and sourceY values are at least defined - they will get overwritten below
-						_params.sourceX = _params.sourceY = 0
-		
-						// redefining parameters from our earlier _paramsW / _paramsH arrays so as to reuse arguments below
-						_paramsW[0] = 'x'
-						_paramsH[0] = 'y'
-		
-						//	this function runs ALL of the calculations to determine:
+						// is the target _fitSpace wider than it is tall - orient to the height
+						if (_fitSpace.width > _fitSpace.height) _setupOrientation(_paramsH)
+						// is the target _fitSpace taller than it is wide - orient to the width
+						else _setupOrientation(_paramsW)
 						//
-						//		* how the image should be positioned within th _fitSpace based on the ratio of
-						//			_fitSpace.width/_fitSpace.height and _imgSourceWidth/_imgSourceHeight
-						//		* the origin, and its location within the bounds of the image
-		
-						function _setupOrientation(checkParam) {
-							// is the image wider than it is tall
-							// arguments via _paramsW = ['x', 'W', 'width', 'height', _imgSourceHeight, _imgSourceWidth]
-							function _fitSpaceSquare() {
-								let _args = arguments
-		
-								// example using _paramsW: _fitOrigin.x *= ((CI.height * _imgSourceWidth) / _imgSourceHeight) / _imgSourceWidth;
-								_fitOrigin[_args[0]] *= CI[_args[3]] * _args[5] / _args[4] / _args[5]
-		
-								// scale the _fitOrigin position property to the scale of the image
-								// example using _paramsW: _fitOrigin.x *= CI.height / _imgSourceHeight;
-								_fitOrigin[_args[0] === 'x' ? 'y' : 'x'] *= CI[_args[3]] / _args[4]
-							}
-		
-							// this function sets the positioning and sizing of the image within the _fitSpace, based on the _fitSpace.origin coordinates
-							// arguments via _paramsW = ['x', 'W', 'width', 'height', _imgSourceHeight, _imgSourceWidth]
-							// arguments via _paramsH = ['y', 'H', 'height', 'width', _imgSourceWidth, _imgSourceHeight];
-							function _orientToOrigin() {
-								let _args = arguments
-								// this scenario only exists if the _fitSpace is NOT a square
-								if (_args.length) {
-									// this is the scale of the fitted image compared to its default size
-									// example using _paramsW: _scale = CI.width / _imgSourceWidth;
-									let _scale = CI[_args[3]] / _args[4]
-		
-									// the source property for positioning - either sourceX or sourceY
-									// example using _paramsW: _sourcePropPos = 'source' + 'x'.toUpperCase(); returns 'sourceX';
-									let _sourcePropPos = 'source' + _args[0].toUpperCase()
-		
-									// changing the sourceX/Y property for positioning
-									// example using _paramsW: _params.sourceX = (_fitOrigin.x / CI.stage.qualityScale) - ((_fitSpace.width] * 0.5) / _scale);
-									_params[_sourcePropPos] = _fitOrigin[_args[0]] / 1 - _fitSpace[_args[2]] * 0.5 / _scale
-		
-									// if the _fitOrigin data all exists within the bounds of the available bitmap data
-									// BUG: THIS ONLY CHECKS AGAINST ONE PARAMETER - sourceX or sourceY - BUT THEN AFFECTS BOTH _fitOrigin.x and _fitOrigin.y
-									// NEED TO CHECK AGAINST BOTH AND AFFECT BOTH
-									if (_params[_sourcePropPos] >= 0 &amp;&amp; _params[_sourcePropPos] &lt;= _args[5] - _params['source' + _args[1]]) {
-										// find out what the origin is in relation to its _fitSpace and _fitOrigin
-										// a loop to set _fitOrigin.x/y equal to (_fitOrigin.x/y - _params.sourceX/sourceY) * _scale;
-										for (let item in _fitOrigin) _fitOrigin[item] = (_fitOrigin[item] - _params['source' + item.toUpperCase()]) * _scale
-									}
-								}
-							}
-		
-							// this keeps every value of _fitOrigin, as well as _sourceX/Y, within the bounds of the image
-							// arguments via _paramsW = ['x', 'W', 'width', 'height', _imgSourceHeight, _imgSourceWidth]
-							// arguments via _paramsH = ['y', 'H', 'height', 'width', _imgSourceWidth, _imgSourceHeight];
-							function _modifyOutOfBounds() {
-								let _subArgs = arguments
-								let _arg1 = _subArgs[0]
-								let _arg2 = _subArgs[2]
-		
-								// if the image dimensions actually match the source dimensions
-								// then just scale the origin accordingly
-								// example using _paramsW:
-								// if (_params['sourceW'] == _imgSourceWidth) {
-								// 	_fitOrigin['x'] = _fitSpace.origin['x'] * (_fitSpace['width'] / _imgSourceWidth);
-								// }
-								if (_params['source' + _subArgs[1]] == _subArgs[5]) {
-									_fitOrigin[_arg1] = _fitSpace.origin[_arg1] * (_fitSpace[_arg2] / _subArgs[5])
-								}
-		
-								// and this fits any bound that exceeds the available bitmap data and keeps it within the bounds
-								// example using _paramsW:
-								// 	if (_fitOrigin['x'] > _fitSpace['width']) {
-								// 		_fitOrigin['x'] = _fitSpace['width'];
-								// 		_params['source' + 'X'] = _imgSourceWidth - _params['source' + 'W'];
-								// 	}
-								if (_fitOrigin[_arg1] > _fitSpace[_arg2]) {
-									_fitOrigin[_arg1] = _fitSpace[_arg2]
-									_params['source' + _arg1.toUpperCase()] = _subArgs[5] - _params['source' + _subArgs[1]]
-								}
-							}
-		
-							if (_fitSquare) _fitSpaceSquare.apply(CI, arguments)
-		
-							_orientToOrigin.apply(CI, _fitSquare ? null : checkParam)
-		
-							_modifyOutOfBounds.apply(CI, _paramsW)
-							_modifyOutOfBounds.apply(CI, _paramsH)
-		
-							// this checks to make sure the _fitOrigin.x/y and sourceX/Y are within the bounds of the bitmap data
-							for (let item in _fitOrigin) {
-								// this keeps every value in _fitOrigin above or equal to 0
-								let _sourcePropSize = 'source' + item.toUpperCase()
-								if (_fitOrigin[item] &lt; 0 || _params[_sourcePropSize] &lt; 0) _fitOrigin[item] = _params[_sourcePropSize] = 0
-							}
-						}
-		
-						// calling the function we just set up
-						if (_fitSquare) {
-							// call _setupOrientation() with no parameters - that function will recognize _fitSquare
-							_setupOrientation.apply(CI, _widerSource ? _paramsW : _paramsH)
-						} else {
-							// is the image wider than it is tall
-							if (_widerSource) {
-								// is the target _fitSpace wider than it is tall - orient to the height
-								if (_fitSpace.width > _fitSpace.height) _setupOrientation(_paramsH)
-								else
-									// is the target _fitSpace taller than it is wide - orient to the width
-									_setupOrientation(_paramsW)
-								//
-							} else {
-								// is the target _fitSpace taller than it is wide - orient to the width
-								if (_fitSpace.height > _fitSpace.width) _setupOrientation(_paramsW)
-								else
-									// is the target _fitSpace wider than it is tall - orient to the height
-									_setupOrientation(_paramsH)
-							}
-						}
-		
-						// set the default transformOrigin to that of the given _fitOrigin point
-						_params.transformOrigin = _fitOrigin.x + ' ' + _fitOrigin.y
-		
-						// this adds debugging information so we can see our intended origin and how our image transforms against it
-						if (_fitSpace.debug) {
-							// common args for the tall and wide lines
-							let _args = {
-								target: CI.stage,
-								fill: 'yellow',
-								params: {
-									width: 1,
-									height: 1
-								}
-							}
-		
-							// the tall line
-							let _tall = new CanvasRect(_args)
-							// the wide line
-							let _wide = new CanvasRect(_args)
-		
-							// circle surrounding the origin point
-							_fitOrigin.radius = 10
-							let _circ = new CanvasCircle({
-								target: CI.stage,
-								params: _fitOrigin,
-								stroke: {
-									fill: 'yellow',
-									width: 2
-								}
-							})
-		
-							_tall.height = _fitSpace.height
-							_wide.width = _fitSpace.width
-							_tall.x = _circ.x - _tall.width / 2
-							_wide.y = _circ.y - _wide.height / 2
-						}
-					}
-				} else if (imgObj.aspectRatio) {
-					let _isMissingW = _params.width === undefined
-					let _isMissingH = _params.height === undefined
-		
-					if (!_isMissingW &amp;&amp; _isMissingH) {
-						CI.width = _params.width
-						CI.height = _imgSourceHeight * (_params.width / _imgSourceWidth)
-					} else if (!_isMissingH &amp;&amp; _isMissingW) {
-						CI.height = _params.height
-						CI.width = _imgSourceWidth * (_params.height / _imgSourceHeight)
-					}
-				} else {
-					CI.width = _params.width || _imgSourceWidth / _imageScale
-					CI.height = _params.height || _imgSourceHeight / _imageScale
-				}
-		
-				CI._sourceX
-				CI._sourceY
-		
-				CI.sourceX = _params.sourceX || 0
-				CI.sourceY = _params.sourceY || 0
-				CI.sourceW = _params.sourceW || _imgSourceWidth || CI.width * _imageScale
-				CI.sourceH = _params.sourceH || _imgSourceHeight || CI.height * _imageScale
-		
-				CI.transformOrigin = _params.transformOrigin || imgObj.transformOrigin || '50% 50%'
-				if (imgObj.align) Align.set(CI, imgObj.align)
-			}
-		
-			get sourceX() {
-				return this._sourceX
-			}
-		
-			set sourceX(value) {
-				this._sourceX = value
-				this.warn('X')
-			}
-		
-			get sourceY() {
-				return this._sourceY
-			}
-		
-			set sourceY(value) {
-				this._sourceY = value
-				this.warn('Y')
-			}
-		
-			warn(prop) {
-				let CI = this
-				let _altProp
-				let _dim
-				switch (prop) {
-					case 'X':
-					case 'Y':
-						_altProp = prop === 'X' ? 'W' : 'H'
-						_dim = prop === 'X' ? 'width' : 'height'
-						break
-					case 'W':
-					case 'H':
-						_altProp = prop === 'W' ? 'X' : 'Y'
-						_dim = prop === 'W' ? 'width' : 'height'
-						break
-				}
-		
-				if (CI['_source' + _altProp] + CI['_source' + prop] > CI.src[_dim]) {
-					console.log('\r\rWARNING: on ' + CI.stage.canvas.id + '.elements.' + CI.id)
-					console.log(
-						'\tthe combined source' +
-							_altProp +
-							' and source' +
-							prop +
-							' values exceed the ' +
-							_dim +
-							' of the CanvasImage.src and will not render properly in most browsers'
-					)
-					console.log('\t\tconsider revising your source' + prop, '\r\r')
-				}
-			}
-		
-			draw(trans) {
-				let CI = this
-				const { Device } = CI
-		
-				try {
-					let _x, _y
-					if (trans) {
-						_x = -CI._offsetX
-						_y = -CI._offsetY
 					} else {
-						_x = CI.x
-						_y = CI.y
+						// is the target _fitSpace taller than it is wide - orient to the width
+						if (_fitSpace.height > _fitSpace.width) _setupOrientation(_paramsW)
+						// is the target _fitSpace wider than it is tall - orient to the height
+						else _setupOrientation(_paramsH)
 					}
-					CI.stage.ctx.drawImage(
-						CI.src,
-						CI._sourceX,
-						CI._sourceY,
-						CI.sourceW,
-						CI.sourceH,
-						_x * CI.stage.qualityScale,
-						_y * CI.stage.qualityScale,
-						CI.width * CI.stage.qualityScale,
-						CI.height * CI.stage.qualityScale
-					)
-				} catch (err) {
-					console.log(
-						"\r\rERROR: Source for CanvasDrawer: '" +
-							CI.stage.canvas.id +
-							"' element: '" +
-							CI.id +
-							"' failed to load; the image source of " +
-							CI.src +
-							' may not be named or loaded properly.'
-					)
-					console.log(
-						'ERROR: CanvasImage requires defined width, height, sourceW, and sourceH values for SVGs, and that data could be undefined:'
-					)
-					console.log(
-						'\t On',
-						String(Device.os + ' ' + Device.osVersion + ': ' + Device.browser + ' - ' + Device.browserVersion).toUpperCase(),
-						':'
-					)
-					console.log('\t width:', CI.width, ', height:', CI.height, ', sourceW:', CI.sourceW, ', sourceH:', CI.sourceH, '\r\r')
+				}
+
+				// set the default transformOrigin to that of the given _fitOrigin point
+				_params.transformOrigin = _fitOrigin.x + ' ' + _fitOrigin.y
+
+				// this adds debugging information so we can see our intended origin and how our image transforms against it
+				if (_fitSpace.debug) {
+					// common args for the tall and wide lines
+					let _args = {
+						target: CI.stage,
+						fill: 'yellow',
+						params: {
+							width: 1,
+							height: 1
+						}
+					}
+
+					// the tall line
+					let _tall = new CanvasRect(_args)
+					// the wide line
+					let _wide = new CanvasRect(_args)
+
+					// circle surrounding the origin point
+					_fitOrigin.radius = 10
+					let _circ = new CanvasCircle({
+						target: CI.stage,
+						params: _fitOrigin,
+						stroke: {
+							fill: 'yellow',
+							width: 2
+						}
+					})
+
+					_tall.height = _fitSpace.height
+					_wide.width = _fitSpace.width
+					_tall.x = _circ.x - _tall.width / 2
+					_wide.y = _circ.y - _wide.height / 2
 				}
 			}
+		} else if (imgObj.aspectRatio) {
+			let _isMissingW = _params.width === undefined
+			let _isMissingH = _params.height === undefined
+
+			if (!_isMissingW &amp;&amp; _isMissingH) {
+				CI.width = _params.width
+				CI.height = _imgSourceHeight * (_params.width / _imgSourceWidth)
+			} else if (!_isMissingH &amp;&amp; _isMissingW) {
+				CI.height = _params.height
+				CI.width = _imgSourceWidth * (_params.height / _imgSourceHeight)
+			}
+		} else {
+			CI.width = _params.width || _imgSourceWidth / _imageScale
+			CI.height = _params.height || _imgSourceHeight / _imageScale
 		}
-		export default CanvasImage
-		</pre>
+
+		CI._sourceX
+		CI._sourceY
+
+		CI.sourceX = _params.sourceX || 0
+		CI.sourceY = _params.sourceY || 0
+		CI.sourceW = _params.sourceW || _imgSourceWidth || CI.width * _imageScale
+		CI.sourceH = _params.sourceH || _imgSourceHeight || CI.height * _imageScale
+
+		CI.transformOrigin = _params.transformOrigin || imgObj.transformOrigin || '50% 50%'
+		if (imgObj.align) Align.set(CI, imgObj.align)
+	}
+
+	get sourceX() {
+		return this._sourceX
+	}
+
+	set sourceX(value) {
+		this._sourceX = value
+		this.warn('X')
+	}
+
+	get sourceY() {
+		return this._sourceY
+	}
+
+	set sourceY(value) {
+		this._sourceY = value
+		this.warn('Y')
+	}
+
+	warn(prop) {
+		let CI = this
+		let _altProp
+		let _dim
+		switch (prop) {
+			case 'X':
+			case 'Y':
+				_altProp = prop === 'X' ? 'W' : 'H'
+				_dim = prop === 'X' ? 'width' : 'height'
+				break
+			case 'W':
+			case 'H':
+				_altProp = prop === 'W' ? 'X' : 'Y'
+				_dim = prop === 'W' ? 'width' : 'height'
+				break
+		}
+
+		if (CI['_source' + _altProp] + CI['_source' + prop] > CI.src[_dim]) {
+			console.log('\r\rWARNING: on ' + CI.stage.canvas.id + '.elements.' + CI.id)
+			console.log(
+				'\tthe combined source' +
+					_altProp +
+					' and source' +
+					prop +
+					' values exceed the ' +
+					_dim +
+					' of the CanvasImage.src and will not render properly in most browsers'
+			)
+			console.log('\t\tconsider revising your source' + prop, '\r\r')
+		}
+	}
+
+	draw(trans) {
+		let CI = this
+
+		try {
+			let _x, _y
+			if (trans) {
+				_x = -CI._offsetX
+				_y = -CI._offsetY
+			} else {
+				_x = CI.x
+				_y = CI.y
+			}
+			CI.stage.ctx.drawImage(
+				CI.src,
+				CI._sourceX,
+				CI._sourceY,
+				CI.sourceW,
+				CI.sourceH,
+				_x * CI.stage.qualityScale,
+				_y * CI.stage.qualityScale,
+				CI.width * CI.stage.qualityScale,
+				CI.height * CI.stage.qualityScale
+			)
+		} catch (err) {
+			console.log(
+				"\r\rERROR: Source for CanvasDrawer: '" +
+					CI.stage.canvas.id +
+					"' element: '" +
+					CI.id +
+					"' failed to load; the image source of " +
+					CI.src +
+					' may not be named or loaded properly.'
+			)
+			console.log(
+				'ERROR: CanvasImage requires defined width, height, sourceW, and sourceH values for SVGs, and that data could be undefined:'
+			)
+			console.log(
+				'\t On',
+				String(Device.os + ' ' + Device.osVersion + ': ' + Device.browser + ' - ' + Device.browserVersion).toUpperCase(),
+				':'
+			)
+			console.log('\t width:', CI.width, ', height:', CI.height, ', sourceW:', CI.sourceW, ', sourceH:', CI.sourceH, '\r\r')
+			console.log(
+				'\t if these values are all defined, it is possible the sourceW or sourceH are too large: for instance, an SVG width of 452.6 cannot be rounded to 453, it must be 452'
+			)
+		}
+	}
+}
+export default CanvasImage
+</pre>
     </article>
 </section>
 
@@ -805,7 +808,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu May 3rd 2018
+		on Thu May 10th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

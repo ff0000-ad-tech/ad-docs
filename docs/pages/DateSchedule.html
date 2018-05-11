@@ -142,8 +142,8 @@ this.dateMessage = this.schedule.currentLabel
 this.dateHour = this.schedule.target.toDateTime()
 </pre>
 
-		// 	Each standard label can be overridded by either assigning a different string or by passing in a callback function
-		// 	that will return a differently formatted message. Note each callback gets fired at runtime, creating each label.
+		Each standard label can be overridded by either assigning a different string or by passing in a callback function
+		that will return a differently formatted message. Note each callback gets fired at runtime, creating each label.
 
 		// <pre class="sunlight-highlight-javascript">
 this.schedule = new DateSchedule({
@@ -154,8 +154,9 @@ this.schedule = new DateSchedule({
 	eventDuration: 120,
 	isStandard: true,
 	standardOverrides: {
-		DATE: date => date.format('${M}/${D} ${t} ${a^}'), // 8/01 8 PM
+		DATE: date => date.format('${M}/${D} ${t} ${a^}'), // 8/1 8 PM
 		TOMORROW: (date, label) => label + date.format(' ${t} ${a^}'), // Tomorrow 8 PM
+		WEEK: date => date.format('${DDDD^} ${t} ${a^}'), // SATURDAY 8 PM
 		NOW: 'Watch Live Now'
 	}
 })
@@ -627,7 +628,7 @@ const myTextField = new UITextField({
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-219">line 219</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-220">line 220</a>
 			</li>
 		</ul>
 	</dd>
@@ -716,7 +717,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-234">line 234</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-235">line 235</a>
 			</li>
 		</ul>
 	</dd>
@@ -803,7 +804,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-260">line 260</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-261">line 261</a>
 			</li>
 		</ul>
 	</dd>
@@ -890,7 +891,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-247">line 247</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-248">line 248</a>
 			</li>
 		</ul>
 	</dd>
@@ -977,7 +978,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-348">line 348</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-349">line 349</a>
 			</li>
 		</ul>
 	</dd>
@@ -1064,7 +1065,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-334">line 334</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-335">line 335</a>
 			</li>
 		</ul>
 	</dd>
@@ -1151,7 +1152,7 @@ mySchedule.current.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-280">line 280</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-281">line 281</a>
 			</li>
 		</ul>
 	</dd>
@@ -1240,7 +1241,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-295">line 295</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-296">line 296</a>
 			</li>
 		</ul>
 	</dd>
@@ -1327,7 +1328,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-321">line 321</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-322">line 322</a>
 			</li>
 		</ul>
 	</dd>
@@ -1414,7 +1415,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-308">line 308</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-309">line 309</a>
 			</li>
 		</ul>
 	</dd>
@@ -1501,7 +1502,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-206">line 206</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-207">line 207</a>
 			</li>
 		</ul>
 	</dd>
@@ -1696,7 +1697,7 @@ mySchedule.next.callback()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-365">line 365</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-366">line 366</a>
 			</li>
 		</ul>
 	</dd>
@@ -1835,7 +1836,7 @@ schedule.addDate(
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-553">line 553</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-555">line 555</a>
 			</li>
 		</ul>
 	</dd>
@@ -1949,7 +1950,7 @@ schedule.addDate(
 		<ul class="dummy">
 			<li>
 				<a href="ad-dates_lib_DateSchedule.js.html">ad-dates/lib/DateSchedule.js</a>,
-				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-520">line 520</a>
+				 <a href="ad-dates_lib_DateSchedule.js.html#sunlight-1-line-522">line 522</a>
 			</li>
 		</ul>
 	</dd>
@@ -2054,7 +2055,7 @@ const schedule = new DateSchedule({
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu May 3rd 2018
+		on Thu May 10th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
