@@ -4,15 +4,7 @@
 
 FF0000 Ad Tech (FAT) has several components that facilitate the easy-coding of flexible, lightweight, fast-loading, animated banners.
 
-## Creative Server
-
-Creative Server is an NPM-installed, local server that manages stopping/starting/watching Webpack scripts for all the ad sizes/indexes in your campaign.
-
-This platform is intended to be framework agnostic -- however you prefer building your ads, Creative Server only wants to help you manage the volume of sizes/indexes as you write, debug, and publish for traffic.
-
-For more information & screenshots, please head over to the [Creative Server - README](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md).
-
-## Build Sources
+## Build Source
 
 A Build Source is the campaign-authoring starting point. 
 
@@ -20,6 +12,13 @@ At RED, we have systems that maintain many different Build Sources, depending on
 
 To see an example Build Source, please head over to the [Standard Base Template - README](https://github.com/ff0000-ad-tech/tmpl-standard-base/blob/master/README.md).
 
+## Creative Server
+
+Creative Server is an NPM-installed, local server that manages stopping/starting/watching Webpack scripts for all the ad sizes/indexes in your campaign.
+
+This platform is intended to be framework agnostic -- however you prefer building your ads, Creative Server only wants to help you manage the volume of sizes/indexes as you write, debug, and publish for traffic.
+
+For more information & screenshots, please head over to the [Creative Server - README](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md).
 
 ## Authoring Framework
 
