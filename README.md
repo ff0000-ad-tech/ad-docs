@@ -2,7 +2,40 @@
 
 # Welcome
 
-FF0000 Ad Tech (FAT) has several components that facilitate the easy-coding of flexible, lightweight, fast-loading, animated banners.
+Our philosophy is *,deluxe banner creative,*: 
+  * Ads can be *,sexy,*!
+  * Creative should be able make *,full use,* of the placement's capabilities.
+  * The execution ought to be *,technically efficient,* & respectful of user experience.
+
+Our framework is built to enable high-volume production of such units, without involving oneself in the complicated mechanics of modern web development.
+
+### Alternatives
+  * Google Web Designer
+  * Adobe Animate
+  * Sizmek Builder
+  * Hand-coded HTML/CSS/JS
+
+Platforms produce simple banners easily, but they are limited in capability & not very optimized. 
+
+Coding from scratch is hard, but code can do anything the sandbox allows & can be highly optimized.
+
+# FF0000 Ad Tech (FAT)
+
+A Webpack/ES6/binary-compiling framework that enables agency developers to focus exclusively on the creative execution, leaving the complex process of transpiling, packaging, and load performance to the core team.
+
+#### Webpack/ES6 & Open Source
+
+Every day the global Javascript community is pushing the limits of what is possible in a Web View. 
+
+As banner developers, we want to be on this cutting edge. We want to write with the latest standards, and we want to take advantage of the optimization that comes from the open source community.
+
+#### Binary Compiling
+
+Base64/gzipping is bloated for binary assets like images & fonts. 10-20% is a big deal when you only have 100k.
+
+The solution is a binary compile which produces a single load for all of your images/fonts. The resultant stream is then piped to the appropriate DOM elements at runtime. 
+
+There is a CPU trade-off for that stream, but it's always faster than individual loads. And the smaller payload means more creative wiggle room.
 
 ## Build Source
 
