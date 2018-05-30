@@ -17,7 +17,7 @@ Our framework is built to enable high-volume production of such units, without i
 
 Platforms produce simple banners easily, but they are limited in capability & not very optimized. 
 
-Coding from scratch is hard, but code can do anything the sandbox allows & can be highly optimized.
+With coding, anything the sandbox allows is possible & the technical performance can be perfected, but it's rather difficult & time consuming.
 
 # FF0000 Ad Tech (FAT)
 
