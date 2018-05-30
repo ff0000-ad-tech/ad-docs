@@ -7,35 +7,46 @@ Our philosophy is *deluxe banner creative*:
   * Creative should be able to make *full use* of the placement's capabilities.
   * The execution ought to be *technically efficient* & respectful of user experience.
 
-Our framework is built to enable high-volume production of such units, without involving oneself in the complicated mechanics of modern web development.
+Our framework enables high-volume production (many sizes / many variations per size), without involving oneself in the complicated mechanics of modern web development.
 
 ### Alternatives
   * Google Web Designer
   * Adobe Animate
   * Sizmek Builder
-  * Hand-coded HTML/CSS/JS
+  * Hand-coded HTML / CSS / JS
+  * Web-app focused frameworks like React / Web Components / Ember
 
 Platforms produce simple banners easily, but they are limited in capability & not very optimized. 
 
-With coding, anything the sandbox allows is possible & the technical performance can be perfected, but it's rather difficult & time consuming.
+With coding, anything the sandbox allows is possible & the technical performance can be perfected, but...it's rather difficult & time consuming!
 
 # FF0000 Ad Tech (FAT)
 
-A Webpack/ES6/binary-compiling framework that enables agency developers to focus exclusively on the creative execution, leaving the complex process of transpiling, packaging, and load performance to the core team.
+FAT is an NPM/Webpack, Binary-compiling, ES6/TweenMax framework that enables agency developers to focus exclusively on the creative execution, leaving the complex process of transpiling, packaging, and load performance to the core team.
 
-#### Webpack/ES6 & Open Source
+#### NPM/Webpack
 
 Every day the global Javascript community is pushing the limits of what is possible in a Web View. 
 
-As banner developers, we want to be on this cutting edge. We want to write with the latest standards, and we want to take advantage of the optimization that comes from the open source community.
+As banner developers, we want to be on this cutting edge, write with the latest standards, and take advantage of the optimization that comes from the open source community -- but we don't want each banner to cost the price of a website!
 
 #### Binary Compiling
 
 Base64/gzipping is bloated for binary assets like images & fonts. 10-20% is a big deal when you only have 100k.
 
-The solution is a binary compile which produces a single load for all of your images/fonts. The resultant stream is then piped to the appropriate DOM elements at runtime. 
+The solution is a binary-compile / single-load for all of your images/fonts. As the asset is unpacked at runtime, the chunks are piped to the appropriate DOM elements. 
 
-There is a CPU trade-off for that stream, but it's always faster than individual loads. And the smaller payload means more creative wiggle room.
+There is a CPU trade-off for unpacking (an iteration through the byte array), but it's always faster than individual loads. And the smaller payload means more creative wiggle room with media / publishers.
+
+#### Authoring Framework
+
+The authoring framework is designed to make it easy to:
+  * build layouts for animation
+  * create canvas / layer FX
+  * implement common components (dates, video players, buttons, etc)
+  * manage dynamic states
+  
+If you already have an authoring preference, you can still use [Creative Server](https://github.com/ff0000-ad-tech/wp-creative-server/blob/master/README.md) to manage compiling & packaging at scale with Webpack.
 
 ## Build Source
 
