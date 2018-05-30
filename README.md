@@ -4,7 +4,7 @@
 
 Our philosophy is *deluxe banner creative*: 
   * Ads can be *sexy*!
-  * Creative should be able make *full use* of the placement's capabilities.
+  * Creative should be able to make *full use* of the placement's capabilities.
   * The execution ought to be *technically efficient* & respectful of user experience.
 
 Our framework is built to enable high-volume production of such units, without involving oneself in the complicated mechanics of modern web development.
