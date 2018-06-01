@@ -2,7 +2,7 @@
 
 [![GitHub commit-activity](https://img.shields.io/github/commit-activity/y/ff0000-ad-tech/ad-docs.svg?style=flat-square)](https://github.com/ff0000-ad-tech/ad-docs/commits/master)
 [![GitHub contributors](https://img.shields.io/github/contributors/ff0000-ad-tech/ad-docs.svg?style=flat-square)](https://github.com/ff0000-ad-tech/ad-docs/graphs/contributors/)
-[![npm license](https://img.shields.io/npm/l/@ff0000-ad-tech%2Fad-docs.svg?style=flat-square)](https://github.com/ff0000-ad-tech/ad-docs/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 # Welcome
 
