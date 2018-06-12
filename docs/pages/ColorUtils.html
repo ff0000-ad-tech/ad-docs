@@ -440,7 +440,7 @@ import { ColorUtils } from 'ad-utils'
 		<ul class="dummy">
 			<li>
 				<a href="ad-utils_lib_ColorUtils.js.html">ad-utils/lib/ColorUtils.js</a>,
-				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-140">line 140</a>
+				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-183">line 183</a>
 			</li>
 		</ul>
 	</dd>
@@ -476,6 +476,290 @@ ColorUtils.contrast({
 	format: &#x27;object&#x27;
 });
 // returns {r: 221, g: 0, b: 22, a: 1}</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".hue"><span class="type-signature">&lt;static> </span>hue(obj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Apply a hue shift to a given color; returns either an 'rgba()' string or an rgba{} object
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an object with paramaters for overall saturation, see Properties for more info</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>from</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the source color to saturate, represented as a HEX string:"#ff0000", 
+		an RGB/A string: "rgb(255, 0, 0)" / "rgba(255, 0, 0, 1)" ), 
+		or an RGB/A object: {r:255,g:0,b:0} / {r:255,g:0,b:0,a:1}.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">synonymous with the from parameter</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">amount to shift the colors in a range of 0-360</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>format</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">either 'object' or 'string' - which determines whether to return an 'rgba()' string or 
+		an {r:, g:, b:, a:} object. If undefined, defaults to 'string'.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-utils_lib_ColorUtils.js.html">ad-utils/lib/ColorUtils.js</a>,
+				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-91">line 91</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// convert to full grayscale
+ColorUtils.hue({
+	from: &#x27;#99aa33&#x27;,
+	amount: 66,
+	format: &#x27;object&#x27;
+});
+// returns {r: 51, g: 170, b: 79, a: 1}</pre>
 
 
     
@@ -700,7 +984,7 @@ ColorUtils.contrast({
 		<ul class="dummy">
 			<li>
 				<a href="ad-utils_lib_ColorUtils.js.html">ad-utils/lib/ColorUtils.js</a>,
-				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-278">line 278</a>
+				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-330">line 330</a>
 			</li>
 		</ul>
 	</dd>
@@ -989,7 +1273,7 @@ ColorUtils.invert({
 		<ul class="dummy">
 			<li>
 				<a href="ad-utils_lib_ColorUtils.js.html">ad-utils/lib/ColorUtils.js</a>,
-				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-91">line 91</a>
+				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-129">line 129</a>
 			</li>
 		</ul>
 	</dd>
@@ -1305,7 +1589,7 @@ ColorUtils.saturation({
 		<ul class="dummy">
 			<li>
 				<a href="ad-utils_lib_ColorUtils.js.html">ad-utils/lib/ColorUtils.js</a>,
-				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-175">line 175</a>
+				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-221">line 221</a>
 			</li>
 		</ul>
 	</dd>
@@ -1964,7 +2248,7 @@ ColorUtils.tint({
 		<ul class="dummy">
 			<li>
 				<a href="ad-utils_lib_ColorUtils.js.html">ad-utils/lib/ColorUtils.js</a>,
-				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-226">line 226</a>
+				 <a href="ad-utils_lib_ColorUtils.js.html#sunlight-1-line-275">line 275</a>
 			</li>
 		</ul>
 	</dd>
@@ -2096,7 +2380,7 @@ ColorUtils.transform({
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Wed May 30th 2018
+		on Tue Jun 12th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
