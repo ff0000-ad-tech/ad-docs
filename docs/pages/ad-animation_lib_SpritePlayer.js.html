@@ -215,7 +215,7 @@ export default function SpritePlayer(arg) {
 			@desc
 				Direct access to the sprite object, which is used to manipulate the drawing within the canvas.
 			@example
-				TweenLite.to ( myPlayer.sprite, 3, { x:180, y:240, alpha:.2, scale:1, rotation:270 });
+				TweenLite.to(myPlayer.sprite, 3, { x:180, y:240, alpha:.2, scale:1, rotation:270 })
 		*/
 		sprite: {
 			get: function() {
@@ -229,8 +229,8 @@ export default function SpritePlayer(arg) {
 			@desc
 				A boolean to toggle if the Sprite will continuously play.
 			@example
-				console.log( myPlayer.loop );
-				myPlayer.loop = true;
+				console.log(myPlayer.loop)
+				myPlayer.loop = true
 		*/
 		loop: {
 			get: function() {
@@ -258,8 +258,8 @@ export default function SpritePlayer(arg) {
 			@desc
 				A number representing the current frame displayed.
 			@example
-				console.log( myPlayer.frame );
-				myPlayer.frame = 7;
+				console.log(myPlayer.frame)
+				myPlayer.frame = 7
 		*/
 		frame: {
 			get: function() {
@@ -283,8 +283,8 @@ export default function SpritePlayer(arg) {
 			@desc
 				A number representing the frame the animation should treat as the end frame of the current direction of play.
 			@example
-				trace ( myPlayer.frame );
-				myPlayer.targetFrame = 7;
+				console.log(myPlayer.frame)
+				myPlayer.targetFrame = 7
 				myPlayer.play()
 		*/
 		targetFrame: {
@@ -310,9 +310,8 @@ export default function SpritePlayer(arg) {
 			@desc
 				A number representing the FrameRate, only applies when used as a stand alone player.
 			@example
-				console.log( myPlayer.speed );
-				myPlayer.speed = 18;
-
+				console.log(myPlayer.speed)
+				myPlayer.speed = 18
 		*/
 		speed: {
 			get: function() {
@@ -334,7 +333,7 @@ export default function SpritePlayer(arg) {
 		@desc
 			Plays the current sprite sheet.
 		@example
-			myPlayer.play();
+			myPlayer.play()
 	*/
 
 	T.play = function() {
@@ -351,7 +350,7 @@ export default function SpritePlayer(arg) {
 		@desc
 			Pauses the current sprite sheet.
 		@example
-			myPlayer.pause();
+			myPlayer.pause()
 	*/
 
 	T.pause = function() {
