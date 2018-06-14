@@ -106,37 +106,39 @@ import { SpritePlayer } from 'ad-animation'
 		<br><br>
 
 		<pre class="sunlight-highlight-javascript">
-// Stand Alone Example:
-var myPlayer = new SpritePlayer ({
-	id : 'my-canvas',
-	target : View.main,
-	css : {
-		x : 10,
-		y : 15,
-		width : 160,
-		height : 160,
-		backgroundColor : '#cccccc'
+// Placed in Main
+T.myPlayer = new SpritePlayer({
+	id: 'my-sprite-player',
+	target: T,
+	css: {
+		x: 10,
+		y: 15,
+		width: 160,
+		height: 160,
+		backgroundColor: '#cccccc'
 	},
-	source : 'star_160x160_16f',
-	sprite : {
-		x : 0,
-		y : 0,
-		frameWidth : 160,
-		frameHeight : 160,
-		frameNumber : 16,
+	source: '_output_128x64_30f',
+	sprite: {
+		frameWidth: 128,
+		frameHeight: 64,
+		frameNumber: 30
 		//transformOrigin: { x: 0.5, y: 0.5 }
 		//scale : 2
 	},
-	//autoPlay : false,
-	loop : 4,
-	frame : 0,
-	speed:22,
-	//freeze : true,
+	// autoPlay : false,
+	loop: false, // 4
+	frame: 0,
+	speed: 8,
+	// targetFrame: 14,
 
-	onComplete:function(){
-		FrameRate.unregister ( A, handleTick, 15 )
+	onComplete: function() {
+	},
+	onLoop: function() {
 	}
-});
+})
+
+// in Animation
+View.main.myPlayer.play()
 </pre>
     </div>
     
@@ -282,95 +284,6 @@ var myPlayer = new SpritePlayer ({
         <dl>
             
 <hr>
-<dt class="name" id=".endframe">
-    <h4 id=".endframe"><span class="type-signature">&lt;static> </span>endframe<span class="type-signature"> :number</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        A number representing the endframe.
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">number</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-205">line 205</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">trace ( myPlayer.frame );
-myPlayer.endFrame = 7;
-myPlayer.play()</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
 <dt class="name" id=".frame">
     <h4 id=".frame"><span class="type-signature">&lt;static> </span>frame<span class="type-signature"> :number</span></h4>
 
@@ -432,7 +345,7 @@ myPlayer.play()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-180">line 180</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-175">line 175</a>
 			</li>
 		</ul>
 	</dd>
@@ -520,7 +433,7 @@ myPlayer.frame = 7;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-151">line 151</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-146">line 146</a>
 			</li>
 		</ul>
 	</dd>
@@ -608,7 +521,7 @@ myPlayer.loop = true;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-126">line 126</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-121">line 121</a>
 			</li>
 		</ul>
 	</dd>
@@ -689,7 +602,7 @@ myPlayer.loop = true;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-118">line 118</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-113">line 113</a>
 			</li>
 		</ul>
 	</dd>
@@ -770,7 +683,7 @@ myPlayer.loop = true;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-228">line 228</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-227">line 227</a>
 			</li>
 		</ul>
 	</dd>
@@ -858,7 +771,7 @@ myPlayer.speed = 18;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-137">line 137</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-132">line 132</a>
 			</li>
 		</ul>
 	</dd>
@@ -881,6 +794,95 @@ myPlayer.speed = 18;</pre>
     
 </dd>
 
+        
+            
+<hr>
+<dt class="name" id=".targetFrame">
+    <h4 id=".targetFrame"><span class="type-signature">&lt;static> </span>targetFrame<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A number representing the frame the animation should treat as the end frame of the current direction of play.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-200">line 200</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">trace ( myPlayer.frame );
+myPlayer.targetFrame = 7;
+myPlayer.play()</pre>
+
+
+    
+</dd>
+
         </dl>
     
 
@@ -888,6 +890,194 @@ myPlayer.speed = 18;</pre>
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".clear"><span class="type-signature">&lt;static> </span>clear()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Clears the current frame on to the canvas.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-298">line 298</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myPlayer.clear()</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".forward"><span class="type-signature">&lt;static> </span>forward()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the animation direction to play forward,the default direction
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-336">line 336</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myPlayer.forward()</pre>
+
+
+    
+</dd>
+
+        
             
 <hr>
 <dt>
@@ -946,7 +1136,7 @@ myPlayer.speed = 18;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-268">line 268</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-267">line 267</a>
 			</li>
 		</ul>
 	</dd>
@@ -1040,7 +1230,7 @@ myPlayer.speed = 18;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-251">line 251</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-250">line 250</a>
 			</li>
 		</ul>
 	</dd>
@@ -1134,7 +1324,7 @@ myPlayer.speed = 18;</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-302">line 302</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-310">line 310</a>
 			</li>
 		</ul>
 	</dd>
@@ -1163,7 +1353,101 @@ myPlayer.speed = 18;</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">myPlayer.render();</pre>
+    <pre class="sunlight-highlight-javascript">myPlayer.render()</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".reverse"><span class="type-signature">&lt;static> </span>reverse()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the animation direction to play in reverse
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-323">line 323</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">myPlayer.reverse()</pre>
 
 
     
@@ -1257,7 +1541,7 @@ myPlayer.speed = 18;</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">myPlayer.stop();</pre>
+    <pre class="sunlight-highlight-javascript">myPlayer.stop()</pre>
 
 
     
@@ -1317,7 +1601,7 @@ myPlayer.speed = 18;</pre>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Tue Jun 12th 2018
+		on Thu Jun 14th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

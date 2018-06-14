@@ -88,37 +88,39 @@
 		&lt;br>&lt;br>
 
 		&lt;codeblock>
-			// Stand Alone Example:
-			var myPlayer = new SpritePlayer ({
-				id : 'my-canvas',
-				target : View.main,
-				css : {
-					x : 10,
-					y : 15,
-					width : 160,
-					height : 160,
-					backgroundColor : '#cccccc'
+			// Placed in Main
+			T.myPlayer = new SpritePlayer({
+				id: 'my-sprite-player',
+				target: T,
+				css: {
+					x: 10,
+					y: 15,
+					width: 160,
+					height: 160,
+					backgroundColor: '#cccccc'
 				},
-				source : 'star_160x160_16f',
-				sprite : {
-					x : 0,
-					y : 0,
-					frameWidth : 160,
-					frameHeight : 160,
-					frameNumber : 16,
+				source: '_output_128x64_30f',
+				sprite: {
+					frameWidth: 128,
+					frameHeight: 64,
+					frameNumber: 30
 					//transformOrigin: { x: 0.5, y: 0.5 }
 					//scale : 2
 				},
-				//autoPlay : false,
-				loop : 4,
-				frame : 0,
-				speed:22,
-				//freeze : true,
+				// autoPlay : false,
+				loop: false, // 4
+				frame: 0,
+				speed: 8,
+				// targetFrame: 14,
 
-				onComplete:function(){
-					FrameRate.unregister ( A, handleTick, 15 )
+				onComplete: function() {
+				},
+				onLoop: function() {
 				}
-			});
+			})
+
+			// in Animation
+			View.main.myPlayer.play()
 		&lt;/codeblock>
 */
 import { UICanvas } from 'ad-ui'
@@ -126,40 +128,40 @@ import { Graphic } from 'ad-particles'
 import { FrameRate } from 'ad-events'
 import { ImageManager } from 'ad-control'
 import { Styles, Align } from 'ad-view'
+import { ObjectUtils } from 'ad-utils'
 
-function SpritePlayer(arg) {
+export default function SpritePlayer(arg) {
 	/* ----------------------------------------------------------------------------------------------- */
 	// MARKUP
-	var spriteStyle = {
-		x: 0,
-		y: 0,
-		alpha: 1,
-		scale: 1,
-		rotation: 0,
-		transformOrigin: { x: 0, y: 0 }
-	}
+	let spriteSetting = ObjectUtils.defaults(
+		arg.sprite,
+		{
+			frameWidth: 50,
+			frameHeight: 50,
+			frameNumber: 14,
+			speed: 1
+		},
+		true
+	)
 
-	var spriteSetting = {
-		frameWidth: 50,
-		frameHeight: 50,
-		frameNumber: 14,
-		speed: 1
-	}
+	let spriteStyle = ObjectUtils.defaults(
+		arg.sprite,
+		{
+			x: 0,
+			y: 0,
+			alpha: 1,
+			scale: 1,
+			rotation: 0,
+			transformOrigin: { x: 0, y: 0 }
+		},
+		true
+	)
 
-	for (var param in arg.sprite) {
-		if (param in spriteStyle) {
-			spriteStyle[param] = arg.sprite[param]
-		}
-		if (param in spriteSetting) {
-			spriteSetting[param] = arg.sprite[param]
-		}
-	}
-
-	var graphic = new Graphic.Sprite(ImageManager.get(arg.source), spriteSetting.frameWidth, spriteStyle, spriteSetting)
-
+	let graphic = new Graphic.Sprite(ImageManager.get(arg.source), spriteSetting.frameWidth, spriteStyle, spriteSetting)
+	let T
 	if (arg.target instanceof HTMLCanvasElement) {
 		// is a canvas already
-		var S = arg.target
+		T = arg.target
 	} else {
 		var canvasW = arg.css.width
 		var canvasH = arg.css.height
@@ -168,22 +170,23 @@ function SpritePlayer(arg) {
 		arg.css.width = spriteSetting.frameWidth
 		arg.css.height = spriteSetting.frameHeight
 
-		var S = new UICanvas(arg)
-		Styles.setCss(S, { width: canvasW, height: canvasH })
-		if (align) Align.set(S, align)
+		T = new UICanvas(arg)
+		Styles.setCss(T, { width: canvasW, height: canvasH })
+		if (align) Align.set(T, align)
 	}
 
 	/* ----------------------------------------------------------------------------------------------- */
 	// PRIVATE PROPERTIES
-	var _isPlaying = false
-	var _speed = arg.speed || 24
-	var _frame = 0
-	var _total = spriteSetting.frameNumber
-	var _endFrame = _total - 1
-	var _loopTotal = Infinity
-	var _loopCount = -1
-	var _iterate = false
-
+	let _isPlaying = false
+	let _speed = arg.speed || 24
+	let _frame = 0
+	let _total = spriteSetting.frameNumber
+	let _endFrame = _total - 1
+	let _loopTotal = Infinity
+	let _loopCount = -1
+	let _iterate = false
+	let _isForward = true
+	let _targetFrame = undefined
 	/* ----------------------------------------------------------------------------------------------- */
 	// PUBLIC PROPERTIES
 
@@ -193,7 +196,7 @@ function SpritePlayer(arg) {
 		@desc
 			A callback for when the Sprite is finished.
 	*/
-	S.onComplete = arg.onComplete || function() {}
+	T.onComplete = arg.onComplete || function() {}
 
 	/**
 		@memberOf SpritePlayer
@@ -201,11 +204,11 @@ function SpritePlayer(arg) {
 		@desc
 			A callback for when the Sprite loops.
 	*/
-	S.onLoop = arg.onLoop || function() {}
+	T.onLoop = arg.onLoop || function() {}
 
 	/* ----------------------------------------------------------------------------------------------- */
 	// GETTER | SETTERS
-	Object.defineProperties(S, {
+	Object.defineProperties(T, {
 		/**
 			@memberOf SpritePlayer
 			@var {Graphic.Sprite} sprite
@@ -263,36 +266,40 @@ function SpritePlayer(arg) {
 				return _frame
 			},
 			set: function(value) {
-				_frame = value
+				_frame = Math.round(value)
 
 				if (value >= _total) {
 					_frame = 0
 				} else if (value &lt; 0) {
 					_frame = _total - 1
 				}
-				S.render()
+				T.render()
 			}
 		},
 
 		/**	
 			@memberOf SpritePlayer	
-			@var {number} endframe
+			@var {number} targetFrame
 			@desc
-				A number representing the endframe.
+				A number representing the frame the animation should treat as the end frame of the current direction of play.
 			@example
 				trace ( myPlayer.frame );
-				myPlayer.endFrame = 7;
+				myPlayer.targetFrame = 7;
 				myPlayer.play()
 		*/
-		endFrame: {
+		targetFrame: {
 			get: function() {
-				return _endFrame
+				return _targetFrame
 			},
 			set: function(value) {
-				_endFrame = value
+				if (value == undefined || value == null) {
+					_targetFrame = undefined
+				} else {
+					_targetFrame = Math.round(value)
 
-				if (value == -1) {
-					_endFrame = _total - 1
+					if (_targetFrame == -1) {
+						_targetFrame = _total - 1
+					}
 				}
 			}
 		},
@@ -312,9 +319,9 @@ function SpritePlayer(arg) {
 				return _speed
 			},
 			set: function(value) {
-				S.pause()
+				T.pause()
 				_speed = value
-				S.play()
+				T.play()
 			}
 		}
 	})
@@ -330,10 +337,10 @@ function SpritePlayer(arg) {
 			myPlayer.play();
 	*/
 
-	S.play = function() {
+	T.play = function() {
 		if (!_isPlaying) {
 			_iterate = false
-			FrameRate.register(S, handleFrameRate, _speed)
+			FrameRate.register(T, handleFrameRate, _speed)
 			_isPlaying = true
 		}
 	}
@@ -347,10 +354,11 @@ function SpritePlayer(arg) {
 			myPlayer.pause();
 	*/
 
-	S.pause = function() {
+	T.pause = function() {
 		if (_isPlaying) {
-			FrameRate.unregister(S, handleFrameRate, _speed)
+			FrameRate.unregister(T, handleFrameRate, _speed)
 			_isPlaying = false
+			// reset the loop count?
 		}
 	}
 
@@ -360,16 +368,24 @@ function SpritePlayer(arg) {
 		@desc
 			Stops the sprite sheet and resets it to the beginning.
 		@example
-			myPlayer.stop();
+			myPlayer.stop()
 	*/
-	S.stop = function() {
+	T.stop = function() {
 		_loopCount = 0
 		_frame = 0
-		S.pause()
+		T.pause()
 	}
 
-	S.clear = function() {
-		S.context2d.clearRect(0, 0, S.width, S.height)
+	/**
+		@memberOf SpritePlayer
+		@method clear
+		@desc
+			Clears the current frame on to the canvas.
+		@example
+			myPlayer.clear()
+	*/
+	T.clear = function() {
+		T.context2d.clearRect(0, 0, T.width, T.height)
 	}
 
 	/**
@@ -378,56 +394,81 @@ function SpritePlayer(arg) {
 		@desc
 			Render the current frame on to the canvas.
 		@example
-			myPlayer.render();
+			myPlayer.render()
 	*/
-	S.render = function() {
+	T.render = function() {
 		//	console.log( _frame )
-		graphic.render(S.context2d, {}, _frame)
+		graphic.render(T.context2d, {}, _frame)
+	}
+
+	/**
+		@memberOf SpritePlayer
+		@method reverse
+		@desc
+			Sets the animation direction to play in reverse
+		@example
+			myPlayer.reverse()
+	*/
+	T.reverse = function() {
+		_isForward = false
+		// reset the loop count?
+	}
+
+	/**
+		@memberOf SpritePlayer
+		@method forward
+		@desc
+			Sets the animation direction to play forward,the default direction
+		@example
+			myPlayer.forward()
+	*/
+	T.forward = function() {
+		_isForward = true
+		// reset the loop count?
 	}
 
 	/* ----------------------------------------------------------------------------------------------- */
 	// PRIVATE METHODS
 	function checkComplete() {
-		if (_frame == _endFrame) {
-			if (!S.loop || _loopCount >= _loopTotal) {
-				S.pause()
-				S.onComplete.call(S)
-				S.dispatchEvent(new CustomEvent('complete'))
-			}
-		} else if (_frame == 0) {
+		let targetEnd = _targetFrame != undefined ? _targetFrame : _isForward ? _endFrame : 0
+		if (_frame == targetEnd) {
 			_loopCount++
-			S.onLoop.call(S)
-			S.dispatchEvent(new CustomEvent('loop'))
+			T.onLoop.call(T)
+			T.dispatchEvent(new CustomEvent('loop'))
+
+			if (!T.loop || _loopCount >= _loopTotal) {
+				T.pause()
+				T.onComplete.call(T)
+				T.dispatchEvent(new CustomEvent('complete'))
+			}
 		}
 	}
 
 	/* ----------------------------------------------------------------------------------------------- */
 	// EVENT HANDLERS
-	function handleFrameRate(event) {
-		S.clear()
-		if (_iterate) S.frame++
-		S.render()
+	function handleFrameRate() {
+		T.clear()
+		if (_iterate) _isForward ? T.frame++ : T.frame--
+		T.render()
 		checkComplete()
 		_iterate = true
 	}
 
 	/* ----------------------------------------------------------------------------------------------- */
 	if (arg.frame > -1) {
-		S.frame = arg.frame || 0
+		T.frame = arg.frame || 0
 	}
-	if (arg.endFrame > -1 &amp;&amp; arg.endFrame &lt; _endFrame) {
-		S.endFrame = arg.endFrame
+	if (arg.targetFrame &amp;&amp; arg.targetFrame > -1 &amp;&amp; arg.targetFrame &lt; _total) {
+		T.targetFrame = arg.targetFrame
 	}
 
-	S.loop = arg.loop
+	T.loop = arg.loop
 	if (arg.autoPlay) {
-		S.play()
+		T.play()
 	}
 
-	return S
+	return T
 }
-
-export default SpritePlayer
 </pre>
     </article>
 </section>
@@ -473,7 +514,7 @@ export default SpritePlayer
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Tue Jun 12th 2018
+		on Thu Jun 14th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
