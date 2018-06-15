@@ -139,6 +139,30 @@ T.myPlayer = new SpritePlayer({
 
 // in Animation
 View.main.myPlayer.play()
+
+// example of roll over/out
+Gesture.add(View.main, GestureEvent.OVER, () => {
+	const p = View.main.myPlayer
+	p.forward()
+	p.play()
+}
+Gesture.add(View.main, GestureEvent.OUT, () => {
+	const p = View.main.myPlayer
+	p.reverse()
+	p.play()
+}
+
+// example of using chunks of animation
+function playChunk(frame, targetFrame) {
+	const p = View.main.myPlayer
+	p.frame = frame
+	p.targetFrame = targetFrame 
+	p.play()
+}
+
+playChunk(0, 10) 
+playChunk(10, 20)
+playChunk(20, null) // set to null will revert to the last frame
 </pre>
     </div>
     
@@ -292,7 +316,7 @@ View.main.myPlayer.play()
 <dd>
     
     <div class="description">
-        A number representing the current frame displayed.
+        A number representing the current frame displayed. Setting this will jump to that frame and render.
     </div>
     
 
@@ -345,7 +369,7 @@ View.main.myPlayer.play()
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-175">line 175</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-202">line 202</a>
 			</li>
 		</ul>
 	</dd>
@@ -373,14 +397,16 @@ myPlayer.frame = 7</pre>
             
 <hr>
 <dt class="name" id=".loop">
-    <h4 id=".loop"><span class="type-signature">&lt;static> </span>loop<span class="type-signature"> :boolean</span></h4>
+    <h4 id=".loop"><span class="type-signature">&lt;static> </span>loop<span class="type-signature"> :boolean|number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        A boolean to toggle if the Sprite will continuously play.
+        A boolean to toggle if the Sprite will continuously play or a number to set the number of times it will loop.
+  		NOTE: a number is the count of REPEATS, so setting loop = 2 will play a total of 3 times. 
+  		Setting loop = 0 is the same as loop = false. Setting loop = -1 is the same as loop = true.
     </div>
     
 
@@ -390,6 +416,9 @@ myPlayer.frame = 7</pre>
             <li>
                 
 <span class="param-type">boolean</span>
+|
+
+<span class="param-type">number</span>
 
 
 
@@ -433,7 +462,7 @@ myPlayer.frame = 7</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-146">line 146</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-171">line 171</a>
 			</li>
 		</ul>
 	</dd>
@@ -452,87 +481,6 @@ myPlayer.frame = 7</pre>
         
     <pre class="sunlight-highlight-javascript">console.log(myPlayer.loop)
 myPlayer.loop = true</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id=".onComplete">
-    <h4 id=".onComplete"><span class="type-signature">&lt;static> </span>onComplete<span class="type-signature"> :function</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        A callback for when the Sprite loops.
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">function</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-121">line 121</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
 
 
     
@@ -602,7 +550,88 @@ myPlayer.loop = true</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-113">line 113</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-138">line 138</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".onLoop">
+    <h4 id=".onLoop"><span class="type-signature">&lt;static> </span>onLoop<span class="type-signature"> :function</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A callback for when the Sprite loops. NOTE: this will fire the same time as onComplete on the final loop
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">function</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-146">line 146</a>
 			</li>
 		</ul>
 	</dd>
@@ -683,7 +712,7 @@ myPlayer.loop = true</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-227">line 227</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-255">line 255</a>
 			</li>
 		</ul>
 	</dd>
@@ -771,7 +800,7 @@ myPlayer.speed = 18</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-132">line 132</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-157">line 157</a>
 			</li>
 		</ul>
 	</dd>
@@ -806,6 +835,7 @@ myPlayer.speed = 18</pre>
     
     <div class="description">
         A number representing the frame the animation should treat as the end frame of the current direction of play.
+  		This will NOT render or play; it is simply setting the target value.
     </div>
     
 
@@ -858,7 +888,7 @@ myPlayer.speed = 18</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-200">line 200</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-227">line 227</a>
 			</li>
 		</ul>
 	</dd>
@@ -948,7 +978,7 @@ myPlayer.play()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-298">line 298</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-326">line 326</a>
 			</li>
 		</ul>
 	</dd>
@@ -1042,7 +1072,7 @@ myPlayer.play()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-336">line 336</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-364">line 364</a>
 			</li>
 		</ul>
 	</dd>
@@ -1136,7 +1166,7 @@ myPlayer.play()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-267">line 267</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-295">line 295</a>
 			</li>
 		</ul>
 	</dd>
@@ -1230,7 +1260,7 @@ myPlayer.play()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-250">line 250</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-278">line 278</a>
 			</li>
 		</ul>
 	</dd>
@@ -1324,7 +1354,7 @@ myPlayer.play()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-310">line 310</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-338">line 338</a>
 			</li>
 		</ul>
 	</dd>
@@ -1418,7 +1448,7 @@ myPlayer.play()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-323">line 323</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-351">line 351</a>
 			</li>
 		</ul>
 	</dd>
@@ -1512,7 +1542,7 @@ myPlayer.play()</pre>
 		<ul class="dummy">
 			<li>
 				<a href="ad-animation_lib_SpritePlayer.js.html">ad-animation/lib/SpritePlayer.js</a>,
-				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-284">line 284</a>
+				 <a href="ad-animation_lib_SpritePlayer.js.html#sunlight-1-line-312">line 312</a>
 			</li>
 		</ul>
 	</dd>
@@ -1601,7 +1631,7 @@ myPlayer.play()</pre>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Jun 14th 2018
+		on Fri Jun 15th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
