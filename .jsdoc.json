@@ -21,6 +21,7 @@
             "node_modules/@ff0000-ad-tech/ad-particles",
             "node_modules/@ff0000-ad-tech/ad-ui",
             "node_modules/@ff0000-ad-tech/ad-utils",
+            "node_modules/@ff0000-ad-tech/ad-velvet",
             "node_modules/@ff0000-ad-tech/ad-video",
             "node_modules/@ff0000-ad-tech/ad-view"
         ],
