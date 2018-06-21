@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Source: ad-dates/lib/DateUtils.js</title>
+	<title>DocStrap Source: ad-velvet/lib/Capture.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -65,146 +65,165 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: ad-dates/lib/DateUtils.js</h1>
+		<h1 class="page-title">Source: ad-velvet/lib/Capture.js</h1>
     
 <section>
     <article>
         <pre
-            class="sunlight-highlight-javascript linenums">import * as DateManager from './DateManager.js'
-import { TextUtils } from 'ad-utils'
+            class="sunlight-highlight-javascript linenums">/** ----------------------------------------------------------------------------------------------------------------------------------------------------------
+	Class: 	Capture
 
-// export const MS_PER_SECOND = 1000
-// export const MS_PER_MINUTE = 6e4 // 1000 * 60;
-// export const MS_PER_HOUR = 36e5 // D.MS_PER_MINUTE * 60;
-// export const MS_PER_DAY = 864e5 // D.MS_PER_HOUR * 24;
-// export const MS_PER_WEEK = 6048e5 // D.MS_PER_DAY * 7;
-const MS_PER = {
-	SECOND: 1000,
-	MINUTE: 6e4, // 1000 * 60;
-	HOUR: 36e5, // D.MS_PER_MINUTE * 60;
-	DAY: 864e5, // D.MS_PER_HOUR * 24;
-	WEEK: 6048e5 // D.MS_PER_DAY * 7;
-}
-
-/**
-    @memberOf DateUtils
-    @method getTimeDifference
-    @desc
-        Returns an Object of the time remaining until the target date, with the day, hour, minute, second as numbers and output as a string '##:##:##:##'
-        &lt;br>
-        Import from &lt;a href="https://github.com/ff0000-ad-tech/ad-dates">ad-dates&lt;/a>
-        &lt;br>
+	Description:
+		This class controls the communication with the backend to enable static snap shots of the ad's endframe,
+		including the ability to take a shot of every date for a unit with a DateSchedule determining its messaging.
+		&lt;br>
 		&lt;codeblock>
 			// importing into an ES6 class
-			import { DateUtils } from 'ad-dates'
+			import { Capture } from 'ad-velvet'
 		&lt;/codeblock>
 		&lt;br>&lt;br>
-    @returns {Object}
-    @example		
-        // to use as a countdown
-        var targetDate = new TzDate({
-            datetime : ['2017-06-06 11:37:00', 'US/Pacific']
-        })
+	
+	Adding a Schedule:
+		(start code)
+			// within AdData.js
+			import { Capture } from 'ad-velvet'
 
-        // use FrameRate to set a ticker of once a second.
-        FrameRate.register ( this, handleCountdown, 1 );
-        function handleCountdown(){
-            const countdownStr = DateUtils.getTimeDifference(DateManager.getNow(), targetDate)
-            if (DateUtils.isPast(targetDate)) {
-                FrameRate.unregister(this, handleCountdown, 1);
-            }
-        }
+			// create a schedule
+			var schedule = new DateSchedule({
+				target: new TzDate({
+					datetime: Velvet.get('tune_in.datetime'),
+					outputTimezone: Velvet.get('tune_in.timezone')
+				}),
+				isStandard: true
+			});
+
+			// add the schedule to Capture
+			Capture.addSchedule(schedule)
+			// make a call that will be heard by Velvet
+			Capture.dispatchData()
+		(end code)
+
+	Adding custom data to be passed into the ad:
+		(start code)
+			// within AdData.js
+			import { Capture } from 'ad-external'
+
+			Capture.addCustomData({ type:'yellow' });
+			Capture.dispatchData()
+		(end code)
+
+	Calling the snap shot at the end of the ad:
+		(start code)
+			// within Control
+			this.animationComplete = function() {
+				console.log( 'Control.animationComplete()' );
+				Capture.dispatchSnapshot();
+			}
+
+			// then from the end of the animation, call 
+			Control.animationComplete()
+
+		(end code)
+		
+	Notes:
+		Some notes forthcoming.
+
+	---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+let _collection = []
+
+/**
+	@memberOf Capture
+	@method schedule
+	@param {DateSchedule} schedule
+		A DateSchedule instance that determines different endframe messaging/layout
+	@desc
+		Add a DateSchedule to the class to be dispatched back to the server.  A screen snap shot will be generated for each 
+		date in the schedule. This method can be called as many times as necessary such as with an ESPN double header. However, 
+		this should correspond to any DateSchedule that affects the endframe's layout/messaging only. 
 */
-export function getTimeDifference(startTime, endTime) {
-	var diff = endTime.getTime() / 1000 - startTime.getTime() / 1000
-	if (diff &lt; 0) {
-		diff = 0
+export function addSchedule(schedule) {
+	console.log('Velvet.capture.addSchedule()')
+	const dates = schedule.getDates(true)
+
+	for (let i = 0; i &lt; dates.length; i++) {
+		const item = dates[i]
+		const date = item.date
+
+		const obj = {
+			date: date.toISO(),
+			tz: date.outputTimezone.abbr[0],
+			ltz: adParams.defaultTimezone,
+			label: item.standardKey
+		}
+		// console.log('\t', date.toFullDateTime(), '\t', item.standardKey, '\t', obj)
+
+		_collection.push(obj)
 	}
-	// use the const obj instead
-	var obj = {
-		day: diff / (24 * 60 * 60),
-		hour: (diff / (60 * 60)) % 24,
-		minute: (diff / 60) % 60,
-		second: diff % 60,
-		output: ''
-	}
-	var label = ['day', 'hour', 'minute', 'second']
-	for (var i = 0; i &lt; 4; i++) {
-		obj.output += TextUtils.pad(Math.floor(obj[label[i]]), 2)
-		if (i &lt; 3) obj.output += ':'
-	}
-	return obj
 }
 
 /**
-	@memberOf DateUtils	
-	@method adjust
-	@property {TzDate|Date} date
-		The date that will be the starting point for adjustment
-	@property {Object} times
-		An Object of time keys to adjust the date with. Positive numbers will increase the time, while negative numbers
-		will decrement it. The accepted keys are: week, day, hour, minute, second
-	@returns {TzDate|Date}
+	@memberOf Capture
+	@method addCustomData
+	@param {Object} obj
+		An object with key/value pairs
 	@desc
-		Returns the same type of Object provided: TzDate returns TzDate, Date returns Date
-
-	&lt;codeblock>
-		// adjust the time of a TzDate
-		var myTzDate = new TzDate({
-			datetime: ['2017-12-31 12:00:00', 'utc']
-		})
-		var adjustedTzDate = DateUtils.adjust(myTzDate, { day:-1.5, hour:4.2, minute:90 });
-		// Sat Dec 30 2017 05:42:00 UTC
-
-
-		// adjust the time of a regualar Date object
-		var myDate = new Date(2017,0,1)
-		var adjustedDate = DateUtils.adjust(myDate, { day:-1.5, hour:4.2, minute:90 });
-		// Fri Dec 30 2016 17:42:00 GMT-0800 (PST)
-	&lt;/codeblock>
+		Add an Object to the class to be dispatched back to the server.  A screen snap shot will be generated for each 
+		data object. This method can be called as many times as necessary. 
 */
-export function adjust(date, times) {
-	let dateAdj
-	if (date._isTzDate) {
-		dateAdj = date.clone()
-	} else {
-		dateAdj = new Date(date)
+export function addCustomData(obj) {
+	console.log('Velvet.capture.addCustomData()')
+	if (typeof obj !== 'object') {
+		throw new Error('Cannot use a primative as data, must be an Object passed to .addCustomData()')
 	}
-
-	for (var key in times) {
-		//var cons = 'MS_PER_' + key.toUpperCase()
-		let val = MS_PER[key.toUpperCase()]
-		let add = times[key] * val
-		// console.log( 'key:', key, times[key] )
-		// console.log( '\tcons:', cons )
-		// console.log( '\tval:', val )
-		// console.log( '\tadd:', add )
-		dateAdj.setTime(dateAdj.getTime() + add)
-	}
-	// console.log( 'date:', date )
-	// console.log( 'dateAdj:', dateAdj )
-	return dateAdj
+	_collection.push(obj)
 }
 
-/** 
-    @memberOf DateUtils	
-    @method isPast
-    @param {Date} date
-        date to be compared
-    @param {Date} context
-        date to compare against, generally {@link DateUtils}
-    @returns {boolean}
-    @desc
-        Returns true for a date that has passed the context.
+/**
+	@memberOf Capture
+	@method dispatchData
+	@desc
+		Passes all schedule dates or data objets back to the server.  If it is dates, this is the list of dates that the ad will 
+		be set to inorder to get each different end frame messaging. If it is other data, it will be passed through the query string 
+		and can be consumed by the ad to indicate which state to shoot inThis should be called from AdData after all DateSchedules 
+		are defined and passed in.
 */
-export function isPast(date, context) {
-	if (context == undefined) {
-		context = DateManager.getNow()
+export function dispatchData() {
+	if (_collection.length === 0) {
+		_collection.push({ foo: 'bar' })
 	}
-	// console.log( 'isPast()\n\t', date, '|', date.toFullDateTime(), '\n\t', context, '|', context.toFullDateTime() )
+	console.log('Velvet.capture.dispatchData()\n\t', _collection)
+	dispatch('setParameters', _collection)
+}
 
-	// make it > and = to account for schedules a time such as 8:00pm vs 8:00pm should comes as true, not needing to set it as 8:00:01pm
-	return context.getTime() >= date.getTime()
+/**
+	@memberOf Capture
+	@method dispatchSchedule
+	@desc
+		Calls back to the server to take a screen snap shot. This must be called after all animation is complete. 
+*/
+export function adComplete() {
+	console.log('Velvet.capture.adComplete()')
+	dispatch('adComplete')
+}
+
+/**
+	@memberOf Capture
+	@method dispatchStart
+	@desc
+		Calls back to the server to start video capture. This must be called at the start of the ad. 
+*/
+export function adStart() {
+	console.log('Velvet.capture.adStart()')
+	dispatch('adStart')
+}
+
+function dispatch(event, data = {}) {
+	if (typeof window.callExternal === 'function') {
+		window.callExternal({
+			event: event,
+			data: data
+		})
+	}
 }
 </pre>
     </article>
