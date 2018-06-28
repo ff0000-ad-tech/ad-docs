@@ -4,6 +4,8 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/ff0000-ad-tech/ad-docs.svg?style=flat-square)](https://github.com/ff0000-ad-tech/ad-docs/graphs/contributors/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
+### API DOCS are here: https://ff0000-ad-tech.github.io/ad-docs
+
 # Welcome
 
 Our philosophy is *deluxe banner creative*: 
