@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Class: ExpandableDcs</title>
+	<title>DocStrap Source: ad-velvet/lib/events.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -60,159 +60,58 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	
-        <h1 class="page-title">@ff0000-ad-tech/ad-control</h1>
+		<h1 class="page-title">Source: ad-velvet/lib/events.js</h1>
     
 <section>
-
-<header>
-    
-        <h2 class="module-name">
-        ExpandableDcs
-        </h2>
-        
-    
-</header>
-
-
-<article>
-    <div class="container-overview">
-    
-        
-<hr>
-<dt>
-    <h4 class="name" id="ExpandableDcs"><span class="type-signature"></span>new ExpandableDcs()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Import from <a href="https://github.com/ff0000-ad-tech/ad-control">ad-control</a>
-		<br>
-		<pre class="sunlight-highlight-javascript">
-// importing into an ES6 class
-import { ExpandableDcs } from 'ad-control'
-</pre>
-		<br><br>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@class Velvet.events
+	@desc
+		&lt;a href="https://github.com/ff0000-ad-tech/ad-velvet">Github repo&lt;/a>
+		&lt;br>&lt;br>
 		
-		This is and extension of <a href="Expandable.html">Expandable</a> when units are used in DoubleClick. The only difference in the 
-		init() method is to pass in this class to the Expandable.init()
-		<pre class="sunlight-highlight-javascript">
-Expandable.init ({
-	target : View.expanded,
-	expandStart: Control.handleExpandStart,
-	expandComplete: Control.handleExpandComplete,
-	collapseStart: Control.handleCollapseStart,
-	collapseComplete: Control.handleCollapseFinish,
+		This module has custom events to be used with {@link Velvet}
+*/
 
-	extend: ExpandableDcs
-});
+/**	
+    @memberOf Velvet.events	
+    @const {string} INIT
+    @desc
+        Represents a 'velvetInit', fired when Velvet has completed its data load.
+    @example
+        Velvet.events.INIT
+*/
+export const INIT = 'velvetInit'
+
+/**	
+    @memberOf Velvet.events	
+    @const {string} FAIL
+    @desc
+        Represents a 'velvetFail', fired if Velvet has a fail during its load.
+    @example
+        Velvet.events.FAIL
+*/
+export const FAIL = 'velvetFail'
+
+/**	
+    @memberOf Velvet.events	
+    @const {string} STATIC
+    @desc
+        Represents a 'velvetStatic', fired when the ad_rotation in the loaded segment JSON has USE_STATIC rather than an addata slug.
+    @example
+        Velvet.events.STATIC
+*/
+export const STATIC = 'velvetStatic'
 </pre>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="ad-control_lib_ExpandableDcs.js.html">ad-control/lib/ExpandableDcs.js</a>,
-				 <a href="ad-control_lib_ExpandableDcs.js.html#sunlight-1-line-1">line 1</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
+    </article>
 </section>
+
 
 
 
@@ -222,10 +121,6 @@ Expandable.init ({
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>DocStrap Class: ExpandableDcs</title>
+	<title>DocStrap Class: events</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,14 +66,16 @@
 			
 
 	
-        <h1 class="page-title">@ff0000-ad-tech/ad-control</h1>
+        <h1 class="page-title">Class: events</h1>
     
 <section>
 
 <header>
     
         <h2 class="module-name">
-        ExpandableDcs
+            <span class="ancestors"><a href="Velvet.html">.Velvet</a>.</span>
+        
+        events
         </h2>
         
     
@@ -86,7 +88,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="ExpandableDcs"><span class="type-signature"></span>new ExpandableDcs()</h4>
+    <h4 class="name" id="events"><span class="type-signature"></span>new events()</h4>
     
     
 </dt>
@@ -94,27 +96,10 @@
 
     
     <div class="description">
-        Import from <a href="https://github.com/ff0000-ad-tech/ad-control">ad-control</a>
-		<br>
-		<pre class="sunlight-highlight-javascript">
-// importing into an ES6 class
-import { ExpandableDcs } from 'ad-control'
-</pre>
+        <a href="https://github.com/ff0000-ad-tech/ad-velvet">Github repo</a>
 		<br><br>
 		
-		This is and extension of <a href="Expandable.html">Expandable</a> when units are used in DoubleClick. The only difference in the 
-		init() method is to pass in this class to the Expandable.init()
-		<pre class="sunlight-highlight-javascript">
-Expandable.init ({
-	target : View.expanded,
-	expandStart: Control.handleExpandStart,
-	expandComplete: Control.handleExpandComplete,
-	collapseStart: Control.handleCollapseStart,
-	collapseComplete: Control.handleCollapseFinish,
-
-	extend: ExpandableDcs
-});
-</pre>
+		This module has custom events to be used with <a href="Velvet.html">Velvet</a>
     </div>
     
 
@@ -160,8 +145,8 @@ Expandable.init ({
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ad-control_lib_ExpandableDcs.js.html">ad-control/lib/ExpandableDcs.js</a>,
-				 <a href="ad-control_lib_ExpandableDcs.js.html#sunlight-1-line-1">line 1</a>
+				<a href="ad-velvet_lib_events.js.html">ad-velvet/lib/events.js</a>,
+				 <a href="ad-velvet_lib_events.js.html#sunlight-1-line-1">line 1</a>
 			</li>
 		</ul>
 	</dd>
@@ -203,6 +188,271 @@ Expandable.init ({
 
     
 
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".FAIL">
+    <h4 id=".FAIL"><span class="type-signature">&lt;static, constant> </span>FAIL<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents a 'velvetFail', fired if Velvet has a fail during its load.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-velvet_lib_events.js.html">ad-velvet/lib/events.js</a>,
+				 <a href="ad-velvet_lib_events.js.html#sunlight-1-line-20">line 20</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">Velvet.events.FAIL</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".INIT">
+    <h4 id=".INIT"><span class="type-signature">&lt;static, constant> </span>INIT<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents a 'velvetInit', fired when Velvet has completed its data load.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-velvet_lib_events.js.html">ad-velvet/lib/events.js</a>,
+				 <a href="ad-velvet_lib_events.js.html#sunlight-1-line-10">line 10</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">Velvet.events.INIT</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".STATIC">
+    <h4 id=".STATIC"><span class="type-signature">&lt;static, constant> </span>STATIC<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents a 'velvetStatic', fired when the ad_rotation in the loaded segment JSON has USE_STATIC rather than an addata slug.
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-velvet_lib_events.js.html">ad-velvet/lib/events.js</a>,
+				 <a href="ad-velvet_lib_events.js.html#sunlight-1-line-30">line 30</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">Velvet.events.STATIC</pre>
+
+
+    
+</dd>
+
+        </dl>
     
 
     
