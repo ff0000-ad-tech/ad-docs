@@ -30,7 +30,7 @@ With coding, anything the sandbox allows is possible & the technical performance
 
 # FF0000 Ad Tech (FAT)
 
-FAT is an NPM/Webpack, Binary-compiling, ES6/TweenMax framework that enables agency developers to focus exclusively on the creative execution, leaving the complex process of transpiling, packaging, and load performance to the core team.
+FAT is an NPM/Webpack, Binary-compiling, ES6/GSAP(TweenMax) framework that enables agency developers to focus exclusively on the creative execution, leaving the complex process of transpiling, packaging, and load performance to the core team.
 
 #### NPM/Webpack
 
