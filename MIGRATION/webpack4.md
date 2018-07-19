@@ -21,7 +21,7 @@
 If the watch process hangs for longer than 10 seconds, copy and run the watch command in a Terminal window. If an error that reads "Cannot read property 'watchRun' of undefined" shows up that prevents the compiling process from continuing, that means that your packaging is out of date.
 
 Go ahead and:
-1. Update ES6 Packaging
+1. Run the Ad App feature: "Update ES6 Packaging"
 2. Delete the current `node_modules` folder and `package-lock.json` file
 3. Reinstall dependencies with `npm install`
 
