@@ -94,19 +94,19 @@
 		&lt;b>Sample 1&lt;/b>
 		&lt;codeblock>
 			// simple classic usage
-			Align.set( myDiv, Align.LEFT ); // only align left
-			Align.set( myDiv, Align.BOTTOM ); // only align bottom
-			Align.set( myDiv, Align.CENTER ); // align both x and y to the center
+			Align.set(myDiv, Align.LEFT)   // only align left
+			Align.set(myDiv, Align.BOTTOM) // only align bottom
+			Align.set(myDiv, Align.CENTER) // align both x and y to the center
 		&lt;/codeblock>
 		&lt;br>&lt;br>
 		
 		&lt;b>Sample 2&lt;/b>
 		&lt;codeblock>
 			// simply align the x and y seperately
-			Align.set( myDiv, {
+			Align.set(myDiv, {
 				x: Align.RIGHT,
 				y: Align.BOTTOM
-			});
+			})
 		&lt;/codeblock>
 		&lt;br>&lt;br>
 
@@ -126,10 +126,10 @@
 		&lt;br>&lt;br>
 		&lt;codeblock>
 			// complex alignment, align in relation to another div with an offset shift of 10 pixels, without snapping to a whole pixel
-			Align.set( myDiv, {
+			Align.set(myDiv, {
 				x: {
 					type: Align.RIGHT,
-					against: myOtherDiv
+					against: myOtherDiv,
 					offset: 10,
 					outer: true
 				},
@@ -138,14 +138,14 @@
 					offset: 14
 				},
 				snap: false
-			});
+			})
 		&lt;/codeblock>
 		&lt;br>&lt;br>
 
 		&lt;b>Sample 4&lt;/b>
 		&lt;codeblock>
 			// complex alignment, align in relation to a fixed number with an offset shift of 10 pixels
-			Align.set( myDiv, {
+			Align.set(myDiv, {
 				x: {
 					type: Align.RIGHT,
 					against: 200
@@ -157,6 +157,60 @@
 					offset: 14
 				},
 			});
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+
+		&lt;b>Sample 5&lt;/b>
+		&lt;br>
+		An Array of items can be passed in to the `source` argument. All items will be individually aligned following the rules passed into the `arg` argument
+		&lt;br>&lt;br>
+		&lt;codeblock>
+			// aligns all items to the center
+			Align.set([myDiv0, myDiv1, myDiv2], Align.CENTER) 
+
+			// aligns all items to the horizontal center and bottom
+			Align.set([myDiv0, myDiv1, myDiv2], {
+				x: Align.CENTER,
+				y: Align.BOTTOM
+			}) 
+		&lt;/codeblock>
+		&lt;br>&lt;br>
+
+		&lt;b>Sample 6&lt;/b>
+		&lt;br>
+		The optional keys: &lt;b>'against'&lt;/b>, &lt;b>'offset'&lt;/b>, and &lt;b>'outer'&lt;/b> can be set at the top level to apply to &lt;i>BOTH&lt;/i> dirctions as applicable.
+		However, if a key is set within &lt;b>'x'&lt;/b> or &lt;b>'y'&lt;/b>, that will take priority
+		&lt;br>&lt;br>
+		&lt;codeblock>
+			// aligns all items to the center of myRefDiv
+			Align.set([myDiv0, myDiv1, myDiv2], {
+				type: Align.CENTER,
+				against: myRefDiv
+			}) 
+
+			// Note the against set on the top level then in y:
+			// This is NOT good syntax but does technically works...
+			Align.set([myDiv0, myDiv1, myDiv2], {
+				against: myRefDiv,
+				offset: 10
+				x: Align.CENTER,
+				y: {
+					type: Align.BOTTOM,
+					against: myOtherDiv
+				}
+			}) 
+			// ...in this case use:
+			Align.set([myDiv0, myDiv1, myDiv2], {		
+				offset: 10
+				x: {
+					type: Align.CENTER,
+					against: myRefDiv
+				},
+				y: {
+					type: Align.BOTTOM,
+					against: myOtherDiv
+				}
+			}) 
 		&lt;/codeblock>
 		&lt;br>&lt;br>
 */
@@ -255,31 +309,48 @@ export function get(source, arg) {
 	var snap = arg.snap !== false
 	var sourceRect = isDomElement(source) ? 0 : 1
 
-	if (typeof arg == 'string') arg = calculate(arg)
+	if (typeof arg == 'string') {
+		arg = calculate(arg)
+	}
+	// check for top level against
+	const topAgainst = arg.against
+	if (arg.type) {
+		const typeToObj = calculate(arg.type)
+		for (let key in typeToObj) {
+			if (!arg.hasOwnProperty(key)) {
+				arg[key] = typeToObj[key]
+			}
+		}
+	}
 
-	for (var xy in arg) {
+	for (let xy in arg) {
 		if (xy == 'x' || xy == 'y') {
-			var params = arg[xy]
+			let params = arg[xy]
 
 			// the x or y is null or undefined, so skip this pass of the loop
 			if (!params) continue
 
-			if (typeof params == 'string')
+			if (typeof params == 'string') {
 				params = {
 					type: params
 				}
+			}
 
-			var against
-			var againstDimension
-			var againstX = 0
-			var againstNumber = false
-			var offset = params.offset || 0
+			let against
+			let againstDimension
+			let againstX = 0
+			let againstNumber = false
+			let offset = params.offset || arg.offset || 0
 
-			var _givenAgainst
-			if (params.against !== undefined) {
-				_givenAgainst = true
-				against = params.against
+			// check the outer vs top
+			params.outer = params.outer || arg.outer
+
+			if (params.against !== undefined || topAgainst !== undefined) {
+				// console.log('\t params.against:', params.against)
+				against = params.against || topAgainst
 				var againstRect = 0
+
+				// console.log('\t against:', against)
 
 				if (isDomElement(against)) {
 					if (against.canvas) againstRect = 1
@@ -294,7 +365,7 @@ export function get(source, arg) {
 
 				againstDimension = _rect[againstRect][xy]
 
-				if (params.type === CENTER) arg[xy].outer = false
+				if (params.type === CENTER) params.outer = false
 			} else {
 				against = elem[_rect[sourceRect].parent]
 				againstDimension = _rect[sourceRect][xy]
@@ -305,13 +376,10 @@ export function get(source, arg) {
 			switch (source._type) {
 				case 'arc':
 				case 'path':
-					switch (params.type) {
-						case CENTER:
-							widthOrHeight = 0
-							break
-						default:
-							offset += widthOrHeight / 2
-							break
+					if (parrams.type == CENTER) {
+						widthOrHeight = 0
+					} else {
+						offset += widthOrHeight / 2
 					}
 					break
 				case 'text':
@@ -326,7 +394,12 @@ export function get(source, arg) {
 					break
 			}
 
-			var pos = calculate(params.type, widthOrHeight, againstNumber ? 0 : against[againstDimension], !againstNumber &amp;&amp; !!arg[xy].outer)
+			var pos = calculate(
+				params.type,
+				widthOrHeight,
+				againstNumber ? 0 : against[againstDimension],
+				!againstNumber &amp;&amp; !!params.outer
+			)
 
 			if (pos != null) {
 				pos += againstX + offset
@@ -343,19 +416,25 @@ export function get(source, arg) {
 		@method set
 		@desc
 			Moves the source element horizontally and/or vertically, relative to its parent according to provided mode. The constants 
-			allow for picking which coordinate to apply.  
+			allow for picking which coordinate to apply. Will additionally return the get() value. NOTE: If setting an array, there will NOT be a return
 	*/
 export function set(source, arg) {
-	var obj = get(source, arg)
-
-	if (isDomElement(source)) {
-		var elem = source.canvas || Markup.get(source)
-		Styles.setCss(elem, obj)
-	} else {
-		for (var prop in obj) source[prop] = obj[prop]
+	let _sources = Array.isArray(source) ? source : [source]
+	let first
+	for (let item of _sources) {
+		var obj = get(item, arg)
+		if (isDomElement(item)) {
+			var elem = item.canvas || Markup.get(item)
+			Styles.setCss(elem, obj)
+		} else {
+			for (var prop in obj) item[prop] = obj[prop]
+		}
+		if (first == undefined) {
+			first = obj
+		}
 	}
 
-	return obj
+	if (_sources.length == 1) return first
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------- */
@@ -372,31 +451,18 @@ export function calculate(mode, source, target, outer) {
 			if (!isConvert) return target - source
 
 		case 'alignTop':
-			return isConvert
-				? {
-						y: mode
-				  }
-				: outer ? -source : 0
+			return isConvert ? { y: mode } : outer ? -source : 0
 
 		case 'alignRight':
 			if (outer) target += source
 			if (!isConvert) return target - source
 
 		case 'alignLeft':
-			return isConvert
-				? {
-						x: mode
-				  }
-				: outer ? -source : 0
+			return isConvert ? { x: mode } : outer ? -source : 0
 
 		case 'alignCenter':
 			if (outer) target = 0
-			return isConvert
-				? {
-						x: mode,
-						y: mode
-				  }
-				: (target - source) / 2
+			return isConvert ? { x: mode, y: mode } : (target - source) / 2
 
 		default:
 			return null
@@ -455,7 +521,7 @@ function isDomElement(elem) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Mon Jul 2nd 2018
+		on Wed Aug 15th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

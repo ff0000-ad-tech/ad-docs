@@ -114,19 +114,19 @@ import { Align } from 'ad-view'
 		<b>Sample 1</b>
 		<pre class="sunlight-highlight-javascript">
 // simple classic usage
-Align.set( myDiv, Align.LEFT ); // only align left
-Align.set( myDiv, Align.BOTTOM ); // only align bottom
-Align.set( myDiv, Align.CENTER ); // align both x and y to the center
+Align.set(myDiv, Align.LEFT)   // only align left
+Align.set(myDiv, Align.BOTTOM) // only align bottom
+Align.set(myDiv, Align.CENTER) // align both x and y to the center
 </pre>
 		<br><br>
 		
 		<b>Sample 2</b>
 		<pre class="sunlight-highlight-javascript">
 // simply align the x and y seperately
-Align.set( myDiv, {
+Align.set(myDiv, {
 	x: Align.RIGHT,
 	y: Align.BOTTOM
-});
+})
 </pre>
 		<br><br>
 
@@ -146,10 +146,10 @@ Align.set( myDiv, {
 		<br><br>
 		<pre class="sunlight-highlight-javascript">
 // complex alignment, align in relation to another div with an offset shift of 10 pixels, without snapping to a whole pixel
-Align.set( myDiv, {
+Align.set(myDiv, {
 	x: {
 		type: Align.RIGHT,
-		against: myOtherDiv
+		against: myOtherDiv,
 		offset: 10,
 		outer: true
 	},
@@ -158,14 +158,14 @@ Align.set( myDiv, {
 		offset: 14
 	},
 	snap: false
-});
+})
 </pre>
 		<br><br>
 
 		<b>Sample 4</b>
 		<pre class="sunlight-highlight-javascript">
 // complex alignment, align in relation to a fixed number with an offset shift of 10 pixels
-Align.set( myDiv, {
+Align.set(myDiv, {
 	x: {
 		type: Align.RIGHT,
 		against: 200
@@ -177,6 +177,60 @@ Align.set( myDiv, {
 		offset: 14
 	},
 });
+</pre>
+		<br><br>
+
+		<b>Sample 5</b>
+		<br>
+		An Array of items can be passed in to the `source` argument. All items will be individually aligned following the rules passed into the `arg` argument
+		<br><br>
+		<pre class="sunlight-highlight-javascript">
+// aligns all items to the center
+Align.set([myDiv0, myDiv1, myDiv2], Align.CENTER) 
+
+// aligns all items to the horizontal center and bottom
+Align.set([myDiv0, myDiv1, myDiv2], {
+	x: Align.CENTER,
+	y: Align.BOTTOM
+}) 
+</pre>
+		<br><br>
+
+		<b>Sample 6</b>
+		<br>
+		The optional keys: <b>'against'</b>, <b>'offset'</b>, and <b>'outer'</b> can be set at the top level to apply to <i>BOTH</i> dirctions as applicable.
+		However, if a key is set within <b>'x'</b> or <b>'y'</b>, that will take priority
+		<br><br>
+		<pre class="sunlight-highlight-javascript">
+// aligns all items to the center of myRefDiv
+Align.set([myDiv0, myDiv1, myDiv2], {
+	type: Align.CENTER,
+	against: myRefDiv
+}) 
+
+// Note the against set on the top level then in y:
+// This is NOT good syntax but does technically works...
+Align.set([myDiv0, myDiv1, myDiv2], {
+	against: myRefDiv,
+	offset: 10
+	x: Align.CENTER,
+	y: {
+		type: Align.BOTTOM,
+		against: myOtherDiv
+	}
+}) 
+// ...in this case use:
+Align.set([myDiv0, myDiv1, myDiv2], {		
+	offset: 10
+	x: {
+		type: Align.CENTER,
+		against: myRefDiv
+	},
+	y: {
+		type: Align.BOTTOM,
+		against: myOtherDiv
+	}
+}) 
 </pre>
 		<br><br>
     </div>
@@ -334,7 +388,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-104">line 104</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-158">line 158</a>
 			</li>
 		</ul>
 	</dd>
@@ -415,7 +469,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-139">line 139</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-193">line 193</a>
 			</li>
 		</ul>
 	</dd>
@@ -496,7 +550,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-146">line 146</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-200">line 200</a>
 			</li>
 		</ul>
 	</dd>
@@ -577,7 +631,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-111">line 111</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-165">line 165</a>
 			</li>
 		</ul>
 	</dd>
@@ -658,7 +712,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-118">line 118</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-172">line 172</a>
 			</li>
 		</ul>
 	</dd>
@@ -739,7 +793,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-125">line 125</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-179">line 179</a>
 			</li>
 		</ul>
 	</dd>
@@ -820,7 +874,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-132">line 132</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-186">line 186</a>
 			</li>
 		</ul>
 	</dd>
@@ -901,7 +955,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-153">line 153</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-207">line 207</a>
 			</li>
 		</ul>
 	</dd>
@@ -982,7 +1036,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-160">line 160</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-214">line 214</a>
 			</li>
 		</ul>
 	</dd>
@@ -1065,7 +1119,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-170">line 170</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-224">line 224</a>
 			</li>
 		</ul>
 	</dd>
@@ -1107,7 +1161,7 @@ Align.set( myDiv, {
     
     <div class="description">
         Moves the source element horizontally and/or vertically, relative to its parent according to provided mode. The constants 
-			allow for picking which coordinate to apply.
+			allow for picking which coordinate to apply. Will additionally return the get() value. NOTE: If setting an array, there will NOT be a return
     </div>
     
 
@@ -1154,7 +1208,7 @@ Align.set( myDiv, {
 		<ul class="dummy">
 			<li>
 				<a href="ad-view_lib_Align.js.html">ad-view/lib/Align.js</a>,
-				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-264">line 264</a>
+				 <a href="ad-view_lib_Align.js.html#sunlight-1-line-333">line 333</a>
 			</li>
 		</ul>
 	</dd>
@@ -1237,7 +1291,7 @@ Align.set( myDiv, {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Mon Jul 2nd 2018
+		on Wed Aug 15th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
