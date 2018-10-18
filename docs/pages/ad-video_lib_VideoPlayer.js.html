@@ -149,6 +149,7 @@ import { LoaderUtils, InlineLoader } from 'ad-load'
 import { FrameRate } from 'ad-events'
 import VideoControls from './VideoControls'
 import UIPoster from './ui/UIPoster'
+import CuePoints from './CuePoints'
 // MpegPlugin should be added in runtimeIncludes in index
 
 function VideoPlayer(arg) {
@@ -217,15 +218,11 @@ function VideoPlayer(arg) {
 
 	var _driver = null
 	var _IEuseEvent = false
-	var _cuePoints = {
-		pool: [],
-		active: false,
-		seeked: false
-	}
+	var _IESource = null
+	var _cuePoints = new CuePoints(arg.cuePoints)
 	var _muted = !!arg.muted
 	var _preload = !!arg.preload
 	var _autoPlay = !!arg.autoPlay
-
 	var _hasMpg = arg.source &amp;&amp; arg.source.indexOf('.mpg') >= 0
 	var _mpeg = null
 	var _source = []
@@ -257,10 +254,6 @@ function VideoPlayer(arg) {
 	videoTag.style.height = 'inherit'
 	videoTag.style.position = 'absolute'
 	videoTag.style.backgroundColor = '#000'
-
-	// application/octet-stream
-	// video/mp4
-
 	//videoTag.autoplay = _autoPlay;
 	videoTag.muted = _muted
 	videoTag.preload = 'none' //_preload ? 'auto' : 'none';
@@ -302,10 +295,8 @@ function VideoPlayer(arg) {
 				myVideoPlayer.autoPlay = false;
 		*/
 		autoPlay: {
-			get: function() {
-				return _autoPlay
-			},
-			set: function(value) {
+			get: () => _autoPlay,
+			set: value => {
 				_autoPlay = value
 
 				console.log('\t_autoPlay:', _autoPlay)
@@ -324,6 +315,11 @@ function VideoPlayer(arg) {
 						}
 					}
 				} else {
+					// if (_deviceType != 'desktop' &amp;&amp; _deviceBrand == 'android') {
+					// 	// we also want to load the mpg player even if we aren't autoPlaying it
+					// 	// load MpegPlugin player, or assign player
+					// 	loadMpgPlayer()
+					// } else {
 					if (_forceInline &amp;&amp; Device.product == 'iphone') {
 						//if ( _muted ){
 						prepareInlineDriver()
@@ -340,6 +336,7 @@ function VideoPlayer(arg) {
 							_mpeg.canvas.style.visibility = 'hidden'
 						}
 					}
+					// }
 				}
 			}
 		},
@@ -350,9 +347,7 @@ function VideoPlayer(arg) {
 				A Number representing the video time position. 
 		*/
 		currentTime: {
-			get: function() {
-				return video.currentTime
-			}
+			get: () => video.currentTime
 		},
 
 		/**
@@ -361,9 +356,7 @@ function VideoPlayer(arg) {
 				A Number representing the length of the video in seconds. 
 		*/
 		duration: {
-			get: function() {
-				return video.duration || 0
-			}
+			get: () => video.duration || 0
 		},
 
 		/**
@@ -372,7 +365,7 @@ function VideoPlayer(arg) {
 				A Boolean representing if the video is playing. 
 		*/
 		paused: {
-			get: function() {
+			get: () => {
 				return _driver ? _driver.paused : video.paused
 			}
 		},
@@ -383,9 +376,7 @@ function VideoPlayer(arg) {
 				A Number 0-1 representing the video timeline percent position. 
 		*/
 		percent: {
-			get: function() {
-				return video.currentTime / video.duration || 0
-			}
+			get: () => video.currentTime / video.duration || 0
 		},
 
 		/**
@@ -396,12 +387,10 @@ function VideoPlayer(arg) {
 				myVideoPlayer.source = 'videos/myVideoFile.mp4';			
 		*/
 		source: {
-			get: function() {
-				return video.src
-			},
-			set: function(value) {
+			get: () => video.src,
+			set: value => {
 				if (Array.isArray(value)) {
-					value.sort(function(a, b) {
+					value.sort((a, b) => {
 						//console.log( a, b )
 
 						var aExt = LoaderUtils.getFileType(a)
@@ -446,10 +435,10 @@ function VideoPlayer(arg) {
 				myVideoPlayer.volume = .8;			
 		*/
 		volume: {
-			get: function() {
+			get: () => {
 				return _driver &amp;&amp; _driver instanceof Audio ? _driver.volume : videoTag.volume
 			},
-			set: function(value) {
+			set: value => {
 				videoTag.volume = value
 				if (_driver) {
 					_driver.volume = value
@@ -464,17 +453,13 @@ function VideoPlayer(arg) {
 				A Boolean representing if the video volume is muted. 
 		*/
 		muted: {
-			get: function() {
-				return _muted
-			}
+			get: () => _muted
 		},
 
 		// applies only to iphone iOS &lt; 10
 		forceInline: {
-			get: function() {
-				return _forceInline
-			},
-			set: function(value) {
+			get: () => _forceInline,
+			set: value => {
 				_forceInline = value
 
 				// assign autoPlay to itself, but after changing the inline prop
@@ -494,8 +479,9 @@ function VideoPlayer(arg) {
 		@example
 			myPlayer.load();
 	*/
-	V.load = function() {
-		//console.log( 'VideoPlayer.load()' )
+	V.load = () => {
+		// console.log('VideoPlayer.load()')
+		addIESource()
 		video.load()
 	}
 
@@ -507,8 +493,9 @@ function VideoPlayer(arg) {
 		@example
 			myPlayer.play();
 	*/
-	V.play = function() {
-		//console.log( 'VideoPlayer.play(), video.paused:', video.paused )
+	V.play = () => {
+		// console.log('VideoPlayer.play(), video.paused:', video.paused)
+		addIESource()
 
 		V.complete = false
 
@@ -537,10 +524,11 @@ function VideoPlayer(arg) {
 		@method pause
 			Pauses the current video.
 		@example
-			myPlayer.pause();
+			myPlayer.pause()
 	*/
-	V.pause = function() {
-		//console.log( 'VideoPlayer.pause()' )
+	V.pause = () => {
+		// console.log('VideoPlayer.pause()')
+		addIESource()
 
 		FrameRate.unregister(V, handleProgress)
 
@@ -560,9 +548,12 @@ function VideoPlayer(arg) {
 		@desc
 			Skips the video to a specific time.
 		@example
-			myPlayer.seek( 4 );
+			myPlayer.seek(4)
 	*/
-	V.seek = function(sec) {
+	V.seek = sec => {
+		// console.log('VideoPlayer.seek()', sec)
+		if (addIESource()) return
+
 		_cuePoints.seeked = true
 		if (sec > video.duration) sec = video.duration
 		else V.complete = false
@@ -587,8 +578,9 @@ function VideoPlayer(arg) {
 		@example
 			myPlayer.stop();
 	*/
-	V.stop = function() {
-		//console.log( 'VideoPlayer.stop()' )
+	V.stop = () => {
+		// console.log('VideoPlayer.stop()')
+		if (addIESource()) return
 		V.pause()
 
 		// for checks in controlBar
@@ -606,8 +598,8 @@ function VideoPlayer(arg) {
 		@example
 			myVideoPlayer.mute()
 	*/
-	V.mute = function() {
-		console.log('VideoPlayer.mute()', video.muted)
+	V.mute = () => {
+		// console.log('VideoPlayer.mute()', video.muted)
 		video.muted = _muted = true
 		if (_driver) {
 			_driver.muted = true
@@ -622,8 +614,8 @@ function VideoPlayer(arg) {
 		@example
 			myVideoPlayer.unmute()
 	*/
-	V.unmute = function() {
-		console.log('VideoPlayer.unmute()', video.muted)
+	V.unmute = () => {
+		// console.log('VideoPlayer.unmute()', video.muted)
 		video.muted = _muted = false
 		if (_driver) {
 			_driver.muted = false
@@ -642,7 +634,7 @@ function VideoPlayer(arg) {
 		@example
 			myVideoPlayer.resize( 400, 300 )
 	*/
-	V.resize = function(width, height) {
+	V.resize = (width, height) => {
 		video.width = V.css.width = width
 		video.height = V.css.height = height
 
@@ -669,22 +661,8 @@ function VideoPlayer(arg) {
 				console.log( 'cue point', isVar, num, obj );
 			}			
 	*/
-	V.addCuePoint = function(time, handler, params) {
-		_cuePoints.active = true
-		var cuePoint = {
-			time: time,
-			handler: handler,
-			frame: -1,
-			params: params || null,
-			past: false
-		}
-		_cuePoints.pool.push(cuePoint)
-
-		_cuePoints.pool.sort(function(a, b) {
-			return a.time - b.time
-		})
-
-		console.log('addCuePoint:', _cuePoints)
+	V.addCuePoint = (time, handler, params) => {
+		_cuePoints.add(time, handler, params)
 	}
 
 	/**
@@ -704,11 +682,11 @@ function VideoPlayer(arg) {
 				}
 			});
 	*/
-	V.addControls = function(obj) {
+	V.addControls = obj => {
 		if (!V.controls) V.controls = new VideoControls(V, obj)
 	}
 
-	V.addPoster = function(obj) {
+	V.addPoster = obj => {
 		if (!V.poster) {
 			if (typeof obj == 'string') {
 				obj = {
@@ -724,24 +702,18 @@ function VideoPlayer(arg) {
 
 	/* ------------------------------------------------------------------------------------------------------------------------------- */
 	// PRIVATE METHODS
-	function checkCuePoint() {
-		if (_cuePoints.active) {
-			for (var i = 0; i &lt; _cuePoints.pool.length; i++) {
-				if (_cuePoints.seeked) {
-					_cuePoints.pool[i].past = _cuePoints.pool[i].time &lt; V.currentTime
-				} else {
-					if (_cuePoints.pool[i].time &lt; V.currentTime &amp;&amp; !_cuePoints.pool[i].past) {
-						_cuePoints.pool[i].handler.apply(V, _cuePoints.pool[i].params)
-						_cuePoints.pool[i].past = true
-					}
-				}
-			}
+	function addIESource() {
+		// console.log('addIESource(), _IESource:', _IESource)
+		if (_IESource) {
+			V.source = _IESource
+			_IESource = null
+			return true
 		}
-		_cuePoints.seeked = false
+		return false
 	}
 
 	function prepareInlineAudio(event) {
-		console.log('~ ~ ~ prepareInlineAudio() ~ ~ ~')
+		// console.log('~ ~ ~ prepareInlineAudio() ~ ~ ~')
 		console.log('\tvideo.currentSrc:', video.currentSrc)
 		console.log('\tvideo.src:', video.src)
 		var audio = new Audio()
@@ -750,7 +722,7 @@ function VideoPlayer(arg) {
 	}
 
 	function prepareInlineDriver() {
-		console.log('prepareInlineDriver(), _muted =', _muted)
+		// console.log('prepareInlineDriver(), _muted =', _muted)
 
 		_driver = {
 			muted: true,
@@ -821,19 +793,19 @@ function VideoPlayer(arg) {
 		if (!video.buffered.length) {
 			video.addEventListener('canplay', handleInlineLoadedData, false)
 			V.load()
-			console.log('__ __ video.load() __ __ ??')
+			// console.log('__ __ video.load() __ __ ??')
 		} else {
 			inlineCanPlay()
 		}
 	}
 
 	function handleInlineLoadedData(event) {
-		console.log('.... handleInlineLoadedData() ....')
+		// console.log('.... handleInlineLoadedData() ....')
 		inlineCanPlay()
 	}
 
 	function inlineCanPlay() {
-		console.log('_ _ _ inlineCanPlay() _ _ _ through _ _ _')
+		// console.log('_ _ _ inlineCanPlay() _ _ _ through _ _ _')
 
 		V.hasPlayed = true
 		_driver.play()
@@ -845,7 +817,7 @@ function VideoPlayer(arg) {
 	}
 
 	function inlinePause() {
-		console.log('* * * inlinePause() * * *')
+		// console.log('* * * inlinePause() * * *')
 
 		_driver.pause()
 
@@ -873,10 +845,13 @@ function VideoPlayer(arg) {
 						source: _source[_source.length - 1],
 						tag: videoTag,
 						target: V,
+						//autoplay: false,
 						onReady: function() {
 							console.log('MpegPlugin.onReady()')
 							handleCanPlay()
 							V.hasPlayed = true
+							// V.hasPlayed = _autoPlay
+							// if (_autoPlay) V.play()
 						},
 						onComplete: function() {
 							//console.log( '_mpeg.onComplete()');
@@ -922,10 +897,10 @@ function VideoPlayer(arg) {
 	}
 
 	function handleProgress(event) {
-		//console.log( 'handleProgress()')
+		// console.log('handleProgress()')
 		V.onProgress.call(V, event)
 
-		checkCuePoint()
+		_cuePoints.check(V, V.currentTime)
 	}
 
 	function handleComplete(event) {
@@ -968,14 +943,6 @@ function VideoPlayer(arg) {
 
 	if (arg.controls) V.addControls(arg.controls)
 
-	if (arg.cuePoints) {
-		var a = arg.cuePoints
-		for (var i = 0; i &lt; a.length; i++) {
-			var b = a[i]
-			V.addCuePoint(b.time, b.handler, b.params)
-		}
-	}
-
 	/* ------------------------------------------------------------------------------------------------------------------------------- */
 	video.addEventListener('ended', handleComplete, false)
 	video.addEventListener('error', handleError, false)
@@ -988,7 +955,13 @@ function VideoPlayer(arg) {
 		if (V.mpgScreen) V.mpgScreen.setAttribute('crossOrigin', arg.crossOrigin)
 	}
 
-	if (arg.source) V.source = arg.source
+	if (arg.source) {
+		if (Device.browser == 'ie' &amp;&amp; !_preload) {
+			_IESource = arg.source
+		} else {
+			V.source = arg.source
+		}
+	}
 	V.autoPlay = _autoPlay
 
 	if (!_muted &amp;&amp; arg.volume) {
@@ -1056,7 +1029,7 @@ export default VideoPlayer
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Oct 4th 2018
+		on Thu Oct 18th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

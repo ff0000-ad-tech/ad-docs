@@ -185,12 +185,9 @@ import UIComponent from './UIComponent'
 import { Styles } from 'ad-view'
 import { MathUtils } from 'ad-utils'
 
-class UITextField {
+class UITextField extends UIComponent {
 	constructor(arg) {
 		/* 
-			VERSION
-			- 2016.07.27
-				
 			TODO 
 			- debug - use class
 		   
@@ -233,6 +230,7 @@ class UITextField {
 		// PRIVATE PROPERTIES
 		var _alignText
 		var _fontSize = 0
+		var _minFontSize = 1
 		var _fontFamily
 		var _format = ''
 		var _leading
@@ -253,8 +251,8 @@ class UITextField {
 
 		/* ------------------------------------------------------------------------------------------------------------------------------- */
 		// MARKUP
-		arg = arg || {}
-		var U = new UIComponent(arg)
+		super(arg || {})
+		const U = this
 		Styles.addClass(U, 'ui-textfield')
 
 		var _content = document.createElement('span')
@@ -277,10 +275,8 @@ class UITextField {
 					console.log( View.main.myTextField.alignText );
 			*/
 			alignText: {
-				get: function() {
-					return _alignText
-				},
-				set: function(value) {
+				get: () => _alignText,
+				set: value => {
 					//console.log( 'UITextfield :: SET -> alignText =', value )
 					if (value &amp;&amp; _alignText != value) {
 						_alignText = value
@@ -298,23 +294,20 @@ class UITextField {
 					}
 				}
 			},
-
 			/**
 				@memberOf UITextField
 				@var {number} fontSize
 					Getter|Setter : A Number representing the current size of the text font. 
 				@example
 					// change the size of the font
-					View.main.myTextField.fontSize = 14;
+					View.main.myTextField.fontSize = 14
 
 					// get the current size of the font
-					console.log( View.main.myTextField.fontSize );
+					console.log( View.main.myTextField.fontSize )
 			*/
 			fontSize: {
-				get: function() {
-					return _fontSize
-				},
-				set: function(value) {
+				get: () => _fontSize,
+				set: value => {
 					if (!isNaN(value) &amp;&amp; value > 0) {
 						_fontSize = value
 						U.style.fontSize = ~~value + 'px'
@@ -326,20 +319,40 @@ class UITextField {
 
 			/**
 				@memberOf UITextField
+				@var {number} minFontSize
+					Getter|Setter : A Number representing the minimum size of the text font to avoid resozing down to 0. Default is 1. 
+				@example
+					// change the minimum size of the font
+					View.main.myTextField.minFontSize = 5
+
+					// get the current minimum size of the font
+					console.log( View.main.myTextField.minFontSize )
+			*/
+			minFontSize: {
+				get: () => _minFontSize,
+				set: value => {
+					if (_minFontSize != value) {
+						if (value &lt; 1) value = 1
+						_minFontSize = value
+						update()
+					}
+				}
+			},
+
+			/**
+				@memberOf UITextField
 				@var {string} fontFamily
 					Getter|Setter : A String representing the current font family being assigned to the text. 
 				@example
 					// change the font 
-					View.main.myTextField.fontFamily = 'Arial';
+					View.main.myTextField.fontFamily = 'Arial'
 
 					// get the current font
-					console.log( View.main.myTextField.fontFamily );
+					console.log( View.main.myTextField.fontFamily )
 			*/
 			fontFamily: {
-				get: function() {
-					return _fontFamily
-				},
-				set: function(value) {
+				get: () => _fontFamily,
+				set: value => {
 					_fontFamily = value
 					U.style.fontFamily = value
 					update()
@@ -383,10 +396,8 @@ class UITextField {
 					View.main.myTextField.format = TextFormat.PARAGRAPH_CLAMP;
 			*/
 			format: {
-				get: function() {
-					return _format
-				},
-				set: function(value) {
+				get: () => _format,
+				set: value => {
 					//console.log( 'UITextfield :: SET -> format =', value )
 					if (_format != value) {
 						_format = value
@@ -419,10 +430,8 @@ class UITextField {
 					console.log( View.main.myTextField.leading );
 			*/
 			leading: {
-				get: function() {
-					return _leading
-				},
-				set: function(value) {
+				get: () => _leading,
+				set: value => {
 					//console.log( 'UITextfield :: SET -> leading =', value )
 					if (value &amp;&amp; _leading != value) {
 						_leading = value
@@ -448,10 +457,8 @@ class UITextField {
 					console.log( View.main.myTextField.spacing );
 			*/
 			spacing: {
-				get: function() {
-					return Styles.getCss(U, 'letter-spacing') || _spacing
-				},
-				set: function(value) {
+				get: () => Styles.getCss(U, 'letter-spacing') || _spacing,
+				set: value => {
 					if (value &amp;&amp; _spacing != value) {
 						_spacing = value
 
@@ -487,10 +494,8 @@ class UITextField {
 					console.log( View.main.myTextField.bufferText );
 			*/
 			bufferText: {
-				get: function() {
-					return _bufferText
-				},
-				set: function(value) {
+				get: () => _bufferText,
+				set: value => {
 					//console.log( 'UITextfield :: SET -> bufferText =', value )
 					if (value &amp;&amp; _bufferText != value) {
 						var style = ''
@@ -525,10 +530,8 @@ class UITextField {
 					console.log( View.main.myTextField.text );
 			*/
 			text: {
-				get: function() {
-					return _text
-				},
-				set: function(value) {
+				get: () => _text,
+				set: value => {
 					//console.log( 'UITextfield :: SET -> text =', value )
 					if (value != undefined &amp;&amp; value != '') {
 						_text = value
@@ -550,14 +553,50 @@ class UITextField {
 					console.log( View.main.myTextField.smoothing );
 			*/
 			smoothing: {
-				get: function() {
-					return _smoothing
-				},
-				set: function(value) {
+				get: () => _smoothing,
+				set: value => {
 					_smoothing = value
 					Styles[_smoothing ? 'addClass' : 'removeClass'](_content, 'smooth-text')
 				}
 			}
+
+			/**
+				@memberOf UITextField
+				@var {boolean} shrinkOnEmpty
+					A Boolean applicable only on instantiation. If set to true, will force the UITextField to a width and height of 0 if the text property is empty or null.
+					This is useful if you're passing in dynamic text values and aligning UITextFields against each other or grouping them into UIGroups.
+					The result is a UITextField that doesn't take up space if it is given no text value.
+				@example
+					// create a UITextField that might be empty, and thus shrink
+					T.myTextField = new UITextField({
+						target : T,
+						id : 'my-textfield',
+						css : {
+							x : 50,
+							y : 200,
+							width : 300,
+							height : 90
+						},
+						fontSize : 30,
+						fontFamily : 'template_font',
+						format : TextFormat.INLINE,
+						alignText : Align.CENTER,
+						bufferText : {
+							top : 1,
+							bottom : 1,
+							left : 5,
+							right : 5
+						},
+						leading : .8,
+						spacing : 2,
+						text : Math.random() &lt; 0.5 ? '' : 'This text is not empty!',
+						shrinkOnEmpty: true
+					});
+
+					// change the text after the fact
+					T.myTextField.text = 'My UITextField is no longer empty or blank!';
+					T.myTextField.resetToDefault();
+			*/
 		})
 
 		/* ------------------------------------------------------------------------------------------------------------------------------- */
@@ -569,14 +608,16 @@ class UITextField {
 			@param {args} arguments
 			@desc
 				Change specific properties, or all properties (by passing nothing in) back to their default values, which are initally set to the values passed in upon instantiation
-				of a UITextField. This is useful when reusing this for multiple inputs, such as with carousels where the content is
-				of various sizes.
+				of a UITextField. This is useful when reusing a UITextField for multiple inputs, such as with carousels where the content is
+				constantly updating and the carousel scrolls.
 			@example
-				// reset specific default values
+				// reset all properties to their default values by passing in no parameters
+				myTextField.resetToDefault();
+				
+				// reset only these two specific properties to their default values by passing in Strings
 				myTextField.resetToDefault( 'leading', 'fontSize' );
 
-				// reset all default values
-				myTextField.resetToDefault();
+				
 		*/
 		U.resetToDefault = function() {
 			_init = true
@@ -607,13 +648,11 @@ class UITextField {
 			@example
 				myTextField.setDefault( 'fontSize', 16 );
 		*/
-		U.setDefault = function(key, value) {
+		U.setDefault = (key, value) => {
 			_defaults[key] = value
 		}
 
-		U.toString = function() {
-			return '[object UITextfield]'
-		}
+		U.toString = () => '[object UITextfield]'
 
 		/* ------------------------------------------------------------------------------------------------------------------------------- */
 		// PRIVATE METHODS
@@ -686,14 +725,14 @@ class UITextField {
 
 				// check the height first to allow for word wrap to fit vertically first
 				while (U.scrollHeight > U.offsetHeight) {
-					if (tempFontSize &lt;= 0) break
+					if (tempFontSize &lt;= _minFontSize) break
 					tempFontSize--
 					U.style.fontSize = tempFontSize + 'px'
 				}
 
 				// then, if it is still overspraying horizontally, shrink again to fit
 				while (U.scrollWidth > U.offsetWidth) {
-					if (tempFontSize &lt;= 0) break
+					if (tempFontSize &lt;= _minFontSize) break
 					tempFontSize--
 					U.style.fontSize = tempFontSize + 'px'
 				}
@@ -705,18 +744,25 @@ class UITextField {
 				var parentWidth = U.offsetWidth
 				var parentHeight = U.offsetHeight
 
-				U.style.fontSize = '243px'
+				const large = 243
+				const small = 182
+
+				U.style.fontSize = large + 'px'
 				var largeWidth = _content.offsetWidth
 				var largeHeight = _content.offsetHeight
 
-				U.style.fontSize = '182px'
+				U.style.fontSize = small + 'px'
 				var smallWidth = _content.offsetWidth
 				var smallHeight = _content.offsetHeight
 
-				var fontSizeWidth = MathUtils.rel(243, 182, largeWidth, smallWidth, parentWidth)
-				var fontSizeHeight = MathUtils.rel(243, 182, largeHeight, smallHeight, parentHeight)
+				var fontSizeWidth = MathUtils.rel(large, small, largeWidth, smallWidth, parentWidth)
+				var fontSizeHeight = MathUtils.rel(large, small, largeHeight, smallHeight, parentHeight)
 
 				_fontSize = ~~Math.min(_fontSize, Math.min(fontSizeWidth, fontSizeHeight))
+
+				if (_fontSize &lt; _minFontSize) {
+					_fontSize = _minFontSize
+				}
 
 				U.style.fontSize = _fontSize + 'px'
 			}
@@ -731,16 +777,18 @@ class UITextField {
 		}
 
 		function resizeToContent() {
-			//Styles.setCss( U, { lineHeight: 'normal' });
-			//Styles.setCss( _content, { lineHeight:'normal', verticalAlign:'auto' });
+			// must add 1 for safari &amp; firefox when using paragraph formats
+			const offset = /para/g.exec(_format) != null ? 1 : 0
+			U.width = U.width - offset
 
 			// set the content width/height for assigning clamp after created with fit
 			Styles.setCss(_content, {
 				height: 'auto',
-				width: 'auto'
+				width: 'auto',
+				overflowWarp: 'normal'
 			})
 
-			U.width = _content.offsetWidth
+			U.width = _content.offsetWidth + offset
 			U.height = _content.offsetHeight
 		}
 
@@ -751,7 +799,9 @@ class UITextField {
 		initDefaults()
 
 		U.format = arg.format
+		if (arg.shrinkOnEmpty === true &amp;&amp; !arg.text) U.width = U.height = 0
 		U.fontSize = arg.fontSize
+		U.minFontSize = arg.minFontSize
 		U.fontFamily = arg.fontFamily || 'Arial'
 		U.alignText = arg.alignText
 		U.bufferText = arg.bufferText
@@ -814,7 +864,7 @@ export default UITextField
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Thu Oct 4th 2018
+		on Thu Oct 18th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
