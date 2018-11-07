@@ -8,6 +8,10 @@
 		"postinstall": "npm run docs",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"engines": {
+		"node": ">=9.8.0",
+		"npm": ">=6.0.0"
+	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
