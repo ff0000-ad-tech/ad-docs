@@ -1,65 +1,56 @@
 {
-    "tags": {
-        "allowUnknownTags": true,
-        "dictionaries": [
-            "jsdoc",
-            "closure"
-        ]
-    },
-    "source": {
-        "include": [
-            "node_modules/@ff0000-ad-tech/ad-animation",
-            "node_modules/@ff0000-ad-tech/ad-assets",
-            "node_modules/@ff0000-ad-tech/ad-canvas",
-            "node_modules/@ff0000-ad-tech/ad-control",
-            "node_modules/@ff0000-ad-tech/ad-dates",
-            "node_modules/@ff0000-ad-tech/ad-entry",
-            "node_modules/@ff0000-ad-tech/ad-events",
-            "node_modules/@ff0000-ad-tech/ad-external",
-            "node_modules/@ff0000-ad-tech/ad-geom",
-            "node_modules/@ff0000-ad-tech/ad-load",
-            "node_modules/@ff0000-ad-tech/ad-particles",
-            "node_modules/@ff0000-ad-tech/ad-ui",
-            "node_modules/@ff0000-ad-tech/ad-utils",
-            "node_modules/@ff0000-ad-tech/ad-velvet",
-            "node_modules/@ff0000-ad-tech/ad-video",
-            "node_modules/@ff0000-ad-tech/ad-view"
-        ],
-        "includePattern": ".+\\.js(doc|x)?$",
-        "excludePattern": "@ff0000-ad-tech\\/[-\\w]+\\/node_modules\\/.*$"
-    },
-    "plugins": [
-        "node_modules/jsdoc-babel",
-        "plugins/codeblock.js",
-        "node_modules/jsdoc-npmpackage-tag"
-    ],
-    "babel": {
-        "plugins": [
-            "transform-class-properties"
-        ]
-    },
-    "templates": {
-        "logoFile": "",
-        "cleverLinks": false,
-        "monospaceLinks": false,
-        "dateFormat": "ddd MMM Do YYYY",
-        "outputSourceFiles": true,
-        "outputSourcePath": true,
-        "systemName": "DocStrap",
-        "footer": "",
-        "copyright": "DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.",
-        "navType": "vertical",
-        "theme": "spacelab",
-        "linenums": true,
-        "collapseSymbols": false,
-        "inverseNav": true,
-        "protocol": "html://",
-        "methodHeadingReturns": false
-    },
-    "opts": {
-        "destination": "./docs/pages/",
-        "encoding": "utf8",
-        "recurse": true,
-        "template": "./node_modules/ink-docstrap/template"
-    }
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": ["jsdoc", "closure"]
+	},
+	"source": {
+		"include": [
+			"node_modules/@ff0000-ad-tech/ad-animation",
+			"node_modules/@ff0000-ad-tech/ad-assets",
+			"node_modules/@ff0000-ad-tech/ad-canvas",
+			"node_modules/@ff0000-ad-tech/ad-control",
+			"node_modules/@ff0000-ad-tech/ad-dates",
+			"node_modules/@ff0000-ad-tech/ad-entry",
+			"node_modules/@ff0000-ad-tech/ad-events",
+			"node_modules/@ff0000-ad-tech/ad-external",
+			"node_modules/@ff0000-ad-tech/ad-geom",
+			"node_modules/@ff0000-ad-tech/ad-load",
+			"node_modules/@ff0000-ad-tech/ad-particles",
+			"node_modules/@ff0000-ad-tech/ad-ui",
+			"node_modules/@ff0000-ad-tech/ad-utils",
+			"node_modules/@ff0000-ad-tech/ad-velvet",
+			"node_modules/@ff0000-ad-tech/ad-video",
+			"node_modules/@ff0000-ad-tech/ad-view"
+		],
+		"includePattern": ".+\\.js(doc|x)?$",
+		"excludePattern": "@ff0000-ad-tech\\/[-\\w]+\\/node_modules\\/.*$"
+	},
+	"plugins": ["node_modules/jsdoc-babel", "plugins/codeblock.js", "node_modules/jsdoc-npmpackage-tag"],
+	"babel": {
+		"plugins": ["transform-class-properties", "dynamic-import-webpack", "syntax-dynamic-import"]
+	},
+	"templates": {
+		"logoFile": "",
+		"cleverLinks": false,
+		"monospaceLinks": false,
+		"dateFormat": "ddd MMM Do YYYY",
+		"outputSourceFiles": true,
+		"outputSourcePath": true,
+		"systemName": "DocStrap",
+		"footer": "",
+		"copyright": "DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.",
+		"navType": "vertical",
+		"theme": "spacelab",
+		"linenums": true,
+		"collapseSymbols": false,
+		"inverseNav": true,
+		"protocol": "html://",
+		"methodHeadingReturns": false
+	},
+	"opts": {
+		"destination": "./docs/pages/",
+		"encoding": "utf8",
+		"recurse": true,
+		"template": "./node_modules/ink-docstrap/template"
+	}
 }

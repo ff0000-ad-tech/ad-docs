@@ -33,6 +33,8 @@
 		"@ff0000-ad-tech/ad-video": "git+https://github.com/ff0000-ad-tech/ad-video.git",
 		"@ff0000-ad-tech/ad-view": "git+https://github.com/ff0000-ad-tech/ad-view.git",
 		"babel-core": "^6.26.3",
+		"babel-plugin-dynamic-import-webpack": "^1.1.0",
+		"babel-plugin-syntax-dynamic-import": "^6.18.0",
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"ink-docstrap": "git+https://github.com/ff0000-ad-tech/docstrap.git",
 		"jsdoc": "git+https://github.com/ff0000-ad-tech/jsdoc.git",
@@ -43,6 +45,6 @@
 		"eslint": "^4.16.0",
 		"eslint-config-prettier": "^2.10.0",
 		"eslint-plugin-prettier": "^2.7.0",
-		"prettier": "^1.14.3"
+		"prettier": "^1.16.4"
 	}
 }

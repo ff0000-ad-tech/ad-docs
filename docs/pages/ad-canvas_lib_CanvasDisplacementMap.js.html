@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: ad-canvas/lib/CanvasDisplacementMap.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Align.html">Align</a></li><li><a href="AlphaVideoPlayer.html">AlphaVideoPlayer</a></li><li><a href="ArrayUtils.html">ArrayUtils</a></li><li><a href="AudioPlayer.html">AudioPlayer</a></li><li><a href="CanvasBlendMode.html">CanvasBlendMode</a></li><li><a href="CanvasBlur.html">CanvasBlur</a></li><li><a href="CanvasCircle.html">CanvasCircle</a></li><li><a href="CanvasColoring.html">CanvasColoring</a></li><li><a href="CanvasDisplaceChannel.html">CanvasDisplaceChannel</a></li><li><a href="CanvasDisplacementMap.html">CanvasDisplacementMap</a></li><li><a href="CanvasDrawer.html">CanvasDrawer</a></li><li><a href="CanvasElement.html">CanvasElement</a></li><li><a href="CanvasImage.html">CanvasImage</a></li><li><a href="CanvasLineTo.html">CanvasLineTo</a></li><li><a href="CanvasPath.html">CanvasPath</a></li><li><a href="CanvasRect.html">CanvasRect</a></li><li><a href="CanvasShape.html">CanvasShape</a></li><li><a href="CanvasSprite.html">CanvasSprite</a></li><li><a href="CanvasText.html">CanvasText</a></li><li><a href="CanvasTexture.html">CanvasTexture</a></li><li><a href="CanvasTiling.html">CanvasTiling</a></li><li><a href="CanvasTweener.html">CanvasTweener</a></li><li><a href="CanvasUtils.html">CanvasUtils</a></li><li><a href="Clamp.html">Clamp</a></li><li><a href="ColorUtils.html">ColorUtils</a></li><li><a href="Core.html">Core</a></li><li><a href="CssManager.html">CssManager</a></li><li><a href="DateFormatter.html">DateFormatter</a></li><li><a href="DateManager.html">DateManager</a></li><li><a href="DateSchedule.html">DateSchedule</a></li><li><a href="DcsUtils.html">DcsUtils</a></li><li><a href="Device.html">Device</a></li><li><a href="Effects.html">Effects</a></li><li><a href="Emitter.html">Emitter</a></li><li><a href="Expandable.html">Expandable</a></li><li><a href="ExpandableDcs.html">ExpandableDcs</a></li><li><a href="FrameRate.html">FrameRate</a></li><li><a href="Gesture.html">Gesture</a></li><li><a href="GestureBase.html">GestureBase</a></li><li><a href="GestureEvent.html">GestureEvent</a></li><li><a href="GestureEvent.Event.html">GestureEvent.Event</a></li><li><a href="Graphic.Circle.html">Graphic.Circle</a></li><li><a href="Graphic.Image.html">Graphic.Image</a></li><li><a href="Graphic.Rect.html">Graphic.Rect</a></li><li><a href="Graphic.Shape.html">Graphic.Shape</a></li><li><a href="Graphic.Sprite.html">Graphic.Sprite</a></li><li><a href="ImageManager.html">ImageManager</a></li><li><a href="ImageUtils.html">ImageUtils</a></li><li><a href="Loader.html">Loader</a></li><li><a href="LocationUtils.html">LocationUtils</a></li><li><a href="Markup.html">Markup</a></li><li><a href="MathUtils.html">MathUtils</a></li><li><a href="Matrix2D.html">Matrix2D</a></li><li><a href="Matrix3D.html">Matrix3D</a></li><li><a href="MediaEvent.html">MediaEvent</a></li><li><a href="MonetUtils.html">MonetUtils</a></li><li><a href="MotionUtils.html">MotionUtils</a></li><li><a href="ObjectUtils.html">ObjectUtils</a></li><li><a href="ParentTransform.html">ParentTransform</a></li><li><a href="Particle.html">Particle</a></li><li><a href="ParticleModel.html">ParticleModel</a></li><li><a href="Ratio.html">Ratio</a></li><li><a href="RecurringSchedule.html">RecurringSchedule</a></li><li><a href="SheetManager.html">SheetManager</a></li><li><a href="SimpleNoise2D.html">SimpleNoise2D</a></li><li><a href="SpritePlayer.html">SpritePlayer</a></li><li><a href="Styles.html">Styles</a></li><li><a href="TextFormat.html">TextFormat</a></li><li><a href="TextSplitType.html">TextSplitType</a></li><li><a href="Timezone.html">Timezone</a></li><li><a href="TzDate.html">TzDate</a></li><li><a href="UIBorder.html">UIBorder</a></li><li><a href="UIButton.html">UIButton</a></li><li><a href="UIButtonFullScreen.html">UIButtonFullScreen</a></li><li><a href="UIButtonMute.html">UIButtonMute</a></li><li><a href="UIButtonPlayPause.html">UIButtonPlayPause</a></li><li><a href="UIButtonReplay.html">UIButtonReplay</a></li><li><a href="UICanvas.html">UICanvas</a></li><li><a href="UIComponent.html">UIComponent</a></li><li><a href="UIControlBar.html">UIControlBar</a></li><li><a href="UIDiv.html">UIDiv</a></li><li><a href="UIEvent.html">UIEvent</a></li><li><a href="UIFlex.html">UIFlex</a></li><li><a href="UIGroup.html">UIGroup</a></li><li><a href="UIImage.html">UIImage</a></li><li><a href="UISlider.html">UISlider</a></li><li><a href="UISplitText.html">UISplitText</a></li><li><a href="UISvg.html">UISvg</a></li><li><a href="UITextField.html">UITextField</a></li><li><a href="UITimeDisplay.html">UITimeDisplay</a></li><li><a href="Vector2D.html">Vector2D</a></li><li><a href="Velvet.html">Velvet</a></li><li><a href="Velvet.events.html">Velvet.events</a></li><li><a href="VideoControls.html">VideoControls</a></li><li><a href="VideoPlayer.html">VideoPlayer</a></li><li><a href="YouTubePlayer.html">YouTubePlayer</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: ad-canvas/lib/CanvasDisplacementMap.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+	@npmpackage
+	@class CanvasDisplacementMap
+	@param {object} imgObj
+		an object containing the arguments for defining / orienting the image, see Properties for more info:
+	@property {canvas|canvasDrawer|ImageId} source
+		the CanvasDrawer instance or UICanvas / canvas element from which to get the image that will be displaced
+	@property {canvas|canvasDrawer|ImageId} map
+		the CanvasDrawer instance or UICanvas / canvas element from which to get the disaplcement map bitmap data to apply to the source
+	@property {CanvasDrawer|UICanvas|canvas} target
+		the CanvasDrawer instance or UICanvas / canvas element in which to draw the displaced image
+	@property {object} params
+		an OBJECT of optional parameters
+		@property {number} params.x
+			A NUMBER representing the X offset of the displacement
+		@property {number} params.y
+			A NUMBER representing the Y offset of the displacement
+		@property {number} params.scaleX
+			A NUMBER for how much distortion is applied to the X axis; defaults to 0
+		@property {number} params.scaleY
+			A NUMBER for how much distortion is applied to the Y axis; defaults to 0
+		@property {number} params.channelX
+			A NUMBER representing the color channel on which to displace the source bitmap data along the X axis; defaults to CanvasDisplaceChannel.RED
+		@property {number} params.channelY
+			A NUMBER representing the color channel on which to displace the source bitmap data along the Y axis; defaults to CanvasDisplaceChannel.RED
+		@desc
+			Import from &lt;a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas&lt;/a>
+			&lt;br>
+			&lt;codeblock>
+				// importing into an ES6 class
+				import { CanvasDisplacementMap } from 'ad-canvas'
+			&lt;/codeblock>
+			&lt;br>&lt;br>
+			&lt;b>Sample ::&lt;/b>&lt;br>
+			Create a displacement map filter and tween the distortion from 0 to 1000 along the X:&lt;br>
+			&lt;codeblock>
+				T.mapFilter = new CanvasDisplacementMap({
+					source: _canvasDrawerSource,
+					map: _canvasDrawerMap,
+					target: _canvasDrawerTarget
+				})
+			&lt;/codeblock>
+			&lt;br>
+			*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {CanvasDrawer|UICanvas|canvas} source
+		An instance of CanvasDrawer or a UICanvas / HTML Canvas from which to pull bitmap data
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {CanvasDrawer|UICanvas|canvas} map
+		An instance of CanvasDrawer or a UICanvas / HTML Canvas from which to pull the displacement map bitmap data
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {CanvasDrawer|UICanvas|canvas} target
+		An instance of CanvasDrawer or a UICanvas / HTML Canvas in which the source bitmap data is drawn with the map displacement data applied
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {number} x
+		A NUMBER representing the X offset of the displacement
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {number} y
+		A NUMBER representing the Y offset of the displacement
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {number} scaleX
+		A NUMBER for how much distortion is applied to the X axis; defaults to 0
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {number} scaleY
+		A NUMBER for how much distortion is applied to the Y axis; defaults to 0
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {CanvasDisplaceChannel | number} channelX
+		A NUMBER representing the color channel on which to displace the source bitmap data along the X axis; defaults to CanvasDisplaceChannel.RED
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@const {CanvasDisplaceChannel | number} channelY
+		A NUMBER representing the color channel on which to displace the source bitmap data along the Y axis; defaults to CanvasDisplaceChannel.RED
+		*/
+
+/**
+	@memberof CanvasDisplacementMap
+	@method draw
+	@desc
+		Take bitmap data from the map, use it to displace the source, and apply the distorted composite bitmap data to the target
+		&lt;b>NOTE::&lt;/b>
+		&lt;br>
+		This is &lt;b>much&lt;/b> different than CanvasDrawer.update(). It uses bitmap data and applies it to the canvas pixel by pixel, rather than redrawing it as a whole.
+		&lt;br>
+		CanvasDrawer.update() will overwrite CanvasDisplacementMap.draw(), and vice-versa.
+		&lt;br>
+		CanvasTweener would not be recommented because that uses CanvasDrawer.update() in order to redraw everything.
+		In order to animate a displacement, TweenLite is acceptable because you're not animating a CanvasElement, you're animating the object properties of the DisplacementMap filter.
+	@example
+
+		// animate the amount of displacement along the X axis
+		TweenLite.fromTo(T.mapFilter, 1, {
+			scaleX: 0
+		}, {
+			scaleX: 1000, 
+			// without this onUpdate method, the scaleX would change but the CanvasDisplacementMap wouldn't know to redraw
+			onUpdate: function(){
+				T.mapFilter.draw()
+			}
+		})
+*/
+
+import * as CanvasUtils from './CanvasUtils'
+import * as CanvasDisplaceChannel from './CanvasDisplaceChannel'
+
+export default class CanvasDisplacementMap {
+	constructor(arg) {
+		const T = this
+
+		T.source = arg.source.canvas || arg.source
+		T.map = arg.map.canvas || arg.map
+		T.target = arg.target.canvas || arg.target
+		//
+
+		const _params = arg.params || {}
+
+		T.x = _params.x || 0
+		T.y = _params.y || 0
+		T.scaleX = _params.scaleX || 0
+		T.scaleY = _params.scaleY || 0
+		T.channelX = _params.channelX >= 0 &amp;&amp; _params.channelX &lt;= 3 ? _params.channelX : CanvasDisplaceChannel.RED
+		T.channelY = _params.channelY >= 0 &amp;&amp; _params.channelY &lt;= 3 ? _params.channelY : CanvasDisplaceChannel.RED
+	}
+
+	draw() {
+		const T = this
+		const _sourceData = CanvasUtils.getImageData(T.source)
+		const _mapData = CanvasUtils.getImageData(T.map)
+		const _targetDataX = CanvasUtils.getImageData(T.source)
+		const _targetDataY = CanvasUtils.getImageData(T.source)
+		const _pixelsLength = _mapData.data.length / 4
+		let _colorValue
+		let _alphaValue
+		let _ratio
+		let _ratioWithAlpha
+		let _pixelShift
+		let _sourcePosition
+		let _targetPosition
+		let x
+		let y
+		let i = 0
+		while (i &lt; _pixelsLength) {
+			x = ((i % T.map.width) + T.x) | 0
+			y = (((i / T.map.width) | 0) + T.y) | 0
+			_colorValue = _mapData.data[i * 4 + T.channelX]
+			_alphaValue = _mapData.data[i * 4 + CanvasDisplaceChannel.ALPHA]
+			_ratio = (_colorValue / 0xff) * 2 - 1
+			_ratioWithAlpha = _ratio * (_alphaValue / 0xff)
+			_pixelShift = (_ratioWithAlpha * T.scaleX) | 0
+			_sourcePosition = T.source.width * y + x
+			_targetPosition = T.target.width * y + x + _pixelShift
+			T._setPixels(_targetDataX, _targetPosition, _sourceData, _sourcePosition)
+			i++
+		}
+		//
+		i = 0
+		while (i &lt; _pixelsLength) {
+			x = ((i % T.map.width) + T.x) | 0
+			y = (((i / T.map.width) | 0) + T.y) | 0
+			_colorValue = _mapData.data[i * 4 + T.channelY]
+			_alphaValue = _mapData.data[i * 4 + CanvasDisplaceChannel.ALPHA]
+			_ratio = (_colorValue / 0xff) * 2 - 1
+			_ratioWithAlpha = _ratio * (_alphaValue / 0xff)
+			_pixelShift = (_ratioWithAlpha * T.scaleY) | 0
+			_sourcePosition = T.source.width * y + x
+			_targetPosition = T.target.width * (y + _pixelShift) + x
+			T._setPixels(_targetDataY, _targetPosition, _targetDataX, _sourcePosition)
+			i++
+		}
+		CanvasUtils.setImageData(T.target, _targetDataY)
+	}
+
+	_setPixels(target, pos, source, i) {
+		target.data[i * 4] = source.data[pos * 4]
+		target.data[i * 4 + 1] = source.data[pos * 4 + 1]
+		target.data[i * 4 + 2] = source.data[pos * 4 + 2]
+		target.data[i * 4 + 3] = source.data[pos * 4 + 3]
+	}
+}
+
+/*
+NOTE: This is an ES6 version of the displacement script found here http://www.soundstep.com/blog/2012/04/25/javascript-displacement-mapping/
+No original release notes below
+/*
+*/
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
+	
+		on Wed Feb 13th 2019
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : false,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
