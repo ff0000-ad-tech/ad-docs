@@ -101,12 +101,19 @@
 import { Velvet } from 'ad-velvet'
 </pre>
 		<br><br>
-		
 		This object is meant to handle all of our json loading and parsing from the Velvet platform.
-
-<br><br>
-
-When testing, changing the date can be a crucial testing step. see <a href="DateManager.html">DateManager</a> for more information.
+		<br><br>
+		When testing, changing the date can be a crucial testing step. see <a href="DateManager.html">DateManager</a> for more information.
+		<br><br>
+		Available query params:
+		<pre class="sunlight-highlight-javascript">
+addata=[slug]			// force the ad to show specific addata by passing in its slug
+velvet=production 		// force live JSON
+velvet=preview    		// force preview JSON
+velvetCaptureRotate=1	// rotates the top level DOM -90 degrees to allow for larger video captures
+velvetCaptureSlates=1	// shows color slates for accuracy with Capture video
+</pre>
+		<br>
     </div>
     
 
@@ -208,6 +215,154 @@ When testing, changing the date can be a crucial testing step. see <a href="Date
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".convertBreaks"><span class="type-signature">&lt;static> </span>convertBreaks(str)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Converts the string new line and return characters to html break tags
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>str</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The string to convert</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ad-velvet_lib_format.js.html">ad-velvet/lib/format.js</a>,
+				 <a href="ad-velvet_lib_format.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// Get the string from Velvet
+var myString = Velvet.get(&#x27;myString&#x27;) // &quot;This Is\r\nMy Sentence&quot;
+
+// convert to html friendly
+myString = Velvet.convertBreaks(myString)  // &quot;This Is&lt;br&gt;My Sentence&quot;	</pre>
+
+
+    
+</dd>
+
+        
             
 <hr>
 <dt>
@@ -508,7 +663,7 @@ var playerImgAway = Velvet.get(awayTeam, &#x27;player_img&#x27;)
             
 <hr>
 <dt>
-    <h4 class="name" id=".init"><span class="type-signature">&lt;static> </span>init(slugs, dateSettings, adDimensions)</h4>
+    <h4 class="name" id=".init"><span class="type-signature">&lt;static> </span>init(slugs, dateSettings, adDimensions, adElement)</h4>
     
     
 </dt>
@@ -593,7 +748,7 @@ var playerImgAway = Velvet.get(awayTeam, &#x27;player_img&#x27;)
 
             
 
-            <td class="description last">Pass in the date settings for internal init of <a href="DateManager.html">DateManager</a></td>
+            <td class="description last">The date settings for internal init of <a href="DateManager.html">DateManager</a></td>
         </tr>
 
     
@@ -617,7 +772,31 @@ var playerImgAway = Velvet.get(awayTeam, &#x27;player_img&#x27;)
 
             
 
-            <td class="description last">Pass in the width and height as a string formatted "300x250"; Used for getting size specific assets.</td>
+            <td class="description last">The width and height as a string formatted "300x250"; Used for getting size specific assets.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>adElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The main DOM element of the ad; Used by Capture for color slates with video capturing.</td>
         </tr>
 
     
@@ -787,7 +966,7 @@ var playerImgAway = Velvet.get(awayTeam, &#x27;player_img&#x27;)
 		<ul class="dummy">
 			<li>
 				<a href="ad-velvet_lib_data-manager.js.html">ad-velvet/lib/data-manager.js</a>,
-				 <a href="ad-velvet_lib_data-manager.js.html#sunlight-1-line-40">line 40</a>
+				 <a href="ad-velvet_lib_data-manager.js.html#sunlight-1-line-50">line 50</a>
 			</li>
 		</ul>
 	</dd>
@@ -829,7 +1008,7 @@ static prepareVelvet() {
 	console.log(&#x27;Common.prepareVelvet()&#x27;)
 	Velvet.addEventListener(Velvet.events.FAIL, global.failAd)
 	Velvet.addEventListener(Velvet.events.STATIC, global.useStatic)
-	return Promise.resolve(Velvet.init(adParams.velvet, adParams.dateSettings, adParams.adSize))
+	return Promise.resolve(Velvet.init(adParams.velvet, adParams.dateSettings, adParams.adSize, Markup.get(&#x27;main&#x27;)))
 }</pre>
 
 
@@ -899,7 +1078,7 @@ static prepareVelvet() {
 		<ul class="dummy">
 			<li>
 				<a href="ad-velvet_lib_data-manager.js.html">ad-velvet/lib/data-manager.js</a>,
-				 <a href="ad-velvet_lib_data-manager.js.html#sunlight-1-line-117">line 117</a>
+				 <a href="ad-velvet_lib_data-manager.js.html#sunlight-1-line-132">line 132</a>
 			</li>
 		</ul>
 	</dd>
@@ -989,7 +1168,7 @@ static prepareVelvet() {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Wed Feb 13th 2019
+		on Wed Mar 13th 2019
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
