@@ -186,6 +186,7 @@
 		&lt;/codeblock>
 		&lt;br>&lt;br>
 		*/
+
 import UITextField from './UITextField.js'
 import UIComponent from './UIComponent.js'
 import UIGroup from './UIGroup.js'
@@ -194,7 +195,7 @@ import * as TextSplitType from './TextSplitType.js'
 import { Styles, Align, Clamp } from 'ad-view'
 import { ObjectUtils, ColorUtils } from 'ad-utils'
 
-class UISplitText {
+export default class UISplitText {
 	constructor(arg) {
 		// let _buffer = arg.bufferText;
 		delete arg.bufferText
@@ -289,11 +290,11 @@ class UISplitText {
 
 		// this creates a placeholder which effectively mimics the sizing of a space
 		// a space in UITextField - " " - is equal to null, and renders no sizing information
-		arg.text = '|'
+		arg.text = '||'
 		let _spaceTextSingle = new UITextField(arg)
 		arg.text = '| |'
 		let _spaceTextDouble = new UITextField(arg)
-		let _spacing = (_spaceTextDouble.width - _spaceTextSingle.width * 2) * (arg.splitWordSpacing || 1) //Math.ceil(_mainTF.fontSize / (3.7 / (arg.padding || arg.spacing || 1)));
+		const _spacing = (_spaceTextDouble.width - _spaceTextSingle.width) * (arg.splitWordSpacing || 1) //Math.ceil(_mainTF.fontSize / (3.7 / (arg.padding || arg.spacing || 1)));
 
 		_spaceTextSingle.parent.removeChild(_spaceTextSingle)
 		_spaceTextSingle = null
@@ -363,7 +364,10 @@ class UISplitText {
 				_newWord.span = _span
 
 				// if our text is a paragraph, we want some line breaks. Do that here.
-				if (_wordHasBreak || (_mainTF.format.indexOf('paragraph') >= 0 &amp;&amp; _newWord.width + _newWord.x > _mainTF.width)) {
+				if (
+					_wordHasBreak ||
+					(_mainTF.format.indexOf('paragraph') >= 0 &amp;&amp; _newWord.width + _newWord.x > _mainTF.width)
+				) {
 					_lineNum++
 					_textLines['line' + _lineNum] = {
 						width: 0,
@@ -423,7 +427,8 @@ class UISplitText {
 			// TO-DO
 			// make this work on center, left, and right justification - currently only works on right
 			// although if it's left, do we really care about empty spaces? To be continued...
-			if (arg.allowSpaceOnBreaks &amp;&amp; _lastChar.match(new RegExp(arg.spaceBreakIncludes || 'a-z0-9]', 'gi'))) _group.x -= _spacing
+			if (arg.allowSpaceOnBreaks &amp;&amp; _lastChar.match(new RegExp(arg.spaceBreakIncludes || 'a-z0-9]', 'gi')))
+				_group.x -= _spacing
 			_textContainer.lines.push(_group)
 			_prevGroup = _group
 		}
@@ -466,7 +471,8 @@ class UISplitText {
 				}
 			}
 
-			if (arg.allowSpaceOnBreaks) for (let l = 0; l &lt; _textContainer.lines.length; l++) Clamp.set(_textContainer.lines[l], Clamp.XY)
+			if (arg.allowSpaceOnBreaks)
+				for (let l = 0; l &lt; _textContainer.lines.length; l++) Clamp.set(_textContainer.lines[l], Clamp.XY)
 		}
 
 		if (arg.debug) {
@@ -478,11 +484,29 @@ class UISplitText {
 
 		Clamp.set(_textContainer, Clamp.XY)
 
+		Object.defineProperties(_textContainer, {
+			/**
+						@memberOf UIComponent
+						@var {number} wordSpacing
+							READ-ONLY : NUMBER representing how much space exists between each word; affected by arg.splitWordSpacing on instantiation.
+						@example
+							// get
+							console.log( myUISplitText.wordSpacing );
+							//
+							const _word1 = myUISplitText.words[0]
+							const _word2 = myUISplitText.words[1]
+							_word1.x = _word2.x + _word2.width + myUISplitText.wordSpacing
+					*/
+			wordSpacing: {
+				get: function() {
+					return _spacing
+				}
+			}
+		})
+
 		return _textContainer
 	}
 }
-
-export default UISplitText
 </pre>
     </article>
 </section>
