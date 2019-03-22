@@ -486,7 +486,7 @@ export default class UISplitText {
 
 		Object.defineProperties(_textContainer, {
 			/**
-						@memberOf UIComponent
+						@memberOf UISplitText
 						@var {number} wordSpacing
 							READ-ONLY : NUMBER representing how much space exists between each word; affected by arg.splitWordSpacing on instantiation.
 						@example
@@ -498,9 +498,7 @@ export default class UISplitText {
 							_word1.x = _word2.x + _word2.width + myUISplitText.wordSpacing
 					*/
 			wordSpacing: {
-				get: function() {
-					return _spacing
-				}
+				get: () => _spacing
 			}
 		})
 
