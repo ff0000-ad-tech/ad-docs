@@ -71,14 +71,19 @@
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">import * as DM from './data-manager.js'
+import { convertBreaks } from './format.js'
 
 let _debug = false
-let _recursive
 let _result = []
 let _targetKey
 let _anchor
 let _splits
 let _isPathed
+
+// 3 get assigned when get() is called
+let _allowDefault // defaults true
+let _convertBreaks // defaults false
+let _recursive // defaults false
 
 /** 
 	@memberOf Velvet
@@ -91,18 +96,24 @@ let _isPathed
 		2. Object followed by a String is used to specify a starting point for the get method to search for the node provided as the 
 		second argument on the String.  
 		&lt;br>
-		3. A boolean of true as the last argument (second for option 1, third for option 2), will have the method search recurrsively through
-		the data object for the key. Otherwise, it will only look at the level provided.
+		3. An object as the last argument (second for option 1, third for option 2), will provide options:
+		- allowDefault: used with 'MultiSizeText' &amp; 'MultiSizeImage', set to false to not fall back to default value. 
+		- convertBreaks: see convertBreaks()
+		- recursive: if true, will have the method search recurrsively through the data object for the key. Otherwise, it will only look at the level provided.
 		&lt;br>
 		See the example.
 	@description
-		This method is used to get any node from the JSON by name. All nodes in Velvet have a 'type' and 'value'; the return is always the 'value'
+		This method is used to get any node from the JSON by name. All nodes in Velvet have a 'type' and 'value'; the return is always the 'value' or end of the line key
 	@example
 		// sample Velvet JSON data
 		{
 			"title": {
 				"type": "SingleLineText",
 				"value": "WHAT DO YOU SEE?"
+			},
+			"sub_title": {
+				"type": "MultiLineText",
+				"value": "This is \r\nsome text"
 			},
 			"matchup": {
 				"type": "CollectionSeries",
@@ -143,11 +154,7 @@ let _isPathed
 													"name": "playerA_300x250",
 													"content_type": "image/png"
 												},
-												"728x90": {
-													"url": "https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA_728x90.png",
-													"name": "playerA_728x90",
-													"content_type": "image/png"
-												}
+												"728x90": null
 											}
 										}
 									}
@@ -185,6 +192,11 @@ let _isPathed
 													"url": "https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA_300x600.png",
 													"name": "playerA_300x600",
 													"content_type": "image/png"
+												},
+												"728x90": {
+													"url": "https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA_728x90.png",
+													"name": "playerA_728x90",
+													"content_type": "image/png"
 												}
 											}
 										}
@@ -202,22 +214,25 @@ let _isPathed
 		}
 
 		// Get the top level data by passing in no specific node key
-		var fullJSON = Velvet.get()
+		const fullJSON = Velvet.get()
 
 		// Provide a node name
-		var title = Velvet.get('title')  // "WHAT DO YOU SEE?"
+		const title = Velvet.get('title')  // "WHAT DO YOU SEE?"
+
+		// use the optional object to format the text
+		const subtitle = Velvet.get('sub_title', { convertBreaks: true }) // This is &lt;br>some text
 
 		// Get a collection, such as a team for later use:
-		var awayTeam = Velvet.get('away_team', true) 
+		const awayTeam = Velvet.get('away_team', { recursive: true }) 
 		
-		// returns the whole object of the away_team. Since 'away_team' is nested, the true
-		// will make the get go recursively through all children to find the node.
+		// returns the whole object of the away_team. Since 'away_team' is nested in an array, 
+		// the true will make the get() go recursively through all children to find the node.
 		// NOTE: there is only 1 instance of "away_team" so only 1 will return. 
 		// However, if there were more matchups, it would return all away teams as an array.  
 		// So to target specifically this matchup, call the away team by targeted path.
 		// To do so, write out the path using a "." for each child.
 		
-		var awayTeam = Velvet.get('matchup.0.game.away_team')
+		const awayTeam = Velvet.get('matchup.0.game.away_team')
 		// Note that there is no need to use the ".value" key as the system assumes
 		// that for you when using Velvet.get().  This returns the object as is, so 
 		// if you use it later, you will need to specify the ".value" to read properly
@@ -225,17 +240,22 @@ let _isPathed
 		// OR
 
 		// Use the variable as a starting point for the searching
-		var awayTeamName = Velvet.get(awayTeam, 'name')  // "Los Angeles Fake Team"
+		const awayTeamName = Velvet.get(awayTeam, 'name')  // "Los Angeles Fake Team"
 
 		// With MultiSizeImage (or MultiSizeText) target the key and Velvet will sort through
 		// to find if there is an asset for the ad size, if not it will return the default value
-
+		
+		const playerImgAway = Velvet.get(awayTeam, 'player_img')
 		// In a 300x250:
-		var playerImgAway = Velvet.get(awayTeam, 'player_img')
 		// returns "https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA_300x250.png"
 
 		// In a 970x250:
 		// returns "https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA.png"
+
+		// If the field for a particular size is desired to be read as blank
+		const playerImgAway = Velvet.get(awayTeam, 'player_img', { allowDefault: false })
+		// In a 728x90:
+		// returns null
 */
 export default function get() {
 	// check if NO argument is passed, return the top level
@@ -244,11 +264,18 @@ export default function get() {
 	// check if the first arg is a key = 'node' / 'path.node' OR is it a sub object to look within
 	const _useRawObject = typeof arguments[0] === 'string'
 
-	var key = arguments[_useRawObject ? 0 : 1]
+	const key = arguments[_useRawObject ? 0 : 1]
 	var source = _useRawObject ? DM.adDataRaw : arguments[0]
 
+	const optRaw = arguments[_useRawObject ? 1 : 2]
+	const optObj = optRaw || {}
+	_allowDefault = optObj['allowDefault'] != false // defaults true
+	_convertBreaks = !!optObj['convertBreaks'] // defaults false
 	// will it search through all layers? default false
-	_recursive = !!arguments[_useRawObject ? 1 : 2]
+	// _recursive = !!arguments[_useRawObject ? 1 : 2]
+	_recursive = !!(optRaw === true ? optRaw : optObj['recursive']) // defaults false
+	if (_debug)
+		console.log('_allowDefault:', _allowDefault, '| _convertBreaks:', _convertBreaks, '| _recursive:', _recursive)
 
 	if (_debug) console.log(Array(100).join('-') + `\n > .get(${key})\nwithin:`, source, '_recursive:', _recursive)
 	_result = []
@@ -287,7 +314,11 @@ export default function get() {
 		_result = undefined
 	}
 
-	if (_debug) console.log(_result)
+	if (_debug) console.log('_result:', _result)
+
+	if (_result &amp;&amp; _convertBreaks) {
+		_result = convertBreaks(_result)
+	}
 
 	return _result
 }
@@ -357,8 +388,15 @@ function properKey(obj) {
 			// check for size specific
 			if (obj.value.sizes.hasOwnProperty(DM.dimensions)) {
 				const dim = obj.value.sizes[DM.dimensions]
-				if ((isMST &amp;&amp; dim != '') || (isMSI &amp;&amp; dim)) {
-					return dim
+				if (_allowDefault) {
+					if ((isMST &amp;&amp; dim != '') || (isMSI &amp;&amp; dim)) {
+						return dim
+					}
+				} else {
+					// when multisize does NOT fall back to default
+					if (isMST || isMSI) {
+						return dim
+					}
 				}
 			}
 			obj = obj.value
@@ -373,7 +411,8 @@ function readPropertyPath(_splits, obj) {
 	var s
 	for (var i = 0; _result &amp;&amp; (s = _splits[i]); i++) {
 		var resultVal = properKey(_result)
-		_result = s in resultVal ? resultVal[s] : undefined
+		// check if the resultVal exists first
+		_result = resultVal &amp;&amp; s in resultVal ? resultVal[s] : undefined
 	}
 	return _result
 }
@@ -422,7 +461,7 @@ function readPropertyPath(_splits, obj) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Fri Mar 22nd 2019
+		on Thu Apr 11th 2019
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

@@ -88,7 +88,7 @@
 		&lt;br>&lt;br>
 
 		&lt;b>AdData.js:&lt;/b>&lt;br>
-		It is recommended that you centralize your schedule in AdData. This way, changes to the schedule can easily 
+		It is recommended that you centralize your schedule in AdData. This way changes to the schedule can easily 
 		be achieved with one common update.&lt;br>
 
 		&lt;br>&lt;br>
@@ -107,43 +107,43 @@
 			&lt;tr>&lt;td>PAST&lt;/td>&lt;td>returns the string "Past", called after NOW plus the eventDuration value&lt;/tr>&lt;/td>
 		&lt;/table>
 
-			&lt;codeblock>
-		// Standard Schedule
-		this.schedule = new DateSchedule({
-			target: new TzDate({
-				datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
-				outputTimezone: 'local'
-			}),
-			isStandard: true
-		})
-		this.schedule.print()
+		&lt;codeblock>
+			// Standard Schedule
+			this.schedule = new DateSchedule({
+				target: new TzDate({
+					datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
+					outputTimezone: 'local'
+				}),
+				isStandard: true
+			})
+			this.schedule.print()
 
-		this.dateMessage = this.schedule.currentLabel
-		this.dateHour = this.schedule.target.toDateTime()
+			this.dateMessage = this.schedule.currentLabel
+			this.dateHour = this.schedule.target.toDateTime()
 		&lt;/codeblock>
 
 		Each standard label can be overridded by either assigning a different string or by passing in a callback function
 		that will return a differently formatted message. Note each callback gets fired at runtime, creating each label.
 
-		// &lt;codeblock>
-		this.schedule = new DateSchedule({
-			target: new TzDate({
-				datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
-				outputTimezone: 'local'
-			}),
-			eventDuration: 120,
-			isStandard: true,
-			standardOverrides: {
-				DATE: date => date.format('${M}/${D} ${t} ${a^}'), // 8/1 8 PM
-				TOMORROW: (date, label) => label + date.format(' ${t} ${a^}'), // Tomorrow 8 PM
-				WEEK: date => date.format('${DDDD^} ${t} ${a^}'), // SATURDAY 8 PM
-				NOW: 'Watch Live Now'
-			}
-		})
-		this.schedule.print()
+		&lt;codeblock>
+			this.schedule = new DateSchedule({
+				target: new TzDate({
+					datetime: ['2015-08-01 20:00:00', 'US/Eastern'],
+					outputTimezone: 'local'
+				}),
+				eventDuration: 120,
+				isStandard: true,
+				standardOverrides: {
+					DATE: date => date.format('${M}/${D} ${t} ${a^}'), // 8/1 8 PM
+					TOMORROW: (date, label) => label + date.format(' ${t} ${a^}'), // Tomorrow 8 PM
+					WEEK: date => date.format('${DDDD^} ${t} ${a^}'), // SATURDAY 8 PM
+					NOW: 'Watch Live Now'
+				}
+			})
+			this.schedule.print()
 
-		this.dateMessage = this.schedule.currentLabel
-	&lt;/codeblock>
+			this.dateMessage = this.schedule.currentLabel
+		&lt;/codeblock>
 
 		&lt;br>&lt;br>
 
@@ -255,7 +255,7 @@ import TzDate from './TzDate.js'
 import * as Timezone from './Timezone.js'
 import { MathUtils, TextUtils } from 'ad-utils'
 
-export default function(arg) {
+export default function DateSchedule(arg) {
 	arg = arg || {}
 
 	const D = this
@@ -283,9 +283,7 @@ export default function(arg) {
 				mySchedule.target.print()
 		*/
 		target: {
-			get: () => {
-				return _targetDate
-			}
+			get: () => _targetDate
 		},
 
 		/**
@@ -298,9 +296,7 @@ export default function(arg) {
 				mySchedule.current.callback()
 		*/
 		current: {
-			get: () => {
-				return _dates[D.currentIndex]
-			}
+			get: () => _dates[D.currentIndex]
 		},
 
 		/**
@@ -311,9 +307,7 @@ export default function(arg) {
 				mySchedule.currentDate
 		*/
 		currentDate: {
-			get: () => {
-				return D.current.date
-			}
+			get: () => D.current.date
 		},
 
 		/**
@@ -324,9 +318,7 @@ export default function(arg) {
 				mySchedule.currentLabel
 		*/
 		currentLabel: {
-			get: () => {
-				return D.current.label
-			}
+			get: () => D.current.label
 		},
 
 		/**
@@ -359,9 +351,7 @@ export default function(arg) {
 				mySchedule.next.callback()
 		*/
 		next: {
-			get: () => {
-				return _dates[D.nextIndex]
-			}
+			get: () => _dates[D.nextIndex]
 		},
 
 		/**
@@ -372,9 +362,7 @@ export default function(arg) {
 				mySchedule.nextDate
 		*/
 		nextDate: {
-			get: () => {
-				return D.next.date
-			}
+			get: () => D.next.date
 		},
 
 		/**
@@ -385,9 +373,7 @@ export default function(arg) {
 				mySchedule.nextLabel
 		*/
 		nextLabel: {
-			get: () => {
-				return D.next.label
-			}
+			get: () => D.next.label
 		},
 
 		/**
@@ -398,9 +384,7 @@ export default function(arg) {
 				mySchedule.nextIndex
 		*/
 		nextIndex: {
-			get: () => {
-				return MathUtils.restrict(D.currentIndex + 1, 0, _dates.length - 1)
-			}
+			get: () => MathUtils.restrict(D.currentIndex + 1, 0, _dates.length - 1)
 		},
 
 		/**
@@ -411,10 +395,7 @@ export default function(arg) {
 				mySchedule.isLive
 		*/
 		isLive: {
-			get: () => {
-				let latest = D.current
-				return latest.standardKey == 'NOW'
-			}
+			get: () => D.current.standardKey == 'NOW'
 		},
 
 		/**
@@ -425,10 +406,7 @@ export default function(arg) {
 				mySchedule.isComplete
 		*/
 		isComplete: {
-			get: () => {
-				let latest = D.current
-				return latest.standardKey == 'PAST'
-			}
+			get: () => D.current.standardKey == 'PAST'
 		}
 	})
 
@@ -571,7 +549,11 @@ export default function(arg) {
 
 		if (typeof label === 'function') {
 			const dateToPass = standardKey &amp;&amp; _targetDate ? _targetDate : dateUTC
-			let labelToPass = standardKey ? (standardKey == 'WEEK' ? labelOG.call(D, dateToPass) : DateFormatter.getLabels()[standardKey]) : null
+			let labelToPass = standardKey
+				? standardKey == 'WEEK'
+					? labelOG.call(D, dateToPass)
+					: DateFormatter.getLabels()[standardKey]
+				: null
 			// console.log(standardKey, '|', dateToPass, '|', labelToPass)
 			label = label.call(D, dateToPass, labelToPass)
 		}
@@ -598,8 +580,8 @@ export default function(arg) {
 	/**
 		@memberOf DateSchedule
 		@method print
-		@desc
-			Traces out all dates in order 
+		@desc Traces out all dates in order. Can be called on the instantiation as it returns itself 
+		@returns The DateSchedule instance
 		@example
 			// standard schedule
 			const schedule = new DateSchedule({
@@ -608,9 +590,7 @@ export default function(arg) {
 					outputTimezone: 'local'
 				}), 
 				isStandard: true
-			})
-
-			schedule.print()
+			}).print()
 			// DateSchedule.print(), length: 7
 			//  - 0 Sat Jan 01 2000 00:00:00 UTC label: 8/1 5:00 pm
 			//  - 1 Tue Jul 25 2017 17:00:00 Local label: Tuesday
@@ -627,6 +607,7 @@ export default function(arg) {
 		for (let i = 0; i &lt; l; i++) {
 			console.log(' -', i, _dates[i].date.toFullDateTime(), 'label:', _dates[i].label)
 		}
+		return D
 	}
 
 	/**
@@ -638,7 +619,7 @@ export default function(arg) {
 		@example
 			schedule.getDates()
 	*/
-	D.getDates = function(includeData) {
+	D.getDates = includeData => {
 		includeData = !!includeData
 		let dates = []
 		for (let i = 0, l = _dates.length; i &lt; l; i++) {
@@ -734,7 +715,7 @@ export default function(arg) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Fri Mar 22nd 2019
+		on Thu Apr 11th 2019
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

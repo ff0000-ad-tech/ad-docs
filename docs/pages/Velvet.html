@@ -374,7 +374,7 @@ myString = Velvet.convertBreaks(myString)  // &quot;This Is&lt;br&gt;My Sentence
 
     
     <div class="description">
-        This method is used to get any node from the JSON by name. All nodes in Velvet have a 'type' and 'value'; the return is always the 'value'
+        This method is used to get any node from the JSON by name. All nodes in Velvet have a 'type' and 'value'; the return is always the 'value' or end of the line key
     </div>
     
 
@@ -439,8 +439,10 @@ myString = Velvet.convertBreaks(myString)  // &quot;This Is&lt;br&gt;My Sentence
 		2. Object followed by a String is used to specify a starting point for the get method to search for the node provided as the 
 		second argument on the String.  
 		<br>
-		3. A boolean of true as the last argument (second for option 1, third for option 2), will have the method search recurrsively through
-		the data object for the key. Otherwise, it will only look at the level provided.
+		3. An object as the last argument (second for option 1, third for option 2), will provide options:
+		- allowDefault: used with 'MultiSizeText' & 'MultiSizeImage', set to false to not fall back to default value. 
+		- convertBreaks: see convertBreaks()
+		- recursive: if true, will have the method search recurrsively through the data object for the key. Otherwise, it will only look at the level provided.
 		<br>
 		See the example.</td>
         </tr>
@@ -487,7 +489,7 @@ myString = Velvet.convertBreaks(myString)  // &quot;This Is&lt;br&gt;My Sentence
 		<ul class="dummy">
 			<li>
 				<a href="ad-velvet_lib_get.js.html">ad-velvet/lib/get.js</a>,
-				 <a href="ad-velvet_lib_get.js.html#sunlight-1-line-11">line 11</a>
+				 <a href="ad-velvet_lib_get.js.html#sunlight-1-line-16">line 16</a>
 			</li>
 		</ul>
 	</dd>
@@ -521,6 +523,10 @@ myString = Velvet.convertBreaks(myString)  // &quot;This Is&lt;br&gt;My Sentence
 	&quot;title&quot;: {
 		&quot;type&quot;: &quot;SingleLineText&quot;,
 		&quot;value&quot;: &quot;WHAT DO YOU SEE?&quot;
+	},
+	&quot;sub_title&quot;: {
+		&quot;type&quot;: &quot;MultiLineText&quot;,
+		&quot;value&quot;: &quot;This is \r\nsome text&quot;
 	},
 	&quot;matchup&quot;: {
 		&quot;type&quot;: &quot;CollectionSeries&quot;,
@@ -561,11 +567,7 @@ myString = Velvet.convertBreaks(myString)  // &quot;This Is&lt;br&gt;My Sentence
 											&quot;name&quot;: &quot;playerA_300x250&quot;,
 											&quot;content_type&quot;: &quot;image/png&quot;
 										},
-										&quot;728x90&quot;: {
-											&quot;url&quot;: &quot;https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA_728x90.png&quot;,
-											&quot;name&quot;: &quot;playerA_728x90&quot;,
-											&quot;content_type&quot;: &quot;image/png&quot;
-										}
+										&quot;728x90&quot;: null
 									}
 								}
 							}
@@ -603,6 +605,11 @@ myString = Velvet.convertBreaks(myString)  // &quot;This Is&lt;br&gt;My Sentence
 											&quot;url&quot;: &quot;https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA_300x600.png&quot;,
 											&quot;name&quot;: &quot;playerA_300x600&quot;,
 											&quot;content_type&quot;: &quot;image/png&quot;
+										},
+										&quot;728x90&quot;: {
+											&quot;url&quot;: &quot;https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA_728x90.png&quot;,
+											&quot;name&quot;: &quot;playerA_728x90&quot;,
+											&quot;content_type&quot;: &quot;image/png&quot;
 										}
 									}
 								}
@@ -620,22 +627,25 @@ myString = Velvet.convertBreaks(myString)  // &quot;This Is&lt;br&gt;My Sentence
 }
 
 // Get the top level data by passing in no specific node key
-var fullJSON = Velvet.get()
+const fullJSON = Velvet.get()
 
 // Provide a node name
-var title = Velvet.get(&#x27;title&#x27;)  // &quot;WHAT DO YOU SEE?&quot;
+const title = Velvet.get(&#x27;title&#x27;)  // &quot;WHAT DO YOU SEE?&quot;
+
+// use the optional object to format the text
+const subtitle = Velvet.get(&#x27;sub_title&#x27;, { convertBreaks: true }) // This is &lt;br&gt;some text
 
 // Get a collection, such as a team for later use:
-var awayTeam = Velvet.get(&#x27;away_team&#x27;, true) 
+const awayTeam = Velvet.get(&#x27;away_team&#x27;, { recursive: true }) 
 
-// returns the whole object of the away_team. Since &#x27;away_team&#x27; is nested, the true
-// will make the get go recursively through all children to find the node.
+// returns the whole object of the away_team. Since &#x27;away_team&#x27; is nested in an array, 
+// the true will make the get() go recursively through all children to find the node.
 // NOTE: there is only 1 instance of &quot;away_team&quot; so only 1 will return. 
 // However, if there were more matchups, it would return all away teams as an array.  
 // So to target specifically this matchup, call the away team by targeted path.
 // To do so, write out the path using a &quot;.&quot; for each child.
 
-var awayTeam = Velvet.get(&#x27;matchup.0.game.away_team&#x27;)
+const awayTeam = Velvet.get(&#x27;matchup.0.game.away_team&#x27;)
 // Note that there is no need to use the &quot;.value&quot; key as the system assumes
 // that for you when using Velvet.get().  This returns the object as is, so 
 // if you use it later, you will need to specify the &quot;.value&quot; to read properly
@@ -643,17 +653,22 @@ var awayTeam = Velvet.get(&#x27;matchup.0.game.away_team&#x27;)
 // OR
 
 // Use the variable as a starting point for the searching
-var awayTeamName = Velvet.get(awayTeam, &#x27;name&#x27;)  // &quot;Los Angeles Fake Team&quot;
+const awayTeamName = Velvet.get(awayTeam, &#x27;name&#x27;)  // &quot;Los Angeles Fake Team&quot;
 
 // With MultiSizeImage (or MultiSizeText) target the key and Velvet will sort through
 // to find if there is an asset for the ad size, if not it will return the default value
 
+const playerImgAway = Velvet.get(awayTeam, &#x27;player_img&#x27;)
 // In a 300x250:
-var playerImgAway = Velvet.get(awayTeam, &#x27;player_img&#x27;)
 // returns &quot;https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA_300x250.png&quot;
 
 // In a 970x250:
-// returns &quot;https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA.png&quot;</pre>
+// returns &quot;https://us-east.manta.joyent.com/adtech/public/ad_manager/clients/3YLOU2j85h/collections/TCAHAe8v8B/playerA.png&quot;
+
+// If the field for a particular size is desired to be read as blank
+const playerImgAway = Velvet.get(awayTeam, &#x27;player_img&#x27;, { allowDefault: false })
+// In a 728x90:
+// returns null</pre>
 
 
     
@@ -1008,6 +1023,7 @@ static prepareVelvet() {
 	console.log(&#x27;Common.prepareVelvet()&#x27;)
 	Velvet.addEventListener(Velvet.events.FAIL, global.failAd)
 	Velvet.addEventListener(Velvet.events.STATIC, global.useStatic)
+	adParams.dateSettings.inDev = adParams.environmentId == &#x27;staging&#x27; || adParams.environmentId == &#x27;debug&#x27;
 	return Promise.resolve(Velvet.init(adParams.velvet, adParams.dateSettings, adParams.adSize, Markup.get(&#x27;main&#x27;)))
 }</pre>
 
@@ -1078,7 +1094,7 @@ static prepareVelvet() {
 		<ul class="dummy">
 			<li>
 				<a href="ad-velvet_lib_data-manager.js.html">ad-velvet/lib/data-manager.js</a>,
-				 <a href="ad-velvet_lib_data-manager.js.html#sunlight-1-line-132">line 132</a>
+				 <a href="ad-velvet_lib_data-manager.js.html#sunlight-1-line-133">line 133</a>
 			</li>
 		</ul>
 	</dd>
@@ -1168,7 +1184,7 @@ static prepareVelvet() {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.0-dev</a>
 	
-		on Fri Mar 22nd 2019
+		on Thu Apr 11th 2019
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
