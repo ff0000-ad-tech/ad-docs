@@ -4,8 +4,9 @@
 	"description": "",
 	"main": "lib/index.js",
 	"scripts": {
-		"docs": "node_modules/.bin/jsdoc -c .jsdoc.json",
-		"postinstall": "npm run docs"
+		"docs_old": "node_modules/.bin/jsdoc -c .jsdoc.json",
+		"postinstall": "npm run docs",
+		"docs": "node lib/doc_master_nav.js"
 	},
 	"engines": {
 		"node": ">=9.8.0",
