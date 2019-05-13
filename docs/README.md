@@ -755,6 +755,24 @@
     * <a href="https://github.com/ff0000-ad-tech/ad-ui/blob/master/docs/UITextField.md#UITextField.setDefault">.setDefault()</a>
 
 
+# <a href="https://github.com/ff0000-ad-tech/ad-useragent">ad-useragent</a>* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/agentString.md">agentString</a> : <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/pixelRatio.md">pixelRatio</a> : <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/ad-useragent.md">ad-useragent</a> : <code>object</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getOrientation.md">getOrientation()</a> ⇒ <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getDimensions.md">getDimensions()</a> ⇒ <code>object</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/report.md">report()</a>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getBrand.md">getBrand()</a> ⇒ <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getProduct.md">getProduct()</a> ⇒ <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getOS.md">getOS()</a> ⇒ <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getOSVersion.md">getOSVersion()</a> ⇒ <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/isOS.md">isOS()</a> ⇒ <code>boolean</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/isBrowser.md">isBrowser(name)</a> ⇒ <code>boolean</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getBrowser.md">getBrowser()</a> ⇒ <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getBrowserVersion.md">getBrowserVersion()</a> ⇒ <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/isDevice.md">isDevice(type)</a> ⇒ <code>boolean</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getDevice.md">getDevice()</a> ⇒ <code>string</code>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/isDualGestureIE.md">isDualGestureIE()</a> ⇒ <code>boolean</code>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-utils">ad-utils</a>
 * <a href="https://github.com/ff0000-ad-tech/ad-utils/blob/master/docs/ArrayUtils.md">ArrayUtils</a>
     * <a href="https://github.com/ff0000-ad-tech/ad-utils/blob/master/docs/ArrayUtils.md">new ArrayUtils()</a>
