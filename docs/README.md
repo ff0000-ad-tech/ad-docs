@@ -755,7 +755,8 @@
     * <a href="https://github.com/ff0000-ad-tech/ad-ui/blob/master/docs/UITextField.md#UITextField.setDefault">.setDefault()</a>
 
 
-# <a href="https://github.com/ff0000-ad-tech/ad-useragent">ad-useragent</a>* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/agentString.md">agentString</a> : <code>string</code>
+# <a href="https://github.com/ff0000-ad-tech/ad-useragent">ad-useragent</a>
+* <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/agentString.md">agentString</a> : <code>string</code>
 * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/pixelRatio.md">pixelRatio</a> : <code>string</code>
 * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/ad-useragent.md">ad-useragent</a> : <code>object</code>
 * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getOrientation.md">getOrientation()</a> ⇒ <code>string</code>
@@ -858,8 +859,24 @@
 
 
 # <a href="https://github.com/ff0000-ad-tech/ad-velvet">ad-velvet</a>
+* <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture">.capture</a>
+    * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/new_Velvet.md#new_Velvet.capture_new">new capture()</a>
+    * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.schedule">.schedule(schedule)</a>
+    * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.addCustomData">.addCustomData(obj)</a>
+    * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchData">.dispatchData()</a>
+    * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchSchedule">.dispatchSchedule()</a>
+    * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchStart">.dispatchStart()</a> ⇒ <code>Promise</code>
+
+
 * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md">.Velvet</a>
     * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md">new Velvet()</a>
+    * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture">.capture</a>
+        * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/new_Velvet.md#new_Velvet.capture_new">new capture()</a>
+        * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.schedule">.schedule(schedule)</a>
+        * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.addCustomData">.addCustomData(obj)</a>
+        * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchData">.dispatchData()</a>
+        * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchSchedule">.dispatchSchedule()</a>
+        * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchStart">.dispatchStart()</a> ⇒ <code>Promise</code>
     * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events">.events</a>
         * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/new_Velvet.md#new_Velvet.events_new">new events()</a>
         * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events.INIT">.INIT</a> : <code>string</code>
