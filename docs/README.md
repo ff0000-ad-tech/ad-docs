@@ -416,10 +416,7 @@
 
 > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md">Device</a>
 >> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md">new Device()</a>
-    * _instance_
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device+_getType.md">._getType</a>
-    * _static_
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.agentString">.agentString</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.agentString">.agentString</a> : <code>string</code>
 >> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.brand">.brand</a> : <code>string</code>
 >> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.product">.product</a> : <code>string</code>
 >> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.type">.type</a> : <code>string</code>
