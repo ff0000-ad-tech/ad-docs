@@ -1,4 +1,7 @@
 # <a href="https://github.com/ff0000-ad-tech/ad-animation">ad-animation</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="SpritePlayer" href="https://github.com/ff0000-ad-tech/ad-animation/blob/master/docs/SpritePlayer.md">SpritePlayer</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-animation/blob/master/docs/SpritePlayer.md#SpritePlayer.onComplete">.onComplete</a> : <code>function</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-animation/blob/master/docs/SpritePlayer.md#SpritePlayer.onLoop">.onLoop</a> : <code>function</code>
@@ -19,9 +22,13 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-animation/blob/master/docs/TweenPromise.md#TweenPromise.from">.from(target, time, vars)</a> ⇒ <code>Promise</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-animation/blob/master/docs/TweenPromise.md#TweenPromise.fromTo">.fromTo(target, time, fromVars, toVars)</a> ⇒ <code>Promise</code>
 
-# <a href="https://github.com/ff0000-ad-tech/ad-assets">ad-assets</a>
+</details>
 
+# <a href="https://github.com/ff0000-ad-tech/ad-assets">ad-assets</a>
 # <a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="CanvasBlendMode" href="https://github.com/ff0000-ad-tech/ad-canvas/blob/master/docs/CanvasBlendMode.md">CanvasBlendMode</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-canvas/blob/master/docs/CanvasBlendMode.md#CanvasBlendMode.NONE">.NONE</a> : <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-canvas/blob/master/docs/CanvasBlendMode.md#CanvasBlendMode.UNDER">.UNDER</a> : <code>string</code>
@@ -265,7 +272,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-canvas/blob/master/docs/CanvasUtils.md#CanvasUtils.getImageData">.getImageData(source)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-canvas/blob/master/docs/CanvasUtils.md#CanvasUtils.setImageData">.setImageData(target, data)</a>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-control">ad-control</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="Core" href="https://github.com/ff0000-ad-tech/ad-control/blob/master/docs/Core.md">Core</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-control/blob/master/docs/Core.md#Core.init">.init(fbaLoader)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-control/blob/master/docs/Core.md#Core.loadDynamic">.loadDynamic()</a>
@@ -291,7 +303,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-control/blob/master/docs/SheetManager.md#SheetManager.addClass">.addClass(target, className)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-control/blob/master/docs/SheetManager.md#SheetManager.removeClass">.removeClass(target, className)</a>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-dates">ad-dates</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="DateFormatter" href="https://github.com/ff0000-ad-tech/ad-dates/blob/master/docs/DateFormatter.md">DateFormatter</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-dates/blob/master/docs/DateFormatter.md#DateFormatter.setLanguage">.setLanguage()</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-dates/blob/master/docs/DateFormatter.md#DateFormatter.addLanguage">.addLanguage()</a>
@@ -348,9 +365,13 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-dates/blob/master/docs/TzDate.md#TzDate.toMeridiem">.toMeridiem()</a> ⇒ <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-dates/blob/master/docs/TzDate.md#TzDate.toShortestTime">.toShortestTime()</a> ⇒ <code>string</code>
 
-# <a href="https://github.com/ff0000-ad-tech/ad-entry">ad-entry</a>
+</details>
 
+# <a href="https://github.com/ff0000-ad-tech/ad-entry">ad-entry</a>
 # <a href="https://github.com/ff0000-ad-tech/ad-events">ad-events</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="FrameRate" href="https://github.com/ff0000-ad-tech/ad-events/blob/master/docs/FrameRate.md">FrameRate</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-events/blob/master/docs/FrameRate.md#FrameRate.register">.register(from, handler, fps)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-events/blob/master/docs/FrameRate.md#FrameRate.unregister">.unregister(from, handler, fps)</a>
@@ -382,7 +403,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-events/blob/master/docs/UIEvent.md#UIEvent.RESIZE">.RESIZE</a> : <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-events/blob/master/docs/UIEvent.md#UIEvent.SLIDER_UPDATE">.SLIDER_UPDATE</a> : <code>string</code>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-external">ad-external</a>
+
+<details><summary>Package Contents</summary>
+
 
 > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md">Device</a>
     > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md">new Device()</a>
@@ -403,7 +429,12 @@
         > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.init">.init()</a>
 
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-geom">ad-geom</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="Matrix2D" href="https://github.com/ff0000-ad-tech/ad-geom/blob/master/docs/Matrix2D.md">Matrix2D</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-geom/blob/master/docs/Matrix2D.md">new Matrix2D()</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-geom/blob/master/docs/Matrix2D.md#Matrix2D.clear">.clear()</a>
@@ -449,8 +480,13 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-geom/blob/master/docs/Vector2D.md#Vector2D.degreeToVector">.degreeToVector()</a> ⇒ <a href="https://github.com/ff0000-ad-tech/ad-geom/blob/master/docs/Vector2D.md"><code>Vector2D</code></a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-geom/blob/master/docs/Vector2D.md#Vector2D.random">.random(degreeIncrement)</a> ⇒ <a href="https://github.com/ff0000-ad-tech/ad-geom/blob/master/docs/Vector2D.md"><code>Vector2D</code></a>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-global">ad-global</a>
 # <a href="https://github.com/ff0000-ad-tech/ad-legacy">ad-legacy</a>
+
+<details><summary>Package Contents</summary>
+
 
 > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md">Countdown</a>
     > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md">new Countdown()</a>
@@ -470,7 +506,12 @@
     > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/DcsExpandable.md#DcsExpandable.init">.init()</a>
 
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-load">ad-load</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="Loader" href="https://github.com/ff0000-ad-tech/ad-load/blob/master/docs/Loader.md">Loader</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-load/blob/master/docs/Loader.md">new Loader(target, arg)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-load/blob/master/docs/Loader.md#Loader.add">.add(arg)</a>
@@ -499,7 +540,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-load/blob/master/docs/InlineLoader.md">new InlineLoader(target, arg)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-load/blob/master/docs/InlineLoader.md#InlineLoader.load">.load()</a>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-particles">ad-particles</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="Emitter" href="https://github.com/ff0000-ad-tech/ad-particles/blob/master/docs/Emitter.md">Emitter</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-particles/blob/master/docs/Emitter.md">new Emitter()</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-particles/blob/master/docs/Emitter.md#Emitter.tween">.tween</a>
@@ -540,9 +586,13 @@
 > ## <a name="Graphic.Sprite" href="https://github.com/ff0000-ad-tech/ad-particles/blob/master/docs/Graphic.Sprite.md">Graphic.Sprite</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-particles/blob/master/docs/new_Graphic.md#new_Graphic.Sprite_new">new Sprite(image, size, style, spriteSetting)</a>
 
-# <a href="https://github.com/ff0000-ad-tech/ad-polyfills">ad-polyfills</a>
+</details>
 
+# <a href="https://github.com/ff0000-ad-tech/ad-polyfills">ad-polyfills</a>
 # <a href="https://github.com/ff0000-ad-tech/ad-ui">ad-ui</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="TextFormat" href="https://github.com/ff0000-ad-tech/ad-ui/blob/master/docs/TextFormat.md">TextFormat</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-ui/blob/master/docs/TextFormat.md#TextFormat.INLINE">.INLINE</a> : <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-ui/blob/master/docs/TextFormat.md#TextFormat.INLINE_CLAMP">.INLINE_CLAMP</a> : <code>string</code>
@@ -645,7 +695,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-ui/blob/master/docs/UITextField.md#UITextField.resetToDefault">.resetToDefault(arguments)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-ui/blob/master/docs/UITextField.md#UITextField.setDefault">.setDefault()</a>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-useragent">ad-useragent</a>
+
+<details><summary>Package Contents</summary>
+
 > * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/agentString.md">agentString</a> : <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/pixelRatio.md">pixelRatio</a> : <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getOrientation.md">getOrientation()</a> ⇒ <code>string</code>
@@ -663,7 +718,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/getDevice.md">getDevice()</a> ⇒ <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/isDualGestureIE.md">isDualGestureIE()</a> ⇒ <code>boolean</code>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-utils">ad-utils</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="ArrayUtils" href="https://github.com/ff0000-ad-tech/ad-utils/blob/master/docs/ArrayUtils.md">ArrayUtils</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-utils/blob/master/docs/ArrayUtils.md#ArrayUtils.combine">.combine(arr1, arr2)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-utils/blob/master/docs/ArrayUtils.md#ArrayUtils.copy">.copy(array)</a>
@@ -722,7 +782,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-utils/blob/master/docs/TextUtils.md#TextUtils.pad_new">.pad()(_target, _count)</a> ⇒ <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-utils/blob/master/docs/TextUtils.md#TextUtils.injectBreakTags">.injectBreakTags(str, indexes)</a>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-velvet">ad-velvet</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="Velvet" href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md">Velvet</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture">.capture</a>
     > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.schedule">.schedule(schedule)</a>
@@ -739,7 +804,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.convertBreaks">.convertBreaks(str)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.get">.get(arguments)</a>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-video">ad-video</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="AlphaVideoPlayer" href="https://github.com/ff0000-ad-tech/ad-video/blob/master/docs/AlphaVideoPlayer.md">AlphaVideoPlayer</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-video/blob/master/docs/AlphaVideoPlayer.md">new AlphaVideoPlayer()</a>
 > ## <a name="AudioPlayer" href="https://github.com/ff0000-ad-tech/ad-video/blob/master/docs/AudioPlayer.md">AudioPlayer</a>
@@ -852,7 +922,12 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-video/blob/master/docs/UITimeDisplay.md">new UITimeDisplay()</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-video/blob/master/docs/UITimeDisplay.md#UITimeDisplay.showDuration">.showDuration</a> : <code>boolean</code>
 
+</details>
+
 # <a href="https://github.com/ff0000-ad-tech/ad-view">ad-view</a>
+
+<details><summary>Package Contents</summary>
+
 > ## <a name="Align" href="https://github.com/ff0000-ad-tech/ad-view/blob/master/docs/Align.md">Align</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-view/blob/master/docs/Align.md#Align.BOTTOM">.BOTTOM</a> : <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-view/blob/master/docs/Align.md#Align.CENTER">.CENTER</a> : <code>string</code>
@@ -892,3 +967,5 @@
 > * <a href="https://github.com/ff0000-ad-tech/ad-view/blob/master/docs/Styles.md#Styles.injectStylesheet">.injectStylesheet(nodeId, styles)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-view/blob/master/docs/Styles.md#Styles.addClass">.addClass(target, className)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-view/blob/master/docs/Styles.md#Styles.removeClass">.removeClass(target, className)</a>
+
+</details>
