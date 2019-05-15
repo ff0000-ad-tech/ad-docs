@@ -1,5 +1,4 @@
 # <a href="https://github.com/ff0000-ad-tech/ad-animation">ad-animation</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="SpritePlayer" href="https://github.com/ff0000-ad-tech/ad-animation/blob/master/docs/SpritePlayer.md">SpritePlayer</a>
@@ -25,8 +24,12 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-assets">ad-assets</a>
-# <a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas</a>
+<details><summary>Package Contents</summary>
 
+
+</details>
+
+# <a href="https://github.com/ff0000-ad-tech/ad-canvas">ad-canvas</a>
 <details><summary>Package Contents</summary>
 
 > ## <a name="CanvasBlendMode" href="https://github.com/ff0000-ad-tech/ad-canvas/blob/master/docs/CanvasBlendMode.md">CanvasBlendMode</a>
@@ -275,7 +278,6 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-control">ad-control</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="Core" href="https://github.com/ff0000-ad-tech/ad-control/blob/master/docs/Core.md">Core</a>
@@ -306,7 +308,6 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-dates">ad-dates</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="DateFormatter" href="https://github.com/ff0000-ad-tech/ad-dates/blob/master/docs/DateFormatter.md">DateFormatter</a>
@@ -368,8 +369,12 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-entry">ad-entry</a>
-# <a href="https://github.com/ff0000-ad-tech/ad-events">ad-events</a>
+<details><summary>Package Contents</summary>
 
+
+</details>
+
+# <a href="https://github.com/ff0000-ad-tech/ad-events">ad-events</a>
 <details><summary>Package Contents</summary>
 
 > ## <a name="FrameRate" href="https://github.com/ff0000-ad-tech/ad-events/blob/master/docs/FrameRate.md">FrameRate</a>
@@ -406,33 +411,28 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-external">ad-external</a>
-
 <details><summary>Package Contents</summary>
 
 
 > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md">Device</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md">new Device()</a>
-    * _instance_
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device+_getType.md">._getType</a>
-    * _static_
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.agentString">.agentString</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.brand">.brand</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.product">.product</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.type">.type</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.os">.os</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.osVersion">.osVersion</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.browser">.browser</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.browserVersion">.browserVersion</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.pixelRatio">.pixelRatio</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.orientation">.orientation</a> : <code>string</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.dimensions">.dimensions</a> : <code>object</code>
-        > * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.init">.init()</a>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md">new Device()</a>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.agentString">.agentString</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.brand">.brand</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.product">.product</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.type">.type</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.os">.os</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.osVersion">.osVersion</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.browser">.browser</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.browserVersion">.browserVersion</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.pixelRatio">.pixelRatio</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.orientation">.orientation</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.dimensions">.dimensions</a> : <code>object</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-external/blob/master/docs/Device.md#Device.init">.init()</a>
 
 
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-geom">ad-geom</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="Matrix2D" href="https://github.com/ff0000-ad-tech/ad-geom/blob/master/docs/Matrix2D.md">Matrix2D</a>
@@ -484,32 +484,7 @@
 
 # <a href="https://github.com/ff0000-ad-tech/ad-global">ad-global</a>
 # <a href="https://github.com/ff0000-ad-tech/ad-legacy">ad-legacy</a>
-
-<details><summary>Package Contents</summary>
-
-
-> * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md">Countdown</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md">new Countdown()</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md#Countdown.init">.init(_targetDate, _tzDesignation)</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md#Countdown.isComplete">.isComplete()</a> ⇒ <code>boolean</code>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md#Countdown.getDays">.getDays()</a> ⇒ <code>number</code>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md#Countdown.getHours">.getHours()</a> ⇒ <code>number</code>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md#Countdown.getMinutes">.getMinutes()</a> ⇒ <code>number</code>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/Countdown.md#Countdown.getSeconds">.getSeconds()</a> ⇒ <code>number</code>
-
-
-> * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/DcsExpandable.md">DcsExpandable</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/DcsExpandable.md">new DcsExpandable()</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/DcsExpandable.md#DcsExpandable.collapse">.collapse(gestureEvent)</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/DcsExpandable.md#DcsExpandable.expand">.expand()</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/DcsExpandable.md#DcsExpandable.linkMainContainers">.linkMainContainers(collapsed, expanded)</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-legacy/blob/master/docs/DcsExpandable.md#DcsExpandable.init">.init()</a>
-
-
-</details>
-
 # <a href="https://github.com/ff0000-ad-tech/ad-load">ad-load</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="Loader" href="https://github.com/ff0000-ad-tech/ad-load/blob/master/docs/Loader.md">Loader</a>
@@ -543,7 +518,6 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-particles">ad-particles</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="Emitter" href="https://github.com/ff0000-ad-tech/ad-particles/blob/master/docs/Emitter.md">Emitter</a>
@@ -589,8 +563,12 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-polyfills">ad-polyfills</a>
-# <a href="https://github.com/ff0000-ad-tech/ad-ui">ad-ui</a>
+<details><summary>Package Contents</summary>
 
+
+</details>
+
+# <a href="https://github.com/ff0000-ad-tech/ad-ui">ad-ui</a>
 <details><summary>Package Contents</summary>
 
 > ## <a name="TextFormat" href="https://github.com/ff0000-ad-tech/ad-ui/blob/master/docs/TextFormat.md">TextFormat</a>
@@ -698,7 +676,6 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-useragent">ad-useragent</a>
-
 <details><summary>Package Contents</summary>
 
 > * <a href="https://github.com/ff0000-ad-tech/ad-useragent/blob/master/docs/agentString.md">agentString</a> : <code>string</code>
@@ -721,7 +698,6 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-utils">ad-utils</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="ArrayUtils" href="https://github.com/ff0000-ad-tech/ad-utils/blob/master/docs/ArrayUtils.md">ArrayUtils</a>
@@ -785,20 +761,19 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-velvet">ad-velvet</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="Velvet" href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md">Velvet</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture">.capture</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.schedule">.schedule(schedule)</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.addCustomData">.addCustomData(obj)</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchData">.dispatchData()</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchSchedule">.dispatchSchedule()</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchStart">.dispatchStart()</a> ⇒ <code>Promise</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.schedule">.schedule(schedule)</a>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.addCustomData">.addCustomData(obj)</a>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchData">.dispatchData()</a>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchSchedule">.dispatchSchedule()</a>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.capture.dispatchStart">.dispatchStart()</a> ⇒ <code>Promise</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events">.events</a>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events.INIT">.INIT</a> : <code>string</code>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events.FAIL">.FAIL</a> : <code>string</code>
-    > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events.STATIC">.STATIC</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events.INIT">.INIT</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events.FAIL">.FAIL</a> : <code>string</code>
+>> * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.events.STATIC">.STATIC</a> : <code>string</code>
 > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.init">.init(slugs, dateSettings, adDimensions, adElement)</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.isPreviewLocation">.isPreviewLocation()</a>
 > * <a href="https://github.com/ff0000-ad-tech/ad-velvet/blob/master/docs/Velvet.md#Velvet.convertBreaks">.convertBreaks(str)</a>
@@ -807,7 +782,6 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-video">ad-video</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="AlphaVideoPlayer" href="https://github.com/ff0000-ad-tech/ad-video/blob/master/docs/AlphaVideoPlayer.md">AlphaVideoPlayer</a>
@@ -925,7 +899,6 @@
 </details>
 
 # <a href="https://github.com/ff0000-ad-tech/ad-view">ad-view</a>
-
 <details><summary>Package Contents</summary>
 
 > ## <a name="Align" href="https://github.com/ff0000-ad-tech/ad-view/blob/master/docs/Align.md">Align</a>
